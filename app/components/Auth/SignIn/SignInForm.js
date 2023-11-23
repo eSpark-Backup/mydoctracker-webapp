@@ -1,40 +1,25 @@
 "use client";
 
 import React, { useState } from 'react'
-import DocButton from '../../common/docButton'
 import RoleBox from '../common/RoleBox'
+import { signInRoles } from '@/app/constant';
+import SingleUserSignIn from '../../Forms/SignIn/SingleUserSignIn';
 
 const SignInForm = () => {
- const [currentRole, setCurrentRole] = useState("Single User")
+ const [currentRole, setCurrentRole] = useState(1)
  
   return (
-    <div className='py-3'>
+    <div className='py-3 h-full'>
       <div className='px-12'>
-        <p>Please select your role:</p>
+        <p className='text-greydark'>Please select your role:</p>
         <div className='flex justify-center gap-5 py-3 flex-wrap'>
-          <RoleBox role={{
-            name: 'Single User',
-            icon: 'SingleUser.svg',
-            iconfill: "SingleUserfill.svg"
-          }} />
-          <RoleBox role={{
-            name: 'Corporate',
-            icon: 'corporate.svg',
-            iconfill: "corporatefill.svg"
-          }} />
-          <RoleBox role={{
-            name: 'Join Team',
-            icon: 'team.svg',
-            iconfill: "teamfill.svg"
-          }} />
-          
+        {signInRoles?.map((role, key) => (
+          <RoleBox key={key} role={role} onClick={() => setCurrentRole(role.id)} currentRole={currentRole} />
+        ))} 
         </div>
       </div>
-
-
       <div>
-       
-        <DocButton className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
+         <SingleUserSignIn/>
       </div>
 
     </div>

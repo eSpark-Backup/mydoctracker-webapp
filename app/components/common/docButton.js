@@ -1,8 +1,8 @@
 import React from 'react'
 
-const DocButton = ({className, text}) => {
+const DocButton = ({className, text, onClick}) => {
   return (
-     <button className={`bg-primary text-white rounded-[50px] text-[18px] px-4 h-[40px] ${className}`} type='primary'>
+     <button onClick={onClick} className={`bg-primary text-white rounded-[50px] text-[18px] px-4 h-[40px] ${className}`} type='primary'>
         {text}
      </button>
   )
