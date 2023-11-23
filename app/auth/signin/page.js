@@ -1,8 +1,17 @@
+import { SignContainer, SignInForm } from '@/app/components'
 import React from 'react'
+
 
 const SignIn = () => {
   return (
-    <div>SignIn</div>
+    <div className='flex w-10/12 border-2 border-black'>
+      <div className='w-7/12' >GIF box</div>
+      <div className='w-5/12'>
+        <SignContainer> 
+          <SignInForm/>
+        </SignContainer>
+      </div>
+    </div>
   )
 }
 
