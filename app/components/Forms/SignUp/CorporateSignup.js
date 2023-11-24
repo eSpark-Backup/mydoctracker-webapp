@@ -147,7 +147,7 @@ const CorporateSignup = () => {
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please Enter Company Address" }]}
               >
-                <DocInput type={"text"} placeholder="Enter Contact No."
+                <DocInput type={"text"} placeholder="Enter Company Address"
                   onChange={(value) => form.setFieldsValue({ companyAddress: value })}
                 // value={form.getFieldValue('username')}
                 />
@@ -176,7 +176,7 @@ const CorporateSignup = () => {
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please Enter Subsidiary" }]}
               >
-                <DocInput type={"password"} placeholder="Enter Password Again"
+                <DocInput type={"password"} placeholder="Enter Subsidiary"
                   onChange={(value) => form.setFieldsValue({ subsidiary: value })}
                 />
               </Form.Item>
