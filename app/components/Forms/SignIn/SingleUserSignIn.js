@@ -2,6 +2,7 @@ import { Checkbox, Col, Form, Input, Row } from 'antd';
 import React from 'react'
 import DocInput from '../../common/docInput';
 import DocButton from '../../common/docButton';
+import Link from 'next/link';
 
 const SingleUserSignIn = () => {
   const [form] = Form.useForm();
@@ -75,6 +76,16 @@ const SingleUserSignIn = () => {
 
       <div>
         <DocButton onClick={() => form.submit()} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
+         
+      <div className='lg:hidden block'>
+         <div className='py-8 flex flex-col items-center'>
+            <p className='text-[12px] text-grey'>Already have an account?</p>
+            <Link className='w-full flex justify-center' href={`/auth/signup`}>
+            <DocButton className={"mt-3 bg-secondary text-primary rounded-[50px] w-7/12  text-[18px] border-none"} text={"Sign Up"} />
+            </Link>
+         </div>
+      </div>
+      
       </div>
 
     </div>

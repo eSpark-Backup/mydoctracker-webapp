@@ -10,7 +10,7 @@ const SignUpForm = () => {
   const [currentRole, setCurrentRole] = useState(1);
 
   return (
-    <div className='py-3 h-full flex flex-col justify-between'>
+    <div className='py-3 h-full flex flex-col justify-between '>
       <div className=' flex flex-col h-full'>
         <div>
           <div className='flex justify-center pb-4'>
@@ -18,7 +18,7 @@ const SignUpForm = () => {
               <h6 className="border-b-4 border-secondary pb-1">Sign </h6>  &nbsp; <span> Up</span>
             </div>
           </div>
-          <div className='px-12'>
+          <div className='lg:px-2'>
             <p className='text-greydark text-center'>Please select your role:</p>
             <div className='flex justify-center gap-5 py-3 flex-wrap'>
               {signUpRoles?.map((role, key) => (

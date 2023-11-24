@@ -4,11 +4,11 @@ import React from 'react'
 
 const SignUp = () => {
   return (
-    <div className='flex min-h-screen' >
-      <div className='w-7/12' >
-        <GIFBanner/>
+    <div className='flex lg:flex-row flex-col min-h-screen' >
+      <div className='lg:w-7/12 w-full' >
+        <GIFBanner buttonTitle={"Sign In"} redirect={"signin"}/>
       </div>
-      <div className='w-5/12'>
+      <div className='lg:w-5/12 w-full'>
         <SignContainer> 
           <SingUpForm/>
         </SignContainer>

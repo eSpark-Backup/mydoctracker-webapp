@@ -19,7 +19,7 @@ const SignInForm = () => {
               <h6 className="border-b-4 border-secondary pb-1">Sign </h6>  &nbsp; <span> In</span>
             </div>
           </div>
-          <div className='px-12'>
+          <div className='lg:px-2'>
             <p className='text-greydark text-center'>Please select your role:</p>
             <div className='flex justify-center gap-5 py-3 flex-wrap'>
               {signInRoles?.map((role, key) => (

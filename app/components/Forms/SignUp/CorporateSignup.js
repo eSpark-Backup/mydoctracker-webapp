@@ -2,6 +2,7 @@ import { Checkbox, Col, Form, Input, Row } from 'antd';
 import React, { useState } from 'react'
 import DocInput from '../../common/docInput';
 import DocButton from '../../common/docButton';
+import Link from 'next/link';
 
 const CorporateSignup = () => {
   const [form] = Form.useForm();
@@ -102,6 +103,8 @@ const CorporateSignup = () => {
               </Form.Item>
 
             </Col>
+
+
             </>
             )}
 
@@ -208,11 +211,18 @@ const CorporateSignup = () => {
         </Form>
       </div>
 
-      {/* <div>
-        <DocButton onClick={() => form.submit()} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign Up"} />
-      </div> */}
       <div>
-        <DocButton onClick={()=>setStep(2)} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Next"} />
+        <DocButton onClick={step  === 1 ? ()=>setStep(2) : () => form.submit()} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={step  === 1 ? "Next" : "Sign In"} />
+      </div>
+
+
+      <div className='lg:hidden block'>
+         <div className='py-8 flex flex-col items-center'>
+            <p className='text-[12px] text-grey'>Already have an account?</p>
+            <Link className='w-full flex justify-center' href={`/auth/signin`}>
+            <DocButton className={"mt-3 bg-secondary text-primary rounded-[50px] w-7/12  text-[18px] border-none"} text={"Sign In"} />
+            </Link>
+         </div>
       </div>
 
     </div>
