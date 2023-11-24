@@ -14,7 +14,7 @@ const SingleUserSignIn = () => {
   };
 
   return (
-    <div className='flex flex-col justify-between'>
+    <div className='flex flex-col justify-between h-full'>
       <div>
         <Form form={form} onFinish={onFinish}>
           <Row gutter={[0, 0]}>
@@ -24,7 +24,7 @@ const SingleUserSignIn = () => {
                 name="username"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please enter User Name" }]}
+                rules={[{ required: true, message: "Please Enter User Name" }]}
               >
                 <DocInput type={"text"} placeholder="Enter User name"
                   onChange={(value) => form.setFieldsValue({ username: value })}
@@ -39,7 +39,7 @@ const SingleUserSignIn = () => {
                 name="password"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please enter Password" }]}
+                rules={[{ required: true, message: "Please Enter Password" }]}
               >
                 <DocInput type={"password"} placeholder="Enter Password"
                   onChange={(value) => form.setFieldsValue({ password: value })}
@@ -62,7 +62,7 @@ const SingleUserSignIn = () => {
                 ]}
                 wrapperCol={{ span: 24 }}
               >
-                <Checkbox>
+                <Checkbox >
                   <span className='text-[14px]'>
                     I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <span className='text-primary  font-semibold'>Terms and conditions</span>
                   </span>

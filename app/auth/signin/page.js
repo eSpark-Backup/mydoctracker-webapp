@@ -4,7 +4,7 @@ import React from 'react'
 
 const SignIn = () => {
   return (
-    <div className='flex w-10/12  h-calc-vh-sign' >
+    <div className='flex min-h-screen' >
       <div className='w-7/12' >
         <GIFBanner/>
       </div>

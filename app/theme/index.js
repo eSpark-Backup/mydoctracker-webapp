@@ -3,6 +3,7 @@ export const theme = {
      Input:{
        activeBorderColor : '#FCBF4A',
        hoverBorderColor: '#FCBF4A',
-     }
+     },
+     },
     }
-   }
+   

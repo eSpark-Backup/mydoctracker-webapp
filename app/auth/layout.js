@@ -4,9 +4,9 @@ export default function AuthLayout({
     return (
       <html lang="en">   
         <body>   
-            <div className="h-screen bg-slate-200 flex justify-center items-center">
+            {/* <div className="h-screen bg-slate-200 flex justify-center items-center"> */}
             {children}
-            </div>
+            {/* </div> */}
             </body>
       </html>
     )
