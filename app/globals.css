@@ -15,3 +15,7 @@
 {
   display: none;
 }
+
+.background-image {
+  background-image: url('/Images/rotatePlanet.gif'); /* Add your GIF image URL here */
+}

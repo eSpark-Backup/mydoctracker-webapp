@@ -4,6 +4,7 @@ import DocButton from "./common/docButton"
 import RoleBox from "./Auth/common/RoleBox"
 import SingleUserSignIn from "./Forms/SignIn/SingleUserSignIn"
 import DocInput from "./common/docInput"
+import GIFBanner from "./Auth/common/GIFBanner"
 
 
 export {
@@ -13,5 +14,6 @@ export {
     RoleBox,
     SingleUserSignIn,
     DocInput,
+    GIFBanner,
 
 }
