@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import RoleBox from '../common/RoleBox'
 import { signInRoles } from '@/app/constant';
 import SingleUserSignIn from '../../Forms/SignIn/SingleUserSignIn';
-import DocButton from '../../common/docButton';
 
 const SignInForm = () => {
   const [currentRole, setCurrentRole] = useState(1);
