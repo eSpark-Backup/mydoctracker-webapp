@@ -33,3 +33,26 @@ export const signUpRoles = [
         iconfill: "corporatefill.svg"
       },
 ]
+
+export const landingRoutes = [
+    {
+        id:1,
+        title: 'Home',
+        link: '/landing/'
+    },
+    {
+        id:2,
+        title: 'Services',
+        link: '/landing/services'
+    },
+    {
+        id:3,
+        title: 'About us',
+        link: '/landing/about'
+    },
+    {
+        id:4,
+        title: 'Blogs',
+        link: '/landing/blogs'
+    },
+]

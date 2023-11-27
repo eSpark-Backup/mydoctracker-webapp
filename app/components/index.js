@@ -10,6 +10,8 @@ import JoinTeamSignIn from "./forms/signIn/joinTeamSignIn"
 import SingleUserSignUp  from "./forms/signUp/singleUserSignup"
 import DocInput from "./common/docInput"
 import GIFBanner from "./auth/common/gifBanner"
+import Navbar from './landing/layout/Navbar' 
+import Footer from './landing/layout/Footer'
 
 
 export {
@@ -25,4 +27,6 @@ export {
     JoinTeamSignIn,
     SingleUserSignUp,
     CorporateSignup,
+    Navbar,
+    Footer,
 }
