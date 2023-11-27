@@ -20,6 +20,26 @@
   transform: scale(1.2);
 }
 
+
+/* Sign In/out GIF */
 .background-image {
   background-image: url('/Images/rotatePlanet.gif'); /* Add your GIF image URL here */
+}
+
+
+/* navbar  */
+.navbar-link {
+  @apply inline-block relative px-0 py-[1.10rem]  before:transition-[300ms] before:h-0.5 before:content-[""] before:absolute before:bg-secondary;
+}
+
+.navbar-link-grow-up::before {
+  @apply h-[0%] w-full bottom-0;
+}
+.navbar-link-grow-up:hover::before {
+  @apply h-0.5;
+}
+
+
+.intro-bg {
+  background-image: url('/Images/introBg.svg');
 }

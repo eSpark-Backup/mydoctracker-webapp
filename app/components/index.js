@@ -10,8 +10,12 @@ import JoinTeamSignIn from "./forms/signIn/joinTeamSignIn"
 import SingleUserSignUp  from "./forms/signUp/singleUserSignup"
 import DocInput from "./common/docInput"
 import GIFBanner from "./auth/common/gifBanner"
-import Navbar from './landing/layout/Navbar' 
-import Footer from './landing/layout/Footer'
+import Navbar from './landing/layout/navbar' 
+import Intro from './landing/layout/intro'
+import Footer from './landing/layout/footer'
+import Options from './landing/layout/options'
+import optionsBox from './landing/components/optionsBox'
+import About from './landing/layout/about'
 
 
 export {
@@ -28,5 +32,9 @@ export {
     SingleUserSignUp,
     CorporateSignup,
     Navbar,
+    Intro,
+    Options,
+    optionsBox,
+    About,
     Footer,
 }
