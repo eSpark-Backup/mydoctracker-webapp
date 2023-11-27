@@ -4,7 +4,7 @@ import DocInput from '../../common/docInput';
 import DocButton from '../../common/docButton';
 import Link from 'next/link';
 
-const SingleUserSignUp = () => {
+const SingleUserSignup = () => {
   const [form] = Form.useForm();
 
 
@@ -164,4 +164,4 @@ const SingleUserSignUp = () => {
   )
 }
 
-export default SingleUserSignUp
+export default SingleUserSignup
