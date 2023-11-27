@@ -25,7 +25,7 @@ const SingleUserSignIn = () => {
                 name="username"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please Enter User Name" }]}
+                rules={[{ required: true, message: "Please Enter User Name"}]}
               >
                 <DocInput type={"text"} placeholder="Enter User name"
                   onChange={(value) => form.setFieldsValue({ username: value })}

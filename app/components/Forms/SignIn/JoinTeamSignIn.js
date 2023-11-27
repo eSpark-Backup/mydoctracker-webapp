@@ -22,7 +22,9 @@ const JoinTeamSignIn = () => {
                 name="companyEmail"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please Enter Company Email" }]}
+                rules={[{ required: true, message: "Please Enter Company Email" }, 
+                { type: 'email', message: 'Please enter valid email' } 
+              ]}
               >
                 <DocInput type={"email"} placeholder="Enter Company Email"
                   onChange={(value) => form.setFieldsValue({ companyEmail: value })}

@@ -70,7 +70,9 @@ const SingleUserSignup = () => {
                 name="email"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please Enter Email" }]}
+                rules={[{ required: true, message: "Please Enter Email" },
+                { type: 'email', message: 'Please enter valid email' }
+                ]}
               >
                 <DocInput type={"email"} placeholder="Enter Email"
                   onChange={(value) => form.setFieldsValue({ email: value })}
@@ -86,9 +88,10 @@ const SingleUserSignup = () => {
                 name="contact"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please Enter Contact No." }]}
+                rules={[{ required: true, message: "Please Enter Contact No." }, 
+               ]}
               >
-                <DocInput type={"phone"} placeholder="Enter Contact No."
+                <DocInput type={"number"} placeholder="Enter Contact No."
                   onChange={(value) => form.setFieldsValue({ contact: value })}
                 // value={form.getFieldValue('username')}
                 />
@@ -152,12 +155,12 @@ const SingleUserSignup = () => {
       </div>
 
       <div className='lg:hidden block'>
-         <div className='py-8 flex flex-col items-center'>
-            <p className='text-[12px] text-grey'>Already have an account?</p>
-            <Link className='w-full flex justify-center' href={`/auth/signin`}>
+        <div className='py-8 flex flex-col items-center'>
+          <p className='text-[12px] text-grey'>Already have an account?</p>
+          <Link className='w-full flex justify-center' href={`/auth/signin`}>
             <DocButton className={"mt-3 bg-secondary text-primary rounded-[50px] w-7/12  text-[18px] border-none"} text={"Sign In"} />
-            </Link>
-         </div>
+          </Link>
+        </div>
       </div>
 
     </div>

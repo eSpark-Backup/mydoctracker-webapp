@@ -13,7 +13,7 @@
 
 :where(.css-dev-only-do-not-override-8dotbs).ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before
 {
-  display: none;
+  display: none !important;
 }
 
 .background-image {

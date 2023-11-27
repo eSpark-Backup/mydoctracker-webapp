@@ -24,11 +24,14 @@ const CorporateSignIn = () => {
                 name="companyEmail"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please Enter Company Email" }]}
+                 rules={[{ required: true, message: "Please Enter Company Email" },
+                  { type: 'email', message: 'Please enter valid email' } 
+              ]}
+                
               >
                 <DocInput type={"email"} placeholder="Enter Company Email"
                   onChange={(value) => form.setFieldsValue({ companyEmail: value })}
-                // value={form.getFieldValue('username')}
+                  
                 />
               </Form.Item>
             </Col>
@@ -38,7 +41,9 @@ const CorporateSignIn = () => {
                 name="adminEmail"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please enter User Name" }]}
+                rules={[{ required: true, message: "Please enter User Name" },
+                { type: 'email', message: 'Please enter valid email' } 
+              ]}
               >
                 <DocInput type={"email"} placeholder="Enter User name"
                   onChange={(value) => form.setFieldsValue({ adminEmail: value })}
