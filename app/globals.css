@@ -16,6 +16,10 @@
   display: none !important;
 }
 
+.ant-checkbox-inner, .ant-checkbox-input {
+  transform: scale(1.2);
+}
+
 .background-image {
   background-image: url('/Images/rotatePlanet.gif'); /* Add your GIF image URL here */
 }
