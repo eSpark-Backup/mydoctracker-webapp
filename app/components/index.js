@@ -1,5 +1,5 @@
 import SignInForm from './auth/signIn/signInForm'
-import SingUpForm from './auth/signUp/SignUpForm'
+import SingUpForm from './auth/signUp/signUpForm'
 import SignContainer from './auth/signContainer'
 import DocButton from "./common/docButton"
 import RoleBox from "./auth/common/roleBox"
