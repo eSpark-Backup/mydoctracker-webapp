@@ -1,3 +1,5 @@
+"use client"
+
 import { Checkbox, Col, Form, Input, Row } from 'antd';
 import React from 'react'
 import DocInput from '../../common/docInput';

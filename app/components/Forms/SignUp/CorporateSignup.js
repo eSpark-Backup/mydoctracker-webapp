@@ -1,4 +1,6 @@
-import { Checkbox, Col, Form, Input, Row } from 'antd';
+"use client"
+
+import { Checkbox, Col, Form, Row } from 'antd';
 import React, { useState } from 'react'
 import DocInput from '../../common/docInput';
 import DocButton from '../../common/docButton';
