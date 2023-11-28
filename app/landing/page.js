@@ -1,5 +1,5 @@
 import React from 'react'
-import { About, Intro, Options } from '../components'
+import { About, Feature, Features, Intro, Options } from '../components'
 
 export const metadata = {
   title: 'My Doc Tracker',
@@ -14,6 +14,7 @@ const Landing = () => {
       <Intro />
       <Options />
       <About/>
+      <Features/>
     </main>
     </>
   )

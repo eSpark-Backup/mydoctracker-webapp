@@ -17,6 +17,8 @@ import Options from './landing/layout/options'
 import optionsBox from './landing/components/optionsBox'
 import About from './landing/layout/about'
 import StoreBox from './landing/components/storeBox'
+import Features from './landing/layout/features'
+import FeatureBox from './landing/components/featureBox'
 
 
 export {
@@ -38,5 +40,7 @@ export {
     optionsBox,
     About,
     StoreBox,
+    Features,
+    FeatureBox,
     Footer,
 }

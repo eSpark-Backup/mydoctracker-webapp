@@ -146,3 +146,53 @@ export const footerRoutes2 = [
     },
     
 ]
+
+export const featuresLeft = [
+    {
+        id: 1,
+        description: 'Geofence Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tem labore.',
+        icon: 'featureLocation.svg',
+        iconfill: 'featureLocationFill.svg'
+    },
+    {
+        id: 2,
+        description: 'Alert Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tem labore.',
+        icon: 'featureAlert.svg',
+        iconfill: 'featureAlertFill.svg'
+    },
+    {
+        id: 3,
+        description: 'Time interval Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tem labore.',
+        icon: 'featureTime.svg',
+        iconfill: 'featureTimeFill.svg'
+    },
+]
+
+
+export const featuresRight = [
+    {
+        id: 1,
+        description: 'Geofence Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tem labore.',
+        icon: 'featureMoney.svg',
+        iconfill: 'featureMoneyFill.svg'
+    },
+    {
+        id: 2,
+        description: 'Alert Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tem labore.',
+        icon: 'featureEdit.svg',
+        iconfill: 'featureEditFill.svg'
+    },
+    {
+        id: 3,
+        description: 'Time interval Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tem labore.',
+        icon: 'featureMoney.svg',
+        iconfill: 'featureMoneyFill.svg'
+    },
+]
+
+
+export const featureMobile = {
+    Image1: 'featureMobile1.svg',
+    Image2: 'featureMobile2.svg',
+    Image3: 'featureMobile3.svg',
+}

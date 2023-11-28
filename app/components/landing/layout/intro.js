@@ -19,6 +19,13 @@ const Intro = () => {
                 <div className='md:w-[50%] md:pt-0 pt-8 w-full flex justify-center'>
                     <Image src='/images/introLaptop.svg' className='w-[600px]' width={500} height={500} alt='intro' />
                 </div>
+
+                {/* <div className='relative'>
+                    <Image src='/images/introLaptop.svg' className='w-full' alt='intro' width={500} height={500} />
+                    <div className='absolute top-10 left-10 sm:top-20 sm:left-20 md:top-4 md:left-12 xl:top-4  xl:left-[3.9rem] 2xl:top-4 2xl:left-[5.6rem] w-full' >
+                        <Image src='/images/laptopScreenGIF.gif' className='w-[80%] sm:w-[70%] md:w-[80%] xl:w-[74%] 2xl:w-[74%]' alt='intro' width={300} height={400} />
+                    </div>
+                </div> */}
             </div>
         </section>
     )
