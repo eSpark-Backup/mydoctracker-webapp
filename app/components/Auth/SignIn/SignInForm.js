@@ -1,41 +1,43 @@
 "use client";
 
 import React, { useState } from 'react'
-import DocButton from '../../common/docButton'
-import RoleBox from '../common/RoleBox'
+import RoleBox from '../common/roleBox'
+import { signInRoles } from '@/app/constant';
+import SingleUserSignIn from '../../forms/signIn/singleUserSignIn';
+import CorporateSignIn from '../../forms/signIn/corporateSignIn';
+import JoinTeamSignIn from '../../forms/signIn/joinTeamSignIn';
 
 const SignInForm = () => {
- const [currentRole, setCurrentRole] = useState("Single User")
- 
+  const [currentRole, setCurrentRole] = useState(1);
+
   return (
-    <div className='py-3'>
-      <div className='px-12'>
-        <p>Please select your role:</p>
-        <div className='flex justify-center gap-5 py-3 flex-wrap'>
-          <RoleBox role={{
-            name: 'Single User',
-            icon: 'SingleUser.svg',
-            iconfill: "SingleUserfill.svg"
-          }} />
-          <RoleBox role={{
-            name: 'Corporate',
-            icon: 'corporate.svg',
-            iconfill: "corporatefill.svg"
-          }} />
-          <RoleBox role={{
-            name: 'Join Team',
-            icon: 'team.svg',
-            iconfill: "teamfill.svg"
-          }} />
-          
+    <div className='py-3 h-full flex flex-col justify-between'>
+      <div className=' flex flex-col h-full'>
+        <div>
+          <div className='flex justify-center pb-4'>
+            <div className='flex text-3xl text-secondary font-semibold w-fit'>
+              <h6 className="border-b-4 border-secondary pb-1">Sign </h6>  &nbsp; <span> In</span>
+            </div>
+          </div>
+          <div className='lg:px-2'>
+            <p className='text-greydark text-center'>Please select your role:</p>
+            <div className='flex justify-center gap-5 py-3 flex-wrap'>
+              {signInRoles?.map((role, key) => (
+                <RoleBox key={key} role={role} onClick={() => setCurrentRole(role.id)} currentRole={currentRole} />
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+
+        <div className='flex-1'>
+          {
+            currentRole === 1 ? <SingleUserSignIn /> : currentRole === 2 ? <CorporateSignIn /> : currentRole === 3 ? <JoinTeamSignIn /> : <SingleUserSignIn />
+          }
+        </div>
 
 
-      <div>
-       
-        <DocButton className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
       </div>
+
 
     </div>
   )

@@ -1,9 +1,9 @@
-"use client"
-
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { QueryClientProvider, QueryClient } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+import { ConfigProvider } from 'antd';
+import { theme } from './theme';
+import Providers from './utils/providers';
+import AntdStyledComponentsRegistry from './utils/AntdStyledComponentsRegistry';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,15 +13,19 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
-  const queryClient = new QueryClient();
+
   return (
     <html lang="en">
       <body className={inter.className}>
-      <QueryClientProvider client={queryClient}>
-        {children}
-      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
-      </QueryClientProvider>
-        </body>
+        <Providers>
+        <AntdStyledComponentsRegistry>
+          <ConfigProvider
+            theme={theme}>
+            {children}
+          </ConfigProvider>
+        </AntdStyledComponentsRegistry>
+        </Providers>
+      </body>
     </html>
   )
 }
