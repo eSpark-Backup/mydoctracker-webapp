@@ -7,7 +7,7 @@ import Link from 'next/link'
 const Footer = () => {
   return (
     <>
-      <footer className='lg:px-[6rem]  px-[2rem] py-[4rem] bg-cover bg-repeat footer-bg flex lg:flex-row flex-col justify-between'>
+      <footer className='lg:px-[6rem] px-[2rem] py-[5rem] bg-cover bg-repeat footer-bg flex lg:flex-row flex-col justify-between'>
         <div className='lg:w-[50%] w-full '>
           <div className='flex justify-start flex-col xl:w-[50%] pb-8'>
             <div className="flex items-center pb-5">
