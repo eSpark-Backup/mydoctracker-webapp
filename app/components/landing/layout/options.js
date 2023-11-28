@@ -1,4 +1,3 @@
-import { Image } from 'antd'
 import React from 'react'
 import OptionsBox from '../components/optionsBox'
 import { landingOptions } from '@/app/constant'
@@ -6,7 +5,7 @@ import DocButton from '../../common/docButton'
 
 const Options = () => {
     return (
-        <section className='lg:px-[10rem] px-[2rem] md:py-[5rem] py-[4rem] '>
+        <section className='lg:px-[10rem] px-[2rem] md:py-[5rem] py-[4rem]'>
             <div>
                 <div>
                     <h6 className='text-md  pb-5 text-center font-bold text-primary'>

@@ -12,7 +12,7 @@ const Navbar = () => {
             <nav
                 className={`bg-primary md:block sticky top-0 z-50`}
             >
-                <div className="flex justify-between items-center h-[60px] lg:px-[5rem] px-[2rem]">
+                <div className="flex justify-between items-center h-[60px] lg:px-[6rem] px-[2rem]">
                     {/* logo section   */}
                     <div className="flex justify-center items-center">
                         <Image
@@ -40,14 +40,14 @@ const Navbar = () => {
                     {/* button section  */}
                     <div className="hidden md:block">
                         <div className="flex bg-secondary justify-between px-4 py-2 rounded-full">
-                            <button className="text-white hover:text-primary font-semibold px-3 text-sm">
+                            <button className="text-white font-semibold px-3 text-sm">
                                 Login
                             </button>
 
                             <div className="text-white">
                                 |
                             </div>
-                            <button className="text-white hover:text-primary font-semibold px-3 text-sm">
+                            <button className="text-white font-semibold px-3 text-sm">
                                 Signup
                             </button>
                         </div>

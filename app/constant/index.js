@@ -43,17 +43,17 @@ export const landingRoutes = [
     {
         id: 2,
         title: 'Services',
-        link: '/landing/services'
+        link: '/landing/'
     },
     {
         id: 3,
         title: 'About us',
-        link: '/landing/about'
+        link: '/landing/'
     },
     {
         id: 4,
         title: 'Blogs',
-        link: '/landing/blogs'
+        link: '/landing/'
     },
 ]
 
@@ -83,4 +83,66 @@ export const landingOptions = [
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit,',
     },
 
+]
+
+
+export const storeBoxs = [
+    {
+        id: 1,
+        heading: 'Download on the',
+        title: 'App Store',
+        icon: 'apple.svg',
+        link: '/landing/',
+    },
+    {
+        id: 2,
+        heading: 'Get it on',
+        title: 'Google Play',
+        icon: 'googleplay.svg',
+        link: '/landing/',
+    },
+    {
+        id: 3,
+        heading: 'Get it on',
+        title: 'Microsoft',
+        icon: 'microsoft.svg',
+        link: '/landing/',
+    },
+]
+
+export const footerRoutes1 = [
+    {
+        id: 1,
+        title: 'Services',
+        link: '/landing/'
+    },
+    {
+        id: 2,
+        title: 'About Us',
+        link: '/landing/'
+    },
+    {
+        id: 3,
+        title: 'Blogs',
+        link: '/landing/'
+    },
+]
+
+export const footerRoutes2 = [
+    {
+        id: 1,
+        title: 'Terms & Conditions',
+        link: '/landing/'
+    },
+    {
+        id: 2,
+        title: 'Privacy Policy',
+        link: '/landing/'
+    },
+    {
+        id: 3,
+        title: 'Sign up',
+        link: '/landing/'
+    },
+    
 ]
