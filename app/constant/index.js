@@ -196,3 +196,9 @@ export const featureMobile = {
     Image2: 'featureMobile2.svg',
     Image3: 'featureMobile3.svg',
 }
+
+export const introLaptopScreen = {
+    Image1: 'introLaptop1.svg',
+    Image2: 'introLaptop2.svg',
+    Image3: 'introLaptop3.svg',
+}

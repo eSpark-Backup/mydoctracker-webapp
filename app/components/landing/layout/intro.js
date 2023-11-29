@@ -1,8 +1,25 @@
+"use client"
+
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import DocButton from '../../common/docButton'
+import { introLaptopScreen } from '@/app/constant'
 
 const Intro = () => {
+    const steps = [1, 2, 3];
+    const [currentStep, setCurrentStep] = useState(1);
+
+    useEffect(() => {
+        const delay = 2000;
+
+        const intervalId = setInterval(() => {
+            // Show something for the current step
+            setCurrentStep((prevStep) => (prevStep % steps.length) + 1);
+        }, delay);
+
+        return () => clearInterval(intervalId);
+    }, [currentStep, steps]);
+
     return (
         <section className='lg:px-[10rem] px-[2rem] md:py-[8rem] py-[4rem] bg-cover bg-repeat intro-bg' >
             <div className='flex md:flex-row flex-col'>
@@ -17,15 +34,8 @@ const Intro = () => {
                 </div>
 
                 <div className='md:w-[50%] md:pt-0 pt-8 w-full flex justify-center'>
-                    <Image src='/images/introLaptop.svg' className='w-[600px]' width={500} height={500} alt='intro' />
+                    <Image src={`/images/${currentStep === 1 ? introLaptopScreen.Image1 : currentStep === 2 ? introLaptopScreen.Image2 : currentStep === 3 ? introLaptopScreen.Image3 : introLaptopScreen.Image1}`} className='w-[600px]' width={500} height={500} alt='intro' />
                 </div>
-
-                {/* <div className='relative'>
-                    <Image src='/images/introLaptop.svg' className='w-full' alt='intro' width={500} height={500} />
-                    <div className='absolute top-10 left-10 sm:top-20 sm:left-20 md:top-4 md:left-12 xl:top-4  xl:left-[3.9rem] 2xl:top-4 2xl:left-[5.6rem] w-full' >
-                        <Image src='/images/laptopScreenGIF.gif' className='w-[80%] sm:w-[70%] md:w-[80%] xl:w-[74%] 2xl:w-[74%]' alt='intro' width={300} height={400} />
-                    </div>
-                </div> */}
             </div>
         </section>
     )
