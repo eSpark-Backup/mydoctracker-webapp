@@ -5,7 +5,7 @@ import Image from "next/image";
 const Dashboard = () => {
   return (
     <>
-      <div className="w-[100%] drop-shadow-lg  rounded-lg h-[95%] bg-white my-4 flex justify-center items-center flex-col">
+      <div className="w-[100%] drop-shadow-lg rounded-lg h-[95%] bg-white my-4 flex justify-center items-center flex-col">
         <>
           <Image
             className="w-[250px] h-[320px]"
