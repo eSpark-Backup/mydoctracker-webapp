@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import UserDashboard from "../../../public/Images/UserDashboard.png";
+import React from "react";
+// import UserDashboard from "../../../public/Images/UserDashboard.png";
 import Image from "next/image";
 import { UserDevices } from "@/app/constant";
 import { Badge } from "antd";
 import ConfirmationModal from "../common/ConfirmationModal";
 
 const Dashboard = ({ noDevices }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -20,14 +20,16 @@ const Dashboard = ({ noDevices }) => {
     setIsModalOpen(false);
   };
 
+  const [showEditScreen, setShowEditScreen] = React.useState(false);
+
   return (
     <>
-      {noDevices ? (
-        <div className="w-[100%] drop-shadow-lg rounded-lg h-[95%] bg-white my-4 flex justify-center items-center flex-col">
+      {noDevices === true && showEditScreen === false ? (
+        <div className="w-[100%] drop-shadow-lg rounded-lg h-[600px] bg-white my-4 flex justify-center items-center flex-col">
           <>
             <Image
               className="w-[250px] h-[320px]"
-              src={UserDashboard}
+              src={"/Images/UserDashboard.png"}
               width={20}
               height={20}
               alt="Empty"
@@ -42,7 +44,7 @@ const Dashboard = ({ noDevices }) => {
             </button>
           </>
         </div>
-      ) : (
+      ) : noDevices === false && showEditScreen === false ? (
         <div className="w-[100%] gap-6 h-auto drop-shadow-lg rounded-lg bg-white my-4 flex py-24 items-center flex-col">
           {UserDevices?.map((eachDevice) => (
             <div className="h-36 w-[90%] border-b-2 border-[#E4E4E4]">
@@ -80,11 +82,15 @@ const Dashboard = ({ noDevices }) => {
             </div>
           ))}
           <button class="bg-[#002F49] text-white font-bold py-2 px-6 rounded inline-flex items-center">
-              <p>+</p>
-              <span className="px-3">Add</span>
-            </button>
+            <p>+</p>
+            <span className="px-3">Add</span>
+          </button>
         </div>
-      )}
+      ) : showEditScreen ? (
+        <></>
+      ) : <h1>Hello</h1>}
+      {console.log(showEditScreen)}
+      {console.log(noDevices)}
       <ConfirmationModal
         isModalOpen={isModalOpen}
         showModal={showModal}
