@@ -2,6 +2,12 @@ import { GIFBanner, SignContainer, SingUpForm } from '@/app/components'
 import React from 'react'
 
 
+export const metadata = {
+  title: 'My Doc Tracker - Sign Up',
+  description: '...',
+}
+
+
 const SignUp = () => {
   return (
     <div className='flex lg:flex-row flex-col min-h-screen' >

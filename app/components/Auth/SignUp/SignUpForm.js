@@ -6,7 +6,7 @@ import {signUpRoles } from '@/app/constant';
 import SingleUserSignUp from '../../forms/signUp/singleUserSignup';
 import CorporateSignup from '../../forms/signUp/corporateSignup';
 
-const SignUpForm = ({}) => {
+const SignUpForm = () => {
   const [currentRole, setCurrentRole] = useState(1);
   
 
@@ -31,7 +31,7 @@ const SignUpForm = ({}) => {
 
         <div className='flex-1'>
           {
-            currentRole === 1 ? <SingleUserSignUp /> : currentRole === 2 ? <CorporateSignup step={step} setStep={setStep} /> : <SingleUserSignUp /> 
+            currentRole === 1 ? <SingleUserSignUp /> : currentRole === 2 ? <CorporateSignup  /> : <SingleUserSignUp /> 
           }
         </div>
 
