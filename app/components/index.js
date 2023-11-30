@@ -10,6 +10,7 @@ import JoinTeamSignIn from "./forms/signIn/joinTeamSignIn"
 import SingleUserSignUp  from "./forms/signUp/singleUserSignup"
 import DocInput from "./common/docInput"
 import GIFBanner from "./auth/common/gifBanner"
+import Dashboard from './UserScreens/Dashboard'
 
 
 export {
@@ -25,4 +26,5 @@ export {
     JoinTeamSignIn,
     SingleUserSignUp,
     CorporateSignup,
+    Dashboard
 }
