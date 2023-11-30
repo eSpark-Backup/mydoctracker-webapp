@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <div className="h-[8vh] sm:h-[6vh] bg-[#FFF] flex justify-end items-center pr-4 gap-3">
+    <div className="h-[8vh] sm:h-[7vh] bg-[#FFF] flex justify-end items-center pr-4 gap-3">
       <Badge count={1}>
         <Image src={"/icons/Bell.svg"} width={25} height={25} />
       </Badge>
