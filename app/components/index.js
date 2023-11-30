@@ -14,7 +14,7 @@ import Navbar from './landing/layout/navbar'
 import Intro from './landing/layout/intro'
 import Footer from './landing/layout/footer'
 import Options from './landing/layout/options'
-import optionsBox from './landing/components/optionsBox'
+import OptionsBox from './landing/components/optionsBox'
 import About from './landing/layout/about'
 import StoreBox from './landing/components/storeBox'
 import Features from './landing/layout/features'
@@ -37,7 +37,7 @@ export {
     Navbar,
     Intro,
     Options,
-    optionsBox,
+    OptionsBox,
     About,
     StoreBox,
     Features,
