@@ -29,7 +29,6 @@ const ConfirmationModal = ({
             <div className="gap-4 flex">
                 <button onClick={handleCancel} className="border-2 border-primary text-primary  h-8 w-24 rounded-2xl">{cancelButton}</button>
                 <button className={`bg-[${acceptButtonColor}] h-8 text-white rounded-2xl w-24`}>{confirmButton}</button>
-                {/* <button className="bg-[#F00] h-8 text-white rounded-2xl w-24">{confirmButton}</button> */}
             </div>
         </div>
       </Modal>

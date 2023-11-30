@@ -24,7 +24,6 @@ const Dashboard = ({ noDevices }) => {
     setIsModalOpen(false);
   };
 
-
   return (
     <>
       {noDevices === true && showEditScreen === false ? (
