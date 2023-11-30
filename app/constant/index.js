@@ -144,7 +144,7 @@ export const footerRoutes2 = [
         title: 'Sign up',
         link: '/landing/'
     },
-    
+
 ]
 
 export const featuresLeft = [
@@ -202,3 +202,27 @@ export const introLaptopScreen = {
     Image2: 'introLaptop2.svg',
     Image3: 'introLaptop3.svg',
 }
+
+export const UserDevices = [
+    {
+        heading: "Tracker: 123456",
+        status: "Active",
+        name: "My Note Book",
+        date: "March 24, 2023, 5:43 PM",
+        battery: "87% Battery remaining",
+    },
+    {
+        heading: "Tracker: 123456",
+        status: "Disable",
+        name: "My Note Book",
+        date: "March 24, 2023, 5:43 PM",
+        battery: "87% Battery remaining",
+    },
+    {
+        heading: "Tracker: 123456",
+        status: "Inactive",
+        name: "My Note Book",
+        date: "March 24, 2023, 5:43 PM",
+        battery: "87% Battery remaining",
+    },
+];

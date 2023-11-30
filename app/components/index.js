@@ -7,10 +7,10 @@ import SingleUserSignIn from "./forms/signIn/singleUserSignIn"
 import CorporateSignup from "./forms/signUp/corporateSignup"
 import CorporateSignIn from "./forms/signIn/corporateSignIn"
 import JoinTeamSignIn from "./forms/signIn/joinTeamSignIn"
-import SingleUserSignUp  from "./forms/signUp/singleUserSignup"
+import SingleUserSignUp from "./forms/signUp/singleUserSignup"
 import DocInput from "./common/docInput"
 import GIFBanner from "./auth/common/gifBanner"
-import Navbar from './landing/layout/navbar' 
+import Navbar from './landing/layout/navbar'
 import Intro from './landing/layout/intro'
 import Footer from './landing/layout/footer'
 import Options from './landing/layout/options'
@@ -19,6 +19,7 @@ import About from './landing/layout/about'
 import StoreBox from './landing/components/storeBox'
 import Features from './landing/layout/features'
 import FeatureBox from './landing/components/featureBox'
+import Dashboard from './UserScreens/Dashboard'
 
 
 export {
@@ -43,4 +44,5 @@ export {
     Features,
     FeatureBox,
     Footer,
+    Dashboard
 }
