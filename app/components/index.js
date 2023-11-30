@@ -20,6 +20,9 @@ import StoreBox from './landing/components/storeBox'
 import Features from './landing/layout/features'
 import FeatureBox from './landing/components/featureBox'
 import Dashboard from './UserScreens/Dashboard'
+import Main from './Dashboard/layout/main'
+import Header from './Dashboard/layout/header'
+import NoteBookDetail from './Dashboard/components/NoteBookDetail'
 
 
 export {
@@ -44,5 +47,8 @@ export {
     Features,
     FeatureBox,
     Footer,
-    Dashboard
+    Dashboard,
+    Main,
+    Header,
+    NoteBookDetail,
 }

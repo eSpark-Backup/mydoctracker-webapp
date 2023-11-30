@@ -1,12 +1,11 @@
 import React from "react";
-import { Dashboard } from "../components";
+import { Dashboard, Header } from "../components";
 import HeadContent from "../components/UserScreens/common/HeadContent";
-import Header from "../components/UserScreens/common/Header";
 
 function Welcome() {
   return (
     <>
-    <Header/>
+      <Header />
       <div className="flex flex-col min-h-screen px-3 py-3 sm:py-0 sm:px-0 justify-start items-start sm:justify-center sm:items-center bg-[#F7F7F7]">
         <div className="w-[100%] sm:w-[75%] flex items-end mt:0 sm:mt-10">
           <HeadContent
@@ -15,7 +14,7 @@ function Welcome() {
           />
         </div>
         <div className="w-[100%] mx-auto sm:w-[75%] h-[100%] ">
-          <Dashboard noDevices={false}  />
+          <Dashboard noDevices={false} />
         </div>
       </div>
     </>

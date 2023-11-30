@@ -226,3 +226,48 @@ export const UserDevices = [
         battery: "87% Battery remaining",
     },
 ];
+
+
+export const UserRoutes = [
+    {
+        id: 1,
+        title: "Dashboard",
+        icon: "dashboardHome.svg",
+        iconfill: "dashboardHomeFill.svg",
+        link: "/dashboard/"
+    },
+
+    {
+        id: 3,
+        title: "History",
+        icon: "dashboardHistory.svg",
+        iconfill: "dashboardHistoryFill.svg",
+        link: "/dashboard/"
+    },
+    {
+        id: 4,
+        title: "Settings",
+        icon: "dashboardSetting.svg",
+        iconfill: "dashboardSettingFill.svg",
+        link: "/dashboard/"
+    },
+]
+
+export const SidebarFooterRoutes = [
+
+    {
+        id: 1,
+        title: "Back to devices",
+        icon: "dashboardback.svg",
+        iconfill: "dashboardLogout.svg",
+        link: "/dashboard/"
+    },
+    {
+        id: 2,
+        title: "Report a problem",
+        icon: "dashboardReport.svg",
+        iconfill: "dashboardReport.svg",
+        link: "/dashboard/"
+    },
+
+]
