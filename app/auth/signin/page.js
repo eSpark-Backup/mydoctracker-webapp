@@ -1,12 +1,14 @@
-import { SignContainer, SignInForm } from '@/app/components'
+import { GIFBanner, SignContainer, SignInForm } from '@/app/components'
 import React from 'react'
 
 
 const SignIn = () => {
   return (
-    <div className='flex w-10/12 border-2 border-black'>
-      <div className='w-7/12' >GIF box</div>
-      <div className='w-5/12'>
+    <div className='flex lg:flex-row flex-col min-h-screen' >
+      <div className='lg:w-7/12 w-full' >
+        <GIFBanner buttonTitle={"Sign Out"} redirect={"signup"}/>
+      </div>
+      <div className='lg:w-5/12 w-full'>
         <SignContainer> 
           <SignInForm/>
         </SignContainer>
