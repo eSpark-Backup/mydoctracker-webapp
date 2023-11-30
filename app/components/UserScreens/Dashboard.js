@@ -1,5 +1,4 @@
 import React from "react";
-// import UserDashboard from "../../../public/Images/UserDashboard.png";
 import Image from "next/image";
 import { UserDevices } from "@/app/constant";
 import { Badge } from "antd";
@@ -7,6 +6,7 @@ import ConfirmationModal from "../common/ConfirmationModal";
 
 const Dashboard = ({ noDevices }) => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
+  const [showEditScreen, setShowEditScreen] = React.useState(false);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -19,8 +19,6 @@ const Dashboard = ({ noDevices }) => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
-  const [showEditScreen, setShowEditScreen] = React.useState(false);
 
   return (
     <>
@@ -89,8 +87,6 @@ const Dashboard = ({ noDevices }) => {
       ) : showEditScreen ? (
         <></>
       ) : <h1>Hello</h1>}
-      {console.log(showEditScreen)}
-      {console.log(noDevices)}
       <ConfirmationModal
         isModalOpen={isModalOpen}
         showModal={showModal}
