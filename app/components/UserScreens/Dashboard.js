@@ -12,7 +12,7 @@ import DocButton from "../common/docButton";
 
 const Dashboard = ({ noDevices }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [showEditScreen, setShowEditScreen] = useState(true);
+  const [showEditScreen, setShowEditScreen] = useState(false);
 
   const showModal = () => {
     setIsModalOpen(true);

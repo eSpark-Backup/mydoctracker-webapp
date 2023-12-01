@@ -234,7 +234,7 @@ export const UserRoutes = [
         title: "Dashboard",
         icon: "dashboardHome.svg",
         iconfill: "dashboardHomeFill.svg",
-        link: "/dashboard/"
+        link: "/dashboard/devices/user"
     },
 
     {
@@ -242,14 +242,14 @@ export const UserRoutes = [
         title: "History",
         icon: "dashboardHistory.svg",
         iconfill: "dashboardHistoryFill.svg",
-        link: "/dashboard/"
+        link: "/dashboard/devices/user"
     },
     {
         id: 4,
         title: "Settings",
         icon: "dashboardSetting.svg",
         iconfill: "dashboardSettingFill.svg",
-        link: "/dashboard/"
+        link: "/dashboard/devices/user/settings"
     },
 ]
 
@@ -270,4 +270,19 @@ export const SidebarFooterRoutes = [
         link: "/dashboard/"
     },
 
+]
+
+export const deviceSettingNotfications = [
+    {
+      heading:"SOS",
+      description:"Enable or Disable Notifications"
+    },
+    {
+      heading:"Geofence Alerts",
+      description:"Enable or Disable Notifications"
+    },
+    {
+      heading:"Battery Alerts",
+      description:"Enable or Disable Notifications"
+    },
 ]

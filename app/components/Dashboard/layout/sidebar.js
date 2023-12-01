@@ -9,7 +9,7 @@ const Sidebar = () => {
             <div className='flex flex-col justify-center items-center pb-10'>
 
                 <div className='py-5'>
-                    <Image src='/Images/logo.svg' width={50} height={50} />
+                    <Image src='/Images/logo.svg' width={50} height={50} alt="logo" />
                 </div>
                 <div>
                     <h2 className='text-xl text-white'>My Doc Tracker</h2>

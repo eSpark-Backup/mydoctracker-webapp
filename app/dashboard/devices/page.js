@@ -6,7 +6,7 @@ const Devices = () => {
     return (
         <>
         <Header />
-        <div className="flex flex-col min-h-screen px-3 py-3 sm:py-0 sm:px-0 justify-start items-start sm:justify-center sm:items-center bg-[#F7F7F7]">
+        <div className="flex flex-col min-h-screen p-3 sm:p-0 items-start  sm:items-center bg-[#F7F7F7]">
           <div className="w-[100%] sm:w-[75%] flex items-end mt:0 sm:mt-10">
             <HeadContent
               mainHeading="Devices"
