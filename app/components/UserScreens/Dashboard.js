@@ -1,4 +1,6 @@
-import React from "react";
+"use client"
+
+import React, { useState } from "react";
 import Image from "next/image";
 import { UserDevices } from "@/app/constant";
 import { Badge, DatePicker, TimePicker } from "antd";
@@ -9,8 +11,8 @@ import DocImgInput from "../common/docImgInput";
 import DocButton from "../common/docButton";
 
 const Dashboard = ({ noDevices }) => {
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-  const [showEditScreen, setShowEditScreen] = React.useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showEditScreen, setShowEditScreen] = useState(true);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -40,7 +42,7 @@ const Dashboard = ({ noDevices }) => {
               You don’t have any device. Please add your device to continue
               further.
             </h1>
-            <DocButton text={"+ Add"} className={"text-white rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)}/>
+            <DocButton text={"+ Add"} className={"text-white rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)} />
           </>
         </div>
       ) : noDevices === false && showEditScreen === false ? (
@@ -81,13 +83,13 @@ const Dashboard = ({ noDevices }) => {
               </div>
             </div>
           ))}
-          <DocButton text={"+ Add"} className={"text-white rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)}/>
+          <DocButton text={"+ Add"} className={"text-white rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)} />
         </div>
       ) : showEditScreen ? (
         <>
           <div className="w-[100%] gap-12 h-auto lg:min-h-[650px] drop-shadow-lg rounded-lg bg-white my-4 flex p-8 flex-col">
             <div>
-              
+
               <h2 className="mb-4 text-black text-sm sm:text-xl font-medium">Tracker Details</h2>
               <div className="flex gap-14 flex-col sm:flex-row">
                 <div className="w-100% lg:w-[30%] flex flex-col">
@@ -96,14 +98,14 @@ const Dashboard = ({ noDevices }) => {
                 </div>
                 <div className="w-100% sm:w-[30%] flex flex-col">
                   <label className="text-[#666] text-sm">Select Type <span className="text-red-600">*</span></label>
-                  <DocDropdown placeholder={"a1"} className={"w-[100%]"} options={[{ label: 'a1', value: 'a1' },{ label: 'a2', value: 'a2' }]}/>
+                  <DocDropdown placeholder={"a1"} className={"w-[100%]"} options={[{ label: 'a1', value: 'a1' }, { label: 'a2', value: 'a2' }]} />
                 </div>
               </div>
             </div>
             <div>
               <div className="flex justify-between flex-wrap">
-              <h2 className="mb-4 text-black text-sm sm:text-xl font-medium">Document Details</h2>
-              <DocButton text={"+ Add"} className={"text-white rounded-lg"}/>
+                <h2 className="mb-4 text-black text-sm sm:text-xl font-medium">Document Details</h2>
+                <DocButton text={"+ Add"} className={"text-white rounded-lg"} />
               </div>
               <div className="flex gap-14 flex-col sm:flex-row flex-wrap">
                 <div className="w-100% lg:w-[30%] flex flex-col">
@@ -112,21 +114,21 @@ const Dashboard = ({ noDevices }) => {
                 </div>
                 <div className="w-100% sm:w-[30%] flex flex-col">
                   <label className="text-[#666] text-sm">Date Of Creation <span className="text-red-600">*</span></label>
-                  <DatePicker placeholder={"DD--MM--YYY"} className="h-[40px]" suffixIcon={<Image src={"/icons/Calender.svg"} width={30} height={30} alt="Calender"/>} />
+                  <DatePicker placeholder={"DD--MM--YYY"} className="h-[40px]" suffixIcon={<Image src={"/icons/Calender.svg"} width={30} height={30} alt="Calender" />} />
                 </div>
                 <div className="w-100% sm:w-[30%] flex flex-col">
                   <label className="text-[#666] text-sm">Time Of Creation <span className="text-red-600">*</span></label>
-                  <TimePicker placeholder="00:00" className="h-[40px]" suffixIcon={<Image src={"/icons/Time.svg"} width={30} height={30} alt="Calender"/>} />
+                  <TimePicker placeholder="00:00" className="h-[40px]" suffixIcon={<Image src={"/icons/Time.svg"} width={30} height={30} alt="Calender" />} />
                 </div>
               </div>
             </div>
             <div>
               <h2 className="text-[#666] text-sm">Upload Doc Image  (Optional)</h2>
-              <DocImgInput placeholder={"Upload Image"} className="mt-3"/>
+              <DocImgInput placeholder={"Upload Image"} className="mt-3" />
             </div>
             <div className="flex gap-6">
-              <DocButton text={"Cancel"} onClick={() => setShowEditScreen(!showEditScreen)} className={"border-2 border-[#E4E4E4] bg-transparent text-primary"}/>
-              <DocButton text={"Submit"} className={"bg-transparent border-2 border-primary"}/>
+              <DocButton text={"Cancel"} onClick={() => setShowEditScreen(!showEditScreen)} className={"border-2 border-[#E4E4E4] bg-transparent text-primary"} />
+              <DocButton text={"Submit"} className={"bg-transparent border-2 border-primary"} />
             </div>
           </div>
         </>
