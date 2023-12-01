@@ -5,7 +5,7 @@ import { SidebarFooterRoutes, UserRoutes } from '../../../constant'
 
 const Sidebar = () => {
     return (
-        <div className='hidden h-full bg-primary xl:flex flex-col'>
+        <div className='hidden min-h-screen bg-primary xl:flex flex-col'>
             <div className='flex flex-col justify-center items-center pb-10'>
 
                 <div className='py-5'>
