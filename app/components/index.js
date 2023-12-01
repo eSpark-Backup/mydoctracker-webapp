@@ -22,8 +22,8 @@ import FeatureBox from './landing/components/featureBox'
 import Dashboard from './UserScreens/Dashboard'
 import Main from './Dashboard/layout/main'
 import Header from './Dashboard/layout/header'
-import NoteBookDetail from './Dashboard/components/NoteBookDetail'
-
+import NotebookDetail from './dashboard/components/notebookDetail'
+import InfoCard from './dashboard/components/infoCard'
 
 export {
     SignContainer,
@@ -50,5 +50,6 @@ export {
     Dashboard,
     Main,
     Header,
-    NoteBookDetail,
+    NotebookDetail,
+    InfoCard,
 }
