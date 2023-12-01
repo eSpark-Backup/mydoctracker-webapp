@@ -16,7 +16,7 @@ const Sidebar = () => {
                 </div>
             </div>
 
-            <div className='flex-1 flex flex-col justify-between cursor-pointer'>
+            <div className='flex-1 flex flex-col justify-between'>
                 <div>
                     {
                         UserRoutes
