@@ -29,7 +29,6 @@ const page = () => {
     ];
 
     return (
-        // <div className='flex flex-col justify-center items-center h-screen bg-[#F7F7F7]'>
         <>
           <div className='bg-white w-full rounded-lg shadow-lg sm:p-8 p-2 mt-4 min-h-[800px]'>
             <Tabs size='large' defaultActiveKey="1" items={items} onChange={onChange} />
@@ -144,7 +143,6 @@ const page = () => {
             </div> : 0}
         </div>
         </>
-        // </div>
     )
 }
 
