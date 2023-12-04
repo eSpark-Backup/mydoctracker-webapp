@@ -11,7 +11,6 @@ const page = () => {
     const [activeTab, setActiveTab] = useState(1)
     const onChange = (key) => {
         setActiveTab(key)
-        console.log(activeTab);
     };
     const items = [
         {

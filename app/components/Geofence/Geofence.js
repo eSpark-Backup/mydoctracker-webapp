@@ -1,0 +1,27 @@
+import { GeofenceData } from '@/app/constant'
+import Image from 'next/image'
+import React from 'react'
+
+const Geofence = () => {
+    return (
+        <div className='mt-6 bg-white py-3 sm:px-3 sm:py-7 rounded-lg sm:min-h-[800px] border-2 border-[#E4E4E4] sm:border-white'>
+            <h2 className='text-lg sm:text-xl text-black font-medium p-2 sm:px-4 sm:py-3 border-b-2 border-[#E4E4E4] sm:border-white'>Geofence</h2>
+            {GeofenceData.map((eachItem, index) => (
+                <div className='px-3 py-8 sm:py-5 sm:px-8 border-b-2 border-[#E4E4E4] flex justify-between min-h-[120px]' key={index}>
+                    <div>
+                        <h3 className='text-[#424242] text-sm sm:text-base'>{eachItem?.heading}</h3>
+                        <p className='text-xs sm:text-sm text-[#434343] mt-3'>Mar 24, 2023, 5:43 PM</p>
+                    </div>
+                    <div>
+                        <Image src={"/Images/Greater.png"} width={12} height={22} alt='Arrow' />
+                    </div>
+                </div>
+            ))}
+            <div className='mt-2 py-5 px-7 border-b-2 border-white sm:border-[#E4E4E4] flex justify-center items-center min-h-[120px]'>
+                <button><Image src={"/icons/Add.svg"} width={24} height={24} alt='Add'/></button>
+            </div>
+        </div>
+    )
+}
+
+export default Geofence
