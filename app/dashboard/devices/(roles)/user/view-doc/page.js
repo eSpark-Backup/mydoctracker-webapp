@@ -3,6 +3,7 @@
 import { DocButton, FieldView } from '@/app/components'
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const ViewDoc = () => {
     return (
@@ -13,7 +14,9 @@ const ViewDoc = () => {
                 </div>
 
                 <div>
+                    <Link href={"/dashboard/devices/user/edit-doc"}>
                     <DocButton prefix={<Image src="/icons/editPencil.svg" width={18} height={18} className='mr-2' />} text={"Edit"} className={"text-sm font-bold bg-secondary border-primary text-primary h-[30px]"} />
+                    </Link>
                 </div>
             </div>
 

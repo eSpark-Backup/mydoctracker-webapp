@@ -4,6 +4,11 @@ export const theme = {
        activeBorderColor : '#FCBF4A',
        hoverBorderColor: '#FCBF4A',
      },
+     DatePicker:{
+       activeBorderColor : '#FCBF4A',
+       hoverBorderColor: '#FCBF4A',
+     },
+     
      },
     }
    
