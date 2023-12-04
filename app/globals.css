@@ -15,6 +15,10 @@
 {
   display: none !important;
 }
+:where(.css-dev-only-do-not-override-tyo0vv).ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+  color: #FCBF4A  !important;
+  border-color: #FCBF4A !important;
+}
 
 .ant-checkbox-inner, .ant-checkbox-input {
   transform: scale(1.2);
