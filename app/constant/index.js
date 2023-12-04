@@ -271,3 +271,22 @@ export const SidebarFooterRoutes = [
     },
 
 ]
+
+export const GeofenceData = [
+    {
+        heading:"Room1", 
+        description:"Mar 24, 2023, 5:43 PM",
+    },
+    {
+        heading:"Room1", 
+        description:"Mar 24, 2023, 5:43 PM",
+    },
+    {
+        heading:"Room1", 
+        description:"Mar 24, 2023, 5:43 PM",
+    },
+    {
+        heading:"Room1", 
+        description:"Mar 24, 2023, 5:43 PM",
+    }
+]
