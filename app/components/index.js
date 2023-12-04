@@ -24,6 +24,7 @@ import Main from './Dashboard/layout/main'
 import Header from './Dashboard/layout/header'
 import NotebookDetail from './dashboard/components/notebookDetail'
 import InfoCard from './dashboard/components/infoCard'
+import FieldView from './common/fieldView'
 
 export {
     SignContainer,
@@ -52,4 +53,5 @@ export {
     Header,
     NotebookDetail,
     InfoCard,
+    FieldView
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import DocButton from '../../common/docButton'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const InfoCard = ({ icon, title, description, mdwidth, leftBorder, buttonTitle }) => {
     return (
@@ -22,7 +23,10 @@ const InfoCard = ({ icon, title, description, mdwidth, leftBorder, buttonTitle }
 
                 <div className='flex flex-col gap-y-2'>
                     {
-                        title === "Document" && <DocButton text={"View Document"} className={"text-sm w-full bg-transparent border-2 border-primary"} />
+                        title === "Document" && 
+                        <Link  href="/dashboard/devices/user/view-doc">
+                        <DocButton text={"View Document"} className={"text-sm w-full bg-transparent border-2 border-primary text-primary"} />
+                        </Link>
                     }
                     <DocButton text={buttonTitle} className={"text-sm w-full bg-transparent border-2 border-primary"} />
                 </div>
