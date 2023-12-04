@@ -28,6 +28,7 @@ import FieldView from './common/fieldView'
 import DocTimePicker from "./common/docTimePicker"
 import DocDatePicker from "./common/docDatePicker"
 import DocImgInput from "./common/docImgInput"
+import CordinatesTaker from "./common/cordinatesTaker"
 
 export {
     SignContainer,
@@ -60,4 +61,5 @@ export {
     DocTimePicker,
     DocDatePicker,
     DocImgInput,
+    CordinatesTaker,
 }
