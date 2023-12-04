@@ -8,7 +8,7 @@ const About = () => {
         <section className='lg:px-[10rem] px-[2rem] md:py-[5rem] py-[4rem] bg-[#F5F6FA]'>
             <div className='flex flex-col md:flex-row justify-between'>
                 <div className='md:w-[30%] w-full flex justify-center md:pb-0 pb-5'>
-                    <Image src='/images/safeDocument.svg' width={400} height={400} />
+                    <Image src='/images/safeDocument.svg' width={400} height={400} alt="icon" />
                 </div>
                 <div className='md:w-[60%] w-full'>
                     <h2 className='text-3xl pb-5 font-bold text-primary text-center md:text-start'>Keep your documents safe with app!</h2>

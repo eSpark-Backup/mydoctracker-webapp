@@ -28,7 +28,7 @@ const Main = ({ children }) => {
                     <div className='xl:w-10/12 w-full  min-h-screen bg-slate-400'>
                         <MobileDrawer open={open} showDrawer={showDrawer} onClose={onClose} />
                         <Header showDrawer={showDrawer} />
-                        <div className="flex flex-col min-h-screen p-3 sm:p-0 bg-[#F7F7F7]">
+                        <div className="flex flex-col min-h-[93vh] p-3 sm:p-0 bg-[#F7F7F7]">
                             <div className="w-[100%] mx-auto sm:w-[85%] h-[100%] ">
                                 {children}
                             </div>
