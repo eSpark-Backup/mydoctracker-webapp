@@ -10,7 +10,7 @@ const InfoCard = ({ icon, title, description, mdwidth, leftBorder, buttonTitle }
                 <div className='pb-4'>
                     <div className='flex gap-2 items-center'>
                         <div>
-                            <Image className='w-[44px]' src={`/icons/${icon}`} width={50} height={50} />
+                            <Image className='w-[44px]' src={`/icons/${icon}`} width={50} height={50} alt='Icon' />
                         </div>
                         <div>
                             <p className='text-black font-semibold md:text-xl text-sm'>{title}</p>

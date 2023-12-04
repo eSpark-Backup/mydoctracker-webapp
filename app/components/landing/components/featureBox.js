@@ -9,7 +9,7 @@ const FeatureBox = ({currentIndex, id, description, icon, iconfill, revert}) => 
                 {description}
             </div>
             <div className={`w-[20%] flex justify-center ${revert ? "pr-3": "pl-3"}`}>
-                <Image src={`/icons/${selected ? iconfill : icon}`} className= {`${selected ? "w-[60px]" :"w-[50px]"}`} width={50} height={50} />
+                <Image src={`/icons/${selected ? iconfill : icon}`} alt="icon" className= {`${selected ? "w-[60px]" :"w-[50px]"}`} width={50} height={50} />
             </div>
         </div>
     )

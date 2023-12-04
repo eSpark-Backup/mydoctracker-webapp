@@ -12,7 +12,7 @@ import DocButton from "../common/docButton";
 
 const Dashboard = ({ noDevices }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [showEditScreen, setShowEditScreen] = useState(true);
+  const [showEditScreen, setShowEditScreen] = useState(false);
 
   const showModal = () => {
     setIsModalOpen(true);
@@ -46,7 +46,7 @@ const Dashboard = ({ noDevices }) => {
           </>
         </div>
       ) : noDevices === false && showEditScreen === false ? (
-        <div className="w-[100%] gap-6 h-auto drop-shadow-lg rounded-lg bg-white my-4 flex py-24 items-center flex-col">
+        <div className="w-[100%] gap-6 h-auto drop-shadow-lg rounded-lg bg-white my-4 flex py-12 items-center flex-col">
           {UserDevices?.map((eachDevice) => (
             <div className="h-36 w-[90%] border-b-2 border-[#E4E4E4]">
               <div className="flex gap-5">
@@ -144,7 +144,7 @@ const Dashboard = ({ noDevices }) => {
         confirmButton="Yes"
         description="Are you sure you want to remove this device?"
         icon={"Cancel.svg"}
-        acceptButtonColor="#F00"
+        acceptButtonColor="red"
       />
     </>
   );
