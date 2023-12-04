@@ -13,9 +13,9 @@ const props = {
 
 
 
-const DocImgInput = ({placeholder,className}) => (
-  <Upload {...props}>
-    <Button icon={<UploadOutlined />} className={`${className}`}>{placeholder}</Button>
+const DocImgInput = ({ placeholder, className }) => (
+  <Upload className={`${className}`} {...props}>
+    <Button size='large' className='border-2 border-grey-100' icon={<UploadOutlined />} >{placeholder}</Button>
   </Upload>
 );
 export default DocImgInput;

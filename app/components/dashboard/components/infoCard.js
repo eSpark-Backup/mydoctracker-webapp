@@ -1,8 +1,9 @@
 import React from 'react'
 import DocButton from '../../common/docButton'
 import Image from 'next/image'
+import Link from 'next/link'
 
-const InfoCard = ({ icon, title, description, mdwidth, leftBorder, buttonTitle }) => {
+const InfoCard = ({ icon, title, description, mdwidth, leftBorder, buttonTitle, buttonLink }) => {
     return (
         <div className={`xl:w-4/12 ${mdwidth} ${leftBorder && "xl:border-r-2 border-b-2"} md:border-b-0  w-full flex flex-col items-center xl:px-3  px-0 py-6`}>
             <div className='w-4/6 '>
@@ -22,9 +23,15 @@ const InfoCard = ({ icon, title, description, mdwidth, leftBorder, buttonTitle }
 
                 <div className='flex flex-col gap-y-2'>
                     {
-                        title === "Document" && <DocButton text={"View Document"} className={"text-sm w-full bg-transparent border-2 border-primary"} />
+                        title === "Document" && 
+                        <Link className='no-underline text-primary' href="/dashboard/devices/user/view-doc">
+                        <DocButton text={"View Document"} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
+                        </Link>
                     }
-                    <DocButton text={buttonTitle} className={"text-sm w-full bg-transparent border-2 border-primary"} />
+                    
+                     <Link className='no-underline text-primary' href={buttonLink ? buttonLink : "/dashboard/devices/user/"}>
+                    <DocButton text={buttonTitle} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
+                    </Link>
                 </div>
             </div>
         </div>
