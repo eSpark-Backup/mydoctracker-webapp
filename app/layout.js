@@ -6,6 +6,7 @@ import Providers from './utils/providers';
 import AntdStyledComponentsRegistry from './utils/AntdStyledComponentsRegistry';
 import { Provider } from "react-redux";
 import store from "./store";
+import { AppProvider } from './provider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +20,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Provider store={store}>
+        <AppProvider>
           <Providers>
             <AntdStyledComponentsRegistry>
               <ConfigProvider
@@ -28,7 +29,7 @@ export default function RootLayout({ children }) {
               </ConfigProvider>
             </AntdStyledComponentsRegistry>
           </Providers>
-        </Provider>
+        </AppProvider>
       </body>
     </html>
   )
