@@ -55,3 +55,19 @@
 .ant-drawer-body {
   padding: 0px !important;
 }
+
+.ant-tabs-tab-btn {
+  color: #666666;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #002F49 !important; 
+}
+
+.ant-tabs-ink-bar {
+  background: #002F49 !important; 
+}
+
+.ant-tabs-nav-list {
+  padding: 10px 0 0 8px;
+}
