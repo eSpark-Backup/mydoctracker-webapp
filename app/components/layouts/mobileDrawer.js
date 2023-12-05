@@ -17,7 +17,7 @@ const MobileDrawer = ({ open, onClose }) => {
                     </div>
                     <div className='flex flex-col justify-center items-center pb-10'>
                         <div className='py-5'>
-                            <Image src='/Images/logo.svg' width={50} height={50} alt="Logo" />
+                            <Image src='/images/logo.svg' width={50} height={50} alt="Logo" />
                         </div>
                         <div>
                             <h2 className='text-xl text-white'>My Doc Tracker</h2>

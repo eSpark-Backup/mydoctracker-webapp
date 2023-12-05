@@ -19,7 +19,7 @@ const Geofence = () => {
 
                                 </div>
                                 <div>
-                                    <Image src={"/Images/Greater.png"} width={12} height={22} alt='Arrow' />
+                                    <Image src={"/images/Greater.png"} width={12} height={22} alt='Arrow' />
                                 </div>
                             </div>
                         </Link>

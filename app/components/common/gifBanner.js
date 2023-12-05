@@ -16,7 +16,7 @@ const GIFBanner = ({ buttonTitle, redirect }) => {
             <Image className='md:w-[35px] w-[25px]' src={"/icons/backArrow.svg"} alt="logo" width={20} height={20} />
           </div>
           <div>
-            <Image className='lg:w-[100px] w-[60px]' src={"/Images/logo.svg"} alt="logo" width={100} height={100} />
+            <Image className='lg:w-[100px] w-[60px]' src={"/images/logo.svg"} alt="logo" width={100} height={100} />
           </div>
           <h3 className='lg:text-4xl text-2xl text-white font-semibold'>
             Mydoctracker
