@@ -31,7 +31,7 @@ const User = () => {
 
                 <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 px-3 py-7 flex-col">
                     <div className='flex flex-wrap'>
-                        <InfoCard title={"Document"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet."} icon={"dashboardDocument.svg"} leftBorder={true} mdwidth={"md:w-6/12"} buttonTitle={"Document History"} />
+                        <InfoCard title={"Document"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet."} icon={"dashboardDocument.svg"} leftBorder={true} mdwidth={"md:w-6/12"} buttonTitle={"Document History"} buttonLink={"/dashboard/devices/user/download-doc"} />
                         <InfoCard title={"Share Location"} description={"You can share your location by creating link. Also, can manage who can see it."} icon={"dashboardLocation.svg"} leftBorder={true} mdwidth={"md:w-6/12"} buttonTitle={"Create Link"} />
                         <InfoCard title={"Geofence"} description={"Set Geofencing around your preferred area and you will get notify when your device gets out of the range you restricted."} icon={"dashboardGefence.svg"} leftBorder={false} mdwidth={"md:w-12/12"} buttonTitle={"Set"} buttonLink={"/dashboard/devices/user/geofence"}/>
                     </div>
