@@ -1,13 +1,14 @@
-"use client"
-
 import { Checkbox, Col, Form, Input, Row } from 'antd';
 import React from 'react'
-import DocInput from '../../common/docInput';
-import DocButton from '../../common/docButton';
+import DocInput from '../common/docInput';
+import DocButton from '../common/docButton';
 import Link from 'next/link';
 
-const CorporateSignIn = () => {
+const SingleUserSignIn = () => {
   const [form] = Form.useForm();
+
+
+
 
   const onFinish = (values) => {
     console.log(values, "SingleUserForm");
@@ -20,33 +21,14 @@ const CorporateSignIn = () => {
           <Row gutter={[0, 0]}>
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Company Email</span>}
-                name="companyEmail"
+                label={<span className='text-grey'>Username</span>}
+                name="username"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                 rules={[{ required: true, message: "Please Enter Company Email" },
-                  { type: 'email', message: 'Please enter valid email' } 
-              ]}
-                
+                rules={[{ required: true, message: "Please Enter User Name"}]}
               >
-                <DocInput type={"email"} placeholder="Enter Company Email"
-                  onChange={(value) => form.setFieldsValue({ companyEmail: value })}
-                  
-                />
-              </Form.Item>
-            </Col>
-            <Col span={24}>
-              <Form.Item
-                label={<span className='text-grey'>Admin Email</span>}
-                name="adminEmail"
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please enter User Name" },
-                { type: 'email', message: 'Please enter valid email' } 
-              ]}
-              >
-                <DocInput type={"email"} placeholder="Enter User name"
-                  onChange={(value) => form.setFieldsValue({ adminEmail: value })}
+                <DocInput type={"text"} placeholder="Enter User name"
+                  onChange={(value) => form.setFieldsValue({ username: value })}
                 // value={form.getFieldValue('username')}
                 />
               </Form.Item>
@@ -58,7 +40,7 @@ const CorporateSignIn = () => {
                 name="password"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please enter Password" }]}
+                rules={[{ required: true, message: "Please Enter Password" }]}
               >
                 <DocInput type={"password"} placeholder="Enter Password"
                   onChange={(value) => form.setFieldsValue({ password: value })}
@@ -81,7 +63,7 @@ const CorporateSignIn = () => {
                 ]}
                 wrapperCol={{ span: 24 }}
               >
-                <Checkbox>
+                <Checkbox >
                   <span className='text-[14px]'>
                     I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <span className='text-primary  font-semibold'>Terms and conditions</span>
                   </span>
@@ -94,8 +76,7 @@ const CorporateSignIn = () => {
 
       <div>
         <DocButton onClick={() => form.submit()} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
-      </div>
-
+         
       <div className='lg:hidden block'>
          <div className='py-8 flex flex-col items-center'>
             <p className='text-[12px] text-grey'>Already have an account?</p>
@@ -104,9 +85,11 @@ const CorporateSignIn = () => {
             </Link>
          </div>
       </div>
+      
+      </div>
 
     </div>
   )
 }
 
-export default CorporateSignIn
+export default SingleUserSignIn

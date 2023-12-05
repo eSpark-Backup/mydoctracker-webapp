@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState } from 'react'
-import RoleBox from '../common/roleBox'
 import { signInRoles } from '@/app/constant';
-import SingleUserSignIn from '../../forms/signIn/singleUserSignIn';
-import CorporateSignIn from '../../forms/signIn/corporateSignIn';
-import JoinTeamSignIn from '../../forms/signIn/joinTeamSignIn';
+import SingleUserSignIn from './singleUserSignIn';
+import CorporateSignIn from './corporateSignIn';
+import JoinTeamSignIn from './joinTeamSignIn';
+import RoleBox from '../common/roleBox';
+
+
 
 const SignInForm = () => {
   const [currentRole, setCurrentRole] = useState(1);

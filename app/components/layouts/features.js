@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from 'react'
-import FeatureBox from '../components/featureBox'
+import React, { useEffect, useMemo, useState } from 'react'
+import FeatureBox from '../common/featureBox'
 import { featureMobile, featuresLeft, featuresRight } from '@/app/constant';
 import Image from 'next/image';
 
 const Features = () => {
-    const steps = [1, 2, 3];
+    const steps = useMemo(() => [1, 2, 3], []);
     const [currentStep, setCurrentStep] = useState(1);
 
     useEffect(() => {

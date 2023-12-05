@@ -17,7 +17,7 @@ const Navbar = () => {
                     <div className="flex justify-center items-center">
                         <Image
                             className="w-[33px] mr-2"
-                            src={"/Images/logo.svg"}
+                            src={"/images/logo.svg"}
                             alt="logo"
                             width={10}
                             height={10}

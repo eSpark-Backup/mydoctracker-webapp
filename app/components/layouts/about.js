@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import DocButton from '../../common/docButton'
+import DocButton from '../common/docButton'
 import Link from 'next/link'
 
 const About = () => {

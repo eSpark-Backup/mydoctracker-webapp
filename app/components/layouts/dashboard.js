@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { UserDevices } from "@/app/constant";
 import { Badge } from "antd";
-import ConfirmationModal from "../common/ConfirmationModal";
 import DocButton from "../common/docButton";
 import { PlusOutlined } from "@ant-design/icons";
 
 import Link from "next/link";
+import ConfirmationModal from "../common/confirmationModal";
 
 
 const Dashboard = ({ noDevices }) => {
@@ -33,7 +33,7 @@ const Dashboard = ({ noDevices }) => {
         <>
           <Image
             className="w-[250px] h-[320px]"
-            src={"/Images/UserDashboard.png"}
+            src={"/images/UserDashboard.png"}
             width={20}
             height={20}
             alt="Empty"
@@ -47,8 +47,8 @@ const Dashboard = ({ noDevices }) => {
           </Link>
         </>
       </div> : <div className="w-[100%] gap-6 h-auto drop-shadow-lg rounded-lg bg-white my-4 flex py-12 items-center flex-col">
-        {UserDevices?.map((eachDevice) => (
-          <div className="h-36 w-[90%]  border-b-2 border-greyBorder">
+        {UserDevices?.map((eachDevice, key) => (
+          <div key={key} className="h-36 w-[90%]  border-b-2 border-greyBorder">
             <div className="flex gap-5">
               <Link href={"/dashboard/devices/user"} >
                 <h1 className="text-[14px] sm:text-xl cursor-pointer">
