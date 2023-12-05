@@ -29,6 +29,7 @@ import DocTimePicker from "./common/docTimePicker"
 import DocDatePicker from "./common/docDatePicker"
 import DocImgInput from "./common/docImgInput"
 import CordinatesTaker from "./common/cordinatesTaker"
+import NavigatorHeader from "./Navigator-header"
 
 export {
     SignContainer,
@@ -62,4 +63,5 @@ export {
     DocDatePicker,
     DocImgInput,
     CordinatesTaker,
+    NavigatorHeader,
 }
