@@ -1,12 +1,12 @@
 "use client"
 
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
-import DocButton from '../../common/docButton'
+import React, { useEffect, useMemo, useState } from 'react'
+import DocButton from '../common/docButton'
 import { introLaptopScreen } from '@/app/constant'
 
 const Intro = () => {
-    const steps = [1, 2, 3];
+    const steps = useMemo(() => [1, 2, 3], []);
     const [currentStep, setCurrentStep] = useState(1);
 
     useEffect(() => {

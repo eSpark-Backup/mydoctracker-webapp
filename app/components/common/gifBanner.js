@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import DocButton from '../../common/docButton'
+import DocButton from './docButton'
 import Link from 'next/link'
 
 const GIFBanner = ({ buttonTitle, redirect }) => {

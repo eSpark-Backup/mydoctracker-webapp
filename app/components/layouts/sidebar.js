@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
-import SiderbarRoutes from '../components/siderbarRoutes'
-import { SidebarFooterRoutes, UserRoutes } from '../../../constant'
+import SiderbarRoutes from '../common/siderbarRoutes'
+import { SidebarFooterRoutes, UserRoutes } from '../../constant'
 
 const Sidebar = () => {
     return (

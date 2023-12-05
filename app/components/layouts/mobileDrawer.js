@@ -1,6 +1,6 @@
 import React from 'react';
 import { Drawer } from 'antd';
-import SiderbarRoutes from '../components/siderbarRoutes';
+import SiderbarRoutes from '../common/siderbarRoutes';
 import { SidebarFooterRoutes, UserRoutes } from '@/app/constant';
 import Image from 'next/image';
 import { CloseOutlined } from '@ant-design/icons';

@@ -19,7 +19,7 @@ const AddFieldsForm = ({handleCancel}) => {
                     </div>
                     <div className='flex justify-center items-center gap-3'>
                         <DocButton onClick={handleCancel} text={"Close"} className={"border-2 border-greyBorder bg-transparent"} />
-                        <DocButton className={"border-2 border-primary text-primary bg-transparent pl-4"} text={"Next "} suffix={<Image src={"/icons/Greater.svg"} width={8} height={8} />} />
+                        <DocButton className={"border-2 border-primary text-primary bg-transparent pl-4"} text={"Next "} suffix={<Image src={"/icons/Greater.svg"} width={8} height={8} alt='Greater' />} />
                     </div>
                 </div>
             </div>

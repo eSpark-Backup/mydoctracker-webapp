@@ -3,8 +3,7 @@
 import React, { useState } from 'react'
 import RoleBox from '../common/roleBox'
 import {signUpRoles } from '@/app/constant';
-import SingleUserSignUp from '../../forms/signUp/singleUserSignup';
-import CorporateSignup from '../../forms/signUp/corporateSignup';
+import { CorporateSignup, SingleUserSignUp } from '..';
 
 const SignUpForm = () => {
   const [currentRole, setCurrentRole] = useState(1);

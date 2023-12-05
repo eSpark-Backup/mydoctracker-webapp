@@ -1,7 +1,7 @@
 import React from 'react'
-import OptionsBox from '../components/optionsBox'
+import OptionsBox from '../common/optionsBox'
 import { landingOptions } from '@/app/constant'
-import DocButton from '../../common/docButton'
+import DocButton from '../common/docButton'
 
 const Options = () => {
     return (

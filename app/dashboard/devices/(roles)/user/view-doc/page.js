@@ -15,7 +15,7 @@ const ViewDoc = () => {
 
                 <div>
                     <Link href={"/dashboard/devices/user/edit-doc"}>
-                    <DocButton prefix={<Image src="/icons/editPencil.svg" width={18} height={18} className='mr-2' />} text={"Edit"} className={"text-sm font-bold bg-secondary border-primary text-primary h-[30px]"} />
+                    <DocButton prefix={<Image src="/icons/editPencil.svg" width={18} height={18} className='mr-2' alt='edit' />} text={"Edit"} className={"text-sm font-bold bg-secondary border-primary text-primary h-[30px]"} />
                     </Link>
                 </div>
             </div>
@@ -44,7 +44,7 @@ const ViewDoc = () => {
                 </div>
                 <div className='lg:w-[65%]'>
                     <div className='flex justify-center'>
-                        <Image src="/images/docImage.svg" className='lg:w-[70%] w-[80%]' width={500} height={500} />
+                        <Image src="/images/docImage.svg" className='lg:w-[70%] w-[80%]' alt='Document Image' width={500} height={500} />
                     </div>
                 </div>
 

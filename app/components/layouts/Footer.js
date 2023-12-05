@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import StoreBox from '../components/storeBox'
+import StoreBox from '../common/storeBox'
 import { footerRoutes1, footerRoutes2, storeBoxs } from '@/app/constant'
 import Link from 'next/link'
 

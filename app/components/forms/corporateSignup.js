@@ -2,8 +2,8 @@
 
 import { Checkbox, Col, Form, Row } from 'antd';
 import React, { useState } from 'react'
-import DocInput from '../../common/docInput';
-import DocButton from '../../common/docButton';
+import DocInput from '../common/docInput';
+import DocButton from '../common/docButton';
 import Link from 'next/link';
 
 const CorporateSignup = () => {

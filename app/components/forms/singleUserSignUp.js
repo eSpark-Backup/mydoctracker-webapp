@@ -1,7 +1,7 @@
 import { Checkbox, Col, Form, Input, Row } from 'antd';
 import React from 'react'
-import DocInput from '../../common/docInput';
-import DocButton from '../../common/docButton';
+import DocInput from '../common/docInput';
+import DocButton from '../common/docButton';
 import Link from 'next/link';
 
 const SingleUserSignup = () => {

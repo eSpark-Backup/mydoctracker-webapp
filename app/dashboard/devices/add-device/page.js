@@ -5,11 +5,12 @@ import React, { useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import Link from 'next/link';
 import InputModal from '@/app/components/common/InputModal';
-import Image from 'next/image';
-import AddFieldsForm from '@/app/components/Forms/AddFieldsForm';
+import AddFieldsForm from '@/app/components/forms/addFieldsForm';
 
 
-const page = () => {
+
+
+const AddDevice = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);
@@ -85,4 +86,4 @@ const page = () => {
     )
 }
 
-export default page
+export default AddDevice
