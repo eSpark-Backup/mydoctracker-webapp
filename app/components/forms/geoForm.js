@@ -51,7 +51,7 @@ const GeofenceForm = ({ onSaveText }) => {
 
 
                 <div >
-                    <Image src={"/images/geofenceMap.svg"} className='w-full' width={600} height={300} alt='Map' />
+                    <Image src={"/Images/geofenceMap.svg"} className='w-full' width={600} height={300} alt='Map' />
                 </div>
 
                 <div className="flex justify-end gap-5">

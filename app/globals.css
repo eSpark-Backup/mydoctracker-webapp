@@ -29,7 +29,7 @@
 
 /* Sign In/out GIF */
 .background-image {
-  background-image: url('/images/rotatePlanet.gif'); /* Add your GIF image URL here */
+  background-image: url('/Images/rotatePlanet.gif'); /* Add your GIF image URL here */
 }
 
 
@@ -47,7 +47,7 @@
 
 
 .intro-bg {
-  background-image: url('/images/introBg.svg');
+  background-image: url('/Images/introBg.svg');
 }
 
 .footer-bg {

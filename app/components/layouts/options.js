@@ -2,6 +2,7 @@ import React from 'react'
 import OptionsBox from '../common/optionsBox'
 import { landingOptions } from '@/app/constant'
 import DocButton from '../common/docButton'
+import Link from 'next/link'
 
 const Options = () => {
     return (
@@ -24,7 +25,9 @@ const Options = () => {
                 </div>
 
                 <div className='flex justify-center pt-3'>
+                <Link href={"/dashboard/devices/"}>
                     <DocButton className="text-sm w-[430px] bg-secondary" text='Get Started' />
+                </Link>
                 </div>
             </div>
         </section>
