@@ -6,7 +6,7 @@ const HeadContent = ({ mainHeading, paragraph }) => {
       <h2 className="text-black sm:text-2xl text-lg font-semibold float-left mb-1 sm:mb-6">
         {mainHeading}
       </h2>
-      <h2 className="text-[#666] sm:text-base text-sm  font-normal mb-3">
+      <h2 className="text-greydark sm:text-base text-sm  font-normal mb-3">
         {paragraph}
       </h2>
     </div>

@@ -260,7 +260,7 @@ export const SidebarFooterRoutes = [
         title: "Back to devices",
         icon: "dashboardback.svg",
         iconfill: "dashboardLogout.svg",
-        link: "/dashboard/"
+        link: "/dashboard/devices"
     },
     {
         id: 2,
