@@ -13,7 +13,8 @@
 .ag-header-container {
   width: 100% !important;
 }
-.ag-row{
+
+.ag-row {
   height: 40px;
   background: #fff !important;
 }
@@ -26,11 +27,13 @@
   overflow: hidden;
   /* width: 100% !important; */
 }
-.ag-root-wrapper{  
+
+.ag-root-wrapper {
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
-.ag-header-cell{
+
+.ag-header-cell {
   border-right: solid 1px #ccc !important;
 }
 
@@ -50,6 +53,7 @@
 .ag-theme-custom .ag-row-even {
   background-color: #f9f9f9;
 }
+
 /* styles/agGridCustomStyles.css */
 
 /* Hide the vertical scrollbar */
@@ -71,16 +75,69 @@
 .ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb {
   background-color: #888;
 }
-.ag-horizontal-left-spacer,.ag-body-horizontal-scroll-viewport{
+
+.ag-horizontal-left-spacer,
+.ag-body-horizontal-scroll-viewport {
   overflow: hidden;
   background: transparent;
 }
-.ag-body-vertical-scroll{
+
+.ag-body-vertical-scroll {
   display: none;
 }
-.ag-body-horizontal-scroll,.ag-body-vertical-scroll-viewport{
+
+.ag-body-horizontal-scroll,
+.ag-body-vertical-scroll-viewport {
   display: none;
 }
-.ag-cell{
+
+.ag-cell {
   border-right: solid 1px #ccc !important;
+}
+
+.triangle {
+  position: absolute;
+  top: 47%;
+  right: -1px;
+  width: 0px;
+  height: 0px;
+  border-right: 54px solid #FCBF4A;
+  border-top: 50px solid rgb(255, 255, 255);
+  transform: translateY(-50%) rotate(-90deg);
+  display: inline-block;
+  border-bottom-right-radius: 4px;
+}
+
+.checkmark::after {
+  content: url(/assets/icons/CheckMark.svg);
+  width: 14px;
+  height: 10px;
+  color: #fff;
+  display: inline-block;
+  position: absolute;
+  top: -20px;
+  right: -50px;
+  transform: rotate(99deg);
+  font-weight: 800;
+}
+
+.input_field {
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: solid 1px #ccc;
+  border-radius: 5px;
+}
+
+.input_field:focus-visible {
+  outline-color: #FCBF4A;
+  outline-width: 1px;
+}
+
+.input_container {
+  position: relative;
+  width: 100%;
+  /* Set your desired width */
+  height: 60px;
 }

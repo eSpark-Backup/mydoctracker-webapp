@@ -53,37 +53,7 @@ const Admin = () => {
         width: '100%',
         overflow: 'hidden'
     }
-    const input_container = {
-        position: 'relative',
-        width: '300px', /* Set your desired width */
-    }
 
-    const triangle = {
-        position: 'absolute',
-        top: '50%',
-        right: '10px',
-        width: 0,
-        height: 0,
-        borderRight: '20px solid red',
-        borderTop: '20px solid #fff',
-        transform: 'translateY(-50%) rotate(45deg)',
-        display: 'inline-block',
-    }
-
-    const checkmark = {
-        position: 'absolute',
-        top: '50%',
-        right: '6px',
-        transform: 'translateY(-50%)',
-        fontSize: '10px', /* Adjust the font size of the check mark */
-        color: '#fff', /* Set the color of the check mark */
-    }
-
-    const input_field = {
-        width: '100%',
-        padding: '8px',
-        boxSizing: 'border-box',
-    }
     const fetchPosts = async () => {
         const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=20');
         return response.data;
@@ -99,7 +69,7 @@ const Admin = () => {
         const tempData = []
         !!data?.length && data.map((item, i) => {
             tempData.push({
-                name:i % 2 === 0 ? 'Jon Doe' : 'Iron Man',
+                name: i % 2 === 0 ? 'Jon Doe' : 'Iron Man',
                 status: i % 2 === 0 ? true : false,
                 tracker_ID: '0123456789',
                 type: i % 2 === 0 ? 'Single Page' : 'Multiple Page',
@@ -113,8 +83,8 @@ const Admin = () => {
         { headerName: 'Tracker ID', field: 'tracker_ID', width: 194 },
         { headerName: 'Type', field: 'type', width: 194 },
         { headerName: 'Requests', field: 'requests', width: 194 },
-        { headerName: 'Location', width: 194,cellRenderer: LocationRenderer  },
-        { headerName: 'Status', field: 'status',width: 194,cellRenderer: SwitchRenderer, },
+        { headerName: 'Location', width: 194, cellRenderer: LocationRenderer },
+        { headerName: 'Status', field: 'status', width: 194, cellRenderer: SwitchRenderer, },
     ];
 
     return (
@@ -216,12 +186,21 @@ const Admin = () => {
                         />
                     </Row>}
             </div>
-            <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <div style={input_container}>
-                    <div style={triangle}>
-                        <div style={checkmark}>&#10003;</div>
+            <Modal footer={null} open={isModalOpen} onOk={handleOk} onCancel={handleCancel} can>
+                <div className='m-6'>
+                    <div className='input_container'>
+                        <div className='triangle'>
+                            <div className='checkmark' />
+                        </div>
+                        <input type="text" className='input_field' placeholder="Add Subsidiary" />
                     </div>
-                    <input type="text" style={input_field} placeholder="Type something..." />
+                    <div className='input_container mt-5'>
+                        <input type="text" className='input_field' placeholder="Add Employee" />
+                    </div>
+                </div>
+                <div className='flex items-center justify-center'>
+                    <Button shape='round'>Cancel</Button>
+                    <Button shape='round' className='mx-4'>Next</Button>
                 </div>
             </Modal>
         </>
