@@ -1,14 +1,14 @@
 "use client"
 
+import { useState } from 'react'
 import { DocButton, DocInput } from '@/app/components';
 import DocDropdown from '@/app/components/common/docDropdown';
 import { deviceSettingNotfications } from '@/app/constant';
 import { Switch, Tabs } from 'antd';
 import Image from 'next/image';
-import { useState } from 'react'
 
-const page = () => {
-    const [activeTab, setActiveTab] = useState(1)
+const Page = () => {
+    const [activeTab, setActiveTab] = useState(1);
     const onChange = (key) => {
         setActiveTab(key)
     };
@@ -145,4 +145,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

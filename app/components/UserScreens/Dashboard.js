@@ -52,8 +52,8 @@ const Dashboard = ({ noDevices }) => {
         </div>
       ) : noDevices === false && showEditScreen === false ? (
         <div className="w-[100%] gap-6 h-auto drop-shadow-lg rounded-lg bg-white my-4 flex py-12 items-center flex-col">
-          {UserDevices?.map((eachDevice) => (
-            <div className="h-36 w-[90%]  border-b-2 border-[#E4E4E4]">
+          {UserDevices?.map((eachDevice, index) => (
+            <div key={index} className="h-36 w-[90%]  border-b-2 border-[#E4E4E4]">
               <div className="flex gap-5">
                 <Link href= {"/dashboard/devices/user"} >
                 <h1 className="text-[14px] sm:text-xl cursor-pointer">
