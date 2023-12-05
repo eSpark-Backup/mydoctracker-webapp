@@ -30,6 +30,7 @@ import DocDatePicker from "./common/docDatePicker"
 import DocImgInput from "./common/docImgInput"
 import CordinatesTaker from "./common/cordinatesTaker"
 import NavigatorHeader from "./Navigator-header"
+import GeofenceForm from "./forms/GeofenceForm"
 
 export {
     SignContainer,
@@ -64,4 +65,5 @@ export {
     DocImgInput,
     CordinatesTaker,
     NavigatorHeader,
+    GeofenceForm,
 }

@@ -1,9 +1,11 @@
+"use client"
+
 import { Input, Space } from 'antd'
-import React from 'react'
+import { useState } from 'react'
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons'
 
 const DocInput = ({ type, className, placeholder, onChange, value }) => {
-  const [isPasswordVisible, setPasswordVisibility] = React.useState(false);
+  const [isPasswordVisible, setPasswordVisibility] = useState(false);
 
   const handlePasswordVisibility = () => {
     setPasswordVisibility(!isPasswordVisible);

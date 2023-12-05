@@ -8,7 +8,7 @@ import Link from 'next/link'
 const ViewDoc = () => {
     return (
         <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 flex-col pb-5">
-            <div className='flex justify-between items-center border-[#E4E4E4] lg:border-b-0 border-b-2 py-4 lg:px-0 px-4'>
+            <div className='flex justify-between items-center border-greyBorder lg:border-b-0 border-b-2 py-4 lg:px-0 px-4'>
                 <div>
                     <h6 className='text-black font-semibold text-lg sm:text-xl'>Document</h6>
                 </div>
@@ -25,19 +25,19 @@ const ViewDoc = () => {
                 <div className='lg:w-[35%] mx-2'>
                     <div className='flex flex-col gap-4'>
                         <div className=" flex flex-col">
-                            <label className="text-[#666] text-sm pb-1">Title:</label>
+                            <label className="text-greydark text-sm pb-1">Title:</label>
                             <FieldView text={"My Note Book"} />
                         </div>
                         <div className=" flex flex-col">
-                            <label className="text-[#666] text-sm pb-1">Location:</label>
+                            <label className="text-greydark text-sm pb-1">Location:</label>
                             <FieldView text={"Under the bed"} />
                         </div>
                         <div className="  flex flex-col">
-                            <label className="text-[#666] text-sm pb-1">Date:</label>
+                            <label className="text-greydark text-sm pb-1">Date:</label>
                             <FieldView text={"3/10/2022"} />
                         </div>
                         <div className="  flex flex-col">
-                            <label className="text-[#666] text-sm pb-1">Time Of Creation </label>
+                            <label className="text-greydark text-sm pb-1">Time Of Creation </label>
                             <FieldView text={"1:30 PM"} />
                         </div>
                     </div>
