@@ -47,11 +47,11 @@ const EditDoc = () => {
 
 
 
-                    <div className="flex gap-6">
+                    <div className="flex gap-5">
                         <Link href={"/dashboard/devices/user/view-doc"}>
-                        <DocButton text={"Cancel"} className={"border-2 border-[#E4E4E4] bg-transparent text-primary min-w-[120px]"} />
+                        <DocButton text={"Cancel"} className={"border-2 border-[#E4E4E4] bg-transparent text-primary min-w-[125px]"} />
                         </Link>
-                        <DocButton text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[120px]"} />
+                        <DocButton text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
                     </div>
 
                 </div>

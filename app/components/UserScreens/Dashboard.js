@@ -133,9 +133,9 @@ const Dashboard = ({ noDevices }) => {
               <h2 className="text-[#666] text-sm pb-1">Upload Doc Image  (Optional)</h2>
               <DocImgInput placeholder={"Upload Image"} />
             </div>
-            <div className="flex gap-6">
-              <DocButton text={"Cancel"} onClick={() => setShowEditScreen(!showEditScreen)} className={"border-2 border-[#E4E4E4] bg-transparent text-primary min-w-[120px]"} />
-              <DocButton text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[120px]"} />
+            <div className="flex gap-5">
+              <DocButton text={"Cancel"} onClick={() => setShowEditScreen(!showEditScreen)} className={"border-2 border-[#E4E4E4] bg-transparent text-primary min-w-[125px]"} />
+              <DocButton text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
             </div>
           </div>
         </>
