@@ -7,13 +7,13 @@ const CordinatesTaker = () => {
             <div className='flex items-center gap-2'>
                 <p>1.</p>
                 <div className='flex items-center gap-2'>
-                    <p className="text-[#666] text-sm">Lat</p>
+                    <p className="text-greydark text-sm">Lat</p>
                     <DocInput type={"text"} className={"h-[30px]"} />
                 </div>
             </div>
             <div className='flex items-center gap-2'>
                 <div className='flex items-center gap-2'>
-                    <p className="text-[#666] text-sm">Long</p>
+                    <p className="text-greydark text-sm">Long</p>
                     <DocInput type={"text"} className={"h-[30px]"} />
                 </div>
             </div>

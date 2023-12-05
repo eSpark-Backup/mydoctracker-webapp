@@ -1,5 +1,5 @@
 import { Dashboard, Header } from '@/app/components'
-import HeadContent from '@/app/components/UserScreens/common/HeadContent'
+import HeadContent from '@/app/components/common/headContent'
 import React from 'react'
 
 const Devices = () => {

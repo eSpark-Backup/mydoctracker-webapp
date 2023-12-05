@@ -8,6 +8,8 @@
   --secondary-color: #FCBF4A;
   --text-color: #888888;
   --text-color-dark: #666666;
+  --border-color:#E4E4E4;
+  --text-color-red:#ff0000;
 
 }
 
@@ -49,9 +51,38 @@
 }
 
 .footer-bg {
-  background-image: url('/Images/footerBg.svg');
+  background-image: url('/images/footerbg.svg');
 }
 
 .ant-drawer-body {
   padding: 0px !important;
 }
+
+ /* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+ /* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.ant-tabs-tab-btn {
+  color: #666666;
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #002F49 !important; 
+}
+
+.ant-tabs-ink-bar {
+  background: #002F49 !important; 
+}
+
+.ant-tabs-nav-list {
+  padding: 10px 0 0 8px;
+}
+
+/* /// */

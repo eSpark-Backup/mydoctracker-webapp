@@ -44,8 +44,8 @@ const Page = () => {
                         <h3 className='sm:text-xl text-base font-medium'>Geofence Settings</h3>
                         <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     </div>
-                    <div className='w-[85vw] lg:w-2/4 sm:w-[45vw] flex justify-between min-h-[70px]'>
-                        <div className='w-[40%] flex justify-between items-center border-2 border-[#E4E4E4] p-3'>
+                    <div className='w-[82vw] lg:w-2/4 sm:w-[45vw] flex justify-between min-h-[70px]'>
+                        <div className='w-[40%] flex justify-between items-center border-2 border-greyBorder p-3'>
                             <div>
                                 <p className='text-sm'>Room1</p>
                                 <p className='text-xs'>Mar 24, 2023, 5:43 PM </p>
@@ -54,7 +54,7 @@ const Page = () => {
                                 <Image src={"/icons/Greater.svg"} width={4} height={4} alt="arrow" />
                             </div>
                         </div>
-                        <div className='w-[40%]  flex justify-center items-center border-2 border-[#E4E4E4]'>
+                        <div className='w-[40%]  flex justify-center items-center border-2 border-greyBorder'>
                             <h2>+</h2>
                         </div>
                         <div className='w-[10%]  flex justify-center items-center'>
@@ -80,7 +80,7 @@ const Page = () => {
             </> : activeTab == 2 ? <>
                 <div className='flex flex-col gap-4'>
                     {deviceSettingNotfications.map((eachNotification, index) => (
-                        <div className='flex flex-col border-b-2 gap-4 px-3 py-6 border-[#E4E4E4]' key={index}>
+                        <div className='flex flex-col border-b-2 gap-4 px-3 py-6 border-greyBorder' key={index}>
                             <div className='flex justify-between flex-wrap'>
                                 <h2 className='text-base font-medium'>{eachNotification.heading}</h2>
                                 <Switch defaultChecked />
@@ -95,21 +95,21 @@ const Page = () => {
                     <div className='mt-3 gap-y-2 sm:gap-y-4 flex flex-col'>
                         <div className="flex flex-col sm:flex-row gap-x-10 gap-y-2 sm:gap-y-0">
                             <div className="w-100% lg:w-[30%] flex flex-col">
-                                <label className="text-[#666] text-sm">First Name</label>
+                                <label className="text-greydark text-sm">First Name</label>
                                 <DocInput type={"text"} placeholder={"John"} className={"h-[40px]"} />
                             </div>
                             <div className="w-100% lg:w-[30%] flex flex-col">
-                                <label className="text-[#666] text-sm">Last Name</label>
+                                <label className="text-greydark text-sm">Last Name</label>
                                 <DocInput type={"text"} placeholder={"Doe"} className={"h-[40px]"} />
                             </div>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-x-10 gap-y-2 sm:gap-y-0">
                             <div className="w-100% lg:w-[30%] flex flex-col">
-                                <label className="text-[#666] text-sm">Email</label>
+                                <label className="text-greydark text-sm">Email</label>
                                 <DocInput type={"email"} placeholder={"johndoe123@gmail.com"} className={"h-[40px]"} />
                             </div>
                             <div className="w-100% lg:w-[30%] flex flex-col">
-                                <label className="text-[#666] text-sm">Contact</label>
+                                <label className="text-greydark text-sm">Contact</label>
                                 <DocInput type={"tel"} placeholder={"123456789"} className={"h-[40px]"} />
                             </div>
                         </div>
@@ -119,19 +119,19 @@ const Page = () => {
                     <h2 className='text-black font-medium text-xl'>Change Password</h2>
                     <div className='mt-4'>
                         <div className="w-100% lg:w-[30%] flex flex-col">
-                            <label className="text-[#666] text-sm">Old Password</label>
+                            <label className="text-greydark text-sm">Old Password</label>
                             <DocInput type={"password"} placeholder={"John"} className={"h-[40px]"} />
                         </div>
                     </div>
                     <div className='mt-4'>
                         <div className="w-100% lg:w-[30%] flex flex-col">
-                            <label className="text-[#666] text-sm">New Password</label>
+                            <label className="text-greydark text-sm">New Password</label>
                             <DocInput type={"password"} placeholder={"John"} className={"h-[40px]"} />
                         </div>
                     </div>
                     <div className='mt-4'>
                         <div className="w-100% lg:w-[30%] flex flex-col">
-                            <label className="text-[#666] text-sm">Confirm Password</label>
+                            <label className="text-greydark text-sm">Confirm Password</label>
                             <DocInput type={"password"} placeholder={"John"} className={"h-[40px]"} />
                         </div>
                     </div>
