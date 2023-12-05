@@ -36,7 +36,7 @@ const Features = () => {
                 </div>
                 <div className='xl:w-[30%] w-full xl:pb-0 pb-8 flex justify-center'>
 
-                    <Image className='w-[250px]' src={`/images/${currentStep === 1 ? featureMobile.Image1 : currentStep === 2 ? featureMobile.Image2 : currentStep === 3 ? featureMobile.Image2 : featureMobile.Image1}`} width={400} height={400} alt="Mobile" />
+                    <Image className='w-[250px]' src={`/Images/${currentStep === 1 ? featureMobile.Image1 : currentStep === 2 ? featureMobile.Image2 : currentStep === 3 ? featureMobile.Image2 : featureMobile.Image1}`} width={400} height={400} alt="Mobile" />
 
                 </div>
                 <div className='xl:w-[35%] w-full xl:pb-0 pb-8'>

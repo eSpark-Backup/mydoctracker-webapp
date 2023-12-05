@@ -17,7 +17,7 @@ const Navbar = () => {
                     <div className="flex justify-center items-center">
                         <Image
                             className="w-[33px] mr-2"
-                            src={"/images/logo.svg"}
+                            src={"/Images/logo.svg"}
                             alt="logo"
                             width={10}
                             height={10}
@@ -40,16 +40,21 @@ const Navbar = () => {
                     {/* button section  */}
                     <div className="hidden md:block">
                         <div className="flex bg-secondary justify-between px-4 py-2 rounded-full">
+                            <Link href={"/auth/signin"}>
                             <button className="text-white font-semibold px-3 text-sm">
                                 Login
                             </button>
+                            </Link>
 
                             <div className="text-white">
                                 |
                             </div>
+
+                            <Link href={"/auth/signup"}>
                             <button className="text-white font-semibold px-3 text-sm">
                                 Signup
                             </button>
+                            </Link>
                         </div>
                     </div>
 

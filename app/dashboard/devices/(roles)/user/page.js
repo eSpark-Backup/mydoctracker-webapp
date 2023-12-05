@@ -24,7 +24,7 @@ const User = () => {
 
 
                     <div>
-                        <Image className='w-full' src='/images/googleMap.svg' width={500} height={500} alt="map" />
+                        <Image className='w-full' src='/Images/googleMap.svg' width={500} height={500} alt="map" />
                     </div>
 
                 </div>

@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React, { useEffect, useMemo, useState } from 'react'
 import DocButton from '../common/docButton'
 import { introLaptopScreen } from '@/app/constant'
+import Link from 'next/link'
 
 const Intro = () => {
     const steps = useMemo(() => [1, 2, 3], []);
@@ -29,12 +30,14 @@ const Intro = () => {
                     </p>
 
                     <div className='flex md:justify-start justify-center'>
+                    <Link href={"/dashboard/devices/"}>
                         <DocButton className="text-sm  bg-secondary px-[2.75rem]" text='Try Now' />
+                    </Link>
                     </div>
                 </div>
 
                 <div className='md:w-[50%] md:pt-0 pt-8 w-full flex justify-center'>
-                    <Image src={`/images/${currentStep === 1 ? introLaptopScreen.Image1 : currentStep === 2 ? introLaptopScreen.Image2 : currentStep === 3 ? introLaptopScreen.Image3 : introLaptopScreen.Image1}`} className='w-[600px]' width={500} height={500} alt='intro' />
+                    <Image src={`/Images/${currentStep === 1 ? introLaptopScreen.Image1 : currentStep === 2 ? introLaptopScreen.Image2 : currentStep === 3 ? introLaptopScreen.Image3 : introLaptopScreen.Image1}`} className='w-[600px]' width={500} height={500} alt='intro' />
                 </div>
             </div>
         </section>
