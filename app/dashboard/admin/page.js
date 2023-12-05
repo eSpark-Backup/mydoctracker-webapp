@@ -6,7 +6,6 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 
 const Admin = () => {
-    /* styles/Table.module.css */
     const [isModalOpen, setIsModalOpen] = useState(true);
     const showModal = () => {
         setIsModalOpen(true);
@@ -50,40 +49,34 @@ const Admin = () => {
     const input_container = {
         position: 'relative',
         width: '300px', /* Set your desired width */
-      }
-      
-      const triangle = {
+    }
+
+    const triangle = {
         position: 'absolute',
         top: '50%',
         right: '10px',
-        // transform: 'translateY(-50%)',
         width: 0,
         height: 0,
-        // borderLeft: '10px solid transparent',
-        // borderRight: 0,
-        // borderBottom: '15px solid #333',
-        // borderLeft: '20px solid cyan',
-    borderRight: '20px solid red',
-    // borderBottom: '20px solid green',
-    borderTop: '20px solid #fff',
-    transform: 'translateY(-50%) rotate(45deg)',
-    display: 'inline-block',
-      }
-      
-      const checkmark = {
+        borderRight: '20px solid red',
+        borderTop: '20px solid #fff',
+        transform: 'translateY(-50%) rotate(45deg)',
+        display: 'inline-block',
+    }
+
+    const checkmark = {
         position: 'absolute',
         top: '50%',
         right: '6px',
         transform: 'translateY(-50%)',
         fontSize: '10px', /* Adjust the font size of the check mark */
         color: '#fff', /* Set the color of the check mark */
-      }
-      
-      const input_field = {
+    }
+
+    const input_field = {
         width: '100%',
         padding: '8px',
         boxSizing: 'border-box',
-      }
+    }
     const fetchPosts = async () => {
         const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
         return response.data;
@@ -183,7 +176,6 @@ const Admin = () => {
                     <Row className='items-center justify-center'>
                         <Pagination
                             showSizeChanger={false}
-                            // onShowSizeChange={onShowSizeChange}
                             defaultCurrent={2}
                             total={500}
                         />
