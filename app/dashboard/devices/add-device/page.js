@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import Link from 'next/link';
 import InputModal from '@/app/components/common/InputModal';
-import AddFieldsForm from '@/app/components/forms/addFieldsForm';
+import AddFieldsForm from '@/app/components/forms/AddFieldsForm';
 
 
 

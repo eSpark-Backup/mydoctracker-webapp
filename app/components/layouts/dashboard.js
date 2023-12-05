@@ -6,7 +6,6 @@ import { UserDevices } from "@/app/constant";
 import { Badge } from "antd";
 import DocButton from "../common/docButton";
 import { PlusOutlined } from "@ant-design/icons";
-
 import Link from "next/link";
 import ConfirmationModal from "../common/confirmationModal";
 

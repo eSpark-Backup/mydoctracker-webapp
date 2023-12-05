@@ -8,6 +8,7 @@ import CorporateSignup from './forms/corporateSignup'
 import CorporateSignIn from "./forms/corporateSignIn"
 import JoinTeamSignIn from "./forms/joinTeamSignIn"
 import SingleUserSignUp from "./forms/singleUserSignUp"
+import GeofenceForm from "./forms/geoForm"
 import DocInput from "./common/docInput"
 import GIFBanner from './common/gifBanner'
 import Navbar from './layouts/navbar'
@@ -30,7 +31,7 @@ import DocDatePicker from "./common/docDatePicker"
 import DocImgInput from "./common/docImgInput"
 import CordinatesTaker from "./common/cordinatesTaker"
 import NavigatorHeader from './common/navigatorHeader'
-import GeofenceForm from './forms/geofenceForm'
+
 
 export {
     SignContainer,
