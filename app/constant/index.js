@@ -242,7 +242,7 @@ export const UserRoutes = [
         title: "History",
         icon: "dashboardHistory.svg",
         iconfill: "dashboardHistoryFill.svg",
-        link: "/dashboard/devices/user"
+        link: "/dashboard/devices/user/history"
     },
     {
         id: 4,
