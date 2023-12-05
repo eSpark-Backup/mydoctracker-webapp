@@ -1,0 +1,86 @@
+/* styles/agGridCustomStyles.css */
+
+/* Custom styles for the grid container */
+.ag-theme-custom {
+  /* Add your custom styles here */
+  font-family: 'Arial', sans-serif;
+  /* border: 1px solid #ddd; */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* width: 100% !important; */
+}
+
+.ag-header-container {
+  width: 100% !important;
+}
+.ag-row{
+  height: 40px;
+  background: #fff !important;
+}
+
+/* Custom styles for the header row */
+.ag-theme-custom .ag-header-row {
+  background-color: #002f49;
+  color: #fff;
+  height: 40px;
+  overflow: hidden;
+  /* width: 100% !important; */
+}
+.ag-root-wrapper{  
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+.ag-header-cell{
+  border-right: solid 1px #ccc !important;
+}
+
+/* Custom styles for the header cells */
+.ag-theme-custom .ag-header-cell {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Custom styles for the grid cells */
+.ag-theme-custom .ag-cell {
+  padding: 8px;
+  /* border-bottom: 1px solid #ddd; */
+}
+
+/* Custom styles for the even rows */
+.ag-theme-custom .ag-row-even {
+  background-color: #f9f9f9;
+}
+/* styles/agGridCustomStyles.css */
+
+/* Hide the vertical scrollbar */
+.ag-theme-alpine .ag-body-viewport {
+  overflow-y: hidden;
+}
+
+/* Optional: Customize the appearance of the horizontal scrollbar track */
+.ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar {
+  height: 0 !important;
+}
+
+/* Optional: Customize the appearance of the horizontal scrollbar track */
+.ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Optional: Customize the appearance of the horizontal scrollbar thumb */
+.ag-theme-alpine .ag-body-horizontal-scroll-viewport::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+.ag-horizontal-left-spacer,.ag-body-horizontal-scroll-viewport{
+  overflow: hidden;
+  background: transparent;
+}
+.ag-body-vertical-scroll{
+  display: none;
+}
+.ag-body-horizontal-scroll,.ag-body-vertical-scroll-viewport{
+  display: none;
+}
+.ag-cell{
+  border-right: solid 1px #ccc !important;
+}

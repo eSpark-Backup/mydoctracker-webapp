@@ -4,9 +4,41 @@ import { SearchOutlined } from '@ant-design/icons'
 import React, { Fragment, useState } from 'react'
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import { AgGridReact } from 'ag-grid-react';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-alpine.css';
+import "./style.css"
+
+
+const SwitchRenderer = ({ value, rowIndex }) => {
+    // Assuming value is a boolean, you can customize this based on your data structure
+    return <Switch style={{ backgroundColor: !!value ? '#FCBF4A' : '#ccc' }} defaultChecked={value} />;
+};
+const NameRenderer = ({ value, rowIndex }) => {
+    const td = {
+        overflow: 'hidden',
+        flex: 1
+    }
+    // Assuming value is a boolean, you can customize this based on your data structure
+    return (
+        <div className='flex items-center' style={td}>
+            <img src='/assets/images/ProfilePic.png' />
+            <p className='ml-2'>{value}</p>
+        </div>)
+};
+const LocationRenderer = ({ value, rowIndex }) => {
+    const td = {
+        overflow: 'hidden',
+        flex: 1
+    }
+    // Assuming value is a boolean, you can customize this based on your data structure
+    return <div className='' style={td}>
+        <a>View</a>
+    </div>
+};
 
 const Admin = () => {
-    const [isModalOpen, setIsModalOpen] = useState(true);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -19,31 +51,6 @@ const Admin = () => {
     const table = {
         borderCollapse: 'collapse',
         width: '100%',
-        overflow: 'hidden'
-    }
-
-    const td = {
-        border: '1px solid #ddd',
-        padding: '11.5px 8px',
-        overflow: 'hidden',
-        flex: 1
-    }
-    const th = {
-        border: '1px solid #ddd',
-        padding: '11.5px 8px',
-        backgroundColor: "#002F49",
-        overflow: 'hidden',
-        flex: 1,
-        color: '#fff'
-    }
-
-    const th_first_child = {
-        borderTopLeftRadius: '8px',
-        overflow: 'hidden'
-    }
-
-    const th_last_child = {
-        borderTopRightRadius: '8px',
         overflow: 'hidden'
     }
     const input_container = {
@@ -78,7 +85,7 @@ const Admin = () => {
         boxSizing: 'border-box',
     }
     const fetchPosts = async () => {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
+        const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=20');
         return response.data;
     };
     const usePosts = () => {
@@ -88,6 +95,27 @@ const Admin = () => {
         });
     };
     const { data, error, isLoading } = usePosts();
+    const finalData = () => {
+        const tempData = []
+        !!data?.length && data.map((item, i) => {
+            tempData.push({
+                name:i % 2 === 0 ? 'Jon Doe' : 'Iron Man',
+                status: i % 2 === 0 ? true : false,
+                tracker_ID: '0123456789',
+                type: i % 2 === 0 ? 'Single Page' : 'Multiple Page',
+                requests: i % 2 === 0 ? '00' : i % 3 === 0 ? '02' : '01',
+            })
+        })
+        return tempData
+    }
+    const columnDefs = [
+        { headerName: 'Name', field: 'name', width: 194, lockPosition: true, pinned: 'left', cellRenderer: NameRenderer },
+        { headerName: 'Tracker ID', field: 'tracker_ID', width: 194 },
+        { headerName: 'Type', field: 'type', width: 194 },
+        { headerName: 'Requests', field: 'requests', width: 194 },
+        { headerName: 'Location', width: 194,cellRenderer: LocationRenderer  },
+        { headerName: 'Status', field: 'status',width: 194,cellRenderer: SwitchRenderer, },
+    ];
 
     return (
         <>
@@ -135,7 +163,7 @@ const Admin = () => {
                                     <p className='mt-4'>You don’t have any employee. Please add  to continue further.</p>
                                 </div>
                             }
-                            {
+                            {/* {
                                 (!isLoading && !!data?.length) && (
                                     <div className='flex'>
                                         <div className='text-center' style={{ ...th, ...th_first_child }}>Name</div>
@@ -167,6 +195,13 @@ const Admin = () => {
                                         </div>
                                     </Fragment>
                                 ))
+                            } */}
+                            {
+                                (!isLoading && data?.length) && (
+                                    <div className="ag-theme-custom" style={{ height: 560 }}>
+                                        <AgGridReact columnDefs={columnDefs} rowData={finalData()} />
+                                    </div>
+                                )
                             }
                         </div>
                     </Col>
