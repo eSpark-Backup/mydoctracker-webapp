@@ -65,5 +65,5 @@ export {
     DocImgInput,
     CordinatesTaker,
     NavigatorHeader,
-    GeofenceForm,
+    GeofenceForm
 }
