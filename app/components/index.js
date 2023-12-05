@@ -5,6 +5,7 @@ import DocButton from "./common/docButton"
 import RoleBox from "./common/roleBox"
 import SingleUserSignIn from "./forms/singleUserSignIn"
 import CorporateSignup from './forms/corporateSignup'
+import AddDeviceForm from './forms/addDeviceForm'
 import CorporateSignIn from "./forms/corporateSignIn"
 import JoinTeamSignIn from "./forms/joinTeamSignIn"
 import SingleUserSignUp from "./forms/singleUserSignUp"
@@ -31,6 +32,7 @@ import DocDatePicker from "./common/docDatePicker"
 import DocImgInput from "./common/docImgInput"
 import CordinatesTaker from "./common/cordinatesTaker"
 import NavigatorHeader from './common/navigatorHeader'
+
 
 
 export {
@@ -66,5 +68,6 @@ export {
     DocImgInput,
     CordinatesTaker,
     NavigatorHeader,
-    GeofenceForm
+    GeofenceForm,
+    AddDeviceForm,
 }

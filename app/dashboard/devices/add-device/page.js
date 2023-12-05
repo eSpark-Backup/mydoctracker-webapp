@@ -1,11 +1,10 @@
 "use client"
-import { DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker, Header } from '@/app/components'
+import { AddDeviceForm, DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker, Header } from '@/app/components'
 import DocDropdown from '@/app/components/common/docDropdown'
 import React, { useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import Link from 'next/link';
 import InputModal from '@/app/components/common/InputModal';
-import AddFieldsForm from '@/app/components/forms/AddFieldsForm';
 
 
 
@@ -79,7 +78,7 @@ const AddDevice = () => {
                 showModal={showModal}
                 handleOk={handleOk}
                 handleCancel={handleCancel} >
-                <AddFieldsForm handleCancel={handleCancel} />
+                <AddDeviceForm handleCancel={handleCancel} />
             </InputModal>
 
         </>

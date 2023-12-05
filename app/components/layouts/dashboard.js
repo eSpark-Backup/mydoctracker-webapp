@@ -7,7 +7,7 @@ import { Badge } from "antd";
 import DocButton from "../common/docButton";
 import { PlusOutlined } from "@ant-design/icons";
 import Link from "next/link";
-import ConfirmationModal from "../common/confirmationModal";
+import ConfirmModal from "../modals/confirmModal";
 
 
 const Dashboard = ({ noDevices }) => {
@@ -88,7 +88,7 @@ const Dashboard = ({ noDevices }) => {
           <DocButton prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add"} className={"text-white rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)} />
         </Link>
       </div>}
-      <ConfirmationModal
+      <ConfirmModal
         isModalOpen={isModalOpen}
         showModal={showModal}
         handleOk={handleOk}

@@ -1,9 +1,11 @@
+"use client"
+
 import React from 'react'
 import DocInput from '../common/docInput'
 import Image from 'next/image'
 import DocButton from '../common/docButton'
 
-const AddFieldsForm = ({handleCancel}) => {
+const AddDeviceForm = ({handleCancel}) => {
     return (
         <div>
             <div className="min-h-48">
@@ -27,4 +29,4 @@ const AddFieldsForm = ({handleCancel}) => {
     )
 }
 
-export default AddFieldsForm
+export default AddDeviceForm
