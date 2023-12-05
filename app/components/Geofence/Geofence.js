@@ -6,11 +6,11 @@ import Link from 'next/link';
 
 const Geofence = () => {
     return (
-        <div className='mt-6 bg-white py-3 sm:px-3 sm:py-7 rounded-lg sm:min-h-[800px] border-2 border-[#E4E4E4] sm:border-white'>
-            <><h2 className='text-lg sm:text-xl text-black font-medium p-2 sm:px-4 sm:py-3 border-b-2 border-[#E4E4E4] sm:border-white'>Geofence</h2>
+        <div className='mt-6 bg-white py-3 sm:px-3 sm:py-7 rounded-lg sm:min-h-[800px] border-2 border-greyBorder sm:border-white'>
+            <><h2 className='text-lg sm:text-xl text-black font-medium p-2 sm:px-4 sm:py-3 border-b-2 border-greyBorder sm:border-white'>Geofence</h2>
                 {GeofenceData.map((eachItem, index) => (
                     <Link href={"/dashboard/devices/user/geofence/edit-geofence"}>
-                        <div className='px-3 py-8 sm:py-5 sm:px-8 border-b-2 border-[#E4E4E4] flex justify-between min-h-[120px]' key={index}>
+                        <div className='px-3 py-8 sm:py-5 sm:px-8 border-b-2 border-greyBorder flex justify-between min-h-[120px]' key={index}>
 
                             <div>
 
@@ -24,7 +24,7 @@ const Geofence = () => {
                         </div>
                     </Link>
                 ))}
-                <div className='mt-2 py-5 px-7 border-b-2 border-white sm:border-[#E4E4E4] flex justify-center items-center min-h-[120px]'>
+                <div className='mt-2 py-5 px-7 border-b-2 border-white sm:border-greyBorder flex justify-center items-center min-h-[120px]'>
                     <Link href={"/dashboard/devices/user/geofence/add-geofence"}>
                         <button ><Image src={"/icons/Add.svg"} width={24} height={24} alt='Add' /></button>
                     </Link>
