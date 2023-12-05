@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="flex items-center pb-5">
               <Image
                 className="w-[71px] mr-4"
-                src={"/images/logo.svg"}
+                src={"/Images/logo.svg"}
                 alt="logo"
                 width={10}
                 height={10}

@@ -81,7 +81,7 @@ const DownloadDoc = () => {
                 </div>
                 <div className='lg:w-[65%]'>
                     <div className='flex justify-center'>
-                        <Image src="/images/docImage.svg" className='lg:w-[70%] w-[80%]' width={500} height={500} alt="document-image" />
+                        <Image src="/Images/docImage.svg" className='lg:w-[70%] w-[80%]' width={500} height={500} alt="document-image" />
                     </div>
                 </div>
                 </div>
