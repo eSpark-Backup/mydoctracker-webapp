@@ -24,6 +24,11 @@ import Main from './Dashboard/layout/main'
 import Header from './Dashboard/layout/header'
 import NotebookDetail from './dashboard/components/notebookDetail'
 import InfoCard from './dashboard/components/infoCard'
+import FieldView from './common/fieldView'
+import DocTimePicker from "./common/docTimePicker"
+import DocDatePicker from "./common/docDatePicker"
+import DocImgInput from "./common/docImgInput"
+import CordinatesTaker from "./common/cordinatesTaker"
 
 export {
     SignContainer,
@@ -52,4 +57,9 @@ export {
     Header,
     NotebookDetail,
     InfoCard,
+    FieldView,
+    DocTimePicker,
+    DocDatePicker,
+    DocImgInput,
+    CordinatesTaker,
 }
