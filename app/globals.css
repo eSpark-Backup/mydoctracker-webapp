@@ -85,4 +85,11 @@
   padding: 10px 0 0 8px;
 }
 
+.calendar-active {
+  border: 1px solid #FCBF4A;
+  color: #FCBF4A;
+  background-color: #002F49;
+  border-radius: 5px;
+}
+
 /* /// */
