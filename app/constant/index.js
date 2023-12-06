@@ -304,3 +304,106 @@ export const deviceSettingNotfications = [
       description:"Enable or Disable Notifications"
     },
 ]
+
+export const locations = [
+    {
+        id: 1,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: true
+    },
+    {
+        id: 2,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: true
+    },
+    {
+        id: 3,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: true
+    },
+    {
+        id: 4,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: true
+    },
+    {
+        id: 5,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: true
+    },
+    {
+        id: 6,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: false
+    },
+    {
+        id: 7,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: false
+    },
+    {
+        id: 8,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: false
+    },
+    {
+        id: 9,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: false
+    },
+    {
+        id: 10,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: false
+    },
+]
