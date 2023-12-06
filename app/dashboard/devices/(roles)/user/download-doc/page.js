@@ -30,6 +30,8 @@ const documents = [
 
 const DownloadDoc = () => {
   return (
+    <>
+    <NavigatorHeader previousPage={["Dashboard"]} currentPage="Document History" />
     <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex flex-col">
             <div className='border-[#E4E4E4] border-b-2 py-8 px-8 pb-5'> 
                 <h6 className='text-black font-semibold text-lg sm:text-xl'>History</h6>
@@ -90,6 +92,7 @@ const DownloadDoc = () => {
             </div>
 
         </div> 
+        </>
   )
 }
 

@@ -1,4 +1,6 @@
 "use client"
+
+import { NavigatorHeader } from '@/app/components'
 import { GeofenceData } from '@/app/constant'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,6 +9,7 @@ import React from 'react'
 const Geofence = () => {
     return (
         <div>
+            <NavigatorHeader previousPage={["Dashboard"]} currentPage="Geofence" />
             <div className='mt-6 bg-white py-3 sm:px-3 sm:py-7 rounded-lg sm:min-h-[800px] border-2 border-greyBorder sm:border-white'>
                 <><h2 className='text-lg sm:text-xl text-black font-medium p-2 sm:px-4 sm:py-3 border-b-2 border-greyBorder sm:border-white'>Geofence</h2>
                     {GeofenceData.map((eachItem, index) => (

@@ -1,12 +1,14 @@
 "use client"
 
-import { DocButton, FieldView } from '@/app/components'
+import { DocButton, FieldView, NavigatorHeader } from '@/app/components'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 const ViewDoc = () => {
     return (
+        <>
+        <NavigatorHeader previousPage={["Dashboard"]} currentPage="Document View" />
         <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 flex-col pb-5">
             <div className='flex justify-between items-center border-greyBorder lg:border-b-0 border-b-2 py-4 lg:px-0 px-4'>
                 <div>
@@ -52,6 +54,7 @@ const ViewDoc = () => {
 
 
         </div>
+        </>
     )
 }
 
