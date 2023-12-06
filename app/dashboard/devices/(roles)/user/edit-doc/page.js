@@ -1,6 +1,6 @@
 "use client"
 
-import { DocButton, DocDatePicker, DocInput, DocTimePicker, DocImgInput } from '@/app/components'
+import { DocButton, DocDatePicker, DocInput, DocTimePicker, DocImgInput, NavigatorHeader } from '@/app/components'
 import React, { useState } from 'react'
 import { PlusOutlined } from '@ant-design/icons'
 import Link from 'next/link'
@@ -57,6 +57,8 @@ const EditDoc = () => {
 
 
     return (
+        <>
+        <NavigatorHeader previousPage={["Dashboard", "Document View"]} currentPage="Edit Document" />
         <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 flex-col pb-5 sm:min-h-[700px]">
 
             <div>
@@ -116,6 +118,7 @@ const EditDoc = () => {
 
 
         </div>
+        </>
     )
 }
 
