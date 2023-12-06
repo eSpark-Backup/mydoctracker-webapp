@@ -33,6 +33,7 @@ import DocImgInput from "./common/docImgInput"
 import CordinatesTaker from "./common/cordinatesTaker"
 import NavigatorHeader from './common/navigatorHeader'
 import CalendarSlider from './common/calendar'
+import DocTextArea from './common/docTextArea'
 
 
 
@@ -72,4 +73,5 @@ export {
     GeofenceForm,
     AddDeviceForm,
     CalendarSlider,
+    DocTextArea,
 }
