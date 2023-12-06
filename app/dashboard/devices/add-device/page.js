@@ -85,7 +85,7 @@ const AddDevice = () => {
                             <div className="w-100% lg:w-[30%] flex flex-col">
                                 <label className="text-greydark text-sm pb-1">Tracker ID <span className="text-redColor">*</span></label>
                                 <DocInput onChange={(value) => handleFieldChange('trackerId', value)}
-                                    type={"number"} value={TrackerData.trackerId} placeholder={"Enter tracker id..."} className={"h-[40px]"} />
+                                    type={"number"} placeholder={"Enter tracker id..."} className={"h-[40px]"} />
                             </div>
                             <div className="w-100% sm:w-[30%] flex flex-col">
                                 <label className="text-greydark text-sm pb-1">Select Type <span className="text-redColor">*</span></label>
