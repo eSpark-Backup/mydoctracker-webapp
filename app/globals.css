@@ -17,7 +17,7 @@
 {
   display: none !important;
 }
-:where(.css-dev-only-do-not-override-tyo0vv).ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover {
+:where(.css-dev-only-do-not-override-tyo0vv).ant-btn-default:not(:disabled):not(.ant-btn-disabled):not(.no-hover):hover {
   color: #FCBF4A  !important;
   border-color: #FCBF4A !important;
 }
@@ -85,6 +85,10 @@
   padding: 10px 0 0 8px;
 }
 
+.no-hover:hover{
+  border: 1px solid var(--primary-color) !important;
+  color: var(--text-color-dark) !important;
+}
 .calendar-active {
   border: 1px solid #FCBF4A;
   color: #FCBF4A;
