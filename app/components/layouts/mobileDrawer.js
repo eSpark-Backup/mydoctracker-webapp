@@ -1,11 +1,13 @@
 import React from 'react';
 import { Drawer } from 'antd';
 import SiderbarRoutes from '../common/siderbarRoutes';
-import { SidebarFooterRoutes, UserRoutes } from '@/app/constant';
+import { AdminRoutes, SidebarFooterRoutes, UserRoutes } from '@/app/constant';
 import Image from 'next/image';
 import { CloseOutlined } from '@ant-design/icons';
+import { useSelector } from 'react-redux';
 
 const MobileDrawer = ({ open, onClose }) => {
+    const { role } = useSelector((state) => state.auth)
 
     return (
         <>
@@ -26,11 +28,11 @@ const MobileDrawer = ({ open, onClose }) => {
 
                     <div className='flex-1 flex flex-col justify-between'>
                         <div>
-                            {
-                                UserRoutes
-                                    ?.map((item) => (
-                                        <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
-                                    ))
+                            {role === "admin" ? AdminRoutes.map((item) => (
+                                <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
+                            )) : UserRoutes.map((item) => (
+                                <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
+                            ))
                             }
                         </div>
 

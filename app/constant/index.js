@@ -253,6 +253,37 @@ export const UserRoutes = [
     },
 ]
 
+export const AdminRoutes = [
+    {
+        id: 1,
+        title: "Admin Panel",
+        icon: "dashboardAdminPanel.svg",
+        iconfill: "dashboardAdminPanelFill.svg",
+        link: "/dashboard/admin"
+    },
+    {
+        id: 2,
+        title: "Manage",
+        icon: "dashboardManage.svg",
+        iconfill: "dashboardManageFill.svg",
+        link: "/dashboard/admin/manage"
+    },
+    {
+        id: 3,
+        title: "Requests",
+        icon: "dashboardRequests.svg",
+        iconfill: "dashboardRequestsFill.svg",
+        link: "/dashboard/admin/requests"
+    },
+    {
+        id: 4,
+        title: "Profile Settings",
+        icon: "dashboardProfileSetting.svg",
+        iconfill: "dashboardProfileSettingFill.svg",
+        link: "/dashboard/admin/profile-settings"
+    },
+]
+
 export const SidebarFooterRoutes = [
 
     {
