@@ -267,7 +267,7 @@ export const SidebarFooterRoutes = [
         title: "Report a problem",
         icon: "dashboardReport.svg",
         iconfill: "dashboardReport.svg",
-        link: "/dashboard/"
+        link: "/dashboard/devices/user/report"
     },
 
 ]
