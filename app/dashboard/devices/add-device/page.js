@@ -1,16 +1,65 @@
 "use client"
+
 import { AddDeviceForm, DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker, Header } from '@/app/components'
 import DocDropdown from '@/app/components/common/docDropdown'
 import React, { useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import Link from 'next/link';
 import InputModal from '@/app/components/common/InputModal';
-
-
-
+import { trackerTypeOptions } from '@/app/constant';
+import { checkFieldsNotEmpty } from '@/app/utils/validation';
+import { notification } from 'antd';
 
 const AddDevice = () => {
+
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [trackerData, setTrackerData] = useState({
+        trackerId: "",
+        trackerType: "",
+        trackerTitle: "",
+        trackerDate: "",
+        trackerTime: "",
+        trackerImage: [],
+    })
+
+
+    const handleSubmit = () => {
+        if (checkFieldsNotEmpty(trackerData)) {
+            console.log(trackerData);
+        }
+        else {
+            notification.error({
+                message: 'Error',
+                description: 'Please fill all required fields.',
+            });
+        }
+    }
+
+    const handleFieldChange = (field, value) => {
+        setTrackerData({
+            ...trackerData,
+            [field]: value
+        })
+    }
+
+    const props = {
+        onRemove: () => {
+            setTrackerData({
+                ...trackerData,
+                trackerImage: []
+            })
+        },
+        beforeUpload: (file) => {
+            setTrackerData({
+                ...trackerData,
+                trackerImage: [file]
+            })
+            return false;
+        },
+        fileList: trackerData.trackerImage,
+    };
+
+
     const showModal = () => {
         setIsModalOpen(true);
     };
@@ -22,6 +71,7 @@ const AddDevice = () => {
     const handleCancel = () => {
         setIsModalOpen(false);
     };
+
     return (
 
         <>
@@ -34,11 +84,14 @@ const AddDevice = () => {
                         <div className="flex gap-5 sm:gap-14 flex-col sm:flex-row">
                             <div className="w-100% lg:w-[30%] flex flex-col">
                                 <label className="text-greydark text-sm pb-1">Tracker ID <span className="text-redColor">*</span></label>
-                                <DocInput type={"text"} placeholder={"Enter tracker id..."} className={"h-[40px]"} />
+                                <DocInput onChange={(value) => handleFieldChange('trackerId', value)}
+                                    type={"number"} placeholder={"Enter tracker id..."} className={"h-[40px]"} />
                             </div>
                             <div className="w-100% sm:w-[30%] flex flex-col">
                                 <label className="text-greydark text-sm pb-1">Select Type <span className="text-redColor">*</span></label>
-                                <DocDropdown placeholder={"a1"} className={"w-[100%]"} options={[{ label: 'a1', value: 'a1' }, { label: 'a2', value: 'a2' }]} />
+                                <DocDropdown
+                                    onChange={(value) => handleFieldChange('trackerType', value.value)}
+                                    placeholder={"Select Type"} className={"w-[100%]"} options={trackerTypeOptions} />
                             </div>
                         </div>
                     </div>
@@ -50,26 +103,32 @@ const AddDevice = () => {
                         <div className="flex gap-5 sm:gap-14 flex-col sm:flex-row flex-wrap mt-2 sm:mt-0">
                             <div className="w-100% lg:w-[30%] flex flex-col">
                                 <label className="text-greydark text-sm pb-1">Document Title <span className="text-redColor">*</span></label>
-                                <DocInput type={"text"} placeholder={"Enter title..."} />
+                                <DocInput
+                                    onChange={(value) => handleFieldChange('trackerTitle', value)}
+                                    type={"text"} placeholder={"Enter title..."} />
                             </div>
                             <div className="w-100% sm:w-[30%] flex flex-col">
                                 <label className="text-greydark text-sm pb-1">Date Of Creation <span className="text-redColor">*</span></label>
-                                <DocDatePicker />
+                                <DocDatePicker
+                                    onChange={(value) => handleFieldChange('trackerDate', value)}
+                                />
                             </div>
                             <div className="w-100% sm:w-[30%] flex flex-col">
                                 <label className="text-greydark text-sm">Time Of Creation <span className="text-redColor">*</span></label>
-                                <DocTimePicker />
+                                <DocTimePicker
+                                    onChange={(value) => handleFieldChange('trackerTime', value)}
+                                />
                             </div>
                         </div>
                     </div>
-                    <div>
+                    <div className='w-[40%]'>
                         <h2 className="text-greydark text-sm pb-1">Upload Doc Image  (Optional)</h2>
-                        <DocImgInput placeholder={"Upload Image"} />
+                        <DocImgInput props={props} placeholder={"Upload Image"} />
                     </div>
                     <div className="flex gap-5 flex-wrap">
                         <Link href={"/dashboard/devices"}>
                             <DocButton text={"Cancel"} className={"border-2 border-greyBorder bg-transparent text-primary min-w-[125px]"} /></Link>
-                        <DocButton text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
+                        <DocButton onClick={handleSubmit} text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
                     </div>
                 </div>
             </div>
