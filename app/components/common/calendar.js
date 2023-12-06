@@ -43,9 +43,8 @@ const CalendarSlider = () => {
         {dates.map((date, index) => (
           <div
             key={index}
-            className={`calendar-date ${
-              new Date(date).toDateString() === selectedDate.toDateString() ? 'calendar-active' : ''
-            }`}
+            className={`calendar-date ${new Date(date).toDateString() === selectedDate.toDateString() ? 'calendar-active' : ''
+              }`}
             onClick={() => setSelectedDate(new Date(date))}
           >
             <div className='text-center'>{date.toLocaleDateString(undefined, { weekday: 'short' })}</div>

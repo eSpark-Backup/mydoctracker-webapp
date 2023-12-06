@@ -5,7 +5,7 @@ export default function AdminLayout({ children }) {
     return (
         <>
             <Main>
-            {children}
+                {children}
             </Main>
         </>
     )

@@ -1,9 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
 import SiderbarRoutes from '../common/siderbarRoutes'
-import { SidebarFooterRoutes, UserRoutes } from '../../constant'
+import { AdminRoutes, SidebarFooterRoutes, UserRoutes } from '../../constant'
+import { useSelector } from 'react-redux'
 
 const Sidebar = () => {
+    const { role } = useSelector((state) => state.auth)
+
     return (
         <div className='hidden min-h-screen bg-primary xl:flex flex-col'>
             <div className='flex flex-col justify-center items-center pb-10'>
@@ -18,11 +21,11 @@ const Sidebar = () => {
 
             <div className='flex-1 flex flex-col justify-between'>
                 <div>
-                    {
-                        UserRoutes
-                            ?.map((item) => (
-                                <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
-                            ))
+                    {role === "admin" ? AdminRoutes.map((item) => (
+                        <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
+                    )) : UserRoutes.map((item) => (
+                        <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
+                    ))
                     }
                 </div>
 

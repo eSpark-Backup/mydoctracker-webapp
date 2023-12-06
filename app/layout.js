@@ -4,6 +4,7 @@ import { ConfigProvider } from 'antd';
 import { theme } from './theme';
 import Providers from './utils/providers';
 import AntdStyledComponentsRegistry from './utils/AntdStyledComponentsRegistry';
+import { ReduxProvider } from './redux/provider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,12 +19,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-        <AntdStyledComponentsRegistry>
-          <ConfigProvider
-            theme={theme}>
-            {children}
-          </ConfigProvider>
-        </AntdStyledComponentsRegistry>
+          <AntdStyledComponentsRegistry>
+            <ConfigProvider
+              theme={theme}>
+              <ReduxProvider>
+                {children}
+              </ReduxProvider>
+            </ConfigProvider>
+          </AntdStyledComponentsRegistry>
         </Providers>
       </body>
     </html>

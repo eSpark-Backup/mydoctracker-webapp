@@ -7,9 +7,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const GeofenceForm = ({ onSaveText }) => {
-    console.log("checking")
     return (
-       
+
         <div className='lg:w-10/12 w-full px-4 lg:px-0 py-4'>
 
             <div className='flex flex-col gap-5 lg:px-6'>
