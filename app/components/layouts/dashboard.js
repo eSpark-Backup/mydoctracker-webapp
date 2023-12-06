@@ -28,7 +28,7 @@ const Dashboard = ({ noDevices }) => {
         <>
           <Image
             className="w-[250px] h-[320px]"
-            src={"/images/UserDashboard.png"}
+            src={"/Images/UserDashboard.png"}
             width={20}
             height={20}
             alt="Empty"
