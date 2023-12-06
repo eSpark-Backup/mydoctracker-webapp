@@ -274,33 +274,37 @@ export const SidebarFooterRoutes = [
 
 export const GeofenceData = [
     {
-        heading:"Room1", 
-        description:"Mar 24, 2023, 5:43 PM",
+        heading: "Room1",
+        description: "Mar 24, 2023, 5:43 PM",
     },
     {
-        heading:"Room1", 
-        description:"Mar 24, 2023, 5:43 PM",
+        heading: "Room1",
+        description: "Mar 24, 2023, 5:43 PM",
     },
     {
-        heading:"Room1", 
-        description:"Mar 24, 2023, 5:43 PM",
+        heading: "Room1",
+        description: "Mar 24, 2023, 5:43 PM",
     },
     {
-        heading:"Room1", 
-        description:"Mar 24, 2023, 5:43 PM",
+        heading: "Room1",
+        description: "Mar 24, 2023, 5:43 PM",
     }]
 
 export const deviceSettingNotfications = [
     {
-      heading:"SOS",
-      description:"Enable or Disable Notifications"
+        heading: "SOS",
+        description: "Enable or Disable Notifications"
     },
     {
-      heading:"Geofence Alerts",
-      description:"Enable or Disable Notifications"
+        heading: "Geofence Alerts",
+        description: "Enable or Disable Notifications"
     },
     {
-      heading:"Battery Alerts",
-      description:"Enable or Disable Notifications"
+        heading: "Battery Alerts",
+        description: "Enable or Disable Notifications"
     },
 ]
+
+export const trackerTypeOptions = [
+    { label: 'a1', value: 'a1' }, { label: 'a2', value: 'a2' }
+];
