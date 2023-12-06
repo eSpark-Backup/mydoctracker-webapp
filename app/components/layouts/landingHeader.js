@@ -1,10 +1,18 @@
-import { Badge } from "antd";
-import React from "react";
+"use client"
+
+import { Badge, Popover } from "antd";
+import React, {useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import DocButton from "../common/docButton";
+import Notifications from "./notifications";
 
 const Header = ({ showDrawer }) => {
+    const [open, setOpen] = useState(false);
+
+  const handleOpenChange = (newOpen) => {
+    setOpen(newOpen);
+  };
     return (
         <div className="h-[8vh] sm:h-[7vh] bg-[#FFF] flex justify-between items-center py-7 px-3">
             <div onClick={showDrawer} className="block xl:hidden">
@@ -18,7 +26,14 @@ const Header = ({ showDrawer }) => {
 
             <div className="flex justify-end items-center gap-3">
                 <Badge count={1}>
-                    <Image src={"/icons/Bell.svg"} width={25} height={25} alt="bell" />
+                <Popover
+                  content={<Notifications />}
+                  trigger="click"
+                  open={open}
+                  onOpenChange={handleOpenChange}
+                >
+                    <Image className="cursor-pointer" src={"/icons/Bell.svg"} width={25} height={25} alt="bell" />
+                </Popover>
                 </Badge>
                 <div className="w-32 border-2 border-greyBorder h-[40px] sm:h-[40px] flex justify-between items-center rounded-[50px] pr-4">
                     <Image src={"/icons/userAvatar.svg"} width={30} height={30} alt="avatar" />

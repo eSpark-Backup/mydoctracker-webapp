@@ -92,4 +92,21 @@
   border-radius: 5px;
 }
 
+.ant-popover-arrow {
+  display: none !important;
+}
+
+.ant-popover-content {
+  position: sticky !important;
+  margin-top: 10px;
+  margin-right: 130px;
+}
+
+@media only screen and (max-width: 600px){
+	.ant-popover-content {
+    margin-right: 0px !important;
+    margin-top: 15px;
+  }
+}
+
 /* /// */
