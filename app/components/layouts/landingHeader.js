@@ -1,12 +1,19 @@
 import { Badge } from "antd";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import DocButton from "../common/docButton";
 
 const Header = ({ showDrawer }) => {
     return (
         <div className="h-[8vh] sm:h-[7vh] bg-[#FFF] flex justify-between items-center py-7 px-3">
-            <div onClick={showDrawer} className="visible xl:invisible">
+            <div onClick={showDrawer} className="block xl:hidden">
                 <Image src={"/icons/headerhamBurger.svg"} width={50} height={50} alt="menu" />
+            </div>
+            <div className="hidden xl:block flex justify-start">
+                <Link href={"/dashboard/devices"}>
+                    <DocButton prefix={<Image className="mr-1" src={"/icons/AddWhite.svg"} width={13} height={13} alt="plus" />} text={"Add Device"} className={"!bg-[#FCBF4A] text-white min-w-[125px]"} />
+                </Link>
             </div>
 
             <div className="flex justify-end items-center gap-3">
