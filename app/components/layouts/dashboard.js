@@ -92,6 +92,7 @@ const Dashboard = ({ noDevices }) => {
         confirmButton="Yes"
         description="Are you sure you want to remove this device?"
         icon={"Cancel.svg"}
+        width={450}
         acceptButtonColor={"bg-redColor"}
       />
     </>

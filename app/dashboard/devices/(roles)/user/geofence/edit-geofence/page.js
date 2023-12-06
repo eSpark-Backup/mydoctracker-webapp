@@ -32,6 +32,7 @@ const EditGeofence = () => {
                 description="Are you sure you want to Delete this geofence? 
                 You will not get it back."
                 icon={"Cancel.svg"}
+                width={400}
                 acceptButtonColor={"bg-redColor"}
             />
             <GeofenceForm onSaveText={"Save"} />

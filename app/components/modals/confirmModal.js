@@ -13,7 +13,8 @@ const ConfirmModal = ({
   confirmButton,
   description,
   icon,
-  acceptButtonColor
+  acceptButtonColor,
+  width
 }) => {
   return (
     <>
@@ -24,10 +25,11 @@ const ConfirmModal = ({
         okButtonProps={{ style: { display: "none" } }}
         cancelButtonProps={{ style: { display: "none" } }}
         closable={false}
+        width={width}
       >
         <div className="h-48 flex justify-center items-center flex-col gap-7">
           <Image src={`/icons/${icon}`} alt="Cancel" width={40} height={40} />
-          <h3 className="w-2/3">{description}</h3>
+          <h3 className="w-2/3 text-center">{description}</h3>
           <div className="gap-4 flex">
             <button onClick={handleCancel} className="border-2 border-primary text-primary  h-8 w-24 rounded-2xl">{cancelButton}</button>
             <button className={`${acceptButtonColor} h-8 text-white rounded-2xl w-24`}>{confirmButton}</button>

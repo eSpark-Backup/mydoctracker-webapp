@@ -50,6 +50,7 @@ const InfoCard = ({ icon, title, description, mdwidth, leftBorder, buttonTitle, 
                 <InputModal
                     isModalOpen={isModalOpen}
                     handleOk={handleOk}
+                    width={360}
                     handleCancel={handleCancel} >
                     <CopyUrlForm handleCancel={handleCancel} />
                 </InputModal>

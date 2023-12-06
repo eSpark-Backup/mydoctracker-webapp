@@ -146,6 +146,7 @@ const AddDevice = () => {
             <InputModal
                 isModalOpen={isModalOpen}
                 handleOk={handleOk}
+                width={450}
                 handleCancel={handleCancel} >
                 <AddDeviceForm handleCancel={handleCancel} />
             </InputModal>
@@ -153,6 +154,7 @@ const AddDevice = () => {
             <InputModal
                 isModalOpen={isModal2Open}
                 handleOk={handleOk2}
+                width={300}
                 handleCancel={handleCancel2} >
                 <VerificationForm handleCancel={handleCancel2} />
                 {/* <AddDeviceForm handleCancel={handleCancel2} /> */}

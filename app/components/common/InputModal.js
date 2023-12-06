@@ -10,8 +10,9 @@ const InputModal = ({
     handleOk,
     handleCancel,
     isModalOpen,
-    inputs, 
-    children
+    inputs,
+    children, 
+    width
 }) => {
     return (
         <div>
@@ -23,8 +24,10 @@ const InputModal = ({
                     okButtonProps={{ style: { display: "none" } }}
                     cancelButtonProps={{ style: { display: "none" } }}
                     closable={false}
+                    width={width}
+                    
                 >
-                  {children}
+                    {children}
                 </Modal>
             </>
         </div>

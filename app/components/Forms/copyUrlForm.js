@@ -16,14 +16,14 @@ const CopyUrlForm = ({ handleCancel }) => {
     return (
         <div>
             <div>
-                <div className='flex flex-col gap-5 items-center pt-4'>
+            <div className='flex flex-col gap-5 items-center pt-4'>
                     <h3 className='text-primary text-xl font-normal'>Share location</h3>
                     <p className='text-xs text-greydark'>Copy the URL & send it to view location.</p>
                     <Button.Group>
                         <Button className='h-10 bg-primary text-white border-1 border-primary no-hover' onClick={handleCopy}>
-                            <Image src={"/icons/copy.svg"} width={14} height={16} />
+                            <Image src={"/icons/copy.svg"} style={{width:"15px", height:"15px"}} width={14} height={16}/>
                         </Button>
-                        <Button className='h-10 w-72 text-sm text-[#838383] border-1 border-primary no-hover'>https://location_1suK89Latdeg57gfdldfik</Button>
+                        <Button className='h-10 w-60 sm:4/5 text-[11px] sm:text-xs text-[#838383] border-1 border-primary no-hover'>https://location_1suK89Latdeg57gfdldfik</Button>
                     </Button.Group>
                     <DocButton onClick={handleCancel} className={"bg-secondary text-primary font-medium text-sm w-24"} text={"Done"} />
                 </div>
