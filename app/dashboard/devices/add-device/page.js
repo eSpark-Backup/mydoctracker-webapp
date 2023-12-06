@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import Link from 'next/link';
 import InputModal from '@/app/components/common/InputModal';
+import HeadContent from '@/app/components/common/headContent';
 import { trackerTypeOptions } from '@/app/constant';
 import { checkFieldsNotEmpty } from '@/app/utils/validation';
 import { notification } from 'antd';
@@ -76,8 +77,13 @@ const AddDevice = () => {
 
         <>
             <Header />
-
-            <div className='w-full min-h-[92vh] flex justify-center items-center bg-[#F7F7F7]'>
+            <div className='w-full min-h-[92vh] flex flex-col justify-center items-center bg-[#F7F7F7]'>
+                <div className="w-[97%] sm:w-[70%] flex items-end mt:0 sm:mt-10">
+                    <HeadContent
+                        mainHeading="Add Device"
+                        paragraph="Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie "
+                    />
+                </div>
                 <div className="w-[97%] sm:w-[70%] lg:min-h-[650px]  gap-12 h-auto shadow-xl rounded-lg bg-white my-4 flex p-8 flex-col">
                     <div>
                         <h2 className="mb-4 text-black text-sm sm:text-xl font-medium pb-1">Tracker Details</h2>
