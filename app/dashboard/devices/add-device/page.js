@@ -6,6 +6,10 @@ import React, { useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import Link from 'next/link';
 import InputModal from '@/app/components/common/InputModal';
+import VerificationForm from '@/app/components/Forms/verificationForm';
+
+
+
 import { trackerTypeOptions } from '@/app/constant';
 import { checkFieldsNotEmpty } from '@/app/utils/validation';
 import { notification } from 'antd';
@@ -26,6 +30,7 @@ const AddDevice = () => {
     const handleSubmit = () => {
         if (checkFieldsNotEmpty(trackerData)) {
             console.log(trackerData);
+            setIsModal2Open(true)
         }
         else {
             notification.error({
@@ -60,9 +65,6 @@ const AddDevice = () => {
     };
 
 
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
 
     const handleOk = () => {
         setIsModalOpen(false);
@@ -70,6 +72,15 @@ const AddDevice = () => {
 
     const handleCancel = () => {
         setIsModalOpen(false);
+    };
+    const [isModal2Open, setIsModal2Open] = useState(false);
+
+    const handleOk2 = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel2 = () => {
+        setIsModal2Open(false);
     };
 
     return (
@@ -98,7 +109,7 @@ const AddDevice = () => {
                     <div>
                         <div className="flex justify-between flex-wrap">
                             <h2 className="mb-4 text-black text-sm sm:text-xl font-medium pb-1">Document Details</h2>
-                            <DocButton onClick={showModal} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add fields"} className={"text-white rounded-lg"} />
+                            <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add fields"} className={"text-white rounded-lg"} />
                         </div>
                         <div className="flex gap-5 sm:gap-14 flex-col sm:flex-row flex-wrap mt-2 sm:mt-0">
                             <div className="w-100% lg:w-[30%] flex flex-col">
@@ -134,10 +145,19 @@ const AddDevice = () => {
             </div>
             <InputModal
                 isModalOpen={isModalOpen}
-                showModal={showModal}
                 handleOk={handleOk}
+                width={450}
                 handleCancel={handleCancel} >
                 <AddDeviceForm handleCancel={handleCancel} />
+            </InputModal>
+            
+            <InputModal
+                isModalOpen={isModal2Open}
+                handleOk={handleOk2}
+                width={300}
+                handleCancel={handleCancel2} >
+                <VerificationForm handleCancel={handleCancel2} />
+                {/* <AddDeviceForm handleCancel={handleCancel2} /> */}
             </InputModal>
 
         </>

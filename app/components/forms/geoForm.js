@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import DocInput from '../common/docInput'
 import CordinatesTaker from '../common/cordinatesTaker'
@@ -36,7 +37,7 @@ const GeofenceForm = ({ onSaveText }) => {
                         <label className="text-greydark text-sm pb-1 font-semibold">Cordinates <span className="text-redColor">*</span></label>
 
                         <div className='flex flex-col gap-4'>
-                            <div className='flex justify-between md:flex-row flex-col gap-4 flex-wrap'>
+                            <div className='flex justify-between md:flex-row flex-col gap-4 flex-wrap h-28 overflow-y-scroll'>
                                 <CordinatesTaker />
                                 <CordinatesTaker />
                                 <CordinatesTaker />

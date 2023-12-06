@@ -1,9 +1,23 @@
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import DocButton from './docButton'
 import Image from 'next/image'
 import Link from 'next/link'
+import InputModal from './InputModal'
+import AddDeviceForm from '../forms/addDeviceForm'
+import CopyUrlForm from '../Forms/copyUrlForm'
 
 const InfoCard = ({ icon, title, description, mdwidth, leftBorder, buttonTitle, buttonLink }) => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
     return (
         <div className={`xl:w-4/12 ${mdwidth} ${leftBorder && "xl:border-r-2 border-b-2"} md:border-b-0  w-full flex flex-col items-center xl:px-3  px-0 py-6`}>
             <div className='w-4/6 '>
@@ -23,16 +37,23 @@ const InfoCard = ({ icon, title, description, mdwidth, leftBorder, buttonTitle, 
 
                 <div className='flex flex-col gap-y-2'>
                     {
-                        title === "Document" && 
+                        title === "Document" &&
                         <Link className='no-underline text-primary' href="/dashboard/devices/user/view-doc">
-                        <DocButton text={"View Document"} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
+                            <DocButton text={"View Document"} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
                         </Link>
                     }
-                    
-                     <Link className='no-underline text-primary' href={buttonLink ? buttonLink : "/dashboard/devices/user/"}>
-                    <DocButton text={buttonTitle} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
+
+                    <Link className='no-underline text-primary' href={buttonLink ? buttonLink : "/dashboard/devices/user/"}>
+                        <DocButton text={buttonTitle} onClick={buttonTitle === "Create Link" ? () => setIsModalOpen(true) : null} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
                     </Link>
                 </div>
+                <InputModal
+                    isModalOpen={isModalOpen}
+                    handleOk={handleOk}
+                    width={360}
+                    handleCancel={handleCancel} >
+                    <CopyUrlForm handleCancel={handleCancel} />
+                </InputModal>
             </div>
         </div>
     )

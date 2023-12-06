@@ -14,10 +14,6 @@ const Dashboard = ({ noDevices }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showEditScreen, setShowEditScreen] = useState(false);
 
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
   const handleOk = () => {
     setIsModalOpen(false);
   };
@@ -55,12 +51,12 @@ const Dashboard = ({ noDevices }) => {
                 </h1>
               </Link>
               <h1>
-                {eachDevice.status === "Active" ? (
-                  <Badge color="#0DFF25" text={eachDevice.status} />
-                ) : eachDevice.status === "Disable" ? (
-                  <Badge color="#FFCE00" text={eachDevice.status} />
+                {eachDevice?.status === "Active" ? (
+                  <Badge color="#0DFF25" text={eachDevice?.status} />
+                ) : eachDevice?.status === "Disable" ? (
+                  <Badge color="#FFCE00" text={eachDevice?.status} />
                 ) : (
-                  <Badge color="#666" text={eachDevice.status} />
+                  <Badge color="#666" text={eachDevice?.status} />
                 )}
               </h1>
             </div>
@@ -72,7 +68,7 @@ const Dashboard = ({ noDevices }) => {
                 <p className="text-[12px] text-greydark">{eachDevice?.date}</p>
                 <p className="text-[12px] text-greydark">{eachDevice?.battery}</p>
               </div>
-              <div onClick={showModal}>
+              <div onClick={()=>setIsModalOpen(true)}>
                 <Image
                   src="/icons/vertical-ellipse.svg"
                   width={40}
@@ -90,13 +86,13 @@ const Dashboard = ({ noDevices }) => {
       </div>}
       <ConfirmModal
         isModalOpen={isModalOpen}
-        showModal={showModal}
         handleOk={handleOk}
         handleCancel={handleCancel}
         cancelButton="Cancel"
         confirmButton="Yes"
         description="Are you sure you want to remove this device?"
         icon={"Cancel.svg"}
+        width={450}
         acceptButtonColor={"bg-redColor"}
       />
     </>
