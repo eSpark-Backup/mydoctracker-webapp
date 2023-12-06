@@ -1,3 +1,4 @@
+"use client"
 import { GeofenceData } from '@/app/constant'
 import Image from 'next/image'
 import Link from 'next/link'

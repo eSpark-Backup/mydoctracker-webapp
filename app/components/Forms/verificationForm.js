@@ -4,7 +4,7 @@ import OTPInput from 'react-otp-input'
 import DocButton from '../common/docButton';
 // box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25)
 
-const VerificationForm = () => {
+const VerificationForm = ({handleCancel}) => {
     const [otp, setOtp] = useState('');
     return (
         <div className='flex flex-col gap-5 py-4 items-center'>
@@ -22,9 +22,9 @@ const VerificationForm = () => {
 
                 />
             </div>
-            <DocButton text={"Confirm"} className={"text-white"} />
+            <DocButton text={"Confirm"} className={"text-white"} onClick={handleCancel} />
             <p className='underline underline-offset-2 cursor-pointer'>Resend Code</p>
-            <DocButton text={"Continue"} className={"bg-[#AFAFAF] text-primary font-medium"} />
+            <DocButton text={"Continue"} className={"bg-[rgb(175,175,175)] text-primary font-medium"} onClick={handleCancel} />
         </div>
     )
 }
