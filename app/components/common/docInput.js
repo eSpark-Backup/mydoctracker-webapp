@@ -22,7 +22,7 @@ const DocInput = ({ type, className, placeholder, onChange, value }) => {
 
   return (
     <Input className={`border-2 border-grey-100 h-[40px] rounded-[5px] ${className}`} 
-    type={type === 'password' ? (isPasswordVisible ? 'text' : 'password') : type} placeholder={placeholder} onChange={handleChange}
+    type={type === "email" ? "email" : type === 'password' ? (isPasswordVisible ? 'text' : 'password') : type} placeholder={placeholder} onChange={handleChange}
     suffix={
       type === 'password' && (
         <Space
