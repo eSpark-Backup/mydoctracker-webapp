@@ -34,7 +34,7 @@ const Header = ({ showDrawer }) => {
                 </div>
             <div className="hidden xl:block flex justify-start">
                 <Link href={"/dashboard/devices"}>
-                    <DocButton prefix={<Image className="mr-1" src={"/icons/AddWhite.svg"} width={13} height={13} alt="plus" />} text={"Add Device"} className={"!bg-[#FCBF4A] text-white min-w-[125px]"} />
+                    <DocButton prefix={<Image className="mr-1" src={"/icons/AddWhite.svg"} width={13} height={13} alt="plus" />} text={"Add Device"} className={"!bg-[#FCBF4A] text-white min-w-[160px]"} />
                 </Link>
             </div>
 
