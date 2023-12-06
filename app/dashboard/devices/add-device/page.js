@@ -5,21 +5,28 @@ import React, { useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import Link from 'next/link';
 import InputModal from '@/app/components/common/InputModal';
+import VerificationForm from '@/app/components/Forms/verificationForm';
 
 
 
 
 const AddDevice = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const showModal = () => {
-        setIsModalOpen(true);
-    };
 
     const handleOk = () => {
         setIsModalOpen(false);
     };
 
     const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+    const [isModal2Open, setIsModal2Open] = useState(false);
+
+    const handleOk2 = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel2 = () => {
         setIsModalOpen(false);
     };
     return (
@@ -45,7 +52,7 @@ const AddDevice = () => {
                     <div>
                         <div className="flex justify-between flex-wrap">
                             <h2 className="mb-4 text-black text-sm sm:text-xl font-medium pb-1">Document Details</h2>
-                            <DocButton onClick={showModal} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add fields"} className={"text-white rounded-lg"} />
+                            <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add fields"} className={"text-white rounded-lg"} />
                         </div>
                         <div className="flex gap-5 sm:gap-14 flex-col sm:flex-row flex-wrap mt-2 sm:mt-0">
                             <div className="w-100% lg:w-[30%] flex flex-col">
@@ -69,16 +76,22 @@ const AddDevice = () => {
                     <div className="flex gap-5 flex-wrap">
                         <Link href={"/dashboard/devices"}>
                             <DocButton text={"Cancel"} className={"border-2 border-greyBorder bg-transparent text-primary min-w-[125px]"} /></Link>
-                        <DocButton text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
+                        <DocButton onClick={() => setIsModal2Open(true)} text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
                     </div>
                 </div>
             </div>
             <InputModal
                 isModalOpen={isModalOpen}
-                showModal={showModal}
                 handleOk={handleOk}
                 handleCancel={handleCancel} >
                 <AddDeviceForm handleCancel={handleCancel} />
+            </InputModal>
+            <InputModal
+                isModalOpen={isModal2Open}
+                handleOk={handleOk2}
+                handleCancel={handleCancel2} >
+                <VerificationForm />
+                {/* <AddDeviceForm handleCancel={handleCancel2} /> */}
             </InputModal>
 
         </>

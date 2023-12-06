@@ -1,3 +1,4 @@
+"use client"
 import { GeofenceForm } from '@/app/components'
 import React from 'react'
 
