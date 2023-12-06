@@ -2,19 +2,20 @@
 
 import { Tabs } from 'antd';
 import Image from 'next/image';
+import LocationDetails from './location-details';
 
 const History = () => {
 
-const items = [
+const tabs = [
     {
       key: '1',
       label: 'Active',
-      children: 'Content of Tab Pane 1',
+      children: <LocationDetails active />,
     },
     {
       key: '2',
       label: 'Inactive',
-      children: 'Content of Tab Pane 2',
+      children: <LocationDetails />,
     },
 ];
        
@@ -27,12 +28,29 @@ const items = [
             <div className='flex flex-col md:flex-row gap-4 h-[100%]'>
 
               <div className='relative tabs-image w-[100%] md:w-[30%] border-[#E4E4E4] border-r-0 md:border-r-2 h=[100%]'>
-                <Tabs itemActiveColor="#002F49" inkBarColor="#002F49" centered defaultActiveKey="1" items={items} />
-                <Image className='absolute top-4 right-4' src="/icons/tabs-Image.svg" width={35} height={35} alt="tabs-image" />
+                <Tabs centered defaultActiveKey="1" items={tabs} />
+                <Image className='absolute top-4 right-4 hidden lg:block' src="/icons/tabs-Image.svg" width={35} height={35} alt="tabs-image" />
               </div>
 
               <div className='w-[100%] md:w-[70%] py-5 md:py-10 px-3 md:px-3'>
-                
+                <div className='flex flex-col gap-2 lg:flex-row items-center lg:items-start justify-around'>
+                    <div className='w-[100%] lg:w-[30%]'>
+                      <div className='text-[#002F49] font-bold text-sm'>Time</div>
+                      <div className='text-[#666666] font-semibold text-[12px]'>1 Hour</div>
+                      <div className='text-[#666666] font-semibold text-[12px]'>Start time: <span className='text-sm'>12:00 pm</span> - End time: <span className='text-sm'>01:00 pm</span></div>
+                    </div>
+                    <div className='w-[100%] lg:w-[30%]'>
+                      <div className='text-[#002F49] font-bold text-sm'>Distance</div>
+                      <div className='text-[#666666] font-semibold text-[12px]'>20 km</div>
+                      <div className='text-[#666666] font-semibold text-[12px]'>Latitude: <span className='text-sm'>-8.957</span> - Longitude: <span className='text-sm'>-100.807</span></div>
+                    </div>
+                    <div className='w-[100%] lg:w-[30%]'>
+                      <div className='text-[#002F49] font-bold text-sm'>Battery</div>
+                      <div className='text-[#666666] font-semibold text-[12px]'>0.19% consumed</div>
+                      <div className='text-[#666666] font-semibold text-[12px]'>Initial battery percentage: 97.78% <br></br> Ending battery percentage: 97.59%</div>
+                    </div>
+                </div>
+                <Image src="/Images/map.svg" className='w-[100%] mt-2 lg:mt-0 p-0 lg:p-5' width={300} height={300} alt="document-image" />                
               </div>
 
             </div>
