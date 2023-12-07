@@ -14,15 +14,15 @@ const Report = () => {
             </div>
             <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 flex-col p-7 sm:min-h-[700px]">
                 <div className="w-100% lg:w-[80%] flex flex-col">
-                    <h2 className="text-greydark text-sm pb-1">Email <span className='text-[#FF0000]'>*</span></h2>
+                    <h2 className="text-greydark text-sm pb-1">Email <span className='text-redColor'>*</span></h2>
                     <DocInput type={"email"} placeholder={"Enter email..."} className={"h-[40px]"} />
                 </div>
                 <div className="w-100% lg:w-[80%] flex flex-col mt-5">
-                    <h2 className="text-greydark text-sm pb-1">Description<span className='text-[#FF0000]'>*</span></h2>
+                    <h2 className="text-greydark text-sm pb-1">Description<span className='text-redColor'>*</span></h2>
                     <DocTextArea rows={8} placeholder={"Type..."} className={"h-[40px]"} />
                 </div>
                 <div className="w-100% lg:w-[80%] flex flex-col mt-5">
-                    <h2 className="text-greydark text-sm pb-1">Upload picture or a video of your problem <span className='text-[#FF0000]'>*</span></h2>
+                    <h2 className="text-greydark text-sm pb-1">Upload picture or a video of your problem <span className='text-redColor'>*</span></h2>
                     <DocImgInput  placeholder={"Upload Image"} />
                 </div>
                 <div className="flex justify-end sm:justify-start gap-5 mt-7">
