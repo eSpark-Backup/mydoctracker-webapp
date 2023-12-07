@@ -23,7 +23,7 @@ const Request = () => {
     return (
         <div className='mt-5'>
             {showUser || showDocument ? <button className='block md:hidden' onClick={Backhandler}>
-                <ArrowLeftOutlined />
+                <ArrowLeftOutlined style={{fontSize:"28px"}} />
             </button> : null}
             <h2 className='text-black text-2xl font-semibold'>Requests</h2>
             <p className='text-greydark text-base font-normal mt-3'>Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie.</p>
