@@ -81,6 +81,33 @@
   background: #002F49 !important; 
 }
 
+.manage-tabs .ant-tabs-tab-btn {
+  color: #424242;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.manage-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #424242 !important;
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.manage-tabs .ant-tabs-ink-bar {
+  background: #FCBF4A !important; 
+}
+
+.manage-tabs .ant-tabs-nav-wrap {
+  flex: none !important;
+  margin-left: 50px !important;
+}
+
+@media only screen and (max-width: 640px){
+  .manage-tabs .ant-tabs-nav-wrap {
+    margin-left: 0px !important;
+  }
+}
+
 .ant-tabs-nav-list {
   padding: 10px 0 0 8px;
 }
