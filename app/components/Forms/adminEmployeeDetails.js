@@ -30,16 +30,6 @@ const AdminEmployeeDetails = () => {
                     <FieldView text={"Group 1"}/>
                 </div>
             </div>
-            {/* <div className="flex gap-5 sm:gap-14 flex-col sm:flex-row">
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm pb-1">Contact</label>
-                    <FieldView text={"123456789"}/>
-                </div>
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm pb-1">Subsidiary</label>
-                    <FieldView text={"Group 1"}/>
-                </div>
-            </div> */}
         </div>
     )
 }

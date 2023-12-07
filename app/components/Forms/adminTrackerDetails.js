@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import DocInput from '../common/docInput'
 import Image from 'next/image'
