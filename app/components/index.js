@@ -34,6 +34,7 @@ import CordinatesTaker from "./common/cordinatesTaker"
 import NavigatorHeader from './common/navigatorHeader'
 import CalendarSlider from './common/calendar'
 import DocTextArea from './common/docTextArea'
+import SearchBar from './common/docSearchBar'
 
 
 
@@ -74,4 +75,5 @@ export {
     AddDeviceForm,
     CalendarSlider,
     DocTextArea,
+    SearchBar,
 }
