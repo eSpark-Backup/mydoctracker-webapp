@@ -527,16 +527,7 @@ export const requestUserDetails = [
 
     },
 ]
-export const profileSettings = [
-    {
-        key: '1',
-        label: 'Admin Profile',
-    },
-    {
-        key: '2',
-        label: 'Company Profile',
-    },
-];
+
 
 export const employeeData = [
     {

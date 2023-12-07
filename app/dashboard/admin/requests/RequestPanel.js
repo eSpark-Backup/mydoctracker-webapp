@@ -1,8 +1,8 @@
 "use client"
 import React from 'react'
-import DocButton from '../common/docButton'
 import Image from 'next/image'
 import { requests } from '@/app/constant'
+import { DocButton } from '@/app/components'
 
 const RequestPanel = ({ toggleShowUser, toggleShowDocument, showUser, showDocument }) => {
     return (
