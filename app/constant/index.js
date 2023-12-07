@@ -443,6 +443,90 @@ export const locations = [
     },
 ]
 
+
+export const requests = [
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to Update document",
+        group: "Group: 1",
+    },
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to share Location to john",
+        group: "Group: 1",
+    },
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to Update document",
+        group: "Group: 1",
+    },
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to share Location to john",
+        group: "Group: 1",
+    },
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to Update document",
+        group: "Group: 1",
+    },
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to share Location to john",
+        group: "Group: 1",
+    }
+]
+
+export const requestUserDetails = [
+    {
+        heading: "John",
+        description: "Name",
+        icon: "profileLight.svg",
+
+    },
+    {
+        heading: "12344",
+        description: "Employee ID",
+        icon: "profileId.svg",
+
+    },
+    {
+        heading: "0123456789",
+        description: "Tracker ID",
+        icon: "locationPerson.svg",
+
+    },
+    {
+        heading: "Under the table",
+        description: "Location",
+        icon: "locationVector.svg",
+
+    },
+    {
+        heading: "Single Page",
+        description: "Tracker Type",
+        icon: "multiplePages.svg",
+
+    },
+    {
+        heading: "Group1",
+        description: "subsidiary",
+        icon: "share.svg",
+
+    },
+    {
+        heading: "My Note Book",
+        description: "Document",
+        icon: "phonebook.svg",
+
+    },
+]
 export const profileSettings = [
     {
         key: '1',
@@ -517,5 +601,50 @@ export const subsidiaryData = [
         name: "Group 5",
         noOFEmployees: "5",
         date: "Date: 12-02-2023"
+    }
+]
+
+export const packagePlans = [
+    {
+        id: 1,
+        planName: "Basic",
+        planType: "A",
+        price: "29 99",
+        details: [
+            "5 Employees",
+            "Lorem ipsum consectetur",
+            "Lorem ipsum dolor sit amet consectetur",
+            "Lorem ipsum ",
+            "Lorem ipsum consectetur",
+            "Lorem ipsum dolor sit",
+        ]
+    },
+    {
+        id: 2,
+        planName: "Premium",
+        planType: "B",
+        price: "29 99",
+        details: [
+            "20 Employees",
+            "Lorem ipsum consectetur",
+            "Lorem ipsum dolor sit amet consectetur",
+            "Lorem ipsum ",
+            "Lorem ipsum consectetur",
+            "Lorem ipsum dolor sit",
+        ]
+    },
+    {
+        id: 3,
+        planName: "Vip",
+        planType: "C",
+        price: "29 99",
+        details: [
+            "Unlimited Employees",
+            "Lorem ipsum consectetur",
+            "Lorem ipsum dolor sit amet consectetur",
+            "Lorem ipsum ",
+            "Lorem ipsum consectetu",
+            "Lorem ipsum dolor sit",
+        ]
     }
 ]
