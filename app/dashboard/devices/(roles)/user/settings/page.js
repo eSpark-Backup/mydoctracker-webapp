@@ -8,7 +8,7 @@ import { Switch, Tabs, notification } from 'antd';
 import Image from 'next/image';
 import { checkFieldsNotEmpty } from '@/app/utils/validation';
 
-const Page = () => {
+const Settings = () => {
     const [activeTab, setActiveTab] = useState(1);
     const [trackerSetting, setTrackerSetting] = useState({
         enableDevice: false,
@@ -206,4 +206,4 @@ const Page = () => {
     )
 }
 
-export default Page
+export default Settings
