@@ -453,3 +453,69 @@ export const profileSettings = [
         label: 'Company Profile',
     },
 ];
+
+export const employeeData = [
+    {
+        id: 1,
+        name: "Mitchel Stark",
+        location: "California",
+        date: "Date: 12-02-2023"
+    },
+    {
+        id: 2,
+        name: "Mitchel Stark",
+        location: "California",
+        date: "Date: 12-02-2023"
+    },
+    {
+        id: 3,
+        name: "Mitchel Stark",
+        location: "California",
+        date: "Date: 12-02-2023"
+    },
+    {
+        id: 4,
+        name: "Mitchel Stark",
+        location: "California",
+        date: "Date: 12-02-2023"
+    },
+    {
+        id: 5,
+        name: "Mitchel Stark",
+        location: "California",
+        date: "Date: 12-02-2023"
+    },
+]
+
+export const subsidiaryData = [
+    {
+        id: 1,
+        name: "Group 1",
+        noOFEmployees: "5",
+        date: "Date: 12-02-2023"
+    },
+    {
+        id: 2,
+        name: "Group 2",
+        noOFEmployees: "5",
+        date: "Date: 12-02-2023"
+    },
+    {
+        id: 3,
+        name: "Group 3",
+        noOFEmployees: "5",
+        date: "Date: 12-02-2023"
+    },
+    {
+        id: 4,
+        name: "Group 4",
+        noOFEmployees: "5",
+        date: "Date: 12-02-2023"
+    },
+    {
+        id: 5,
+        name: "Group 5",
+        noOFEmployees: "5",
+        date: "Date: 12-02-2023"
+    }
+]
