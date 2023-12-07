@@ -1,9 +1,10 @@
+import Request from '@/app/components/request/Request'
 import React from 'react'
 
 const Requests = () => {
     return (
         <div>
-            This is Requests Page
+            <Request/>
         </div>
     )
 }

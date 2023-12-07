@@ -39,7 +39,7 @@ const Header = ({ showDrawer }) => {
             </div>
 
                 <div className="relative">
-                    <div className="flex justify-end items-center gap-3 cursor-pointer" onClick={() => setShowButton(!showButton)}>
+                    <div className="flex justify-end items-center gap-3 cursor-pointer">
                         <Badge count={1}>
                 <Popover
                   content={<Notifications />}
@@ -50,7 +50,7 @@ const Header = ({ showDrawer }) => {
                             <Image className="cursor-pointer" src={"/icons/Bell.svg"} width={25} height={25} alt="bell" />
                 </Popover>
                         </Badge>
-                        <div className="w-32 border-2 border-greyBorder h-[40px] sm:h-[40px] flex justify-between items-center rounded-[50px] pl-1 pr-4">
+                        <div className="w-32 border-2 border-greyBorder h-[40px] sm:h-[40px] flex justify-between items-center rounded-[50px] pl-1 pr-4" onClick={() => setShowButton(!showButton)}>
                             <Image src={"/icons/userAvatar.svg"} width={30} height={30} alt="avatar" />
                             <p className="text-sm font-normal">John Doe</p>
                         </div>

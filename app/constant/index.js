@@ -443,6 +443,90 @@ export const locations = [
     },
 ]
 
+
+export const requests = [
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to Update document",
+        group: "Group: 1",
+    },
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to share Location to john",
+        group: "Group: 1",
+    },
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to Update document",
+        group: "Group: 1",
+    },
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to share Location to john",
+        group: "Group: 1",
+    },
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to Update document",
+        group: "Group: 1",
+    },
+    {
+        name: "Alex",
+        time: "9:00pm",
+        description: "Requested to share Location to john",
+        group: "Group: 1",
+    }
+]
+
+export const requestUserDetails = [
+    {
+        heading: "John",
+        description: "Name",
+        icon: "profileLight.svg",
+
+    },
+    {
+        heading: "12344",
+        description: "Employee ID",
+        icon: "profileId.svg",
+
+    },
+    {
+        heading: "0123456789",
+        description: "Tracker ID",
+        icon: "locationPerson.svg",
+
+    },
+    {
+        heading: "Under the table",
+        description: "Location",
+        icon: "locationVector.svg",
+
+    },
+    {
+        heading: "Single Page",
+        description: "Tracker Type",
+        icon: "multiplePages.svg",
+
+    },
+    {
+        heading: "Group1",
+        description: "subsidiary",
+        icon: "share.svg",
+
+    },
+    {
+        heading: "My Note Book",
+        description: "Document",
+        icon: "phonebook.svg",
+
+    },
+]
 export const profileSettings = [
     {
         key: '1',
