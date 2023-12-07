@@ -519,3 +519,48 @@ export const subsidiaryData = [
         date: "Date: 12-02-2023"
     }
 ]
+
+export const packagePlans = [
+    {
+        id: 1,
+        planName: "Basic",
+        planType: "A",
+        price: "29 99",
+        details: [
+            "5 Employees",
+            "Lorem ipsum consectetur",
+            "Lorem ipsum dolor sit amet consectetur",
+            "Lorem ipsum ",
+            "Lorem ipsum consectetur",
+            "Lorem ipsum dolor sit",
+        ]
+    },
+    {
+        id: 2,
+        planName: "Premium",
+        planType: "B",
+        price: "29 99",
+        details: [
+            "20 Employees",
+            "Lorem ipsum consectetur",
+            "Lorem ipsum dolor sit amet consectetur",
+            "Lorem ipsum ",
+            "Lorem ipsum consectetur",
+            "Lorem ipsum dolor sit",
+        ]
+    },
+    {
+        id: 3,
+        planName: "Vip",
+        planType: "C",
+        price: "29 99",
+        details: [
+            "Unlimited Employees",
+            "Lorem ipsum consectetur",
+            "Lorem ipsum dolor sit amet consectetur",
+            "Lorem ipsum ",
+            "Lorem ipsum consectetu",
+            "Lorem ipsum dolor sit",
+        ]
+    }
+]
