@@ -443,6 +443,17 @@ export const locations = [
     },
 ]
 
+export const profileSettings = [
+    {
+        key: '1',
+        label: 'Admin Profile',
+    },
+    {
+        key: '2',
+        label: 'Company Profile',
+    },
+];
+
 export const employeeData = [
     {
         id: 1,
