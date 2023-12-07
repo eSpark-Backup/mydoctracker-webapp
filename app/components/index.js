@@ -35,6 +35,11 @@ import NavigatorHeader from './common/navigatorHeader'
 import CalendarSlider from './common/calendar'
 import DocTextArea from './common/docTextArea'
 import SearchBar from './common/docSearchBar'
+import AdminProfileForm from './forms/adminProfileForm'
+import CompanyProfileForm from './forms/companyProfileForm'
+import TrackerSettings from './forms/trackerSettings'
+import NotificationSettings from './common/notificationSettings'
+import AccountSettingsForm from './forms/accountSettingsForm'
 
 
 
@@ -76,4 +81,9 @@ export {
     CalendarSlider,
     DocTextArea,
     SearchBar,
+    AdminProfileForm,
+    CompanyProfileForm,
+    TrackerSettings,
+    NotificationSettings,
+    AccountSettingsForm,
 }
