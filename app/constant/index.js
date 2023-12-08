@@ -1,3 +1,5 @@
+import avatar from '@/public/icons/userAvatar.svg'
+
 export const signInRoles = [
     {
         id: 1,
@@ -670,3 +672,15 @@ export const accessibilityOptions = [
 export const subsidiaryOptions = [
     { label: 'Group1', value: 'Group1' }, { label: 'Group2', value: 'Group2' }
 ];
+export const allUsers = [
+    { id: 1, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
+    { id: 2, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: false },
+    { id: 4, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
+    { id: 5, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
+    { id: 6, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: false },
+    { id: 7, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
+    { id: 8, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
+    { id: 9, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: false },
+    { id: 10, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
+    { id: 11, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
+  ]
