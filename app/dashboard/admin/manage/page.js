@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Tabs } from 'antd'
 import HeadContent from '@/app/components/common/headContent'
 import { employeeData, subsidiaryData } from '@/app/constant';
-import ManagementList from './management'
+import ManagementList from '../../../components/common/management'
 
 const Manage = () => {
 

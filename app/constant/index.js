@@ -639,3 +639,31 @@ export const packagePlans = [
         ]
     }
 ]
+
+export const documentsHistoryData = [
+    {
+        id: 1,
+        createdAt: "5:43 PM",
+        title: "My Note Book",
+        savedBy: "You",
+        type: "Current version"
+    },
+    {
+        id: 2,
+        createdAt: "3:43 PM",
+        title: "Book",
+        savedBy: "Alex",
+        type: "Today, February 11,2023"
+    },
+    {
+        id: 3,
+        createdAt: "5:00 PM",
+        title: "Note Book",
+        savedBy: "Alex",
+        type: "Yesterday, February 11,2023"
+    }
+]
+
+export const accessibilityOptions = [
+    { label: 'Default', value: 'Default' }, { label: 'Admin Privilege', value: 'Admin Privilege' }
+];
