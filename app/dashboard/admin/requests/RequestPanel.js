@@ -8,7 +8,7 @@ const RequestPanel = ({ toggleShowUser, toggleShowDocument, showUser, showDocume
     return (
         <div className={showDocument || showUser ? `lg:w-1/3 md:w-2/4 md:flex hidden w-[100%] max-h-[85vh] overflow-y-scroll flex-col pt-3 items-center border-2 border-r-greyBorder` : `lg:w-1/3 md:w-2/4 w-[100%] max-h-[85vh] overflow-y-scroll flex flex-col pt-3 items-center border-2 border-r-greyBorder`}>
             <div className='h-[40px] flex justify-center'>
-                <DocButton text={"Today"} className={" w-[100px] text-primary text-xs font-normal border-2 border-greyBorder px-10 bg-gray-200"} />
+                <DocButton text={"Today"} className={" w-[100px] text-primary text-xs font-normal border-2 border-greyBorder px-10 bg-white"} />
             </div>
 
             {requests?.map((eachRequest, index) => (
@@ -34,7 +34,7 @@ const RequestPanel = ({ toggleShowUser, toggleShowDocument, showUser, showDocume
                 </div>
             ))}
             <div className='h-[40px] flex justify-center'>
-                <DocButton text={"Yestaerday"} className={"bg-gray-200 w-[100px] text-primary text-xs font-normal border-2 border-greyBorder px-10"} />
+                <DocButton text={"Yestaerday"} className={"bg-white w-[100px] text-primary text-xs font-normal border-2 border-greyBorder px-10"} />
             </div>
             <div className='w-full p-3'>
                 <div className='flex gap-3 cursor-pointer'>
