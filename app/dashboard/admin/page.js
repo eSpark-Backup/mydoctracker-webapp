@@ -79,7 +79,7 @@ const Admin = () => {
             </div>
             <AddEmployeeModal
                 showModal={openModal}
-                onCalcel={() => setOpenModal(false)}
+                onCancel={() => setOpenModal(false)}
                 onSuccess={(type) => {
                     setOpenModal(false)
                     if(type === "Subsidiary"){
