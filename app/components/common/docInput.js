@@ -21,7 +21,7 @@ const DocInput = ({ type, className, placeholder, onChange, value, prefix,readOn
 
 
   return (
-    <Input className={`border-2 border-grey-100 h-[40px] rounded-[5px] ${className}`} 
+    <Input value={value} className={`border-2 border-grey-100 h-[40px] rounded-[5px] ${className}`} 
     type={type === "email" ? "email" : type === 'password' ? (isPasswordVisible ? 'text' : 'password') : type} placeholder={placeholder} onChange={handleChange}
     readOnly={readOnly}
     prefix={prefix && prefix}
