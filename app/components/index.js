@@ -40,6 +40,9 @@ import CompanyProfileForm from './forms/companyProfileForm'
 import TrackerSettings from './forms/trackerSettings'
 import NotificationSettings from './common/notificationSettings'
 import AccountSettingsForm from './forms/accountSettingsForm'
+import DocDropdown from './common/docDropdown'
+import HeadContent from './common/headContent'
+import Table from './common/table'
 
 
 
@@ -86,4 +89,7 @@ export {
     TrackerSettings,
     NotificationSettings,
     AccountSettingsForm,
+    DocDropdown,
+    HeadContent,
+    Table,
 }
