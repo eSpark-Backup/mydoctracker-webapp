@@ -4,9 +4,9 @@ import { Tabs } from 'antd';
 import Image from 'next/image';
 import LocationDetails from './location-details';
 
-const History = () => {
+const History = ({ admin }) => {
 
-const tabs = [
+  const tabs = [
     {
       key: '1',
       label: 'Active',
@@ -20,10 +20,10 @@ const tabs = [
 ];
        
   return (
-    <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex flex-col">
-            <div className='border-[#E4E4E4] border-b-2 py-8 px-8 pb-5'> 
-                <h6 className='text-black font-semibold text-lg sm:text-xl'>Location History</h6>
-            </div>
+    <div className={admin ? "w-[100%] flex flex-col" : "w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex flex-col"}>
+      {admin ? null : <div className='border-[#E4E4E4] border-b-2 py-8 px-8 pb-5'>
+        <h6 className='text-black font-semibold text-lg sm:text-xl'>Location History</h6>
+      </div>}
 
             <div className='flex flex-col md:flex-row gap-4 h-[100%]'>
 
