@@ -203,7 +203,7 @@ const AddEmployee = () => {
     </div>
     <AddFieldModal
         showModal={addFieldModal}
-        onCalcel={() => setAddFieldModal(false)}
+        onCancel={() => setAddFieldModal(false)}
         onSuccess={handleAddField}
         form={dynamicInputs}
         handleModalForm={handleModalForm}
