@@ -1,10 +1,32 @@
 "use client"
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import DocButton from './docButton'
 import DocDropdown from './docDropdown'
+import InputModal from './InputModal'
+import CopyUrlForm from '../Forms/copyUrlForm'
+import GeofencePopupForm from '../Forms/geofencePopupForm'
 
 const GeofenceSettings = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+    const [isModal2Open, setIsModal2Open] = useState(false);
+
+    const handleOk2 = () => {
+        setIsModal2Open(false);
+    };
+
+    const handleCancel2 = () => {
+        setIsModal2Open(false);
+    };
+
     return (
         <div className='flex flex-col gap-8'>
             <div>
@@ -12,8 +34,8 @@ const GeofenceSettings = () => {
                 <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div className='flex-col flex gap-8'>
-                <div className='w-[85vw] lg:w-2/4 sm:w-[45vw] flex justify-between min-h-[70px]'>
-                    <div className='w-[40%] flex justify-between items-center border-2 border-greyBorder p-3'>
+                <div className='w-[85vw] lg:w-2/4 sm:w-[45vw] flex justify-between min-h-[70px] cursor-pointer'>
+                    <div className='w-[40%] flex justify-between items-center border-2 border-greyBorder p-3' onClick={() => setIsModal2Open(true)}>
                         <div>
                             <p className='text-sm'>Room1</p>
                             <p className='text-xs'>Mar 24, 2023, 5:43 PM </p>
@@ -22,7 +44,7 @@ const GeofenceSettings = () => {
                             <Image src={"/icons/Greater.svg"} width={4} height={4} alt="arrow" />
                         </div>
                     </div>
-                    <div className='w-[40%]  flex justify-center items-center border-2 border-greyBorder'>
+                    <div onClick={()=>setIsModalOpen(true)} className='w-[40%] flex justify-center items-center border-2 border-greyBorder'>
                         <h2>+</h2>
                     </div>
                     <div className='w-[10%]  flex justify-center items-center'>
@@ -46,6 +68,20 @@ const GeofenceSettings = () => {
                     <DocButton text={"Submit"} className={"bg-transparent text-primary border-2 border-primary"} />
                 </div>
             </div>
+            <InputModal
+                isModalOpen={isModal2Open}
+                handleOk={handleOk2}
+                width={1060}
+                handleCancel={handleCancel2} >
+                <GeofencePopupForm edit={true} handleCancel={handleCancel2} />
+            </InputModal>
+            <InputModal
+                isModalOpen={isModalOpen}
+                handleOk={handleOk}
+                width={1060}
+                handleCancel={handleCancel} >
+                <GeofencePopupForm edit={false} handleCancel={handleCancel} />
+            </InputModal>
         </div>
     )
 }
