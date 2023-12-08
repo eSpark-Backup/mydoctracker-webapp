@@ -41,6 +41,9 @@ import TrackerSettings from './forms/trackerSettings'
 import NotificationSettings from './common/notificationSettings'
 import AccountSettingsForm from './forms/accountSettingsForm'
 import ShareLocationsList from './common/shareLocationsList'
+import DocDropdown from './common/docDropdown'
+import HeadContent from './common/headContent'
+import Table from './common/table'
 
 
 
@@ -88,4 +91,7 @@ export {
     NotificationSettings,
     AccountSettingsForm,
     ShareLocationsList,
+    DocDropdown,
+    HeadContent,
+    Table,
 }
