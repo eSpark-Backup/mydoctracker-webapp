@@ -40,6 +40,7 @@ import CompanyProfileForm from './forms/companyProfileForm'
 import TrackerSettings from './forms/trackerSettings'
 import NotificationSettings from './common/notificationSettings'
 import AccountSettingsForm from './forms/accountSettingsForm'
+import ShareLocationsList from './common/shareLocationsList'
 
 
 
@@ -86,4 +87,5 @@ export {
     TrackerSettings,
     NotificationSettings,
     AccountSettingsForm,
+    ShareLocationsList,
 }
