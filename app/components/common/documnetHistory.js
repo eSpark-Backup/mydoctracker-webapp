@@ -1,3 +1,4 @@
+"use client"
 import { documentsHistoryData } from '@/app/constant'
 import Image from 'next/image'
 import React from 'react'
@@ -9,9 +10,9 @@ const DocumnetHistory = () => {
             <div className='flex flex-col md:flex-row gap-4 h-[100%]'>
 
                 <div className='w-[100%] md:w-[30%] border-[#E4E4E4] border-r-0 md:border-r-2 h=[100%] lg:h-[70vh] no-scrollbar overflow-y-scroll'>
-                    {documentsHistoryData.map(({ title, createdAt, savedBy, type }) => {
+                    {documentsHistoryData.map(({ title, createdAt, savedBy, type }, index) => {
                         return (
-                            <div className='px-8 py-6 border-[#E4E4E4] border-b-2' key={title}>
+                            <div className='px-8 py-6 border-[#E4E4E4] border-b-2' key={index}>
                                 <div className='flex flex-row justify-between items-center'>
                                     <p className='text-[#002F49] font-semibold text-sm'>{type}</p>
                                     <p className='text-[#666666] font-semibold text-[10px]'>{createdAt}</p>
