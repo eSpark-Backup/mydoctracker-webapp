@@ -696,3 +696,116 @@ export const allUsers = [
     { id: 10, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
     { id: 11, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
   ]
+
+
+const subsidiaryOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
+const typeOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
+
+
+export  const form = [
+    {
+        title: "Employee Details",
+        inputs: [
+            {
+                label: "First Name",
+                placeholder: "Enter first name...",
+                required: true,
+                key: "firstName",
+                type: "textInput"
+            },
+            {
+                label: "Last Name",
+                placeholder: "Enter last name...",
+                required: true,
+                key: "lastName",
+                type: "textInput"
+            },
+            {
+                label: "Employee ID",
+                placeholder: "Enter Employee ID...",
+                required: false,
+                key: "employeeId",
+                type: "textInput"
+            },
+            {
+                label: "Contact",
+                placeholder: "Enter contact number...",
+                required: true,
+                key: "contact",
+                type: "textNumber"
+            },
+            {
+                label: "Subsidiary",
+                placeholder: "Select subsidiary",
+                options: subsidiaryOptions,
+                required: true,
+                key: "subsidiary",
+                type: "select"
+            },
+            {
+                label: "Upload Employee Image",
+                required: false,
+                key: "employeeImage",
+                type: "uploadImage"
+            },
+        ]
+    },
+    {
+        title: "Tracker Details",
+        inputs: [
+            {
+                label: "Tracker ID",
+                placeholder: "Enter tracker id...",
+                required: true,
+                key: "trackerId",
+                type: "textInput"
+            },
+            {
+                label: "Select Type",
+                placeholder: "Select type",
+                options: typeOptions,
+                required: true,
+                key: "type",
+                type: "select"
+            },
+        ]
+    },
+    {
+        title: "Document Details",
+        buttonText: "Add fields",
+        inputs: [
+            {
+                label: "Document Title",
+                placeholder: "Enter title...",
+                required: true,
+                key: "documentTitle",
+                type: "textInput"
+            },
+            {
+                label: "Date Of Creation",
+                required: true,
+                key: "creationDate",
+                type: "datePicker"
+            },
+            {
+                label: "Time Of Creation",
+                required: true,
+                key: "creationTime",
+                type: "timePicker"
+            },
+            {
+                label: "Location",
+                placeholder: "Where you placed the document",
+                required: true,
+                key: "location",
+                type: "textInput"
+            },
+            {
+                label: "Upload Doc Image",
+                required: false,
+                key: "docImage",
+                type: "uploadImage"
+            },
+        ]
+    }
+]
