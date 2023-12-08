@@ -1,9 +1,11 @@
 "use client"
+
 import React from 'react'
-import DocButton from '../common/docButton'
 import Image from 'next/image'
 import { requestUserDetails } from '@/app/constant'
-import FieldView from '../common/fieldView'
+import { DocButton, FieldView } from '@/app/components'
+
+
 const ViewRequest = ({ showUser, showDocument }) => {
     
     return (
