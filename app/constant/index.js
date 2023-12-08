@@ -669,9 +669,8 @@ export const documentsHistoryData = [
 export const accessibilityOptions = [
     { label: 'Default', value: 'Default' }, { label: 'Admin Privilege', value: 'Admin Privilege' }
 ];
-export const subsidiaryOptions = [
-    { label: 'Group1', value: 'Group1' }, { label: 'Group2', value: 'Group2' }
-];
+
+
 export const shareLocationData = [
     {
         id: 1,
