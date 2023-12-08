@@ -5,14 +5,14 @@ import Image from 'next/image'
 import { Modal } from 'antd'
 import { DocButton } from '@/app/components'
 
-const AddEmployeeModal = ({ showModal, onCalcel, onSuccess }) => {
+const AddEmployeeModal = ({ showModal, onCancel, onSuccess }) => {
   const [ type, setType ] = useState('Subsidiary')
   return (
     <>
     <Modal
         open={showModal}
         onOk={onSuccess}
-        onCancel={onCalcel}
+        onCancel={onCancel}
         okButtonProps={{ style: { display: "none" } }}
         cancelButtonProps={{ style: { display: "none" } }}
         closable={false}
@@ -29,7 +29,7 @@ const AddEmployeeModal = ({ showModal, onCalcel, onSuccess }) => {
             <Image className='absolute top-2 right-2' src='/icons/check.svg' width={15} height={15} alt='check' />
           </div>
           <div className="gap-4 flex items-center justify-center gap-10 w-[100%]">
-            <DocButton onClick={onCalcel} className="bg-transparent border-2 border-grey text-primary  h-8 w-40 rounded-2xl" text={"Close"} />
+            <DocButton onClick={onCancel} className="bg-transparent border-2 border-grey text-primary  h-8 w-40 rounded-2xl" text={"Close"} />
             <DocButton onClick={() => onSuccess(type)} className="bg-transparent border-2 border-primary text-primary  h-8 w-40 rounded-2xl" suffix={<Image className="mr-2" src={"/icons/rightArrowOutline.svg"} width={8} height={8} alt="arrow" />} text="Next" />
           </div>
         </div>

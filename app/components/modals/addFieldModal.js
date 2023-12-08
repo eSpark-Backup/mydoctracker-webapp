@@ -3,13 +3,13 @@ import Image from 'next/image'
 import { Modal } from 'antd'
 import { DocButton, DocInput } from '@/app/components'
 
-const AddFieldModal = ({ showModal, onCalcel, onSuccess, form, handleModalForm }) => {
+const AddFieldModal = ({ showModal, onCancel, onSuccess, form, handleModalForm }) => {
   return (
     <>
     <Modal
         open={showModal}
         onOk={onSuccess}
-        onCancel={onCalcel}
+        onCancel={onCancel}
         okButtonProps={{ style: { display: "none" } }}
         cancelButtonProps={{ style: { display: "none" } }}
         closable={false}
@@ -27,7 +27,7 @@ const AddFieldModal = ({ showModal, onCalcel, onSuccess, form, handleModalForm }
                 </div>
             </div>
           <div className="gap-4 flex items-center justify-center gap-10 w-[100%]">
-            <DocButton onClick={onCalcel} className="bg-transparent border-2 border-grey text-primary  h-8 w-40 rounded-2xl" text={"Close"} />
+            <DocButton onClick={onCancel} className="bg-transparent border-2 border-grey text-primary  h-8 w-40 rounded-2xl" text={"Close"} />
             <DocButton onClick={() => onSuccess(showModal)} className="bg-transparent border-2 border-primary text-primary  h-8 w-40 rounded-2xl" suffix={<Image className="mr-2" src={"/icons/rightArrowOutline.svg"} width={8} height={8} alt="arrow" />} text="Next" />
           </div>
         </div>

@@ -91,7 +91,7 @@ const Admin = () => {
             />
             <AddSubsidiaryModal
                 showModal={openSubsidiaryModal}
-                onCalcel={() => setOpenSubsidiaryModal(false)}
+                onCancel={() => setOpenSubsidiaryModal(false)}
                 onSuccess={handleAddSubsidiary}
             />
         </div>
