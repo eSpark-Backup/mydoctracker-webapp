@@ -642,6 +642,48 @@ export const packagePlans = [
     }
 ]
 
+export const shareLocationData = [
+    {
+        id: 1,
+        name: "Mitchel Stark",
+        employeeId: 123456,
+    },
+    {
+        id: 2,
+        name: "John Stark",
+        employeeId: 123456,
+    },
+    {
+        id: 3,
+        name: "Robert Stark",
+        employeeId: 123456,
+    },
+    {
+        id: 4,
+        name: "Lisa Stark",
+        employeeId: 123456,
+    },
+    {
+        id: 5,
+        name: "Margito Stark",
+        employeeId: 123456,
+    },
+    {
+        id: 6,
+        name: "Paul Stark",
+        employeeId: 123456,
+    },
+    {
+        id: 7,
+        name: "Tony Stark",
+        employeeId: 123456,
+    },
+    {
+        id: 8,
+        name: "Edward Stark",
+        employeeId: 123456,
+    },
+]
 export const allUsers = [
     { id: 1, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
     { id: 2, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: false },
