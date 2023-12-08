@@ -209,4 +209,110 @@
   }
 }
 
+/* ////Table Css//// */
+
+.ag-header-viewport {
+  color: #FFFFFF !important;
+  background-color: #002F49 !important;
+}
+
+.ag-header-cell {
+  color: #FFFFFF !important;
+  text-align: center;
+  border-right: 1px solid #E4E4E4 !important;
+  border-bottom: 1px solid #E4E4E4 !important;
+}
+
+.ag-header-cell-label {
+  justify-content: center;
+}
+
+.ag-ltr .ag-cell {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.ag-center-cols-container, .ag-header-container {
+  width: 100% !important;
+}
+
+.ag-header-row {
+  width: 100% !important;
+  display: flex;
+}
+
+.ag-cell {
+  border-right: 1px solid #E4E4E4 !important;
+  border-bottom: 1px solid #E4E4E4 !important;
+  padding: 1px !important;
+}
+
+.ag-row {
+  height: 40px;
+  display: flex;
+  border-bottom: 0 !important
+}
+
+.ag-center-cols-viewport::-webkit-scrollbar {
+  display: none !important;
+}
+
+.ag-theme-quartz .ag-layout-auto-height {
+  height: 100%;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.ag-body-horizontal-scroll {
+  display: none !important;
+}
+
+/* //// Pagination Css //// */
+
+li.ant-pagination-item.ant-pagination-item-active {
+  border-color: #FCBF4A;
+}
+
+li.ant-pagination-item.ant-pagination-item-active a {
+  color: #000;
+}
+
+li.ant-pagination-item {
+  border-color: #E4E4E4;
+}
+
+li.ant-pagination-item a {
+  color: #E4E4E4;
+}
+
+span.ant-pagination-item-ellipsis {
+  border: 1px solid #E4E4E4;
+  border-radius: 6px;
+}
+
+li.ant-pagination-next, li.ant-pagination-prev {
+  border: 1px solid #E4E4E4;
+}
+
+li.ant-pagination-next button, li.ant-pagination-prev button {
+  color: #E4E4E4 !important;
+}
+
+li.ant-pagination-prev.ant-pagination-disabled {
+  background-color: #E4E4E4;
+}
+
+li.ant-pagination-prev.ant-pagination-disabled button {
+  color: #424242 !important;
+}
+
+li.ant-pagination-next.ant-pagination-disabled {
+  background-color: #E4E4E4;
+}
+
+li.ant-pagination-next.ant-pagination-disabled button {
+  color: #424242 !important;
+}
+
 /* /// */
