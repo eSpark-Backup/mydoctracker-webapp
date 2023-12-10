@@ -3,15 +3,10 @@
 import { Dashboard } from '@/app/components'
 import HeadContent from '@/app/components/common/headContent'
 import Header from '@/app/components/layouts/Header'
-import { changeRole } from '@/app/redux/store/slices/authSlice'
 import React from 'react'
-import { useDispatch } from 'react-redux'
 
 const Devices = () => {
-  const dispatch = useDispatch()
 
-  // change role
-  dispatch(changeRole("user"))
   return (
     <>
       <Header />

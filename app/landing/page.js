@@ -5,17 +5,17 @@ export const metadata = {
   title: 'My Doc Tracker',
   description: '...',
 }
- 
+
 
 const Landing = () => {
   return (
     <>
-    <main>
-      <Intro />
-      <Options />
-      <About/>
-      <Features/>
-    </main>
+      <main>
+        <Intro />
+        <Options />
+        <About />
+        <Features />
+      </main>
     </>
   )
 }
