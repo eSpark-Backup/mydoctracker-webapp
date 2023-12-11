@@ -2,9 +2,9 @@
 
 import { Layout } from 'antd';
 import React, { useState } from 'react'
-import Header from './landingHeader';
 import EmployeeAsAdminSiderbar from './employeeAsAdminSiderbar';
 import EmployeeAsAdminSiderbarMobileDrawer from './employeeAsAdminSiderbarMobileDrawer';
+import Header from './Header';
 
 const EmployeeAsAdminLayout = ({ children }) => {
 
