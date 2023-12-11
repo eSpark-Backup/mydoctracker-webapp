@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.19.2",
     "@reduxjs/toolkit": "^2.0.1",
     "ag-grid-react": "^31.0.0",
     "antd": "^5.11.2",

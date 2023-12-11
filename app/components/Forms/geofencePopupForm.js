@@ -5,6 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import DocButton from '../common/docButton'
 import DocInput from '../common/docInput'
+import TrackingMap from '@/app/utils/TrackingMap'
+import { containerStyleSm } from '@/app/constant'
 
 const GeofencePopupForm = ({ handleCancel, edit }) => {
     return (
@@ -52,7 +54,7 @@ const GeofencePopupForm = ({ handleCancel, edit }) => {
 
 
                 <div >
-                    <Image src={"/Images/geofenceMap.svg"} className='w-full' width={600} height={300} alt='Map' />
+                    <TrackingMap containerStyle={containerStyleSm} />
                 </div>
 
                 <div className="flex flex-wrap justify-end gap-5">

@@ -3,8 +3,9 @@ import React from 'react'
 import DocInput from '../common/docInput'
 import CordinatesTaker from '../common/cordinatesTaker'
 import DocButton from '../common/docButton'
-import Image from 'next/image'
 import Link from 'next/link'
+import TrackingMap from '@/app/utils/TrackingMap'
+import { containerStyleSm } from '@/app/constant'
 
 const GeofenceForm = ({ onSaveText }) => {
     return (
@@ -51,7 +52,7 @@ const GeofenceForm = ({ onSaveText }) => {
 
 
                 <div >
-                    <Image src={"/Images/geofenceMap.svg"} className='w-full' width={600} height={300} alt='Map' />
+                    <TrackingMap containerStyle={containerStyleSm} />
                 </div>
 
                 <div className="flex justify-end gap-5">
