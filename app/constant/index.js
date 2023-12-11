@@ -960,3 +960,47 @@ export const accountSettingChangePass = [
         ]
     }
 ]
+
+export const userEditDocData = [
+    {
+        heading: "Edit Document",
+        buttonText: "Add fields",
+        inputs: [
+            {
+                label: "Document Title",
+                placeholder: "My Notebook",
+                required: false,
+                key: "docTitle",
+                type: "text"
+            },
+            {
+                label: "Date Of Creation",
+                placeholder: "12--04--2023",
+                required: false,
+                key: "docDate",
+                type: "datePicker"
+            },
+            {
+                label: "Time Of Creation",
+                placeholder: "12-20 AM",
+                required: false,
+                key: "docTime",
+                type: "timePicker"
+            },
+            {
+                label: "Location",
+                placeholder: "Under the bed",
+                required: false,
+                key: "docLocation",
+                type: "text"
+            },
+            {
+                label: "Doc Image",
+                placeholder: "Upload image",
+                required: false,
+                key: "docImage",
+                type: "uploadImage"
+            },
+        ]
+    }
+]
