@@ -1004,3 +1004,39 @@ export const userEditDocData = [
         ]
     }
 ]
+
+export const adminAccountSettings = [
+    {
+        heading: "Account Settings",
+        inputs: [
+        {
+            label: "First Name",
+            placeholder: "Enter first name...",
+            required: true,
+            key: "firstName",
+            type: "text"
+        },
+        {
+            label: "Last Name",
+            placeholder: "Enter last name...",
+            required: true,
+            key: "lastName",
+            type: "text"
+        },
+        {
+            label: "Email",
+            placeholder: "Enter email...",
+            required: true,
+            key: "Email",
+            type: "email"
+        },
+        {
+            label: "Number",
+            placeholder: "Enter number...",
+            required: true,
+            key: "Contact",
+            type: "tel"
+        },
+       ]
+    }
+]
