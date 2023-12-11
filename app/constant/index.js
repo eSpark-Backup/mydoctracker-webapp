@@ -895,3 +895,68 @@ export const userAddDeviceData = [
         ]
     },
 ]
+
+export const accountSettingsData = [
+    {
+        heading: "Account Settings",
+        inputs: [
+            {
+                label: "First Name",
+                placeholder: "John",
+                required: false,
+                key: "firstName",
+                type: "text",
+            },
+            {
+                label: "Last Name",
+                placeholder: "Doe",
+                required: false,
+                key: "lastName",
+                type: "text",
+            },
+            {
+                label: "Email",
+                placeholder: "johndoe123@gmail.com",
+                required: false,
+                key: "email",
+                type: "email",
+            },
+            {
+                label: "Contact",
+                placeholder: "123456789",
+                required: false,
+                key: "contact",
+                type: "tel",
+            },
+        ]
+    },
+]
+
+export const accountSettingChangePass = [
+    {
+        heading: "Change Password",
+        inputs: [
+            {
+                label: "Old Password",
+                placeholder: "Type old password",
+                required: false,
+                key: "oldPassword",
+                type: "password"
+            },
+            {
+                label: "New Password",
+                placeholder: "Type new password",
+                required: false,
+                key: "newPassword",
+                type: "password"
+            },
+            {
+                label: "Confirm Password",
+                placeholder: "Type old password",
+                required: false,
+                key: "confirmPassword",
+                type: "password"
+            },
+        ]
+    }
+]
