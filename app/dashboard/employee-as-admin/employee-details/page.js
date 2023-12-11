@@ -14,7 +14,6 @@ import { useRouter } from 'next/navigation'
 const EmployeDetail = () => {
     const router = useRouter();
     const handleSettings = () => {
-        console.log('clicked')
         router.push('/dashboard/admin/employee-settings')
     }
 

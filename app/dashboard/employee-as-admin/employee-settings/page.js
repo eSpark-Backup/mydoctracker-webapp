@@ -1,3 +1,5 @@
+"use client";
+
 import { NotificationSettings } from '@/app/components';
 import DocumnetHistory from '@/app/components/common/documnetHistory';
 import GeofenceSettings from '@/app/components/common/geofenceSettings';

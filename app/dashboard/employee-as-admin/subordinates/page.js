@@ -33,7 +33,6 @@ const Subordinates = () => {
 
     const gotoDetail = (rowId) => {
         router.push('/dashboard/employee-as-admin/employee-details')
-        console.log(rowId)
     }
 
     const handleSwitch = (id, value) => {
