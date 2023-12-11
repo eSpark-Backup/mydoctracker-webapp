@@ -1009,34 +1009,71 @@ export const adminAccountSettings = [
     {
         heading: "Account Settings",
         inputs: [
-        {
-            label: "First Name",
-            placeholder: "Enter first name...",
-            required: true,
-            key: "firstName",
-            type: "text"
-        },
-        {
-            label: "Last Name",
-            placeholder: "Enter last name...",
-            required: true,
-            key: "lastName",
-            type: "text"
-        },
-        {
-            label: "Email",
-            placeholder: "Enter email...",
-            required: true,
-            key: "Email",
-            type: "email"
-        },
-        {
-            label: "Number",
-            placeholder: "Enter number...",
-            required: true,
-            key: "Contact",
-            type: "tel"
-        },
-       ]
+            {
+                label: "First Name",
+                placeholder: "Enter first name...",
+                required: true,
+                key: "firstName",
+                type: "text"
+            },
+            {
+                label: "Last Name",
+                placeholder: "Enter last name...",
+                required: true,
+                key: "lastName",
+                type: "text"
+            },
+            {
+                label: "Email",
+                placeholder: "Enter email...",
+                required: true,
+                key: "Email",
+                type: "email"
+            },
+            {
+                label: "Number",
+                placeholder: "Enter number...",
+                required: true,
+                key: "Contact",
+                type: "tel"
+            },
+        ]
+    }
+]
+
+export const companyProfileSetting = [
+    {
+        heading: "Company Details",
+        inputs: [
+            {
+                label: "Company Name",
+                required: true,
+                placeholder: "Enter name...",
+                key: "companyName",
+                type: "text"
+            },
+            {
+                label: "Email",
+                required: true,
+                placeholder: "Enter email...",
+                key: "Email",
+                type: "email"
+            },
+            {
+                label: "Company Number",
+                required: true,
+                placeholder: "Enter company number...",
+                key: "companyNumber",
+                type: "tel"
+            },
+            {
+                label: "Upload Company Logo   (Optional)",
+                required: false,
+                placeholder: "Upload image",
+                key: "companyImage",
+                type: "uploadImage"
+            },
+
+        ]
     }
 ]
