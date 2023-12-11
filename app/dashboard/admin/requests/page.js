@@ -1,8 +1,7 @@
 "use client"
 import React, { useState } from 'react'
-import RequestPanel from './RequestPanel'
-import ViewRequest from './ViewRequest'
 import { ArrowLeftOutlined } from "@ant-design/icons";
+import { RequestPanel, ViewRequest } from '@/app/components';
 
 
 const Requests = () => {

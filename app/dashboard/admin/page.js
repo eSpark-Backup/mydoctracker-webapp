@@ -29,8 +29,7 @@ const Admin = () => {
     }
 
     const gotoDetail = (rowId) => {
-        // navigation to detail page
-        console.log(rowId)
+        router.push('/dashboard/admin/employee-details')
     }
 
     const handleSwitch = (id, value) => {
