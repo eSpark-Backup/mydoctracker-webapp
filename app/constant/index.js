@@ -724,14 +724,14 @@ export const allUsers = [
     { id: 9, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: false },
     { id: 10, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
     { id: 11, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
-  ]
+]
 
 
 export const subsidiaryOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
 export const typeOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
 
 
-export  const form = [
+export const form = [
     {
         title: "Employee Details",
         inputs: [
@@ -839,7 +839,310 @@ export  const form = [
     }
 ]
 
+export const userAddDeviceData = [
+    {
+        title: "Tracker Details",
+        inputs: [
+            {
+                label: "Tracker ID",
+                placeholder: "Enter tracker id...",
+                required: true,
+                key: "TrackerID",
+                type: "text"
+            },
+            {
+                label: "Select Type",
+                placeholder: "Select type",
+                required: true,
+                key: "TrackerType",
+                type: "select",
+                options: trackerTypeOptions,
+            },
+        ]
+    },
+    {
+        title: "Document Details",
+        buttonText: "Add fields",
+        inputs: [
+            {
+                label: "Document Title",
+                placeholder: "Enter title...",
+                required: true,
+                key: "DocumentTitle",
+                type: "text",
+            },
+            {
+                label: "Date Of Creation",
+                placeholder: "DD--MM--YYY",
+                required: true,
+                key: "DateOfCreation",
+                type: "datePicker",
+            },
+            {
+                label: "Time Of Creation",
+                placeholder: "00-00",
+                required: true,
+                key: "TimeOfCreation",
+                type: "timePicker",
+            },
+            {
+                label: "Upload Doc Image  (Optional)",
+                placeholder: "Upload image",
+                required: false,
+                key: "DocImage",
+                type: "uploadImage",
+            },
+        ]
+    },
+]
 
+export const accountSettingsData = [
+    {
+        heading: "Account Settings",
+        inputs: [
+            {
+                label: "First Name",
+                placeholder: "John",
+                required: false,
+                key: "firstName",
+                type: "text",
+            },
+            {
+                label: "Last Name",
+                placeholder: "Doe",
+                required: false,
+                key: "lastName",
+                type: "text",
+            },
+            {
+                label: "Email",
+                placeholder: "johndoe123@gmail.com",
+                required: false,
+                key: "email",
+                type: "email",
+            },
+            {
+                label: "Contact",
+                placeholder: "123456789",
+                required: false,
+                key: "contact",
+                type: "tel",
+            },
+        ]
+    },
+]
+
+export const accountSettingChangePass = [
+    {
+        heading: "Change Password",
+        inputs: [
+            {
+                label: "Old Password",
+                placeholder: "Type old password",
+                required: false,
+                key: "oldPassword",
+                type: "password"
+            },
+            {
+                label: "New Password",
+                placeholder: "Type new password",
+                required: false,
+                key: "newPassword",
+                type: "password"
+            },
+            {
+                label: "Confirm Password",
+                placeholder: "Type old password",
+                required: false,
+                key: "confirmPassword",
+                type: "password"
+            },
+        ]
+    }
+]
+
+export const userEditDocData = [
+    {
+        heading: "Edit Document",
+        buttonText: "Add fields",
+        inputs: [
+            {
+                label: "Document Title",
+                placeholder: "My Notebook",
+                required: false,
+                key: "docTitle",
+                type: "text"
+            },
+            {
+                label: "Date Of Creation",
+                placeholder: "12--04--2023",
+                required: false,
+                key: "docDate",
+                type: "datePicker"
+            },
+            {
+                label: "Time Of Creation",
+                placeholder: "12-20 AM",
+                required: false,
+                key: "docTime",
+                type: "timePicker"
+            },
+            {
+                label: "Location",
+                placeholder: "Under the bed",
+                required: false,
+                key: "docLocation",
+                type: "text"
+            },
+            {
+                label: "Doc Image",
+                placeholder: "Upload image",
+                required: false,
+                key: "docImage",
+                type: "uploadImage"
+            },
+        ]
+    }
+]
+
+export const adminAccountSettings = [
+    {
+        heading: "Admin Details",
+        inputs: [
+            {
+                label: "First Name",
+                placeholder: "Enter first name...",
+                required: true,
+                key: "firstName",
+                type: "text"
+            },
+            {
+                label: "Last Name",
+                placeholder: "Enter last name...",
+                required: true,
+                key: "lastName",
+                type: "text"
+            },
+            {
+                label: "Email",
+                placeholder: "Enter email...",
+                required: true,
+                key: "Email",
+                type: "email"
+            },
+            {
+                label: "Number",
+                placeholder: "Enter number...",
+                required: true,
+                key: "Contact",
+                type: "tel"
+            },
+        ]
+    }
+]
+
+export const companyProfileSetting = [
+    {
+        heading: "Company Details",
+        inputs: [
+            {
+                label: "Company Name",
+                required: true,
+                placeholder: "Enter name...",
+                key: "companyName",
+                type: "text"
+            },
+            {
+                label: "Email",
+                required: true,
+                placeholder: "Enter email...",
+                key: "Email",
+                type: "email"
+            },
+            {
+                label: "Company Number",
+                required: true,
+                placeholder: "Enter company number...",
+                key: "companyNumber",
+                type: "tel"
+            },
+            {
+                label: "Upload Company Logo   (Optional)",
+                required: false,
+                placeholder: "Upload image",
+                key: "companyImage",
+                type: "uploadImage"
+            },
+
+        ]
+    }
+]
+
+export const employeeProfileSettings = [
+    {
+        heading: "Employee Profile Settings",
+        inputs: [
+            {
+                label: "First Name",
+                required: false,
+                placeholder: "John",
+                key: "First",
+                type: "text"
+            },
+            {
+                label: "Last Name",
+                required: false,
+                placeholder: "Doe",
+                key: "Last",
+                type: "text"
+            },
+            {
+                label: "Username",
+                required: false,
+                placeholder: "johndoe",
+                key: "Username",
+                type: "text"
+            },
+            {
+                label: "Subsidiary",
+                required: false,
+                placeholder: "Group 1",
+                key: "Subsidiary",
+                type: "select",
+                options: subsidiaryOptions
+            },
+            {
+                label: "Devices",
+                required: false,
+                placeholder: "1",
+                key: "Devices",
+                type: "number",
+            },
+            {
+                label: "Email",
+                required: false,
+                placeholder: "johndoe123@gmail.com",
+                key: "Email",
+                type: "email",
+            },
+            {
+                label: "Number",
+                required: false,
+                placeholder: "123456789",
+                key: "Number",
+                type: "tel",
+            },
+            {
+                label: "Accessibility",
+                required: false,
+                placeholder: "Default",
+                key: "Accessibility",
+                type: "select",
+                options: accessibilityOptions
+            },
+        ]
+    }
+]
 export const EmployeeAsAdminRoutes = [
     {
         id: 1,

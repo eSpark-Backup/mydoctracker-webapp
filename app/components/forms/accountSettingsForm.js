@@ -5,6 +5,13 @@ import DocInput from '../common/docInput'
 import DocButton from '../common/docButton'
 import { checkFieldsNotEmpty } from '@/app/utils/validation'
 import { notification } from 'antd'
+import { accountSettingChangePass, accountSettingsData } from '@/app/constant'
+import DocImgInput from '../common/docImgInput'
+import DocDatePicker from '../common/docDatePicker'
+import DocTimePicker from '../common/docTimePicker'
+import DocDropdown from '../common/docDropdown'
+import { PlusOutlined } from "@ant-design/icons";
+
 
 const AccountSettingsForm = () => {
     const [accountSetting, setAccountSetting] = useState({
@@ -27,8 +34,9 @@ const AccountSettingsForm = () => {
 
 
     const handleSubmitAccountSetting = () => {
+
         if (checkFieldsNotEmpty(accountSetting)) {
-            if(accountSetting.newPassword === accountSetting.confirmPassword){
+            if (accountSetting.newPassword === accountSetting.confirmPassword) {
                 console.log(accountSetting);
             } else {
                 notification.error({
@@ -47,59 +55,58 @@ const AccountSettingsForm = () => {
 
 
 
-  return (
-    <div className='flex flex-col gap-12'>
-    <div>
-        <h2 className='text-black font-medium text-xl'>Account Settings</h2>
-        <div className='mt-3 gap-y-2 sm:gap-y-4 flex flex-col'>
-            <div className="flex flex-col sm:flex-row gap-x-10 gap-y-2 sm:gap-y-0">
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm">First Name</label>
-                    <DocInput onChange={(value) => handleAccountSettingChange('firstName', value)} type={"text"} placeholder={"John"} className={"h-[40px]"} />
-                </div>
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm">Last Name</label>
-                    <DocInput onChange={(value) => handleAccountSettingChange('lastName', value)} type={"text"} placeholder={"Doe"} className={"h-[40px]"} />
-                </div>
+    return (
+        <div className='flex flex-col gap-8'>
+            <div>
+                {accountSettingsData?.map((section, index) => (
+                    <>
+                        <div className={section?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
+                            <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{section?.heading}</h2>
+                            {section?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={section?.buttonText} className={"text-white rounded-lg"} />}
+                        </div>
+                        <div className='mt-3 gap-5 sm:gap-y-4 flex flex-col sm:flex-row flex-wrap md:w-3/4'>
+                            {section?.inputs?.map((eachInput, index) => (
+                                <div key={index} className='w-100% lg:w-[45%] flex flex-col'>
+                                    <label className="text-greydark text-sm pb-1">{eachInput?.label} {eachInput?.required && <span className="text-redColor">*</span>}</label>
+                                    {eachInput.type === "select" ?
+                                        <DocDropdown className={"w-[100%]"} options={eachInput?.options} placeholder={eachInput?.placeholder} />
+                                        : eachInput.type === "uploadImage" ?
+                                            <DocImgInput props={props} />
+                                            : eachInput.type === "datePicker" ?
+                                                <DocDatePicker onChange={(value) => handleAccountSettingChange(eachInput?.key, value)} />
+                                                : eachInput.type === "timePicker" ?
+                                                    <DocTimePicker onChange={(value) => handleAccountSettingChange(eachInput?.key, value)} />
+                                                    :
+                                                    <DocInput onChange={(value) => handleAccountSettingChange(eachInput?.key, value)} type={eachInput?.type} placeholder={eachInput?.placeholder} className={"w-[100%] sm:w-[100%] md:w-[100%] h-[40px]"} />
+                                    }
+                                </div>
+                            ))}
+                        </div>
+                    </>
+
+                ))}
             </div>
-            <div className="flex flex-col sm:flex-row gap-x-10 gap-y-2 sm:gap-y-0">
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm">Email</label>
-                    <DocInput onChange={(value) => handleAccountSettingChange('email', value)} type={"email"} placeholder={"johndoe123@gmail.com"} className={"h-[40px]"} />
-                </div>
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm">Contact</label>
-                    <DocInput onChange={(value) => handleAccountSettingChange('contact', value)} type={"tel"} placeholder={"123456789"} className={"h-[40px]"} />
-                </div>
+            {accountSettingChangePass?.map((section, index) => (
+                <>
+                    <div className={section?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
+                        <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{section?.heading}</h2>
+                        {section?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={section?.buttonText} className={"text-white rounded-lg"} />}
+                    </div>
+                    <div className='mt-0 md:w-3/4 relative bottom-8'>
+                        {section?.inputs?.map((inputs, index) => (
+                            <div className="w-100% lg:w-[45%] flex flex-col" key={index}>
+                                <label className="text-greydark text-sm mt-3">{inputs?.label}</label>
+                                <DocInput onChange={(value) => handleAccountSettingChange(inputs?.key, value)} type={inputs?.type} placeholder={inputs?.placeholder} className={"h-[40px]"} />
+                            </div>
+                        ))}
+                    </div>
+                </>
+            ))}
+            <div>
+                <DocButton onClick={handleSubmitAccountSetting} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
             </div>
         </div>
-    </div>
-    <div>
-        <h2 className='text-black font-medium text-xl'>Change Password</h2>
-        <div className='mt-4'>
-            <div className="w-100% lg:w-[30%] flex flex-col">
-                <label className="text-greydark text-sm">Old Password</label>
-                <DocInput onChange={(value) => handleAccountSettingChange('oldPassword', value)} type={"password"} placeholder={"John"} className={"h-[40px]"} />
-            </div>
-        </div>
-        <div className='mt-4'>
-            <div className="w-100% lg:w-[30%] flex flex-col">
-                <label className="text-greydark text-sm">New Password</label>
-                <DocInput onChange={(value) => handleAccountSettingChange('newPassword', value)} type={"password"} placeholder={"John"} className={"h-[40px]"} />
-            </div>
-        </div>
-        <div className='mt-4'>
-            <div className="w-100% lg:w-[30%] flex flex-col">
-                <label className="text-greydark text-sm">Confirm Password</label>
-                <DocInput onChange={(value) => handleAccountSettingChange('confirmPassword', value)} type={"password"} placeholder={"John"} className={"h-[40px]"} />
-            </div>
-        </div>
-    </div>
-    <div>
-        <DocButton onClick={handleSubmitAccountSetting} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
-    </div>
-</div> 
-  )
+    )
 }
 
 export default AccountSettingsForm

@@ -8,7 +8,7 @@ import Link from 'next/link';
 import InputModal from '@/app/components/common/InputModal';
 import HeadContent from '@/app/components/common/headContent';
 import VerificationForm from '@/app/components/Forms/verificationForm';
-import { trackerTypeOptions } from '@/app/constant';
+import { trackerTypeOptions, userAddDeviceData } from '@/app/constant';
 import { checkFieldsNotEmpty } from '@/app/utils/validation';
 import { notification } from 'antd';
 
@@ -17,12 +17,12 @@ const AddDevice = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isModal2Open, setIsModal2Open] = useState(false);
     const [trackerData, setTrackerData] = useState({
-        trackerId: "",
-        trackerType: "",
-        trackerTitle: "",
-        trackerDate: "",
-        trackerTime: "",
-        trackerImage: [],
+        TrackerID: "",
+        TrackerType: "",
+        DocumentTitle: "",
+        DateOfCreation: "",
+        TimeOfCreation: "",
+        DocImage: [],
     })
 
 
@@ -50,17 +50,17 @@ const AddDevice = () => {
         onRemove: () => {
             setTrackerData({
                 ...trackerData,
-                trackerImage: []
+                DocImage: []
             })
         },
         beforeUpload: (file) => {
             setTrackerData({
                 ...trackerData,
-                trackerImage: [file]
+                DocImage: [file]
             })
             return false;
         },
-        fileList: trackerData.trackerImage,
+        fileList: trackerData.DocImage,
     };
 
 
@@ -92,54 +92,40 @@ const AddDevice = () => {
                         paragraph="Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie "
                     />
                 </div>
-                <div className="w-[97%] sm:w-[70%] lg:min-h-[650px]  gap-12 h-auto shadow-xl rounded-lg bg-white my-4 flex p-8 flex-col">
-                    <div>
-                        <h2 className="mb-4 text-black text-sm sm:text-xl font-medium pb-1">Tracker Details</h2>
-                        <div className="flex gap-5 sm:gap-14 flex-col sm:flex-row">
-                            <div className="w-100% lg:w-[30%] flex flex-col">
-                                <label className="text-greydark text-sm pb-1">Tracker ID <span className="text-redColor">*</span></label>
-                                <DocInput onChange={(value) => handleFieldChange('trackerId', value)}
-                                    type={"number"} placeholder={"Enter tracker id..."} className={"h-[40px]"} />
+                <div className="w-[97%] sm:w-[70%] lg:min-h-[650px] overflow-y-scroll no-scrollbar gap-5 h-auto shadow-xl rounded-lg bg-white my-4 flex p-8 flex-col">
+                    {userAddDeviceData?.map((eachSection, index) => (
+                        <>
+                            <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
+                                <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{eachSection?.title}</h2>
+                                {eachSection?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white rounded-lg"} />}
                             </div>
-                            <div className="w-100% sm:w-[30%] flex flex-col">
-                                <label className="text-greydark text-sm pb-1">Select Type <span className="text-redColor">*</span></label>
-                                <DocDropdown
-                                    onChange={(value) => handleFieldChange('trackerType', value.value)}
-                                    placeholder={"Select Type"} className={"w-[100%]"} options={trackerTypeOptions} />
+                            <div>
+                                <div className="flex gap-4 sm:gap-5 flex-col sm:flex-row flex-wrap">
+                                    {eachSection?.inputs.map((eachInputs, index) => (
+                                        <div className="w-100% lg:min-w-[30%] flex flex-col flex-wrap" key={index}>
+                                            <label className="text-greydark text-sm pb-1">{eachInputs?.label} {eachInputs?.required && <span className="text-redColor">*</span>}</label>
+                                            {eachInputs.type === "select" ?
+                                                <DocDropdown onChange={(e) => handleFieldChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
+                                                : eachInputs.type === "uploadImage" ?
+                                                    <DocImgInput props={props} />
+                                                    : eachInputs.type === "datePicker" ?
+                                                        <DocDatePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
+                                                        : eachInputs.type === "timePicker" ?
+                                                            <DocTimePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
+                                                            :
+                                                            <DocInput onChange={(value) => handleFieldChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
+                                            }
+
+                                        </div>
+                                    ))}
+
+                                </div>
+
                             </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div className="flex justify-between flex-wrap">
-                            <h2 className="mb-4 text-black text-sm sm:text-xl font-medium pb-1">Document Details</h2>
-                            <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add fields"} className={"text-white rounded-lg"} />
-                        </div>
-                        <div className="flex gap-5 sm:gap-14 flex-col sm:flex-row flex-wrap mt-2 sm:mt-0">
-                            <div className="w-100% lg:w-[30%] flex flex-col">
-                                <label className="text-greydark text-sm pb-1">Document Title <span className="text-redColor">*</span></label>
-                                <DocInput
-                                    onChange={(value) => handleFieldChange('trackerTitle', value)}
-                                    type={"text"} placeholder={"Enter title..."} />
-                            </div>
-                            <div className="w-100% sm:w-[30%] flex flex-col">
-                                <label className="text-greydark text-sm pb-1">Date Of Creation <span className="text-redColor">*</span></label>
-                                <DocDatePicker
-                                    onChange={(value) => handleFieldChange('trackerDate', value)}
-                                />
-                            </div>
-                            <div className="w-100% sm:w-[30%] flex flex-col">
-                                <label className="text-greydark text-sm">Time Of Creation <span className="text-redColor">*</span></label>
-                                <DocTimePicker
-                                    onChange={(value) => handleFieldChange('trackerTime', value)}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <div className='w-[40%]'>
-                        <h2 className="text-greydark text-sm pb-1">Upload Doc Image  (Optional)</h2>
-                        <DocImgInput props={props} placeholder={"Upload Image"} />
-                    </div>
-                    <div className="flex gap-5 flex-wrap">
+                        </>
+
+                    ))}
+                    <div className="flex gap-5 flex-wrap mt-3">
                         <Link href={"/dashboard/devices"}>
                             <DocButton text={"Cancel"} className={"border-2 border-greyBorder bg-transparent text-primary min-w-[125px]"} /></Link>
                         <DocButton onClick={handleSubmit} text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
@@ -153,14 +139,13 @@ const AddDevice = () => {
                 handleCancel={handleCancel} >
                 <AddDeviceForm handleCancel={handleCancel} />
             </InputModal>
-            
+
             <InputModal
                 isModalOpen={isModal2Open}
                 handleOk={handleOk2}
                 width={300}
                 handleCancel={handleCancel2} >
                 <VerificationForm handleCancel={handleCancel2} />
-                {/* <AddDeviceForm handleCancel={handleCancel2} /> */}
             </InputModal>
 
         </>
