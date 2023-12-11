@@ -23,7 +23,7 @@ import Features from './layouts/features'
 import FeatureBox from './common/featureBox'
 import Dashboard from './layouts/dashboard'
 import Main from './layouts/main'
-import Header from './layouts/landingHeader'
+import Header from './layouts/Header'
 import NotebookDetail from './common/notebookDetail'
 import InfoCard from './common/infoCard'
 import FieldView from './common/fieldView'
@@ -49,6 +49,7 @@ import ViewRequest from './common/ViewRequest'
 import EmployeeAsAdminLayout from './layouts/employeeAsAdminLayout'
 import EmployeeAsAdminSiderbar from './layouts/employeeAsAdminSiderbar'
 import EmployeeAsAdminSiderbarMobileDrawer from './layouts/employeeAsAdminSiderbarMobileDrawer'
+import LandingDrawer from './layouts/landingDrawer'
 
 
 
@@ -104,4 +105,5 @@ export {
     EmployeeAsAdminLayout,
     EmployeeAsAdminSiderbar,
     EmployeeAsAdminSiderbarMobileDrawer,
+    LandingDrawer,
 }
