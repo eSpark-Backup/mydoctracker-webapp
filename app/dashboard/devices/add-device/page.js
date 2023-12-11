@@ -1,6 +1,6 @@
 "use client"
 
-import { AddDeviceForm, DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker } from '@/app/components'
+import { AddDeviceForm, DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker, Header } from '@/app/components'
 import DocDropdown from '@/app/components/common/docDropdown'
 import React, { useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
@@ -11,7 +11,6 @@ import VerificationForm from '@/app/components/Forms/verificationForm';
 import { trackerTypeOptions } from '@/app/constant';
 import { checkFieldsNotEmpty } from '@/app/utils/validation';
 import { notification } from 'antd';
-import Header from '@/app/components/layouts/Header';
 
 const AddDevice = () => {
 

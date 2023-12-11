@@ -200,6 +200,11 @@
   position: sticky !important;
   margin-top: 10px;
   margin-right: 130px;
+  width: 100%;
+}
+
+.ant-popover {
+  width: min-content;
 }
 
 @media only screen and (max-width: 600px){
@@ -313,6 +318,14 @@ li.ant-pagination-next.ant-pagination-disabled {
 
 li.ant-pagination-next.ant-pagination-disabled button {
   color: #424242 !important;
+}
+
+.ant-drawer-close {
+  color: #fff !important
+}
+
+.ant-drawer-header {
+  border-bottom: 0 !important
 }
 
 /* /// */
