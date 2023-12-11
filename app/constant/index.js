@@ -1007,7 +1007,7 @@ export const userEditDocData = [
 
 export const adminAccountSettings = [
     {
-        heading: "Account Settings",
+        heading: "Admin Details",
         inputs: [
             {
                 label: "First Name",
