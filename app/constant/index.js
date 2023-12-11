@@ -727,7 +727,7 @@ export const allUsers = [
 ]
 
 
-const subsidiaryOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
+export const subsidiaryOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
 const typeOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
 
 
@@ -1074,6 +1074,72 @@ export const companyProfileSetting = [
                 type: "uploadImage"
             },
 
+        ]
+    }
+]
+
+export const employeeProfileSettings = [
+    {
+        heading: "Employee Profile Settings",
+        inputs: [
+            {
+                label: "First Name",
+                required: false,
+                placeholder: "John",
+                key: "First",
+                type: "text"
+            },
+            {
+                label: "Last Name",
+                required: false,
+                placeholder: "Doe",
+                key: "Last",
+                type: "text"
+            },
+            {
+                label: "Username",
+                required: false,
+                placeholder: "johndoe",
+                key: "Username",
+                type: "text"
+            },
+            {
+                label: "Subsidiary",
+                required: false,
+                placeholder: "Group 1",
+                key: "Subsidiary",
+                type: "select",
+                options: subsidiaryOptions
+            },
+            {
+                label: "Devices",
+                required: false,
+                placeholder: "1",
+                key: "Devices",
+                type: "number",
+            },
+            {
+                label: "Email",
+                required: false,
+                placeholder: "johndoe123@gmail.com",
+                key: "Email",
+                type: "email",
+            },
+            {
+                label: "Number",
+                required: false,
+                placeholder: "123456789",
+                key: "Number",
+                type: "tel",
+            },
+            {
+                label: "Accessibility",
+                required: false,
+                placeholder: "Default",
+                key: "Accessibility",
+                type: "select",
+                options: accessibilityOptions
+            },
         ]
     }
 ]

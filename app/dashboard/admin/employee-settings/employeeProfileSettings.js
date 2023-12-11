@@ -1,9 +1,10 @@
 "use client"
-import { DocButton, DocInput } from '@/app/components'
+import { DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker } from '@/app/components'
 import DocDropdown from '@/app/components/common/docDropdown'
-import { accessibilityOptions, subsidiaryOptions } from '@/app/constant'
+import { accessibilityOptions, employeeProfileSettings, subsidiaryOptions } from '@/app/constant'
 import { checkFieldsNotEmpty } from '@/app/utils/validation'
 import { notification } from 'antd'
+import Image from 'next/image'
 import React, { useState } from 'react'
 
 const EmployeeProfileSettings = () => {
@@ -30,6 +31,7 @@ const EmployeeProfileSettings = () => {
 
     const HandleSubmitEmployeeData = () => {
         if (checkFieldsNotEmpty(employeeData)) {
+            console.log(employeeData)
         }
         else {
             notification.error({
@@ -41,45 +43,45 @@ const EmployeeProfileSettings = () => {
 
     return (
         <div className='flex flex-col gap-4'>
-            <h3 className='text-lg font-medium text-black'>Employee Profile Settings</h3>
-            <div className="flex flex-col sm:flex-row gap-x-10 gap-y-2 sm:gap-y-0">
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm pb-1">First Name</label>
-                    <DocInput onChange={(value) => handleEmployeeDataChange("First", value)} type={"text"} placeholder={"John"} className={"h-[40px]"} />
-                </div>
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm pb-1">Last Name </label>
-                    <DocInput type={"text"} placeholder={"Doe"} onChange={(value) => handleEmployeeDataChange("Last", value)} className={"h-[40px]"} />
-                </div>
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm pb-1">Username</label>
-                    <DocInput onChange={(value) => handleEmployeeDataChange("Username", value)} type={"email"} placeholder={"johndoe"} className={"h-[40px]"} />
-                </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-x-10 gap-y-2 sm:gap-y-0">
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm pb-1">Subsidiary</label>
-                    <DocDropdown onChange={(value) => handleEmployeeDataChange('Subsidiary', value.value)} type={"text"} placeholder={"Group1"} options={subsidiaryOptions} className={"h-[40px]"} />
-                </div>
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm pb-1">Devices</label>
-                    <DocInput onChange={(value) => handleEmployeeDataChange("Devices", value)} type={"text"} placeholder={"1"} className={"h-[40px]"} />
-                </div>
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm pb-1">Email</label>
-                    <DocInput onChange={(value) => handleEmployeeDataChange("Email", value)} type={"email"} placeholder={"johndoe123@gmail.com"} className={"h-[40px]"} />
-                </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-x-10 gap-y-2 sm:gap-y-0">
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm pb-1">Number</label>
-                    <DocInput type={"tel"} onChange={(value) => handleEmployeeDataChange("Number", value)} placeholder={"123456789"} className={"h-[40px]"} />
-                </div>
-                <div className="w-100% lg:w-[30%] flex flex-col">
-                    <label className="text-greydark text-sm pb-1">Accessibility</label>
-                    <DocDropdown onChange={(value) => handleEmployeeDataChange('Accessibility', value.value)} type={"text"} placeholder={"Default"} options={accessibilityOptions} className={"h-[40px]"} />
-                </div>
-            </div>
+            {employeeProfileSettings?.map((eachSection, index) => (
+                <>
+                    <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
+                        <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{eachSection?.heading}</h2>
+                        {eachSection?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white rounded-lg"} />}
+                    </div>
+                    <div>
+                        <div className="flex gap-4 sm:gap-5 flex-col sm:flex-row flex-wrap">
+                            {eachSection?.inputs.map((eachInputs, index) => (
+                                <div className="min-w-[100%] lg:min-w-[30%] md:min-w-[40%] flex flex-col flex-wrap" key={index}>
+                                    <label className="text-greydark text-sm pb-1">{eachInputs?.label} {eachInputs?.required && <span className="text-redColor">*</span>}</label>
+                                    {eachInputs.type === "select" ?
+                                        <DocDropdown onChange={(e) => handleEmployeeDataChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
+                                        : eachInputs.type === "uploadImage" ?
+                                            <DocImgInput props={props} />
+                                            : eachInputs.type === "datePicker" ?
+                                                <DocDatePicker onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} />
+                                                : eachInputs.type === "timePicker" ?
+                                                    <DocTimePicker onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} />
+                                                    :
+                                                    <DocInput onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
+                                    }
+
+                                </div>
+                            ))}
+                            <div className='min-w-[100%] lg:min-w-[30%] md:min-w-[40%] flex flex-col'>
+                                <label className="text-greydark text-sm pb-1">Employee Image</label>
+                                <div className='flex gap-3'>
+                                    <DocImgInput />
+                                    <Image src={"/icons/userAvatar.svg"} width={40} height={40}/>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </>
+            ))}
             <div>
                 <h2 className='text-black font-medium text-xl'>Change Password</h2>
                 <div className='mt-4'>
