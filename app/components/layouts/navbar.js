@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { landingRoutes } from "@/app/constant";
 
-const Navbar = () => {
+const Navbar = ({ openDrawer }) => {
 
     return (
         <>
@@ -59,7 +59,7 @@ const Navbar = () => {
                     </div>
 
 
-                    <div className="md:hidden cursor-pointer">
+                    <div onClick={openDrawer} className="md:hidden cursor-pointer">
                         <Image src={"/icons/hamburger.svg"} className="w-[35px]" alt="menu" width={10} height={10} />
                     </div>
                 </div>
