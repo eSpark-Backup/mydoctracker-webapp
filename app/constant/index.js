@@ -1166,3 +1166,13 @@ export const EmployeeAsAdminRoutes = [
         link: "/dashboard/employee-as-admin/subordinate-requests"
     },
 ]
+
+export const containerStyleMd = {
+    width: '100%',
+    height: '550px'
+  };
+  
+export const containerStyleSm = {
+    width: '100%',
+    height: '305px'
+  };
