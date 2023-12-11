@@ -1,5 +1,6 @@
+"use client"
 import { Checkbox, Col, Form, Input, Row } from 'antd';
-import React from 'react'
+import React, { useState } from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
 import Link from 'next/link';
@@ -8,13 +9,16 @@ import { authSignIn } from '@/app/redux/store/slices/authSlice';
 import { useRouter } from 'next/navigation'
 
 const SingleUserSignIn = () => {
+  const [loading, setLoading] = useState(false)
   const router = useRouter()
   const [form] = Form.useForm();
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
+    setLoading(true);
     dispatch(authSignIn(values));
     console.log('Success:', values);
+    setLoading(false);
     router.push('/dashboard/admin')
   };
 
@@ -79,7 +83,7 @@ const SingleUserSignIn = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
+        <DocButton onClick={() => form.submit()} loading={loading} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
 
         <div className='lg:hidden block'>
           <div className='py-8 flex flex-col items-center'>
