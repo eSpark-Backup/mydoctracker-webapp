@@ -724,14 +724,14 @@ export const allUsers = [
     { id: 9, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: false },
     { id: 10, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
     { id: 11, image: avatar, name: "John Doe", trackerID: "0123456789", type: "Single Page", requests: "00", location: "#", status: true },
-  ]
+]
 
 
 const subsidiaryOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
 const typeOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
 
 
-export  const form = [
+export const form = [
     {
         title: "Employee Details",
         inputs: [
@@ -837,4 +837,61 @@ export  const form = [
             },
         ]
     }
+]
+
+export const userAddDeviceData = [
+    {
+        title: "Tracker Details",
+        inputs: [
+            {
+                label: "Tracker ID",
+                placeholder: "Enter tracker id...",
+                required: true,
+                key: "TrackerID",
+                type: "text"
+            },
+            {
+                label: "Select Type",
+                placeholder: "Select type",
+                required: true,
+                key: "TrackerType",
+                type: "select",
+                options: trackerTypeOptions,
+            },
+        ]
+    },
+    {
+        title: "Document Details",
+        buttonText: "Add fields",
+        inputs: [
+            {
+                label: "Document Title",
+                placeholder: "Enter title...",
+                required: true,
+                key: "DocumentTitle",
+                type: "text",
+            },
+            {
+                label: "Date Of Creation",
+                placeholder: "DD--MM--YYY",
+                required: true,
+                key: "DateOfCreation",
+                type: "datePicker",
+            },
+            {
+                label: "Time Of Creation",
+                placeholder: "00-00",
+                required: true,
+                key: "TimeOfCreation",
+                type: "timePicker",
+            },
+            {
+                label: "Upload Doc Image  (Optional)",
+                placeholder: "Upload image",
+                required: false,
+                key: "DocImage",
+                type: "uploadImage",
+            },
+        ]
+    },
 ]
