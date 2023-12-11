@@ -1,3 +1,5 @@
+"use client";
+
 import { NotificationSettings } from '@/app/components';
 import DocumnetHistory from '@/app/components/common/documnetHistory';
 import GeofenceSettings from '@/app/components/common/geofenceSettings';
@@ -8,7 +10,7 @@ import React from 'react'
 import History from '../../devices/(roles)/user/history/page';
 import EmployeeProfileSettings from './employeeProfileSettings';
 
-const page = () => {
+const EmployeeSettings = () => {
     const profileSettingTabs = [
         {
             key: '1',
@@ -48,4 +50,4 @@ const page = () => {
     )
 }
 
-export default page
+export default EmployeeSettings

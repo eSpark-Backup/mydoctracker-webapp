@@ -3,13 +3,22 @@ import { DocButton } from '@/app/components'
 import { Button, Tabs } from 'antd'
 import Image from 'next/image'
 import React from 'react'
+import { useRouter } from 'next/navigation'
 import { SettingOutlined } from "@ant-design/icons"
 import AdminTrackerDetails from '@/app/components/Forms/adminTrackerDetails'
 import AdminEmployeeDetails from '@/app/components/Forms/adminEmployeeDetails'
 import AdminDocumentDetails from '@/app/components/Forms/adminDocumentDetails'
 
 const EmployeDetail = () => {
-    const operations = <DocButton prefix={<SettingOutlined className='mr-3' />} className={"bg-transparent text-primary font-medium"} text={"Settings"} />;
+    const router = useRouter();
+
+    const handleSettings = () => {
+            router.push('/dashboard/admin/employee-settings')
+        }
+
+        
+
+    const operations = <DocButton onClick={handleSettings} prefix={<SettingOutlined className='mr-3' />} className={"bg-transparent text-primary font-medium"} text={"Settings"} />;
     const items = [
         {
             key: '1',
@@ -27,6 +36,10 @@ const EmployeDetail = () => {
             children: <AdminDocumentDetails />
         },
     ];
+
+
+
+
     return (
         <div>
             <div className='mt-14 flex flex-col gap-8'>
@@ -51,7 +64,7 @@ const EmployeDetail = () => {
                 </div>
                 <div>
                     <div className='flex justify-end md:hidden'>
-                        <DocButton prefix={<SettingOutlined className='mr-3' />} className={"bg-transparent text-primary font-medium"} text={"Settings"} />
+                        <DocButton onClick={handleSettings} prefix={<SettingOutlined className='mr-3' />} className={"bg-transparent text-primary font-medium"} text={"Settings"} />
                     </div>
                     <div className='min-h-[64vh] hidden md:block bg-white rounded-md shadow-md p-5 mb-3'>
                         <Tabs tabBarExtraContent={operations} size='large' defaultActiveKey="1" items={items} />

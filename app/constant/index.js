@@ -727,8 +727,8 @@ export const allUsers = [
   ]
 
 
-const subsidiaryOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
-const typeOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
+export const subsidiaryOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
+export const typeOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
 
 
 export  const form = [
@@ -837,4 +837,29 @@ export  const form = [
             },
         ]
     }
+]
+
+
+export const EmployeeAsAdminRoutes = [
+    {
+        id: 1,
+        title: "Devices",
+        icon: "dashboardRequests.svg",
+        iconfill: "dashboardRequestsFill.svg",
+        link: "/dashboard/employee-as-admin"
+    },
+    {
+        id: 2,
+        title: "Subordinates",
+        icon: "dashboardProfileSetting.svg",
+        iconfill: "dashboardProfileSettingFill.svg",
+        link: "/dashboard/employee-as-admin/subordinates"
+    },
+    {
+        id: 3,
+        title: "Subordinate Requests",
+        icon: "dashboardRequests.svg",
+        iconfill: "dashboardRequestsFill.svg",
+        link: "/dashboard/employee-as-admin/subordinate-requests"
+    },
 ]
