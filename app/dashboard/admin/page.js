@@ -29,7 +29,7 @@ const Admin = () => {
     }
 
     const gotoDetail = (rowId) => {
-        // navigation to detail page
+        router.push('/dashboard/admin/employee-details')
         console.log(rowId)
     }
 

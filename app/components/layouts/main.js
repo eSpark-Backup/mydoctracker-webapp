@@ -34,7 +34,6 @@ const Main = ({ children }) => {
                             </div>
                         </div>
                     </div>
-
                 </div>
             </Layout >
         </>

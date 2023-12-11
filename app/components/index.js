@@ -44,6 +44,11 @@ import ShareLocationsList from './common/shareLocationsList'
 import DocDropdown from './common/docDropdown'
 import HeadContent from './common/headContent'
 import Table from './common/table'
+import RequestPanel from  './common/RequestPanel'
+import ViewRequest from './common/ViewRequest'
+import EmployeeAsAdminLayout from './layouts/employeeAsAdminLayout'
+import EmployeeAsAdminSiderbar from './layouts/employeeAsAdminSiderbar'
+import EmployeeAsAdminSiderbarMobileDrawer from './layouts/employeeAsAdminSiderbarMobileDrawer'
 
 
 
@@ -94,4 +99,9 @@ export {
     DocDropdown,
     HeadContent,
     Table,
+    RequestPanel,
+    ViewRequest,
+    EmployeeAsAdminLayout,
+    EmployeeAsAdminSiderbar,
+    EmployeeAsAdminSiderbarMobileDrawer,
 }
