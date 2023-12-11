@@ -3,7 +3,7 @@
 import { Layout } from 'antd';
 import React, { useState } from 'react'
 import Sidebar from './sidebar';
-import Header from './landingHeader';
+import Header from './Header';
 import MobileDrawer from './mobileDrawer';
 
 const Main = ({ children }) => {

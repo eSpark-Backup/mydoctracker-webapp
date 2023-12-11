@@ -23,7 +23,7 @@ import Features from './layouts/features'
 import FeatureBox from './common/featureBox'
 import Dashboard from './layouts/dashboard'
 import Main from './layouts/main'
-import Header from './layouts/landingHeader'
+import Header from './layouts/Header'
 import NotebookDetail from './common/notebookDetail'
 import InfoCard from './common/infoCard'
 import FieldView from './common/fieldView'
@@ -44,6 +44,7 @@ import ShareLocationsList from './common/shareLocationsList'
 import DocDropdown from './common/docDropdown'
 import HeadContent from './common/headContent'
 import Table from './common/table'
+import LandingDrawer from './layouts/landingDrawer'
 
 
 
@@ -94,4 +95,5 @@ export {
     DocDropdown,
     HeadContent,
     Table,
+    LandingDrawer,
 }

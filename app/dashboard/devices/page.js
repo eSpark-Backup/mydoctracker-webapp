@@ -1,8 +1,7 @@
 "use client"
 
-import { Dashboard } from '@/app/components'
+import { Dashboard, Header } from '@/app/components'
 import HeadContent from '@/app/components/common/headContent'
-import Header from '@/app/components/layouts/Header'
 import React from 'react'
 
 const Devices = () => {
