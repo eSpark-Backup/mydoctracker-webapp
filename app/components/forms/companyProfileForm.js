@@ -10,6 +10,8 @@ import { companyProfileSetting } from '@/app/constant'
 import DocDropdown from '../common/docDropdown'
 import DocDatePicker from '../common/docDatePicker'
 import DocTimePicker from '../common/docTimePicker'
+import { PlusOutlined } from "@ant-design/icons";
+
 
 const CompanyProfileForm = () => {
     const [companySetting, setCompanySetting] = useState({

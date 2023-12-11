@@ -6,6 +6,8 @@ import { checkFieldsNotEmpty } from '@/app/utils/validation'
 import { notification } from 'antd'
 import Image from 'next/image'
 import React, { useState } from 'react'
+import { PlusOutlined } from "@ant-design/icons";
+
 
 const EmployeeProfileSettings = () => {
     const [employeeData, setEmployeeData] = useState({
@@ -72,7 +74,7 @@ const EmployeeProfileSettings = () => {
                                 <label className="text-greydark text-sm pb-1">Employee Image</label>
                                 <div className='flex gap-3'>
                                     <DocImgInput />
-                                    <Image src={"/icons/userAvatar.svg"} width={40} height={40}/>
+                                    <Image src={"/icons/userAvatar.svg"} width={40} height={40} alt='User'/>
 
                                 </div>
                             </div>

@@ -10,6 +10,8 @@ import DocImgInput from '../common/docImgInput'
 import DocDatePicker from '../common/docDatePicker'
 import DocTimePicker from '../common/docTimePicker'
 import DocDropdown from '../common/docDropdown'
+import { PlusOutlined } from "@ant-design/icons";
+
 
 const AccountSettingsForm = () => {
     const [accountSetting, setAccountSetting] = useState({
@@ -91,8 +93,8 @@ const AccountSettingsForm = () => {
                         {section?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={section?.buttonText} className={"text-white rounded-lg"} />}
                     </div>
                     <div className='mt-0 md:w-3/4 relative bottom-8'>
-                        {section?.inputs?.map((inputs) => (
-                            <div className="w-100% lg:w-[45%] flex flex-col">
+                        {section?.inputs?.map((inputs, index) => (
+                            <div className="w-100% lg:w-[45%] flex flex-col" key={index}>
                                 <label className="text-greydark text-sm mt-3">{inputs?.label}</label>
                                 <DocInput onChange={(value) => handleAccountSettingChange(inputs?.key, value)} type={inputs?.type} placeholder={inputs?.placeholder} className={"h-[40px]"} />
                             </div>
