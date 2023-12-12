@@ -52,7 +52,7 @@ const Header = ({ showDrawer }) => {
                 </div>
 
                 <div className="relative">
-                    <div className="flex justify-end items-center gap-4 cursor-pointer">
+                    <div className="flex justify-end items-center py-3 gap-4 cursor-pointer">
                         {role === "admin" &&
                         <>
                         <Link href={"/dashboard/admin/pricing-plan"}>
@@ -80,15 +80,15 @@ const Header = ({ showDrawer }) => {
                                 <Image className="cursor-pointer" src={"/icons/Bell.svg"} width={25} height={25} alt="bell" />
                             </Popover>
                         </Badge>
-                        <div className={`${role === "admin" ? "xl:w-[180px]" : "xl:w-[128px]"} w-max border-0 xl:border-2 border-greyBorder h-[40px] sm:h-[40px] flex justify-between items-center rounded-[50px] px-1 ${role !== "admin" && 'pr-4'}`} onClick={() => setShowButton(!showButton)}>
+                        <div className={`${role === "admin" ? "xl:w-[180px] sm:h-[50px]" : "sm:h-[40px] xl:w-[128px]"} w-max border-0 xl:border-2 border-greyBorder h-[40px]  flex justify-between items-center rounded-[50px] px-1  ${role !== "admin" && 'pr-4'}`} onClick={() => setShowButton(!showButton)}>
                             <Image src={"/icons/userAvatar.svg"} width={30} height={30} alt="avatar" />
                             <p className="hidden xl:block text-center text-sm font-normal">John Doe</p>
-                            {role === "admin" && <DocButton text={"Basic"} className={"text-primary hidden xl:block bg-secondary text-[15px] !h-[30px]"} />}
+                            {role === "admin" && <DocButton text={"Basic"} className={"text-primary hidden xl:block bg-secondary text-[10px] !my-4"} />}
                         </div>
                     </div>
 
                     {showButton ?
-                    <div ref={logoutRef} onClick={() => setIsModalOpen(true)} className="shadow-lg z-10 bg-white absolute top-[45px] right-0 p-2 rounded-b-[10px]  w-[120px] cursor-pointer flex justify-center items-center border-1 border-greyBorder">
+                    <div ref={logoutRef} onClick={() => setIsModalOpen(true)} className={`shadow-lg z-10 bg-white absolute ${role === "admin"?"top-[65px]":"top-[55px] "} right-0 p-2 rounded-b-[10px]  w-[120px] cursor-pointer flex justify-center items-center border-1 border-greyBorder`}>
                         <p className="text-primary">Logout</p>
                     </div> : null}
                 </div>

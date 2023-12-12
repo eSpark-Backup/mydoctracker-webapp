@@ -3,6 +3,8 @@
 import { Tabs } from 'antd';
 import Image from 'next/image';
 import LocationDetails from './location-details';
+import TrackingMap from '@/app/utils/TrackingMap';
+import { containerStyleMd } from '@/app/constant';
 
 const History = ({ admin }) => {
 
@@ -50,7 +52,10 @@ const History = ({ admin }) => {
                       <div className='text-[#666666] font-semibold text-[12px]'>Initial battery percentage: 97.78% <br></br> Ending battery percentage: 97.59%</div>
                     </div>
                 </div>
-                <Image src="/Images/map.svg" className='w-[100%] mt-2 lg:mt-0 p-0 lg:p-5' width={300} height={300} alt="document-image" />                
+                <div className='pt-5'>
+                <TrackingMap containerStyle={containerStyleMd} />
+                </div>
+
               </div>
 
             </div>
