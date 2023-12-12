@@ -1,11 +1,21 @@
 "use client"
 
 import { DocButton, FieldView, NavigatorHeader } from '@/app/components'
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
+import ConfirmModal from '@/app/components/modals/confirmModal'
 
 const ViewDoc = () => {
+    const [ isModalOpen, setIsModalOpen ] = useState(false)
+    const { role, roleType } = useSelector(state=>state.auth)
+
+    const handlePermission = () => {
+        ///permission api logic
+        setIsModalOpen(false)
+    }
+
     return (
         <>
         <NavigatorHeader previousPage={["Dashboard"]} currentPage="Document View" />
@@ -16,8 +26,8 @@ const ViewDoc = () => {
                 </div>
 
                 <div>
-                    <Link href={"/dashboard/devices/user/edit-doc"}>
-                    <DocButton prefix={<Image src="/icons/editPencil.svg" width={18} height={18} className='mr-2' alt='edit' />} text={"Edit"} className={"text-sm font-bold bg-secondary border-primary text-primary h-[30px]"} />
+                    <Link href={(role === "employee" && roleType === "default") ? "" : "/dashboard/devices/user/edit-doc"}>
+                    <DocButton onClick={(role === "employee" && roleType === "default") ? () => setIsModalOpen(true) : null} prefix={<Image src="/icons/editPencil.svg" width={18} height={18} className='mr-2' alt='edit' />} text={"Edit"} className={"text-sm font-bold bg-secondary border-primary text-primary h-[30px]"} />
                     </Link>
                 </div>
             </div>
@@ -51,6 +61,17 @@ const ViewDoc = () => {
                 </div>
 
             </div>
+            <ConfirmModal
+                isModalOpen={isModalOpen}
+                handleOk={handlePermission}
+                handleCancel={()=>setIsModalOpen(false)}
+                cancelButton="Cancel"
+                confirmButton="Send"
+                description="To edit the document you will required the permission from the admin"
+                icon={"locationReqModal.svg"}
+                width={450}
+                acceptButtonColor={"bg-primary"}
+            />
 
 
         </div>

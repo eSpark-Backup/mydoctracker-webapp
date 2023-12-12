@@ -28,6 +28,7 @@ export const authSlice = createSlice({
             if (userRoles[username]?.password === password) {
                 setCookie("logged", "true")
                 setCookie("role", userRoles[username].role)
+                setCookie("roleType", userRoles[username].roleType)
                 state.role = userRoles[username].role;
                 state.roleType = userRoles[username].roleType;
             }
@@ -41,6 +42,7 @@ export const authSlice = createSlice({
         authSignOut: (state) => {
             deleteCookie("logged")
             deleteCookie("role")
+            deleteCookie("roleType")
             state.role = "";
             state.roleType = "";
         },
