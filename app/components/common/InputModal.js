@@ -25,7 +25,7 @@ const InputModal = ({
                     cancelButtonProps={{ style: { display: "none" } }}
                     closable={false}
                     width={width}
-                    
+                    centered={true}                    
                 >
                     {children}
                 </Modal>
