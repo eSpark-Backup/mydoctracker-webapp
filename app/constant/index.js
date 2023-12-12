@@ -286,6 +286,49 @@ export const AdminRoutes = [
     },
 ]
 
+export const EmployeeMainRoutes = [
+    {
+        id: 1,
+        title: "Devices",
+        icon: "dashboardRequests.svg",
+        iconfill: "dashboardRequestsFill.svg",
+        link: "/dashboard/employee-as-admin"
+    },
+
+    {
+        id: 2,
+        title: "Subordinates",
+        icon: "dashboardProfileSetting.svg",
+        iconfill: "dashboardProfileSettingFill.svg",
+        link: "/dashboard/employee-as-admin/subordinates"
+    },
+    {
+        id: 3,
+        title: "Subordinate Requests",
+        icon: "dashboardRequests.svg",
+        iconfill: "dashboardRequestsFill.svg",
+        link: "/dashboard/employee-as-admin/subordinate-requests"
+    }
+]
+
+export const EmployeeRoutes = [
+    {
+        id: 1,
+        title: "Dashboard",
+        icon: "dashboardHome.svg",
+        iconfill: "dashboardHomeFill.svg",
+        link: "/dashboard/devices/user"
+    },
+
+    {
+        id: 2,
+        title: "History",
+        icon: "dashboardHistory.svg",
+        iconfill: "dashboardHistoryFill.svg",
+        link: "/dashboard/devices/user/history"
+    }
+]
+
 export const SidebarFooterRoutes = [
 
     {
@@ -1143,29 +1186,6 @@ export const employeeProfileSettings = [
         ]
     }
 ]
-export const EmployeeAsAdminRoutes = [
-    {
-        id: 1,
-        title: "Devices",
-        icon: "dashboardRequests.svg",
-        iconfill: "dashboardRequestsFill.svg",
-        link: "/dashboard/employee-as-admin"
-    },
-    {
-        id: 2,
-        title: "Subordinates",
-        icon: "dashboardProfileSetting.svg",
-        iconfill: "dashboardProfileSettingFill.svg",
-        link: "/dashboard/employee-as-admin/subordinates"
-    },
-    {
-        id: 3,
-        title: "Subordinate Requests",
-        icon: "dashboardRequests.svg",
-        iconfill: "dashboardRequestsFill.svg",
-        link: "/dashboard/employee-as-admin/subordinate-requests"
-    },
-]
 
 export const containerStyleMd = {
     width: '100%',
@@ -1176,3 +1196,69 @@ export const containerStyleSm = {
     width: '100%',
     height: '305px'
   };
+
+  export const notebookDetails = [
+    {
+        id: 1,
+        field: "Tracker ID",
+        value: "XYZ456789"
+    },
+    {
+        id: 2,
+        field: "Email",
+        value: "johndoe_123@gmail.com"
+    },
+    {
+        id: 3,
+        field: "Last Activity",
+        value: "25m ago"
+    },
+    {
+        id: 4,
+        field: "Owners Name",
+        value: "John Doe"
+    },
+    {
+        id: 5,
+        field: "Contact",
+        value: "123456789"
+    },
+    {
+        id: 6,
+        field: "Battery",
+        value: "98% remaining"
+    },
+]
+
+export const info = [
+    {
+        id: 1,
+        title: "Document",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet.",
+        icon: "dashboardDocument.svg",
+        leftBorder: true,
+        mdWidth: "md:w-6/12",
+        buttonTitle: "Document History",
+        buttonLink: "/dashboard/devices/user/download-doc"
+    },
+    {
+        id: 2,
+        title: "Share Location",
+        description: "You can share your location by creating link. Also, can manage who can see it.",
+        icon: "dashboardLocation.svg",
+        leftBorder: true,
+        mdWidth: "md:w-6/12",
+        buttonTitle: "Create Link",
+        buttonLink: ""
+    },
+    {
+        id: 3,
+        title: "Geofence",
+        description: "Set Geofencing around your preferred area and you will get notify when your device gets out of the range you restricted.",
+        icon: "dashboardGefence.svg",
+        leftBorder: false,
+        mdWidth: "md:w-12/12",
+        buttonTitle: "Set",
+        buttonLink: "/dashboard/devices/user/geofence"
+    }
+]

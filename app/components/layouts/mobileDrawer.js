@@ -1,13 +1,17 @@
 import React from 'react';
 import { Drawer } from 'antd';
 import SiderbarRoutes from '../common/siderbarRoutes';
-import { AdminRoutes, SidebarFooterRoutes, UserRoutes } from '@/app/constant';
+import { getFooterRoutesForSidebar, getRoutesForSidebar } from '@/app/utils';
 import Image from 'next/image';
 import { CloseOutlined } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
+import { usePathname } from 'next/navigation';
 
 const MobileDrawer = ({ open, onClose }) => {
-    const { role } = useSelector((state) => state.auth)
+    const { role, roleType  } = useSelector((state) => state.auth)
+    const pathname = usePathname();
+    const routes = getRoutesForSidebar(role, roleType, pathname)
+    const footerRoutes = getFooterRoutesForSidebar(role, roleType, pathname)
 
     return (
         <>
@@ -28,9 +32,7 @@ const MobileDrawer = ({ open, onClose }) => {
 
                     <div className='flex-1 flex flex-col justify-between'>
                         <div>
-                            {role === "admin" ? AdminRoutes.map((item) => (
-                                <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
-                            )) : UserRoutes.map((item) => (
+                            {routes.map((item) => (
                                 <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
                             ))
                             }
@@ -39,7 +41,7 @@ const MobileDrawer = ({ open, onClose }) => {
                         <div>
                             <div>
                                 {
-                                    SidebarFooterRoutes.map((item) => (
+                                    footerRoutes.map((item) => (
                                         <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
                                     ))
                                 }

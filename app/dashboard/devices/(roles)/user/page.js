@@ -1,9 +1,15 @@
+"use client"
+
+import { useSelector } from 'react-redux'
 import { InfoCard, NotebookDetail } from '@/app/components'
+import { info, notebookDetails } from '@/app/constant'
 import { containerStyleSm } from '@/app/constant'
 import TrackingMap from '@/app/utils/TrackingMap'
 import React from 'react'
 
 const User = () => {
+    const { role } = useSelector(state=>state.auth)
+    const filteredInfo = role === "employee" ? info.filter(item=>item.title !== "Geofence") : info
     return (
         <>
             <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 px-3 py-7 flex-col">
@@ -11,15 +17,9 @@ const User = () => {
                 {/* <NoteBookDetails /> */}
                 <div>
                     <div className='flex justify-between flex-wrap'>
-                        <NotebookDetail field='Tracker ID:' value='XYZ456789' />
-                        <NotebookDetail field='Email:' value='johndoe_123@gmail.com' />
-                        <NotebookDetail field='Last Activity:' value='25m ago' />
-
-                    </div>
-                    <div className='flex justify-between flex-wrap'>
-                        <NotebookDetail field='Owners Name:' value='John Doe' />
-                        <NotebookDetail field='Contact:' value='123456789' />
-                        <NotebookDetail field='Battery:' value='98% remaining' />
+                        {notebookDetails.map((item)=>{
+                            return <NotebookDetail key={item.id} field={`${item.field}:`} value={item.value} />
+                        })}
                     </div>
                 </div>
 
@@ -31,10 +31,10 @@ const User = () => {
             </div>
 
             <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 px-3 py-7 flex-col">
-                <div className='flex flex-wrap'>
-                    <InfoCard title={"Document"} description={"Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsum dolor sit amet."} icon={"dashboardDocument.svg"} leftBorder={true} mdwidth={"md:w-6/12"} buttonTitle={"Document History"} buttonLink={"/dashboard/devices/user/download-doc"} />
-                    <InfoCard title={"Share Location"} description={"You can share your location by creating link. Also, can manage who can see it."} icon={"dashboardLocation.svg"} leftBorder={true} mdwidth={"md:w-6/12"} buttonTitle={"Create Link"} />
-                    <InfoCard title={"Geofence"} description={"Set Geofencing around your preferred area and you will get notify when your device gets out of the range you restricted."} icon={"dashboardGefence.svg"} leftBorder={false} mdwidth={"md:w-12/12"} buttonTitle={"Set"} buttonLink={"/dashboard/devices/user/geofence"} />
+                <div className='flex flex-wrap justify-center'>
+                    {filteredInfo.map((item, index)=>{
+                        return <InfoCard key={item.id} title={item.title} description={item.description} icon={item.icon} leftBorder={index !== 0} mdwidth={item.mdWidth} buttonTitle={item.buttonTitle} buttonLink={item.buttonLink} />
+                    })}
                 </div>
             </div>
         </>
