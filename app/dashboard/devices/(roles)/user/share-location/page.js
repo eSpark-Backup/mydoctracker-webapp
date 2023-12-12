@@ -1,12 +1,17 @@
 "use client"
 
 import { NavigatorHeader, ShareLocationsList } from '@/app/components'
+import CopyUrlForm from '@/app/components/Forms/copyUrlForm'
+import InputModal from '@/app/components/common/InputModal'
 import ConfirmModal from '@/app/components/modals/confirmModal'
 import { shareLocationData } from '@/app/constant'
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 const ShareLocation = () => {
+    const { role, roleType } = useSelector(state=>state.auth)
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSharedModalOpen, setIsSharedModalOpen] = useState(false);
 
     const [filter, setFilter] = useState({
         search: "",
@@ -33,7 +38,7 @@ const ShareLocation = () => {
     return (
         <>
             <NavigatorHeader previousPage={["Dashboard"]} currentPage="Share Location" />
-            <ShareLocationsList setIsModalOpen={setIsModalOpen} data={shareLocationData} handleFilter={handleFilter} options={options} />
+            <ShareLocationsList setIsModalOpen={(role === "employee" && roleType === "default") ? setIsModalOpen : setIsSharedModalOpen} data={shareLocationData} handleFilter={handleFilter} options={options} />
             <ConfirmModal
                 isModalOpen={isModalOpen}
                 handleOk={handleOk}
@@ -45,6 +50,13 @@ const ShareLocation = () => {
                 width={450}
                 acceptButtonColor={"bg-primary"}
             />
+            <InputModal
+                isModalOpen={isSharedModalOpen}
+                handleOk={()=>setIsSharedModalOpen(false)}
+                width={360}
+                handleCancel={()=>setIsSharedModalOpen(false)} >
+                <CopyUrlForm handleCancel={()=>setIsSharedModalOpen(false)} />
+            </InputModal>
         </>
     )
 

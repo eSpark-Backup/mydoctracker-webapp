@@ -1,13 +1,13 @@
-import { EmployeeAsAdminLayout } from "@/app/components";
+import { Main } from "@/app/components";
 
 
 export default function EmployeeAdminLayout({ children }) {
 
     return (
         <>
-            <EmployeeAsAdminLayout>
+            <Main>
                 {children}
-            </EmployeeAsAdminLayout>
+            </Main>
         </>
     )
 }

@@ -10,7 +10,7 @@ import Link from "next/link";
 import ConfirmModal from "../modals/confirmModal";
 
 
-const Dashboard = ({ noDevices }) => {
+const Dashboard = ({ employeeAsAdmin, noDevices }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showEditScreen, setShowEditScreen] = useState(false);
 
@@ -80,7 +80,7 @@ const Dashboard = ({ noDevices }) => {
             </div>
           </div>
         ))}
-        <Link href={"/dashboard/devices/add-device"}>
+        <Link href={employeeAsAdmin ? "/dashboard/employee-as-admin/add-device" : "/dashboard/devices/add-device"}>
           <DocButton prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add"} className={"text-white rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)} />
         </Link>
       </div>}
