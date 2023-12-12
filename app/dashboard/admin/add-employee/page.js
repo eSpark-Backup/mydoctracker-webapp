@@ -16,8 +16,8 @@ const AddEmployee = () => {
     const router = useRouter()
     const [ steps, setSteps ] = useState(1)
     const [ addFieldModal, setAddFieldModal ] = useState(false)
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isModal2Open, setIsModal2Open] = useState(false);
+    const [isEditEmployeeModalOpen, setIsEditEmployeeModalOpen] = useState(false);
+    const [isAddEmployeeModalOpen, setIsAddEmployeeModalOpen] = useState(false);
     const [ dynamicInputs, setDynamicInputs ] = useState({
         label: "",
         value: ""
@@ -103,19 +103,19 @@ const AddEmployee = () => {
 
 
 
-    const handleOk = () => {
-        setIsModalOpen(false);
+    const HandleEmployeeEditSuccess = () => {
+        setIsEditEmployeeModalOpen(false);
     };
 
-    const handleCancel = () => {
-        setIsModalOpen(false);
+    const HandleEmployeeEditCancel = () => {
+        setIsEditEmployeeModalOpen(false);
     };
-    const handleOk2 = () => {
-        setIsModal2Open(false);
+    const HandleEmployeeAdditionSuccess = () => {
+        setIsAddEmployeeModalOpen(false);
     };
 
-    const handleCancel2 = () => {
-        setIsModal2Open(false);
+    const HandleEmployeeAdditionCancel = () => {
+        setIsAddEmployeeModalOpen(false);
     };
 
   return (
@@ -187,7 +187,7 @@ const AddEmployee = () => {
                 <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div className='w-[82vw] lg:w-2/4 sm:w-[45vw] flex justify-between min-h-[70px]'>
-                <div className='w-[40%] flex justify-between items-center border-2 border-greyBorder p-3 cursor-pointer' onClick={()=>setIsModalOpen(true)}>
+                <div className='w-[40%] flex justify-between items-center border-2 border-greyBorder p-3 cursor-pointer' onClick={()=>setIsEditEmployeeModalOpen(true)}>
                     <div>
                         <p className='text-sm'>Room1</p>
                         <p className='text-xs'>Mar 24, 2023, 5:43 PM </p>
@@ -196,7 +196,7 @@ const AddEmployee = () => {
                         <Image src={"/icons/Greater.svg"} width={4} height={4} alt="arrow" />
                     </div>
                 </div>
-                <div className='w-[40%]  flex justify-center items-center border-2 border-greyBorder cursor-pointer' onClick={()=>setIsModal2Open(true)}>
+                <div className='w-[40%]  flex justify-center items-center border-2 border-greyBorder cursor-pointer' onClick={()=>setIsAddEmployeeModalOpen(true)}>
                     <h2>+</h2>
                 </div>
                 <div className='w-[10%]  flex justify-center items-center'>
@@ -230,18 +230,18 @@ const AddEmployee = () => {
         handleModalForm={handleModalForm}
     />
             <InputModal
-                isModalOpen={isModalOpen}
-                handleOk={handleOk}
+                isModalOpen={isEditEmployeeModalOpen}
+                handleOk={HandleEmployeeEditSuccess}
                 width={1060}
-                handleCancel={handleCancel} >
-                <GeofencePopupForm edit={true} handleCancel={handleCancel} />
+                handleCancel={HandleEmployeeEditCancel} >
+                <GeofencePopupForm edit={true} handleCancel={HandleEmployeeEditCancel} />
             </InputModal>
             <InputModal
-                isModalOpen={isModal2Open}
-                handleOk={handleOk2}
+                isModalOpen={isAddEmployeeModalOpen}
+                handleOk={HandleEmployeeAdditionSuccess}
                 width={1060}
-                handleCancel={handleCancel2} >
-                <GeofencePopupForm edit={false} handleCancel={handleCancel2} />
+                handleCancel={HandleEmployeeAdditionCancel} >
+                <GeofencePopupForm edit={false} handleCancel={HandleEmployeeAdditionCancel} />
             </InputModal>
     </>
   )
