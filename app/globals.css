@@ -328,4 +328,15 @@ li.ant-pagination-next.ant-pagination-disabled button {
   border-bottom: 0 !important
 }
 
+/* DocTimePicker.css */
+:where(.css-dev-only-do-not-override-tyo0vv).ant-btn.ant-btn-sm{
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+:where(.css-dev-only-do-not-override-tyo0vv).ant-upload-wrapper .ant-upload-list .ant-upload-list-item .ant-upload-list-item-actions .ant-upload-list-item-action.ant-btn-sm{
+  background-color: #e9e7e7 !important;
+}
+
+
 /* /// */

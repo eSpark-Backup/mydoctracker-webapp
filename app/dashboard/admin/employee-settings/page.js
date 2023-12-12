@@ -11,6 +11,10 @@ import History from '../../devices/(roles)/user/history/page';
 import EmployeeProfileSettings from './employeeProfileSettings';
 
 const EmployeeSettings = () => {
+    const onDelete = (id) => {
+        //delete api configure
+        console.log(id)
+    }
     const profileSettingTabs = [
         {
             key: '1',
@@ -30,7 +34,7 @@ const EmployeeSettings = () => {
         {
             key: '4',
             label: 'Shared Location',
-            children:<ManagementList type={"location"} hideSearchBar={true} data={employeeData}/>
+            children:<ManagementList type={"location"} onDelete={onDelete} hideSearchBar={true} data={employeeData}/>
         },
         {
             key: '5',
