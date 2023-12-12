@@ -27,7 +27,7 @@ const ViewDoc = () => {
 
                 <div>
                     <Link href={(role === "employee" && roleType === "default") ? "" : "/dashboard/devices/user/edit-doc"}>
-                    <DocButton onClick={(role === "employee" && roleType === "default") ? () => setIsModalOpen(true) : null} prefix={<Image src="/icons/editPencil.svg" width={18} height={18} className='mr-2' alt='edit' />} text={"Edit"} className={"text-sm font-bold bg-secondary border-primary text-primary h-[30px]"} />
+                    <DocButton onClick={(role === "employee" && roleType === "default") ? () => setIsModalOpen(true) : null} prefix={<Image src="/icons/editPencil.svg" width={18} height={18} className='mr-2 edit-doc-btn' alt='edit' />} text={"Edit"} className={"text-sm font-bold bg-secondary border-primary text-primary h-[30px]"} />
                     </Link>
                 </div>
             </div>

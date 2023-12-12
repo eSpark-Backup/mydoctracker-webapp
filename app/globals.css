@@ -328,4 +328,8 @@ li.ant-pagination-next.ant-pagination-disabled button {
   border-bottom: 0 !important
 }
 
+.bg-primary:hover .edit-doc-btn {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(102%) contrast(102%);
+}
+
 /* /// */

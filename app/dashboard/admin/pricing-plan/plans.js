@@ -13,9 +13,9 @@ const PackageCardListing = ({ type, packagePlans, handleBuy}) => {
                     <div className='font-semibold text-white text-center text-lg my-4'>Plan {plan.planType}</div>
                     <div className='text-white text-center text-md mt-10'><span className='font-semibold text-lg'>$ {plan.price} /</span> {type}</div>
                     <div className='px-8'>
-                        {plan.details.map((detail)=>{
+                        {plan.details.map((detail, index)=>{
                             return(
-                                <div className='flex flex-row gap-2 items-center justify-start mt-2' key={detail}>
+                                <div className='flex flex-row gap-2 items-center justify-start mt-2' key={index}>
                                   <Image className='bg-[#05FF00] rounded-full p-1' src='/icons/check.svg' width={15} height={15} alt='check' />
                                   <div className='text-white text-[10px]'>{detail}</div>
                                 </div>
