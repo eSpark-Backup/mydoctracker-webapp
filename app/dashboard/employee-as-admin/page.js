@@ -12,7 +12,7 @@ const EmployeeAsAdmin = () => {
                 />
             </div>
             <div className="w-[100%] mx-auto sm:w-[75%] h-[100%]">
-                <Dashboard employeeAsAdmin noDevices={false} />
+                <Dashboard noDevices={false} />
             </div>
         </>
     )
