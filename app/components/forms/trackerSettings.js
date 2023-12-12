@@ -6,8 +6,29 @@ import React, { useState } from 'react'
 import DocButton from '../common/docButton'
 import DocDropdown from '../common/docDropdown'
 import { checkFieldsNotEmpty } from '@/app/utils/validation'
+import InputModal from '../common/InputModal'
+import GeofencePopupForm from '../Forms/geofencePopupForm'
+
 
 const TrackerSettings = () => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModal2Open, setIsModal2Open] = useState(false);
+
+    const handleOk = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
+    const handleOk2 = () => {
+        setIsModal2Open(false);
+    };
+
+    const handleCancel2 = () => {
+        setIsModal2Open(false);
+    };
     const [trackerSetting, setTrackerSetting] = useState({
         enableDevice: false,
         idleStateInterval: "",
@@ -47,7 +68,7 @@ const TrackerSettings = () => {
                 <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div className='w-[82vw] lg:w-2/4 sm:w-[45vw] flex justify-between min-h-[70px]'>
-                <div className='w-[40%] flex justify-between items-center border-2 border-greyBorder p-3'>
+                <div className='w-[40%] flex justify-between items-center border-2 border-greyBorder p-3 cursor-pointer' onClick={() => setIsModalOpen(true)}>
                     <div>
                         <p className='text-sm'>Room1</p>
                         <p className='text-xs'>Mar 24, 2023, 5:43 PM </p>
@@ -56,7 +77,7 @@ const TrackerSettings = () => {
                         <Image src={"/icons/Greater.svg"} width={4} height={4} alt="arrow" />
                     </div>
                 </div>
-                <div className='w-[40%]  flex justify-center items-center border-2 border-greyBorder'>
+                <div className='w-[40%]  flex justify-center items-center border-2 border-greyBorder cursor-pointer' onClick={() => setIsModal2Open(true)}>
                     <h2>+</h2>
                 </div>
                 <div className='w-[10%]  flex justify-center items-center'>
@@ -78,6 +99,21 @@ const TrackerSettings = () => {
             <div>
                 <DocButton onClick={handleSubmitTrackerSetting} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
             </div>
+
+            <InputModal
+                isModalOpen={isModalOpen}
+                handleOk={handleOk}
+                width={1060}
+                handleCancel={handleCancel} >
+                <GeofencePopupForm edit={true} handleCancel={handleCancel} />
+            </InputModal>
+            <InputModal
+                isModalOpen={isModal2Open}
+                handleOk={handleOk2}
+                width={1060}
+                handleCancel={handleCancel2} >
+                <GeofencePopupForm edit={false} handleCancel={handleCancel2} />
+            </InputModal>
         </div>
     )
 }
