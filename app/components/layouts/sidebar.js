@@ -1,11 +1,15 @@
 import Image from 'next/image'
 import React from 'react'
 import SiderbarRoutes from '../common/siderbarRoutes'
-import { AdminRoutes, SidebarFooterRoutes, UserRoutes } from '../../constant'
+import { getFooterRoutesForSidebar, getRoutesForSidebar } from '@/app/utils'
 import { useSelector } from 'react-redux'
+import { usePathname } from 'next/navigation'
 
 const Sidebar = () => {
-    const { role } = useSelector((state) => state.auth)
+    const { role, roleType  } = useSelector((state) => state.auth)
+    const pathname = usePathname();
+    const routes = getRoutesForSidebar(role, roleType, pathname)
+    const footerRoutes = getFooterRoutesForSidebar(role, roleType, pathname)
 
     return (
         <div className='hidden min-h-screen bg-primary xl:flex flex-col'>
@@ -21,9 +25,7 @@ const Sidebar = () => {
 
             <div className='flex-1 flex flex-col justify-between'>
                 <div>
-                    {role === "admin" ? AdminRoutes.map((item) => (
-                        <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
-                    )) : UserRoutes.map((item) => (
+                    {routes.map((item) => (
                         <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
                     ))
                     }
@@ -32,7 +34,7 @@ const Sidebar = () => {
                 <div>
                     <div>
                         {
-                            SidebarFooterRoutes.map((item) => (
+                            footerRoutes.map((item) => (
                                 <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
                             ))
                         }

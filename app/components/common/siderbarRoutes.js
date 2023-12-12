@@ -5,13 +5,15 @@ import { usePathname  } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { activeForSidebar } from '@/app/utils'
+import { useSelector } from 'react-redux';
 
 const SiderbarRoutes = ({ title, link, icon }) => {
     const pathname = usePathname ()
+    const { role } = useSelector(state=>state.auth)
     const [active, setActive] = useState('')
 
     useEffect(()=>{
-        setActive(activeForSidebar(pathname, link))
+        setActive(activeForSidebar(role, pathname, link))
     },[pathname, link])
     return (
         <Link href={link}>
