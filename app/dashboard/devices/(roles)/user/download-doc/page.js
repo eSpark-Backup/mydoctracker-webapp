@@ -27,11 +27,11 @@ const DownloadDoc = () => {
                        <p className='text-[#666666] font-semibold text-[10px]'>{createdAt}</p>
                      </div>
                      <div className='flex flex-row justify-between items-center mt-2'>
-                      <div>
+                      <div className='cursor-pointer'>
                         <p className='text-[#424242] font-semibold text-base'>{title}</p>
                         <p className='text-[#666666] text-sm'>Saved by: {savedBy}</p>
                       </div>
-                      <Image src="/icons/vertical-ellipse.svg" width={20} height={20} alt="vertical-ellipse" />
+                      <Image className='cursor-pointer' src="/icons/vertical-ellipse.svg" width={20} height={20} alt="vertical-ellipse" />
                      </div>
                     </div>
                   )
