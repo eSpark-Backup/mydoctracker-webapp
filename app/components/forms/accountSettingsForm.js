@@ -3,14 +3,14 @@
 import React, { useState } from 'react'
 import DocInput from '../common/docInput'
 import DocButton from '../common/docButton'
-import { checkFieldsNotEmpty } from '@/app/utils/validation'
-import { notification } from 'antd'
+import { handleSubmit } from '@/app/utils/validation'
 import { accountSettingChangePass, accountSettingsData } from '@/app/constant'
 import DocImgInput from '../common/docImgInput'
 import DocDatePicker from '../common/docDatePicker'
 import DocTimePicker from '../common/docTimePicker'
 import DocDropdown from '../common/docDropdown'
 import { PlusOutlined } from "@ant-design/icons";
+import { getProps } from '@/app/utils'
 
 
 const AccountSettingsForm = () => {
@@ -31,29 +31,11 @@ const AccountSettingsForm = () => {
         })
     }
 
-
-
-    const handleSubmitAccountSetting = () => {
-
-        if (checkFieldsNotEmpty(accountSetting)) {
-            if (accountSetting.newPassword === accountSetting.confirmPassword) {
-                console.log(accountSetting);
-            } else {
-                notification.error({
-                    message: 'Error',
-                    description: 'Please match confirm your password',
-                });
-            }
-        }
-        else {
-            notification.error({
-                message: 'Error',
-                description: 'Please fill all required fields.',
-            });
-        }
+    const successSubmit = () => {
+        console.log(accountSetting);
     }
 
-
+    const props = (key) => getProps(setAccountSetting, accountSetting, key)
 
     return (
         <div className='flex flex-col gap-8'>
@@ -71,7 +53,7 @@ const AccountSettingsForm = () => {
                                     {eachInput.type === "select" ?
                                         <DocDropdown className={"w-[100%]"} options={eachInput?.options} placeholder={eachInput?.placeholder} />
                                         : eachInput.type === "uploadImage" ?
-                                            <DocImgInput props={props} />
+                                            <DocImgInput props={props(eachInput.key)} />
                                             : eachInput.type === "datePicker" ?
                                                 <DocDatePicker onChange={(value) => handleAccountSettingChange(eachInput?.key, value)} />
                                                 : eachInput.type === "timePicker" ?
@@ -103,7 +85,7 @@ const AccountSettingsForm = () => {
                 </>
             ))}
             <div>
-                <DocButton onClick={handleSubmitAccountSetting} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => handleSubmit(accountSetting, successSubmit)} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
             </div>
         </div>
     )

@@ -1,11 +1,11 @@
 "use client"
 
-import { Switch, notification } from 'antd'
+import { Switch } from 'antd'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import DocButton from '../common/docButton'
 import DocDropdown from '../common/docDropdown'
-import { checkFieldsNotEmpty } from '@/app/utils/validation'
+import { handleSubmit } from '@/app/utils/validation'
 import InputModal from '../common/InputModal'
 import GeofencePopupForm from '../Forms/geofencePopupForm'
 
@@ -42,16 +42,8 @@ const TrackerSettings = () => {
         })
     }
 
-    const handleSubmitTrackerSetting = () => {
-        if (checkFieldsNotEmpty(trackerSetting)) {
-            console.log(trackerSetting);
-        }
-        else {
-            notification.error({
-                message: 'Error',
-                description: 'Please fill all required fields.',
-            });
-        }
+    const successSubmit = () => {
+        console.log(trackerSetting)
     }
 
     return (
@@ -59,7 +51,7 @@ const TrackerSettings = () => {
             <div>
                 <div className='w-[85vw] lg:w-2/4 sm:w-[45vw] flex justify-between'>
                     <h3 className='sm:text-xl text-base font-medium'>Enable Device</h3>
-                    <Switch onChange={(value) => handleTrackerSettingChange('enableDevice', value)} defaultChecked={trackerSetting.enableDevice} />
+                    <Switch checked={trackerSetting.enableDevice} style={{ backgroundColor : trackerSetting.enableDevice ? '#FCBF4A' : "#E4E4E4" }} onChange={(value) => handleTrackerSettingChange('enableDevice', value)} />
                 </div>
                 <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
@@ -97,7 +89,7 @@ const TrackerSettings = () => {
                 <DocDropdown onChange={(value) => handleTrackerSettingChange('mobileStateInterval', value.value)} className={"w-40"} options={[{ label: '5 mins', value: '5' }, { label: '10 mins', value: '10' }]} placeholder={"5 mins"} />
             </div>
             <div>
-                <DocButton onClick={handleSubmitTrackerSetting} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => handleSubmit(trackerSetting ,successSubmit)} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
             </div>
 
             <InputModal

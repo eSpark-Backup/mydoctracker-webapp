@@ -4,9 +4,9 @@ import { DocButton, DocDatePicker, DocInput, DocTimePicker, DocImgInput, Navigat
 import React, { useState } from 'react'
 import { PlusOutlined } from '@ant-design/icons'
 import Link from 'next/link'
-import { checkFieldsNotEmpty } from '@/app/utils/validation'
-import { notification } from 'antd'
+import { handleSubmit } from '@/app/utils/validation'
 import { userEditDocData } from '@/app/constant'
+import { getProps } from '@/app/utils'
 
 
 const EditDoc = () => {
@@ -19,16 +19,8 @@ const EditDoc = () => {
     })
 
 
-    const handleSubmit = () => {
-        if (checkFieldsNotEmpty(editDocData)) {
-            console.log(editDocData);
-        }
-        else {
-            notification.error({
-                message: 'Error',
-                description: 'Please fill all required fields.',
-            });
-        }
+    const successSubmit = () => {
+        console.log(editDocData);
     }
 
     const handleFieldChange = (field, value) => {
@@ -38,24 +30,7 @@ const EditDoc = () => {
         })
     }
 
-
-    const props = {
-        onRemove: () => {
-            setEditDocData({
-                ...editDocData,
-                docImage: []
-            })
-        },
-        beforeUpload: (file) => {
-            setEditDocData({
-                ...editDocData,
-                docImage: [file]
-            })
-            return false;
-        },
-        fileList: editDocData.docImage,
-    };
-
+    const props = (key) => getProps(setEditDocData, editDocData, key)
 
     return (
         <>
@@ -77,7 +52,7 @@ const EditDoc = () => {
                                             {eachInputs.type === "select" ?
                                                 <DocDropdown onChange={(e) => handleFieldChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                                 : eachInputs.type === "uploadImage" ?
-                                                    <DocImgInput props={props} />
+                                                    <DocImgInput props={props(eachInputs.key)} />
                                                     : eachInputs.type === "datePicker" ?
                                                         <DocDatePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
                                                         : eachInputs.type === "timePicker" ?
@@ -95,7 +70,7 @@ const EditDoc = () => {
                                     <Link href={"/dashboard/devices/user/view-doc"}>
                                         <DocButton text={"Cancel"} className={"border-2 border-greyBorder bg-transparent text-primary min-w-[125px]"} />
                                     </Link>
-                                    <DocButton onClick={handleSubmit} text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
+                                    <DocButton onClick={() => handleSubmit(editDocData, successSubmit)} text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
                                 </div>
 
                             </div>

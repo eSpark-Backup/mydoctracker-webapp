@@ -1,12 +1,12 @@
 "use client"
 import { DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker } from '@/app/components'
 import DocDropdown from '@/app/components/common/docDropdown'
-import { accessibilityOptions, employeeProfileSettings, subsidiaryOptions } from '@/app/constant'
-import { checkFieldsNotEmpty } from '@/app/utils/validation'
-import { notification } from 'antd'
+import { employeeProfileSettings } from '@/app/constant'
+import { handleSubmit } from '@/app/utils/validation'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
+import { getProps } from '@/app/utils'
 
 
 const EmployeeProfileSettings = () => {
@@ -31,17 +31,11 @@ const EmployeeProfileSettings = () => {
         })
     }
 
-    const HandleSubmitEmployeeData = () => {
-        if (checkFieldsNotEmpty(employeeData)) {
-            console.log(employeeData)
-        }
-        else {
-            notification.error({
-                message: 'Error',
-                description: 'Please fill all required fields.',
-            });
-        }
+    const successSubmit = () => {
+        console.log(employeeData)
     }
+
+    const props = (key) => getProps(setEmployeeData, employeeData, key)
 
     return (
         <div className='flex flex-col gap-4'>
@@ -59,7 +53,7 @@ const EmployeeProfileSettings = () => {
                                     {eachInputs.type === "select" ?
                                         <DocDropdown onChange={(e) => handleEmployeeDataChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                         : eachInputs.type === "uploadImage" ?
-                                            <DocImgInput props={props} />
+                                            <DocImgInput props={props(eachInputs.key)} />
                                             : eachInputs.type === "datePicker" ?
                                                 <DocDatePicker onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} />
                                                 : eachInputs.type === "timePicker" ?
@@ -106,7 +100,7 @@ const EmployeeProfileSettings = () => {
                 </div>
             </div>
             <div>
-                <DocButton onClick={HandleSubmitEmployeeData} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => handleSubmit(employeeData, successSubmit)} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
             </div>
         </div>
     )

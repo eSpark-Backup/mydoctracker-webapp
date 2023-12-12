@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Checkbox, Modal, Radio, Space, notification } from 'antd'
+import { Checkbox, Radio, Space } from 'antd'
 import Image from 'next/image'
 import { DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker, DocDropdown, HeadContent } from '@/app/components'
 import { form } from '@/app/constant'
-import { camelize } from '@/app/utils'
-import { checkFieldsNotEmpty } from '@/app/utils/validation'
+import { camelize, getProps } from '@/app/utils'
+import { handleSubmit } from '@/app/utils/validation'
 import AddFieldModal from '../../../components/modals/addFieldModal'
 import InputModal from '@/app/components/common/InputModal'
 import GeofencePopupForm from '@/app/components/Forms/geofencePopupForm'
@@ -70,36 +70,11 @@ const AddEmployee = () => {
         })
     }
 
-    const handleSubmit = () => {
-        if (checkFieldsNotEmpty(addEmployeeForm)) {
-            console.log(addEmployeeForm)
-        }
-        else {
-            notification.error({
-                message: 'Error',
-                description: 'Please fill all required fields.',
-            });
-        }
+    const successSubmit = () => {
+        console.log(addEmployeeForm)
     }
 
-    const props = (key) => {
-        return {
-            onRemove: () => {
-                setAddEmployeeForm({
-                    ...addEmployeeForm,
-                    [key]: []
-                })
-            },
-            beforeUpload: (file) => {
-                setAddEmployeeForm({
-                    ...addEmployeeForm,
-                    [key]: [file]
-                })
-                return false;
-            },
-            fileList: addEmployeeForm[key],
-        }
-    }
+    const props = (key) => getProps(setAddEmployeeForm, addEmployeeForm, key)
 
 
 
@@ -131,7 +106,7 @@ const AddEmployee = () => {
         <div className='overflow-y-auto no-scrollbar flex flex-col gap-12 w-[100%] drop-shadow-lg rounded-lg h-[65vh] bg-white my-4 p-10'>
             {form.map((section, index)=>{
                 return(
-                    <div key={section.index}>
+                    <div key={index}>
                         <div className='flex flex-row items-center justify-between'>
                             <h2 className='text-black font-medium text-xl'>{section.title}</h2>
                             {section.buttonText && <DocButton onClick={()=>setAddFieldModal(section.title)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md bg-primary text-white h-[100%] px-4 w-[150px]"} text={section.buttonText} />}
@@ -140,7 +115,7 @@ const AddEmployee = () => {
                             <div className="grid grid-cols-3 gap-4">
                                 {section.inputs.map((input, index)=>{
                                     return(
-                                        <div className='flex flex-col' key={input.index}>
+                                        <div className='flex flex-col' key={index}>
                                             <label className="text-greydark text-sm mb-1 inline-block">{input.label} {input.required ? <span className='text-[#FF0000]'>*</span> : <span>(Optional)</span> }</label>
                                             {input.type === "select" ?
                                                 <DocDropdown onChange={(e) => handleForm(input.key, e.value)} className={"w-[100%]"} options={input.options} placeholder={input.placeholder} />
@@ -217,7 +192,7 @@ const AddEmployee = () => {
             </div>
             <div className='flex flex-row items-center gap-5'>
                 <DocButton onClick={() => setSteps(1)} text={"Back"} className={"w-[150px] bg-transparent border-2 border-grey"} />
-                <DocButton onClick={() => setSteps(handleSubmit)} text={"Submit"} className={"w-[150px] bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => handleSubmit(addEmployeeForm, successSubmit)} text={"Submit"} className={"w-[150px] bg-transparent border-2 border-primary"} />
             </div>
         </div>
         }

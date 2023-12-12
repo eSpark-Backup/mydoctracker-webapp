@@ -1,7 +1,6 @@
 "use client"
 
-import { checkFieldsNotEmpty } from '@/app/utils/validation'
-import { notification } from 'antd'
+import { handleSubmit } from '@/app/utils/validation'
 import React, { useState } from 'react'
 import DocInput from '../common/docInput'
 import DocImgInput from '../common/docImgInput'
@@ -11,6 +10,7 @@ import DocDropdown from '../common/docDropdown'
 import DocDatePicker from '../common/docDatePicker'
 import DocTimePicker from '../common/docTimePicker'
 import { PlusOutlined } from "@ant-design/icons";
+import { getProps } from '@/app/utils'
 
 
 const CompanyProfileForm = () => {
@@ -29,34 +29,11 @@ const CompanyProfileForm = () => {
         })
     }
 
-    const handleSubmitCompanySetting = () => {
-        if (checkFieldsNotEmpty(companySetting)) {
-            console.log(companySetting);
-        }
-        else {
-            notification.error({
-                message: 'Error',
-                description: 'Please fill all required fields.',
-            });
-        }
+    const successSubmit = () => {
+        console.log(companySetting);
     }
 
-    const props = {
-        onRemove: () => {
-            setCompanySetting({
-                ...companySetting,
-                companyImage: []
-            })
-        },
-        beforeUpload: (file) => {
-            setCompanySetting({
-                ...companySetting,
-                companyImage: [file]
-            })
-            return false;
-        },
-        fileList: companySetting.companyImage,
-    };
+    const props = (key) => getProps(setCompanySetting, companySetting, key)
 
     return (
         <div className='flex flex-col gap-10 min-h-[500px]'>
@@ -75,7 +52,7 @@ const CompanyProfileForm = () => {
                                         {eachInputs.type === "select" ?
                                             <DocDropdown className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                             : eachInputs.type === "uploadImage" ?
-                                                <DocImgInput props={props} />
+                                                <DocImgInput props={props(eachInputs.key)} />
                                                 : eachInputs.type === "datePicker" ?
                                                     <DocDatePicker onChange={(value) => handleCompanySettingChange(eachInputs?.key, value)} />
                                                     : eachInputs.type === "timePicker" ?
@@ -96,7 +73,7 @@ const CompanyProfileForm = () => {
                 
             </div>
             <div>
-                <DocButton onClick={handleSubmitCompanySetting} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => handleSubmit(companySetting, successSubmit)} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
             </div>
         </div>
     )
