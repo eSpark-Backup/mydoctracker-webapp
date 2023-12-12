@@ -46,9 +46,6 @@ import HeadContent from './common/headContent'
 import Table from './common/table'
 import RequestPanel from  './common/RequestPanel'
 import ViewRequest from './common/ViewRequest'
-import EmployeeAsAdminLayout from './layouts/employeeAsAdminLayout'
-import EmployeeAsAdminSiderbar from './layouts/employeeAsAdminSiderbar'
-import EmployeeAsAdminSiderbarMobileDrawer from './layouts/employeeAsAdminSiderbarMobileDrawer'
 import LandingDrawer from './layouts/landingDrawer'
 
 
@@ -102,8 +99,5 @@ export {
     Table,
     RequestPanel,
     ViewRequest,
-    EmployeeAsAdminLayout,
-    EmployeeAsAdminSiderbar,
-    EmployeeAsAdminSiderbarMobileDrawer,
     LandingDrawer,
 }
