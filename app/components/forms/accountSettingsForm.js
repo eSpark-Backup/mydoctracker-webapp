@@ -59,8 +59,8 @@ const AccountSettingsForm = () => {
         <div className='flex flex-col gap-8'>
             <div>
                 {accountSettingsData?.map((section, index) => (
-                    <>
-                        <div className={section?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
+                    <React.Fragment key={index}>
+                        <div className={section?.buttonText ? "flex justify-between flex-wrap mt-3" : ""}>
                             <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{section?.heading}</h2>
                             {section?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={section?.buttonText} className={"text-white rounded-lg"} />}
                         </div>
@@ -82,13 +82,13 @@ const AccountSettingsForm = () => {
                                 </div>
                             ))}
                         </div>
-                    </>
+                    </React.Fragment>
 
                 ))}
             </div>
             {accountSettingChangePass?.map((section, index) => (
-                <>
-                    <div className={section?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
+                <React.Fragment  key={index}>
+                    <div className={section?.buttonText ? "flex justify-between flex-wrap mt-3" : ""}>
                         <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{section?.heading}</h2>
                         {section?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={section?.buttonText} className={"text-white rounded-lg"} />}
                     </div>
@@ -100,7 +100,7 @@ const AccountSettingsForm = () => {
                             </div>
                         ))}
                     </div>
-                </>
+                </React.Fragment>
             ))}
             <div>
                 <DocButton onClick={handleSubmitAccountSetting} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
