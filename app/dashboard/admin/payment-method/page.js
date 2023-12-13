@@ -46,18 +46,18 @@ useEffect(()=>{
               paragraph="Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie "
             />
             </div>
-            <div className='w-full h-[60vh] drop-shadow-lg rounded-lg bg-white my-4 p-10'>
-                <div className='w-[80%]'>
+            <div className='w-full h-[70vh] drop-shadow-lg rounded-lg bg-white my-4 p-10'>
+                <div className='w-full md:w-[80%]'>
                     <Radio.Group className='w-full' value={paymentMethod} onChange={(e)=>setPaymentMethod(e.target.value)} >
-                            <div className='border-b-[1px] border-[#E4E4E4] py-5 flex flex-row items-center justify-between'>
+                            <div className='border-b-[1px] border-[#E4E4E4] py-5 flex flex-col md:flex-row items-start md:items-center justify-between'>
                                 <Radio value={'paypal'}><div className='text-primary text-lg p-1 font-bold'>Pay with Paypal</div></Radio>
                                 <div className='flex flex-row justify-start items-center w-[40%] gap-3'>
                                     <Image src='/Images/paypal.svg' width={58} height={38} alt='paypal' />
                                 </div>
                             </div>
-                            <div className='py-5 flex flex-row items-center justify-between'>
+                            <div className='py-5 flex flex-col md:flex-row items-start md:items-center justify-between'>
                                 <Radio value={'master-card'}><div className='text-primary text-lg p-1 font-bold'>Pay with credit or debit card</div></Radio>
-                                <div className='flex flex-row justify-start items-center w-[40%] gap-3'>
+                                <div className='flex flex-wrap md:flex-nowrap flex-row justify-start items-center w-full md:w-[40%] gap-3'>
                                     <Image src='/Images/visa.svg' width={58} height={38} alt='visa' />
                                     <Image src='/Images/mastercard.svg' width={58} height={38} alt='mastercard' />
                                     <Image src='/Images/american-express.svg' width={58} height={38} alt='american-express' />
@@ -66,7 +66,7 @@ useEffect(()=>{
                             </div>
                     </Radio.Group>
                 </div>
-                <div className='w-[70%]'>
+                <div className='w-full md:w-[70%]'>
                     <p className={`font-semibold ${errors.cardNumber ? 'text-[#FF0000]' : 'text-greydark'} text-sm mb-1`}>Card Number</p>
                     <DocInput
                         type="text"
