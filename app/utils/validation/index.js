@@ -42,7 +42,7 @@ var masterCardRegex = /^(?:5[1-5][0-9]{14})$/;
 var americanExpressRegex = /^(?:3[47][0-9]{13})$/;
 var discoveryRegex = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
 
-export const handleCreditCard = (value, key, state, setState, errors, setErrors) => {
+export const handleCreditCard = (value, key, state, setState, errors, setErrors, setPaymentType) => {
     var number = value.replace(/\D/g, '');
     const formattedNumber = (number.toString().match(/.{1,4}/g) || []).join('-');
     setState({
@@ -59,17 +59,28 @@ export const handleCreditCard = (value, key, state, setState, errors, setErrors)
             ...errors,
             [key]: ""
         })
+        if(isVisa) {
+            setPaymentType('/Images/visa.svg')
+        } else if (isMasterCard) {
+            setPaymentType('/Images/mastercard.svg')
+        } else if (isAmericanExpress) {
+            setPaymentType('/Images/american-express.svg')
+        } else if (isDiscovery) {
+            setPaymentType('/Images/discover.svg')
+        }
     } else {
         setErrors({
             ...errors,
             [key]: "Please enter a valid card number."
         })
+        setPaymentType('/icons/payment-method.svg')
     }
     if(number === "") {
         setErrors({
             ...errors,
             [key]: ""
         })
+        setPaymentType('/icons/payment-method.svg')
     }
 }
 

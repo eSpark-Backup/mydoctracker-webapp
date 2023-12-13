@@ -9,6 +9,7 @@ import { checkError, checkFieldsNotEmpty, handleCreditCard, handleCvc, handleExp
 const PaymentMethod = () => {
 
 const [ paymentMethod, setPaymentMethod ] = useState("master-card")
+const [ paymentType, setPaymentType ] = useState('/icons/payment-method.svg')
 const [ allowSubmitting, setAllowSubmitting ] = useState(false)
 const [ cardDetails, setCardDetails ] = useState({
     cardNumber: "",
@@ -73,9 +74,9 @@ useEffect(()=>{
                         placeholder="1234 5678 9012 3456"
                         maxLength={19}
                         value={cardDetails.cardNumber}
-                        onChange={(value) => handleCreditCard(value, 'cardNumber', cardDetails, setCardDetails, errors, setErrors)}
+                        onChange={(value) => handleCreditCard(value, 'cardNumber', cardDetails, setCardDetails, errors, setErrors, setPaymentType)}
                         className={`${errors.cardNumber ? '!border-[#FF0000]' : '!border-grey-100'}`}
-                        suffix={<Image style={{filter: errors.cardNumber && 'brightness(0) saturate(100%) invert(17%) sepia(99%) saturate(7059%) hue-rotate(360deg) brightness(110%) contrast(106%)'}} src='/icons/payment-method.svg' width={28} height={28} alt='card' />}
+                        suffix={<Image style={{filter: errors.cardNumber && 'brightness(0) saturate(100%) invert(17%) sepia(99%) saturate(7059%) hue-rotate(360deg) brightness(110%) contrast(106%)'}} src={paymentType} width={28} height={28} alt='card' />}
                     />
                     {errors.cardNumber && <p className="font-semibold text-[#FF0000] text-sm mb-1">{errors.cardNumber}</p>}
                     <div className='flex flex-row items-start justify-between mt-5'>
