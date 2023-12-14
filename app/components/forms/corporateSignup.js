@@ -9,9 +9,24 @@ import Link from 'next/link';
 const CorporateSignup = () => {
   const [form] = Form.useForm();
   const [step, setStep] = useState(1);
+  const [formValues, setFormValues] = useState({});
 
   const onFinish = (values) => {
-    console.log(values, "SingleUserForm");
+    if (step === 1) {
+      setFormValues({ ...formValues, ...values });
+      setStep(2);
+    } else {
+      const formPayload = { ...formValues, ...values }
+      setFormValues(formPayload);
+      console.log(formPayload, "<====formPayload")
+    }
+  };
+
+  const passwordValidator = (_, value) => {
+    if (value !== form.getFieldValue('password')) {
+      return Promise.reject('The two passwords do not match');
+    }
+    return Promise.resolve();
   };
 
   return (
@@ -85,7 +100,7 @@ const CorporateSignup = () => {
                     name="password"
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 24 }} // Adjust the input column width
-                    rules={[{ required: true, message: "Please Enter Password" }]}
+                    rules={[{ required: true, message: "Please Enter Password", validator: passwordValidator }]}
                   >
                     <DocInput type={"password"} placeholder="Enter Password"
                       onChange={(value) => form.setFieldsValue({ password: value })}
@@ -96,10 +111,10 @@ const CorporateSignup = () => {
                 <Col xs={{ span: 24 }} sm={{ span: 24 }} lg={{ span: 12 }}>
                   <Form.Item
                     label={<span className='text-grey'>Confirm Password</span>}
-                    name="password"
+                    name="confirmPassword"
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 24 }} // Adjust the input column width
-                    rules={[{ required: true, message: "Please Enter Confirm Password" }]}
+                    rules={[{ required: true, message: "Please Enter Confirm Password", validator: passwordValidator }]}
                   >
                     <DocInput type={"password"} placeholder="Enter Password Again"
                       onChange={(value) => form.setFieldsValue({ confirmPassword: value })}
@@ -135,7 +150,8 @@ const CorporateSignup = () => {
                     name="companyEmail"
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 24 }} // Adjust the input column width
-                    rules={[{ required: true, message: "Please Enter Company Email" }]}
+                    rules={[{ required: true, message: "Please Enter Company Email" },
+                    { type: 'email', message: 'Please enter valid email' }]}
                   >
                     <DocInput type={"email"} placeholder="Enter Email"
                       onChange={(value) => form.setFieldsValue({ email: value })}
@@ -216,7 +232,7 @@ const CorporateSignup = () => {
       </div>
 
       <div>
-        <DocButton onClick={step === 1 ? () => setStep(2) : () => form.submit()} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={step === 1 ? "Next" : "Sign In"} />
+        <DocButton onClick={form.submit} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={step === 1 ? "Next" : "Sign In"} />
       </div>
 
 
