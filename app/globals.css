@@ -328,4 +328,43 @@ li.ant-pagination-next.ant-pagination-disabled button {
   border-bottom: 0 !important
 }
 
+:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-checked::after,
+:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-inner {
+  border: 3px solid #E4E4E4 !important;
+  border-color: #E4E4E4 !important;
+}
+
+:where(.css-dev-only-do-not-override-tyo0vv).ant-checkbox .ant-checkbox-inner {
+  border: 1px solid #002F49 !important;
+  border-color: #002F49 !important;
+}
+
+:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-inner::after {
+  background-color: #002F49 !important;
+}
+
+:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+  /* border-color: #002F49 !important; */
+  background-color: #002F49 !important;
+}
+
+:where(.css-dev-only-do-not-override-tyo0vv).ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #FFFFFF !important;
+}
+
+:where(.css-dev-only-do-not-override-tyo0vv).ant-checkbox .ant-checkbox-inner:after {
+  border: 1px solid #002F49 !important;
+  border-top: 0 !important;
+  border-left: 0 !important;
+}
+
+:where(.css-dev-only-do-not-override-tyo0vv).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
+  background-color: #002F49;
+}
+
+:where(.css-dev-only-do-not-override-tyo0vv).ant-btn-primary:disabled, :where(.css-dev-only-do-not-override-tyo0vv).ant-btn-primary.ant-btn-disabled {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+
 /* /// */
