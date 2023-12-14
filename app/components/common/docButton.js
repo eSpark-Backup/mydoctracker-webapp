@@ -10,7 +10,7 @@ const DocButton = ({ disabled, className, text, onClick, prefix, suffix, loading
       loading={loading}
       disabled={disabled}
       onClick={onClick}
-      className={`bg-primary text-primary rounded-[50px] text-[18px] px-4 h-[40px] flex justify-center items-center hover:!bg-primary ${className} `}
+      className={`bg-primary text-primary rounded-[50px] text-[18px] px-4 h-[40px] flex justify-center items-center hover:bg-primary ${className} `}
       type="primary"
     >
       {prefix && prefix}

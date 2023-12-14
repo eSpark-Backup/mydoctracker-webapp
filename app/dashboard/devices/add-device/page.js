@@ -11,11 +11,17 @@ import VerificationForm from '@/app/components/Forms/verificationForm';
 import { trackerTypeOptions, userAddDeviceData } from '@/app/constant';
 import { checkFieldsNotEmpty } from '@/app/utils/validation';
 import { notification } from 'antd';
+import AddFieldModal from '@/app/components/modals/addFieldModal';
+import { camelize } from '@/app/utils';
 
 const AddDevice = () => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isModal2Open, setIsModal2Open] = useState(false);
+    const [addFieldModal, setAddFieldModal] = useState(false);
+    const [isVerificationModalOpen, setIsVerificationModalOpen] = useState(false);
+    const [dynamicInputs, setDynamicInputs] = useState({
+        label: "",
+        value: ""
+    })
     const [trackerData, setTrackerData] = useState({
         TrackerID: "",
         TrackerType: "",
@@ -23,13 +29,23 @@ const AddDevice = () => {
         DateOfCreation: "",
         TimeOfCreation: "",
         DocImage: [],
+        dynamicInputs: []
+
     })
+
+
+    const handleModalForm = (key, value) => {
+        setDynamicInputs({
+            ...dynamicInputs,
+            [key]: value
+        })
+    }
 
 
     const handleSubmit = () => {
         if (checkFieldsNotEmpty(trackerData)) {
             console.log(trackerData);
-            setIsModal2Open(true)
+            setIsVerificationModalOpen(true)
         }
         else {
             notification.error({
@@ -63,22 +79,23 @@ const AddDevice = () => {
         fileList: trackerData.DocImage,
     };
 
-
-
-    const handleOk = () => {
-        setIsModalOpen(false);
+    const handleAddField = (key) => {
+        setDynamicInputs({
+            label: "",
+            value: ""
+        })
+        setAddFieldModal(false)
+        const dynamicObj = { ...dynamicInputs, key: camelize(dynamicInputs.label), required: false, type: "textInput" }
+        userAddDeviceData.map((item) => { if (item.title === key) { item.inputs.push(dynamicObj) } })
+        trackerData.dynamicInputs.push(dynamicInputs)
+        setTrackerData({ ...trackerData })
+    }
+    const HandleVerificationSuccess = () => {
+        setIsVerificationModalOpen(false);
     };
 
-    const handleCancel = () => {
-        setIsModalOpen(false);
-    };
-
-    const handleOk2 = () => {
-        setIsModalOpen(false);
-    };
-
-    const handleCancel2 = () => {
-        setIsModal2Open(false);
+    const HandleVerificationCancel = () => {
+        setIsVerificationModalOpen(false);
     };
 
     return (
@@ -94,10 +111,10 @@ const AddDevice = () => {
                 </div>
                 <div className="w-[97%] sm:w-[70%] lg:min-h-[650px] overflow-y-scroll no-scrollbar gap-5 h-auto shadow-xl rounded-lg bg-white my-4 flex p-8 flex-col">
                     {userAddDeviceData?.map((eachSection, index) => (
-                        <>
-                            <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
+                        <React.Fragment  key={index}>
+                            <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""}>
                                 <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{eachSection?.title}</h2>
-                                {eachSection?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white rounded-lg"} />}
+                                {eachSection?.buttonText && <DocButton onClick={()=>setAddFieldModal(eachSection.title)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white rounded-lg"} />}
                             </div>
                             <div>
                                 <div className="flex gap-4 sm:gap-5 flex-col sm:flex-row flex-wrap">
@@ -113,16 +130,17 @@ const AddDevice = () => {
                                                         : eachInputs.type === "timePicker" ?
                                                             <DocTimePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
                                                             :
-                                                            <DocInput onChange={(value) => handleFieldChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
+                                                            <DocInput value={eachInputs.value || trackerData[eachInputs.key]} onChange={(value) => handleFieldChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
                                             }
 
                                         </div>
                                     ))}
+                                    
 
                                 </div>
 
                             </div>
-                        </>
+                        </React.Fragment>
 
                     ))}
                     <div className="flex gap-5 flex-wrap mt-3">
@@ -132,20 +150,20 @@ const AddDevice = () => {
                     </div>
                 </div>
             </div>
-            <InputModal
-                isModalOpen={isModalOpen}
-                handleOk={handleOk}
-                width={450}
-                handleCancel={handleCancel} >
-                <AddDeviceForm handleCancel={handleCancel} />
-            </InputModal>
+            <AddFieldModal
+                showModal={addFieldModal}
+                onCancel={() => setAddFieldModal(false)}
+                onSuccess={handleAddField}
+                form={dynamicInputs}
+                handleModalForm={handleModalForm}
+            />
 
             <InputModal
-                isModalOpen={isModal2Open}
-                handleOk={handleOk2}
+                isModalOpen={isVerificationModalOpen}
+                handleOk={HandleVerificationSuccess}
                 width={300}
-                handleCancel={handleCancel2} >
-                <VerificationForm handleCancel={handleCancel2} />
+                handleCancel={HandleVerificationCancel} >
+                <VerificationForm handleCancel={HandleVerificationCancel} />
             </InputModal>
 
         </>
