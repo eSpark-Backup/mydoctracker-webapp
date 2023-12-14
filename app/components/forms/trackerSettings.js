@@ -70,7 +70,7 @@ const TrackerSettings = () => {
                     </div>
                 </div>
                 <div className='w-[40%]  flex justify-center items-center border-2 border-greyBorder cursor-pointer' onClick={() => setIsAddTrackerModalOpen(true)}>
-                    <h2>+</h2>
+                    <Image src={"/icons/Add.svg"} width={20} height={20}/>
                 </div>
                 <div className='w-[10%]  flex justify-center items-center'>
                     <DocButton text={"+"} className={"bg-secondary rounded-lg text-white"} />

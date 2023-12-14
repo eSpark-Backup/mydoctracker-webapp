@@ -24,7 +24,7 @@ const VerificationForm = ({handleCancel}) => {
             </div>
             <DocButton text={"Confirm"} className={"text-white"} onClick={handleCancel} />
             <p className='underline underline-offset-2 cursor-pointer'>Resend Code</p>
-            <DocButton text={"Continue"} className={"bg-[#afafaf] text-primary font-medium"} onClick={handleCancel} />
+            <DocButton text={"Continue"} className={"bg-[#AFAFAF] text-primary font-medium"} onClick={handleCancel} />
         </div>
     )
 }

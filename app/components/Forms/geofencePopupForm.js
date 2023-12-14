@@ -22,7 +22,10 @@ const GeofencePopupForm = ({ handleCancel, edit }) => {
                     </div>
                     <div className="flex flex-col sm:w-5/12 w-full">
                         <label className="text-greydark text-sm pb-1 font-semibold">Distance <span className="text-redColor">*</span></label>
-                        <DocInput type={"text"} placeholder={"Enter Distance..."} className={"h-[40px] "} />
+                        <div className='flex'>
+                            <DocInput type={"text"} placeholder={"Enter Distance..."} className={"h-[40px] rounded-tr-none rounded-br-none"} />
+                            <DocButton className={"rounded-tl-none rounded-bl-none rounded-tr rounded-br text-white"} text={"m"}/>
+                        </div>
                     </div>
                 </div>
 
