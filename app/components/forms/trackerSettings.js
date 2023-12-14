@@ -59,7 +59,7 @@ const TrackerSettings = () => {
             <div>
                 <div className='w-[85vw] lg:w-2/4 sm:w-[45vw] flex justify-between'>
                     <h3 className='sm:text-xl text-base font-medium'>Enable Device</h3>
-                    <Switch onChange={(value) => handleTrackerSettingChange('enableDevice', value)} defaultChecked={trackerSetting.enableDevice} />
+                    <Switch  onChange={(value) => handleTrackerSettingChange('enableDevice', value)} style={{backgroundColor:trackerSetting.enableDevice?'#FCBF4A' : "#E4E4E4"}} defaultChecked={trackerSetting.enableDevice} />
                 </div>
                 <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
@@ -78,7 +78,7 @@ const TrackerSettings = () => {
                     </div>
                 </div>
                 <div className='w-[40%]  flex justify-center items-center border-2 border-greyBorder cursor-pointer' onClick={() => setIsAddTrackerModalOpen(true)}>
-                    <h2>+</h2>
+                    <Image src={"/icons/Add.svg"} width={20} height={20}/>
                 </div>
                 <div className='w-[10%]  flex justify-center items-center'>
                     <DocButton text={"+"} className={"bg-secondary rounded-lg text-white"} />

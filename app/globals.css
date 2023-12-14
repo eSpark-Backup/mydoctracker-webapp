@@ -328,6 +328,15 @@ li.ant-pagination-next.ant-pagination-disabled button {
   border-bottom: 0 !important
 }
 
+/* DocTimePicker.css */
+:where(.css-dev-only-do-not-override-tyo0vv).ant-btn.ant-btn-sm{
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+:where(.css-dev-only-do-not-override-tyo0vv).ant-upload-wrapper .ant-upload-list .ant-upload-list-item .ant-upload-list-item-actions .ant-upload-list-item-action.ant-btn-sm{
+  background-color: #e9e7e7 !important;
+}
 :where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-checked::after,
 :where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-inner {
   border: 3px solid #E4E4E4 !important;
@@ -368,3 +377,8 @@ li.ant-pagination-next.ant-pagination-disabled button {
 
 
 /* /// */
+
+/* :where(.css-dev-only-do-not-override-tyo0vv).ant-switch:has(.ant-switch-disabled){
+  background-color: rgba(0, 0, 0, 0.45) !important;
+} */
+/* rgba(0, 0, 0, 0.45) */

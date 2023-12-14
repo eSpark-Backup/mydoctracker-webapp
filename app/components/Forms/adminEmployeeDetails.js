@@ -1,6 +1,7 @@
 "use client"
 import React from 'react'
 import FieldView from '../common/fieldView'
+import Image from 'next/image'
 
 
 const AdminEmployeeDetails = () => {
@@ -28,6 +29,13 @@ const AdminEmployeeDetails = () => {
                 <div className="w-100% sm:w-[30%] flex flex-col">
                     <label className="text-greydark text-sm pb-1">Subsidiary</label>
                     <FieldView text={"Group 1"}/>
+                </div>
+                <div className="w-100% sm:w-[30%] flex flex-col">
+                    <div className='flex gap-1'>
+                    <label className="text-greydark text-sm pb-1">Accessibility</label>
+                    <Image src={"/icons/Info.svg"} alt='Info' width={18} height={18}/>
+                    </div>
+                    <FieldView text={"Default"}/>
                 </div>
             </div>
         </div>

@@ -58,12 +58,12 @@ const EmployeDetail = () => {
                             ))}
                         </div>
                         <div className='mb-4'>
-                            <Image src={"/icons/copyLinear.svg"} alt='Copy' width={48} height={40} />
+                            <Image src={"/icons/copyLinear.svg"} className='cursor-pointer' alt='Copy' width={48} height={40} />
                         </div>
                     </div>
                 </div>
                 <div>
-                    <div className='flex justify-end md:hidden'>
+                    <div className='flex justify-end md:hidden mb-4'>
                         <DocButton onClick={handleSettings} prefix={<SettingOutlined className='mr-3' />} className={"bg-transparent text-primary font-medium"} text={"Settings"} />
                     </div>
                     <div className='min-h-[64vh] hidden md:block bg-white rounded-md shadow-md p-5 mb-3'>

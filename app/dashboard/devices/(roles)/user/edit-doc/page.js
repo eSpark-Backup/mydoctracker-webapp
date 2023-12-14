@@ -7,15 +7,42 @@ import Link from 'next/link'
 import { checkFieldsNotEmpty } from '@/app/utils/validation'
 import { notification } from 'antd'
 import { userEditDocData } from '@/app/constant'
+import AddFieldModal from '@/app/components/modals/addFieldModal'
+import { camelize } from '@/app/utils'
 
 
 const EditDoc = () => {
+    const [addFieldModal, setAddFieldModal] = useState(false);
+    const [dynamicInputs, setDynamicInputs] = useState({
+        label: "",
+        value: ""
+    })
+
+    const handleModalForm = (key, value) => {
+        setDynamicInputs({
+            ...dynamicInputs,
+            [key]: value
+        })
+    }
+    const handleAddField = (key) => {
+        setDynamicInputs({
+            label: "",
+            value: ""
+        })
+        setAddFieldModal(false)
+        const dynamicObj = { ...dynamicInputs, key: camelize(dynamicInputs.label), required: false, type: "textInput" }
+        userEditDocData.map((item) => { if (item.heading === key) { item.inputs.push(dynamicObj) } })
+        editDocData.dynamicInputs.push(dynamicInputs)
+        setEditDocData({ ...editDocData })
+    }
+
     const [editDocData, setEditDocData] = useState({
         docTitle: "",
         docDate: "",
         docTime: "",
         docLocation: "",
-        docImage: [],
+        docImage: [],        
+        dynamicInputs: []
     })
 
 
@@ -64,10 +91,10 @@ const EditDoc = () => {
 
                 <div>
                     {userEditDocData?.map((eachSection, index) => (
-                        <>
-                            <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
+                        <React.Fragment key={index}>
+                            <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""}>
                                 <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{eachSection?.heading}</h2>
-                                {eachSection?.buttonText && <DocButton prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white rounded-lg"} />}
+                                {eachSection?.buttonText && <DocButton onClick={()=>setAddFieldModal(eachSection.heading)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white rounded-lg"} />}
                             </div>
                             <div>
                                 <div className="flex gap-4 sm:gap-5 flex-col sm:flex-row flex-wrap">
@@ -83,7 +110,7 @@ const EditDoc = () => {
                                                         : eachInputs.type === "timePicker" ?
                                                             <DocTimePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
                                                             :
-                                                            <DocInput onChange={(value) => handleFieldChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
+                                                            <DocInput value={eachInputs.value || editDocData[eachInputs.key]} onChange={(value) => handleFieldChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
                                             }
 
                                         </div>
@@ -99,13 +126,19 @@ const EditDoc = () => {
                                 </div>
 
                             </div>
-                        </>
+                        </React.Fragment>
                     ))}
 
 
                 </div>
 
-
+                <AddFieldModal
+                showModal={addFieldModal}
+                onCancel={() => setAddFieldModal(false)}
+                onSuccess={handleAddField}
+                form={dynamicInputs}
+                handleModalForm={handleModalForm}
+            />
 
 
 

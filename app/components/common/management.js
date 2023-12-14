@@ -24,7 +24,7 @@ const ManagementList = ({ handleFilter, onDelete, type, data, hideSearchBar }) =
               <div>
                 <div className='text-black text-md font-semibold'>{item.name}</div>
                 <div className='mt-1 text-greydark text-sm'>{`${type === "employee" ? 'Location:' : 'Employees:'} ${type === "employee" ? item.location : item.noOFEmployees}`}</div>
-                <div className='mt-1 text-greydark text-sm'>Date: {item.date}</div>
+                <div className='mt-1 text-greydark text-sm'>{item.date}</div>
               </div>
               <div onClick={() => setOpenModal(item.id)} className='bg-[#FF0000] p-3 rounded-lg cursor-pointer'><Image src='/icons/trash.svg' width={15} height={15} alt="delete" /></div>
             </div>
