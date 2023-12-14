@@ -43,7 +43,7 @@ const Dashboard = ({ noDevices }) => {
             <DocButton prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add"} className={"text-white rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)} />
           </Link>
         </>
-      </div> : <div className="w-[100%] gap-6 h-auto drop-shadow-lg rounded-lg bg-white my-4 flex py-12 items-center flex-col">
+      </div> : <div className="w-[100%] gap-6 min-h-[70vh] drop-shadow-lg rounded-lg bg-white my-4 flex py-12 items-center flex-col">
         {UserDevices?.map((eachDevice, key) => (
           <div key={key} className="h-36 w-[90%]  border-b-2 border-greyBorder">
             <div className="flex gap-5">
