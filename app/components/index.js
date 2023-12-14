@@ -47,6 +47,7 @@ import Table from './common/table'
 import RequestPanel from  './common/RequestPanel'
 import ViewRequest from './common/ViewRequest'
 import LandingDrawer from './layouts/landingDrawer'
+import RadioFilterPopup from './common/radioFilterPopup'
 
 
 
@@ -100,4 +101,5 @@ export {
     RequestPanel,
     ViewRequest,
     LandingDrawer,
+    RadioFilterPopup,
 }

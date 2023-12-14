@@ -8,9 +8,9 @@ import Link from 'next/link';
 import InputModal from '@/app/components/common/InputModal';
 import HeadContent from '@/app/components/common/headContent';
 import VerificationForm from '@/app/components/Forms/verificationForm';
-import { trackerTypeOptions, userAddDeviceData } from '@/app/constant';
-import { checkFieldsNotEmpty } from '@/app/utils/validation';
-import { notification } from 'antd';
+import { userAddDeviceData } from '@/app/constant';
+import { handleSubmit } from '@/app/utils/validation';
+import { getProps } from '@/app/utils';
 import AddFieldModal from '@/app/components/modals/addFieldModal';
 import { camelize } from '@/app/utils';
 
@@ -30,7 +30,6 @@ const AddDevice = () => {
         TimeOfCreation: "",
         DocImage: [],
         dynamicInputs: []
-
     })
 
 
@@ -41,18 +40,8 @@ const AddDevice = () => {
         })
     }
 
-
-    const handleSubmit = () => {
-        if (checkFieldsNotEmpty(trackerData)) {
-            console.log(trackerData);
-            setIsVerificationModalOpen(true)
-        }
-        else {
-            notification.error({
-                message: 'Error',
-                description: 'Please fill all required fields.',
-            });
-        }
+    const successSubmit = () => {
+        setIsVerificationModalOpen(true)
     }
 
     const handleFieldChange = (field, value) => {
@@ -62,23 +51,8 @@ const AddDevice = () => {
         })
     }
 
-    const props = {
-        onRemove: () => {
-            setTrackerData({
-                ...trackerData,
-                DocImage: []
-            })
-        },
-        beforeUpload: (file) => {
-            setTrackerData({
-                ...trackerData,
-                DocImage: [file]
-            })
-            return false;
-        },
-        fileList: trackerData.DocImage,
-    };
-
+    const props = (key) => getProps(setTrackerData ,trackerData, key) 
+    
     const handleAddField = (key) => {
         setDynamicInputs({
             label: "",
@@ -90,6 +64,7 @@ const AddDevice = () => {
         trackerData.dynamicInputs.push(dynamicInputs)
         setTrackerData({ ...trackerData })
     }
+    
     const HandleVerificationSuccess = () => {
         setIsVerificationModalOpen(false);
     };
@@ -124,7 +99,7 @@ const AddDevice = () => {
                                             {eachInputs.type === "select" ?
                                                 <DocDropdown onChange={(e) => handleFieldChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                                 : eachInputs.type === "uploadImage" ?
-                                                    <DocImgInput props={props} />
+                                                    <DocImgInput props={props(eachInputs.key)} />
                                                     : eachInputs.type === "datePicker" ?
                                                         <DocDatePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
                                                         : eachInputs.type === "timePicker" ?
@@ -135,7 +110,6 @@ const AddDevice = () => {
 
                                         </div>
                                     ))}
-                                    
 
                                 </div>
 
@@ -146,7 +120,7 @@ const AddDevice = () => {
                     <div className="flex gap-5 flex-wrap mt-3">
                         <Link href={"/dashboard/devices"}>
                             <DocButton text={"Cancel"} className={"border-2 border-greyBorder bg-transparent text-primary min-w-[125px]"} /></Link>
-                        <DocButton onClick={handleSubmit} text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
+                        <DocButton onClick={() => handleSubmit(trackerData, successSubmit)} text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
                     </div>
                 </div>
             </div>

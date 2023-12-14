@@ -368,16 +368,22 @@ export const GeofenceData = [
 
 export const deviceSettingNotfications = [
     {
+        id: 1,
         heading: "SOS",
-        description: "Enable or Disable Notifications"
+        description: "Enable or Disable Notifications",
+        isActive: true,
     },
     {
+        id: 2,
         heading: "Geofence Alerts",
-        description: "Enable or Disable Notifications"
+        description: "Enable or Disable Notifications",
+        isActive: false,
     },
     {
+        id: 3,
         heading: "Battery Alerts",
-        description: "Enable or Disable Notifications"
+        description: "Enable or Disable Notifications",
+        isActive: true,
     },
 ]
 

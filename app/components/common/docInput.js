@@ -19,6 +19,7 @@ const DocInput = ({ maxLength, type, className, placeholder, onChange, value, su
   };
 
 
+
   return (
     <Input value={value} className={`border-2 border-grey-100 h-[40px] rounded-[5px] ${className}`} 
     type={type === 'password' ? (isPasswordVisible ? 'text' : 'password') : type} placeholder={placeholder} onChange={handleChange}

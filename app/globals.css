@@ -328,6 +328,10 @@ li.ant-pagination-next.ant-pagination-disabled button {
   border-bottom: 0 !important
 }
 
+.bg-secondary .bg-primary:hover .edit-doc-btn {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(102%) contrast(102%);
+}
+
 :where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-checked::after,
 :where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-inner {
   border: 3px solid #E4E4E4 !important;
@@ -368,35 +372,6 @@ li.ant-pagination-next.ant-pagination-disabled button {
 :where(.css-dev-only-do-not-override-tyo0vv).ant-upload-wrapper .ant-upload-list .ant-upload-list-item .ant-upload-list-item-actions .ant-upload-list-item-action.ant-btn-sm{
   background-color: #e9e7e7 !important;
 }
-:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-checked::after,
-:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-inner {
-  border: 3px solid #E4E4E4 !important;
-  border-color: #E4E4E4 !important;
-}
-
-:where(.css-dev-only-do-not-override-tyo0vv).ant-checkbox .ant-checkbox-inner {
-  border: 1px solid #002F49 !important;
-  border-color: #002F49 !important;
-}
-
-:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-inner::after {
-  background-color: #002F49 !important;
-}
-
-:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
-  /* border-color: #002F49 !important; */
-  background-color: #002F49 !important;
-}
-
-:where(.css-dev-only-do-not-override-tyo0vv).ant-checkbox-checked .ant-checkbox-inner {
-  background-color: #FFFFFF !important;
-}
-
-:where(.css-dev-only-do-not-override-tyo0vv).ant-checkbox .ant-checkbox-inner:after {
-  border: 1px solid #002F49 !important;
-  border-top: 0 !important;
-  border-left: 0 !important;
-}
 
 :where(.css-dev-only-do-not-override-tyo0vv).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
   background-color: #002F49;
@@ -408,8 +383,3 @@ li.ant-pagination-next.ant-pagination-disabled button {
 
 
 /* /// */
-
-/* :where(.css-dev-only-do-not-override-tyo0vv).ant-switch:has(.ant-switch-disabled){
-  background-color: rgba(0, 0, 0, 0.45) !important;
-} */
-/* rgba(0, 0, 0, 0.45) */

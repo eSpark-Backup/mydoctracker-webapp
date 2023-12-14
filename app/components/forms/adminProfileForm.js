@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import DocInput from '../common/docInput'
 import DocButton from '../common/docButton'
-import { checkFieldsNotEmpty } from '@/app/utils/validation'
+import { handleSubmit } from '@/app/utils/validation'
 import { notification } from 'antd'
 import { accountSettingChangePass, adminAccountSettings } from '@/app/constant'
 import DocDropdown from '../common/docDropdown'
@@ -11,6 +11,7 @@ import DocImgInput from '../common/docImgInput'
 import DocDatePicker from '../common/docDatePicker'
 import DocTimePicker from '../common/docTimePicker'
 import { PlusOutlined } from "@ant-design/icons";
+import { getProps } from '@/app/utils'
 
 
 const AdminProfileForm = () => {
@@ -31,24 +32,18 @@ const AdminProfileForm = () => {
         })
     }
 
-    const handleSubmitAccountSetting = () => {
-        if (checkFieldsNotEmpty(accountSetting)) {
-            if (accountSetting.newPassword === accountSetting.confirmPassword) {
-                console.log(accountSetting);
-            } else {
-                notification.error({
-                    message: 'Error',
-                    description: 'Please match confirm your password',
-                });
-            }
-        }
-        else {
+    const successSubmit = () => {
+        if (accountSetting.newPassword === accountSetting.confirmPassword) {
+            console.log(accountSetting);
+        } else {
             notification.error({
                 message: 'Error',
-                description: 'Please fill all required fields.',
+                description: 'Please match confirm your password',
             });
         }
     }
+
+    const props = (key) => getProps(setAccountSetting, accountSetting, key)
 
     return (
         <div className='flex flex-col gap-10 md:h-[500px] md:overflow-y-scroll'>
@@ -67,7 +62,7 @@ const AdminProfileForm = () => {
                                         {eachInputs.type === "select" ?
                                             <DocDropdown className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                             : eachInputs.type === "uploadImage" ?
-                                                <DocImgInput props={props} />
+                                                <DocImgInput props={props(eachInputs.key)} />
                                                 : eachInputs.type === "datePicker" ?
                                                     <DocDatePicker onChange={(value) => handleAccountSettingChange(eachInputs?.key, value)} />
                                                     : eachInputs.type === "timePicker" ?
@@ -102,7 +97,7 @@ const AdminProfileForm = () => {
                 </>
             ))}
             <div>
-                <DocButton onClick={handleSubmitAccountSetting} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => handleSubmit(accountSetting, successSubmit)} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
             </div>
         </div>
     )

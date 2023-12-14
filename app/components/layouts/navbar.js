@@ -4,8 +4,13 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { landingRoutes } from "@/app/constant";
+import { useDispatch, useSelector } from "react-redux";
+import { authSignOut } from "@/app/redux/store/slices/authSlice";
 
 const Navbar = ({ openDrawer }) => {
+
+    const {role} = useSelector(state=>state.auth)
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -42,7 +47,7 @@ const Navbar = ({ openDrawer }) => {
                         <div className="flex bg-secondary justify-between px-4 py-2 rounded-full">
                             <Link href={"/auth/signin"}>
                             <button className="text-white font-semibold px-3 text-sm">
-                                Login
+                                {role ? "Profile" : "Login"}
                             </button>
                             </Link>
 
@@ -50,9 +55,9 @@ const Navbar = ({ openDrawer }) => {
                                 |
                             </div>
 
-                            <Link href={"/auth/signup"}>
-                            <button className="text-white font-semibold px-3 text-sm">
-                                Signup
+                            <Link href={role ? "" : "/auth/signup"}>
+                            <button onClick={role ? ()=> dispatch(authSignOut()) : null} className="text-white font-semibold px-3 text-sm">
+                                {role ? "Signout" : "Signup"}
                             </button>
                             </Link>
                         </div>

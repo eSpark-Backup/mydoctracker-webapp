@@ -8,9 +8,11 @@ import DocButton from "../common/docButton";
 import { PlusOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import ConfirmModal from "../modals/confirmModal";
+import { useSelector } from "react-redux";
 
 
-const Dashboard = ({ employeeAsAdmin, noDevices }) => {
+const Dashboard = ({ noDevices }) => {
+  const { role } = useSelector(state=>state.auth)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showEditScreen, setShowEditScreen] = useState(false);
 
@@ -80,9 +82,9 @@ const Dashboard = ({ employeeAsAdmin, noDevices }) => {
             </div>
           </div>
         ))}
-        <Link href={employeeAsAdmin ? "/dashboard/employee-as-admin/add-device" : "/dashboard/devices/add-device"}>
+        {!role === "employee" && <Link href={"/dashboard/devices/add-device"}>
           <DocButton prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add"} className={"text-white rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)} />
-        </Link>
+        </Link>}
       </div>}
       <ConfirmModal
         isModalOpen={isModalOpen}

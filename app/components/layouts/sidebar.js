@@ -43,7 +43,7 @@ const Sidebar = () => {
 
                     <div className='border-2 border-grey ' />
                     <div>
-                        <SiderbarRoutes title={"Logout"} link={"dashboard"} icon={"dashboardLogout.svg"} iconfill={"dashboardLogout.svg"} />
+                        <SiderbarRoutes title={"Logout"} icon={"dashboardLogout.svg"} iconfill={"dashboardLogout.svg"} />
                     </div>
 
 

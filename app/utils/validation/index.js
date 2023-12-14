@@ -1,3 +1,5 @@
+import { notification } from "antd";
+
 // empty checker 
 const isFieldEmpty = (value) => {
     return value === undefined || value === null || value === ''
@@ -12,19 +14,6 @@ export const checkFieldsNotEmpty = (data) => {
     return true; // All fields are non-empty
   };
 
-const isError = (value) => {
-  return value === undefined || value === null || value !== ''
-};
-
-export const checkError = (data) => {
-    for (const key in data) {
-      if (isError(data[key])) {
-        return false;
-      }
-    }
-    return true;
-  };
-
 export const handleSubmit = (state, callback) => {
     if (checkFieldsNotEmpty(state)) {
         callback()
@@ -36,6 +25,19 @@ export const handleSubmit = (state, callback) => {
         });
     }
 }
+
+const isError = (value) => {
+  return value === undefined || value === null || value !== ''
+};
+
+export const checkError = (data) => {
+    for (const key in data) {
+      if (isError(data[key])) {
+        return false;
+      }
+    }
+    return true;
+};
 
 var visaRegex = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
 var masterCardRegex = /^(?:5[1-5][0-9]{14})$/;

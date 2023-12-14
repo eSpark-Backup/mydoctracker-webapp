@@ -1,12 +1,13 @@
 "use client"
 
 
-import { DocButton, DocDropdown, HeadContent, SearchBar, Table } from '@/app/components'
-import React, { useState } from 'react'
+import { DocButton, DocDropdown, HeadContent, RadioFilterPopup, SearchBar, Table } from '@/app/components'
+import React, { useRef, useState } from 'react'
 import { allUsers } from '@/app/constant';
 import { columns } from '@/app/columns/allUser';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation'
+import { useOutsideClick } from '@/app/utils';
 
 const Subordinates = () => {
     const router = useRouter()
@@ -14,6 +15,7 @@ const Subordinates = () => {
 
     const options = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
     const [data, setData] = useState([...allUsers])
+    const [openRadioFilterModal, setOpenRadioFilterModal] = useState(false)
     const [openModal, setOpenModal] = useState(false)
     const [openSubsidiaryModal, setOpenSubsidiaryModal] = useState(false)
 
@@ -21,6 +23,9 @@ const Subordinates = () => {
     const [filter, setFilter] = useState({
         search: "",
         select: "",
+        type: "",
+        requests: "",
+        devices: "",
         pageNo: 1,
     })
 
@@ -45,6 +50,9 @@ const Subordinates = () => {
         setOpenSubsidiaryModal(false)
     }
 
+    const filterModal = useRef(null);
+    useOutsideClick(filterModal, () => setOpenRadioFilterModal(false))
+
     return (
         <>
             <div className="w-[100%] sm:w-[75%] flex items-end mt:0 sm:mt-10">
@@ -58,9 +66,10 @@ const Subordinates = () => {
                 <div>
                     <div className='flex flex-col md:flex-row items-start bd:items-center justify-between gap-3'>
                         <SearchBar handleChange={(value) => handleFilter('search', value)} className='!w-[100%] md:!w-[300px]' placeholder="Search by employee name" />
-                        <div className='flex flex-row items-center justify-start md:justify-center gap-1 md:gap-3'>
+                        <div className='relative flex flex-row items-center justify-start md:justify-center gap-1 md:gap-3'>
                             <DocDropdown onChange={(value) => handleFilter('select', value.value)} className={"w-[100%] md:w-40"} options={options} placeholder="Group 1" />
-                            <Image src="/icons/tabs-Image.svg" width={40} height={40} alt="tabs-image" />
+                            <Image className='cursor-pointer' onClick={()=>setOpenRadioFilterModal(!openRadioFilterModal)}  src="/icons/tabs-Image.svg" width={40} height={40} alt="tabs-image" />
+                            {openRadioFilterModal && <RadioFilterPopup forwardedRef={filterModal} filter={filter} handleFilter={handleFilter} />}
                             <DocButton onClick={() => setOpenModal(true)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md bg-primary text-white h-[100%] px-4 w-4/12 md:w-6/12"} text="Add" />
                         </div>
                     </div>

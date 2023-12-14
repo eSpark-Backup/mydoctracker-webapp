@@ -9,7 +9,7 @@ export const activeForSidebar = (role, pathname, link) => {
     const linkLastInd = linkArr.length > 0 && linkArr[linkArr.length - 1]
     const dashoardChildPaths = ["view-doc" , "edit-doc", "download-doc", "geofence", "add-geofence", "edit-geofence", "add-employee", "employee-details", "employee-settings", "employee-details", "share-location"]
     const routeToMatch = role === "admin" ? "admin" : role === "user" ? "user" : (role === "employee" && employeeAsAdmin === "employee-as-admin") ? "subordinates" : "user"
-    role === "employee" && pathname === "/dashboard/employee-as-admin/add-device" ? pathLastInd = "employee-as-admin" : dashoardChildPaths.map((link)=>link === pathLastInd ? pathLastInd = routeToMatch : pathLastInd)
+    dashoardChildPaths.map((link)=>link === pathLastInd ? pathLastInd = routeToMatch : pathLastInd)
     return pathLastInd === linkLastInd
 }
 
@@ -42,7 +42,6 @@ const mainPathName = [
   "/dashboard/employee-as-admin/subordinate-requests",
   "/dashboard/employee-as-admin/employee-details",
   "/dashboard/employee-as-admin/employee-settings",
-  "/dashboard/employee-as-admin/add-device"
 ]
 
 export const getRoutesForSidebar = (role, roleType, pathname) => {
@@ -56,11 +55,30 @@ export const getRoutesForSidebar = (role, roleType, pathname) => {
 }
 
 export const getFooterRoutesForSidebar = (role, roleType, pathname) => {
-  return role === "admin" ? SidebarFooterRoutes.filter(({title})=>title==="Report a problem")
+  return role === "admin" ? SidebarFooterRoutes.map(route => {if (route.title === "Report a problem") {return { ...route, title: "Report a problem", link: "/dashboard/admin/report" }} return route}).filter(({title})=>title==="Report a problem")
   :
   (role === "employee" && roleType === "admin" && mainPathName.includes(pathname)) ? SidebarFooterRoutes.filter(({title})=>title==="Report a problem")
   :
   (role === "employee" && roleType === "admin") ? SidebarFooterRoutes.map(route => {if (route.title === "Back to devices") {return { ...route, title: "Back to main", link: "/dashboard/employee-as-admin" }} return route})
   :
   SidebarFooterRoutes
+}
+
+export const getProps = (setState, state, key) => {
+  return {
+    onRemove: () => {
+        setState({
+            ...state,
+            [key] : []
+        })
+    },
+    beforeUpload: (file) => {
+        setState({
+            ...state,
+            [key] : [file]
+        })
+        return false;
+    },
+    fileList: state[key],
+};
 }

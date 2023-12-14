@@ -33,7 +33,7 @@ const MobileDrawer = ({ open, onClose }) => {
                     <div className='flex-1 flex flex-col justify-between'>
                         <div>
                             {routes.map((item) => (
-                                <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
+                                <SiderbarRoutes onClose={onClose} key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
                             ))
                             }
                         </div>
@@ -42,7 +42,7 @@ const MobileDrawer = ({ open, onClose }) => {
                             <div>
                                 {
                                     footerRoutes.map((item) => (
-                                        <SiderbarRoutes key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
+                                        <SiderbarRoutes onClose={onClose} key={item.id} title={item.title} link={item.link} icon={item.icon} iconfill={item.iconfill} />
                                     ))
                                 }
                                 <br />
@@ -50,7 +50,7 @@ const MobileDrawer = ({ open, onClose }) => {
 
                             <div className='border-2 border-grey ' />
                             <div>
-                                <SiderbarRoutes title={"Logout"} link={"dashboard"} icon={"dashboardLogout.svg"} iconfill={"dashboardLogout.svg"} />
+                                <SiderbarRoutes title={"Logout"} icon={"dashboardLogout.svg"} iconfill={"dashboardLogout.svg"} />
                             </div>
 
 
