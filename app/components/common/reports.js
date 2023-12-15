@@ -13,7 +13,7 @@ const ReportPage = ({ handleReportChange, handleSubmitReport, props }) => {
                     paragraph="Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie "
                 />
             </div>
-            <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 flex-col p-7 sm:min-h-[700px]">
+            <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 flex-col p-7 sm:min-h-[70vh]">
                 <div className="w-100% lg:w-[80%] flex flex-col">
                     <h2 className="text-greydark text-sm pb-1">Email <span className='text-redColor'>*</span></h2>
                     <DocInput onChange={(value) => handleReportChange('Email', value)} type={"email"} placeholder={"Enter email..."} className={"h-[40px]"} />

@@ -151,7 +151,7 @@ const AddEmployee = () => {
                 </div>}
             </div>
             <div className='flex flex-row items-center gap-5'>
-                <DocButton onClick={() => router.back()} text={"Calcel"} className={"w-[150px] bg-transparent border-2 border-grey"} />
+                <DocButton onClick={() => router.back()} text={"Cancel"} className={"w-[150px] bg-transparent border-2 border-grey"} />
                 <DocButton onClick={() => setSteps(2)} text={"Next"} suffix={<Image className="mr-2" src={"/icons/rightArrowOutline.svg"} width={8} height={8} alt="arrow" />} className={"w-[150px] bg-transparent border-2 border-primary"} />
             </div>
         </div>
