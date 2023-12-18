@@ -51,7 +51,7 @@
 }
 
 .footer-bg {
-  background-image: url('/images/footerbg.svg');
+  background-image: url('/Images/footerbg.svg');
 }
 
 .ant-drawer-body {
@@ -374,7 +374,7 @@ li.ant-pagination-next.ant-pagination-disabled button {
 }
 
 :where(.css-dev-only-do-not-override-tyo0vv).ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
-  background-color: #002F49;
+  background-color: #002F49 !important;
 }
 
 :where(.css-dev-only-do-not-override-tyo0vv).ant-btn-primary:disabled, :where(.css-dev-only-do-not-override-tyo0vv).ant-btn-primary.ant-btn-disabled {
