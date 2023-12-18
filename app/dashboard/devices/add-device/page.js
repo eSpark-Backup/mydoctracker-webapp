@@ -77,7 +77,7 @@ const AddDevice = () => {
 
         <>
             <Header />
-            <div className='w-full min-h-[92vh] flex flex-col justify-center items-center bg-[#F7F7F7]'>
+            <div className='w-full h-[calc(100vh-60px)] overflow-y-scroll no-scrollbar flex flex-col justify-center items-center bg-[#F7F7F7]'>
                 <div className="w-[97%] sm:w-[70%] flex items-end mt:0 sm:mt-10">
                     <HeadContent
                         mainHeading="Add Device"
