@@ -49,8 +49,8 @@ const AdminProfileForm = () => {
         <div className='flex flex-col gap-10 md:h-[500px] md:overflow-y-scroll'>
             <div>
                 {adminAccountSettings?.map((eachSection, index) => (
-                    <>
-                        <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
+                    <React.Fragment key={index}>
+                        <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""}>
                             <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{eachSection?.heading}</h2>
                             {eachSection?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white rounded-lg"} />}
                         </div>
@@ -77,12 +77,12 @@ const AdminProfileForm = () => {
                             </div>
 
                         </div>
-                    </>
+                    </React.Fragment>
                 ))}
             </div>
             {accountSettingChangePass?.map((section, index) => (
-                <>
-                    <div className={section?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
+                <React.Fragment key={index}>
+                    <div className={section?.buttonText ? "flex justify-between flex-wrap mt-3" : ""}>
                         <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{section?.heading}</h2>
                         {section?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={section?.buttonText} className={"text-white rounded-lg"} />}
                     </div>
@@ -94,7 +94,7 @@ const AdminProfileForm = () => {
                             </div>
                         ))}
                     </div>
-                </>
+                </React.Fragment>
             ))}
             <div>
                 <DocButton onClick={() => handleSubmit(accountSetting, successSubmit)} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />

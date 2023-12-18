@@ -335,14 +335,14 @@ export const SidebarFooterRoutes = [
         id: 1,
         title: "Back to devices",
         icon: "dashboardback.svg",
-        iconfill: "dashboardLogout.svg",
+        iconfill: "dashboardlogout.svg",
         link: "/dashboard/devices"
     },
     {
         id: 2,
         title: "Report a problem",
-        icon: "dashboardReport.svg",
-        iconfill: "dashboardReport.svg",
+        icon: "dashboardreport.svg",
+        iconfill: "dashboardreport.svg",
         link: "/dashboard/devices/user/report"
     },
 
