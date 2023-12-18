@@ -39,7 +39,7 @@ const Header = ({ showDrawer }) => {
 
     return (
         <>
-            <div className={`${role === "user" && !showDrawer ? 'justify-end' : 'justify-between'}  h-[8vh] sm:h-[7vh] bg-[#FFF] flex items-center py-7 px-3`}>
+            <div className={`${role === "user" && !showDrawer ? 'justify-end' : 'justify-between'}  h-[60px] bg-[#FFF] flex items-center py-7 px-3`}>
                 <div className="flex flex-row items-center justify-center gap-3">
                 {showDrawer && <div onClick={showDrawer} className="block xl:hidden">
                     <Image src={"/icons/headerhamBurger.svg"} width={50} height={50} alt="menu" />

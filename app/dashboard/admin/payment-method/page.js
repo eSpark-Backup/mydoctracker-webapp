@@ -47,7 +47,7 @@ useEffect(()=>{
               paragraph="Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie "
             />
             </div>
-            <div className='w-full h-[70vh] drop-shadow-lg rounded-lg bg-white my-4 p-10'>
+            <div className='w-full h-[100%] drop-shadow-lg rounded-lg bg-white my-4 p-10'>
                 <div className='w-full md:w-[80%]'>
                     <Radio.Group className='w-full' value={paymentMethod} onChange={(e)=>setPaymentMethod(e.target.value)} >
                             <div className='border-b-[1px] border-[#E4E4E4] py-5 flex flex-col md:flex-row items-start md:items-center justify-between'>

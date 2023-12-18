@@ -9,7 +9,7 @@ const Devices = () => {
   return (
     <>
       <Header />
-      <div className="flex flex-col min-h-[93vh] p-3 sm:p-0 items-start  sm:items-center bg-[#F7F7F7]">
+      <div className="flex flex-col h-[calc(100vh-60px)] overflow-y-scroll no-scrollbar p-3 sm:p-0 items-start  sm:items-center bg-[#F7F7F7]">
         <div className="w-[100%] sm:w-[75%] flex items-end mt:0 sm:mt-10">
           <HeadContent
             mainHeading="Devices"
