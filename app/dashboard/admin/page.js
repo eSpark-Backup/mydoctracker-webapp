@@ -9,6 +9,7 @@ import { allUsers } from '@/app/constant';
 import AddEmployeeModal from '@/app/components/modals/addEmployeeModal';
 import AddSubsidiaryModal from '@/app/components/modals/addSubsidiaryModal'
 import { useOutsideClick } from '@/app/utils';
+import ProtectedRoute from '@/app/utils/protectedRoutes';
 
 const Admin = () => {
     const router = useRouter();
@@ -51,6 +52,7 @@ const Admin = () => {
     useOutsideClick(filterModal, () => setOpenRadioFilterModal(false))
 
     return (
+        <ProtectedRoute allowedRoles={[{role:"admin",roleType:""}]}>
         <div>
             <div className="w-[100%] sm:w-[75%] flex items-end mt:0 sm:mt-10">
                 <HeadContent
@@ -97,6 +99,7 @@ const Admin = () => {
                 onSuccess={handleAddSubsidiary}
             />
         </div>
+        </ProtectedRoute>
     )
 }
 
