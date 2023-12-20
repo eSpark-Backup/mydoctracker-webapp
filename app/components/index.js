@@ -48,6 +48,7 @@ import RequestPanel from  './common/RequestPanel'
 import ViewRequest from './common/ViewRequest'
 import LandingDrawer from './layouts/landingDrawer'
 import RadioFilterPopup from './common/radioFilterPopup'
+import LoadingScreen from './common/loadingScreen'
 
 
 
@@ -102,4 +103,5 @@ export {
     ViewRequest,
     LandingDrawer,
     RadioFilterPopup,
+    LoadingScreen,
 }
