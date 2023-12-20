@@ -105,7 +105,7 @@ useEffect(()=>{
                             {errors.cvc && <p className="font-semibold text-[#FF0000] text-sm mb-1">{errors.cvc}</p>}
                         </div>
                     </div>
-                    <DocButton onClick={handleSubmit} disabled={!allowSubmitting} className='bg-transparent border-primary w-[150px] mt-5' text="Submit" />
+                    <DocButton onClick={handleSubmit} disabled={!allowSubmitting} className='bg-secondary text-white border-primary w-[150px] mt-5' text="Submit" />
                 </div>
             </div>
         </div>

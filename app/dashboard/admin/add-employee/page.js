@@ -192,7 +192,7 @@ const AddEmployee = () => {
             </div>
             <div className='flex flex-row items-center gap-5'>
                 <DocButton onClick={() => setSteps(1)} text={"Back"} className={"w-[150px] bg-transparent border-2 border-grey"} />
-                <DocButton onClick={() => handleSubmit(addEmployeeForm, successSubmit)} text={"Submit"} className={"w-[150px] bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => handleSubmit(addEmployeeForm, successSubmit)} text={"Submit"} className={"w-[150px] text-white"} />
             </div>
         </div>
         }
