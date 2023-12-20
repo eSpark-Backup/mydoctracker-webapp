@@ -6,7 +6,7 @@ import ConfirmModal from '@/app/components/modals/confirmModal'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
-const ManagementList = ({ handleFilter, onDelete, type, data, hideSearchBar }) => {
+const ManagementList = ({ handleFilter, onDelete, type, data, hideSearchBar, showNoOfDoc }) => {
 
   const [openModal, setOpenModal] = useState(false)
   const options = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
@@ -24,6 +24,7 @@ const ManagementList = ({ handleFilter, onDelete, type, data, hideSearchBar }) =
               <div>
                 <div className='text-black text-md font-semibold'>{item.name}</div>
                 <div className='mt-1 text-greydark text-sm'>{`${type === "employee" ? 'Location:' : 'Employees:'} ${type === "employee" ? item.location : item.noOFEmployees}`}</div>
+                {showNoOfDoc?<div className='mt-1 text-greydark text-sm'>No. of documents: {item.documents}</div>:null}
                 <div className='mt-1 text-greydark text-sm'>{item.date}</div>
               </div>
               <div onClick={() => setOpenModal(item.id)} className='bg-[#FF0000] p-3 rounded-lg cursor-pointer'><Image src='/icons/trash.svg' width={15} height={15} alt="delete" /></div>

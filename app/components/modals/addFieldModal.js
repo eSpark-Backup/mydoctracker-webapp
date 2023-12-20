@@ -27,7 +27,7 @@ const AddFieldModal = ({ showModal, onCancel, onSuccess, form, handleModalForm }
                 </div>
             </div>
           <div className="gap-4 flex items-center justify-center gap-10 w-[100%]">
-            <DocButton onClick={onCancel} className="bg-transparent border-2 border-grey text-primary  h-8 w-40 rounded-2xl" text={"Close"} />
+            <DocButton onClick={onCancel} className="border-2 border-secondary text-secondary bg-transparent h-8 w-40 rounded-2xl" text={"Close"} />
             <DocButton onClick={() => onSuccess(showModal)} className="bg-transparent border-2 border-primary text-primary  h-8 w-40 rounded-2xl" suffix={<Image className="mr-2" src={"/icons/rightArrowOutline.svg"} width={8} height={8} alt="arrow" />} text="Next" />
           </div>
         </div>

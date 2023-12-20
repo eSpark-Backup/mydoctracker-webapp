@@ -17,10 +17,10 @@ const About = () => {
 
                     <div className='flex gap-5 md:text-start text-center xs:flex-row flex-row flex-wrap sm:justify-start justify-center'>
                         <Link href={"/auth/signin"}>
-                            <DocButton className="text-sm px-[2.75rem] bg-secondary" text='Sign In' />
+                            <DocButton className="text-sm px-[2.75rem] bg-secondary text-white" text='Sign In' />
                         </Link>
                         <Link href={"/auth/signup"}>
-                            <DocButton className="text-sm px-[2.75rem] bg-secondary" text='Sign up' />
+                            <DocButton className="text-sm px-[2.75rem] bg-secondary text-white" text='Sign up' />
                         </Link>
                     </div>
                 </div>

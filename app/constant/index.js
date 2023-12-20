@@ -585,31 +585,36 @@ export const employeeData = [
         id: 1,
         name: "Mitchel Stark",
         location: "California",
-        date: "Date: 12-02-2023"
+        date: "Date: 12-02-2023",
+        documents:2
     },
     {
         id: 2,
         name: "Mitchel Stark",
         location: "California",
-        date: "Date: 12-02-2023"
+        date: "Date: 12-02-2023",
+        documents:2
     },
     {
         id: 3,
         name: "Mitchel Stark",
         location: "California",
-        date: "Date: 12-02-2023"
+        date: "Date: 12-02-2023",
+        documents:2
     },
     {
         id: 4,
         name: "Mitchel Stark",
         location: "California",
-        date: "Date: 12-02-2023"
+        date: "Date: 12-02-2023",
+        documents:2
     },
     {
         id: 5,
         name: "Mitchel Stark",
         location: "California",
-        date: "Date: 12-02-2023"
+        date: "Date: 12-02-2023",
+        documents:2
     },
 ]
 

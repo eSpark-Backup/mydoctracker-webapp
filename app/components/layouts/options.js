@@ -26,7 +26,7 @@ const Options = () => {
 
                 <div className='flex justify-center pt-3'>
                     <Link href={"/dashboard/devices/"}>
-                        <DocButton className="text-sm sm:w-[430px] sm:px-0 px-[2.75rem] bg-secondary" text='Get Started' />
+                        <DocButton className="text-sm sm:w-[430px] sm:px-0 px-[2.75rem] bg-secondary text-white" text='Get Started' />
                     </Link>
                 </div>
             </div>

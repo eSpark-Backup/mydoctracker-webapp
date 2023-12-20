@@ -22,7 +22,7 @@ const GeofenceForm = ({ onSaveText }) => {
                         <label className="text-greydark text-sm pb-1 font-semibold">Distance <span className="text-redColor">*</span></label>
                         <div className='flex'>
                             <DocInput type={"text"} placeholder={"Enter Distance..."} className={"h-[40px] rounded-tr-none rounded-br-none"} />
-                            <DocButton className={"rounded-tl-none rounded-bl-none rounded-tr rounded-br text-white"} text={"m"}/>
+                            <DocButton className={"rounded-tl-none rounded-bl-none rounded-tr rounded-br text-white !bg-primary"} text={"m"}/>
                         </div>
                     </div>
                 </div>
@@ -60,9 +60,9 @@ const GeofenceForm = ({ onSaveText }) => {
 
                 <div className="flex justify-end gap-5">
                     <Link href={"/dashboard/devices/user/geofence"}>
-                        <DocButton text={"Cancel"} className={"border-2 border-greyBorder bg-transparent text-primary min-w-[125px]"} />
+                        <DocButton text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary min-w-[125px]"} />
                     </Link>
-                    <DocButton text={onSaveText} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
+                    <DocButton text={onSaveText} className={"text-white min-w-[125px]"} />
                 </div>
             </div>
         </div>

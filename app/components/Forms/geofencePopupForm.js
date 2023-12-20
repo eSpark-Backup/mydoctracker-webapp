@@ -24,7 +24,7 @@ const GeofencePopupForm = ({ handleCancel, edit }) => {
                         <label className="text-greydark text-sm pb-1 font-semibold">Distance <span className="text-redColor">*</span></label>
                         <div className='flex'>
                             <DocInput type={"text"} placeholder={"Enter Distance..."} className={"h-[40px] rounded-tr-none rounded-br-none"} />
-                            <DocButton className={"rounded-tl-none rounded-bl-none rounded-tr rounded-br text-white"} text={"m"}/>
+                            <DocButton className={"rounded-tl-none rounded-bl-none rounded-tr rounded-br text-white !bg-primary"} text={"m"}/>
                         </div>
                     </div>
                 </div>
@@ -61,8 +61,8 @@ const GeofencePopupForm = ({ handleCancel, edit }) => {
                 </div>
 
                 <div className="flex flex-wrap justify-end gap-5">
-                    <DocButton onClick={handleCancel} text={"Cancel"} className={"border-2 border-greyBorder bg-transparent text-primary min-w-[125px]"} />
-                    <DocButton text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
+                    <DocButton onClick={handleCancel} text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary min-w-[125px]"} />
+                    <DocButton text={"Submit"} className={"text-white min-w-[125px]"} />
                 </div>
             </div>
         </div>

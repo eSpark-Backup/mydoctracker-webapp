@@ -31,7 +31,7 @@ const Intro = () => {
 
                     <div className='flex md:justify-start justify-center'>
                     <Link href={"/dashboard/devices/"}>
-                        <DocButton className="text-sm  bg-secondary px-[2.75rem]" text='Try Now' />
+                        <DocButton className="text-sm text-white bg-secondary px-[2.75rem]" text='Try Now' />
                     </Link>
                     </div>
                 </div>

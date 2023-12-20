@@ -6,7 +6,7 @@ import { DocButton } from "@/app/components";
 const PackageCardListing = ({ type, packagePlans, handleBuy}) => {
     return (
       <div className='flex flex-col lg:flex-row items-center justify-between mt-5 gap-5'>
-          {packagePlans.map((plan)=>{
+          {packagePlans.map((plan, index)=>{
               return(
                   <div key={plan.id} className={`w-[280px] px-5 py-5 bg-[url('/Images/package-card.png')] bg-center bg-no-repeat bg-contain`}>
                     <div className='ml-5 font-semibold text-primary text-lg'>{plan.planName} Plan</div>
@@ -21,7 +21,7 @@ const PackageCardListing = ({ type, packagePlans, handleBuy}) => {
                                 </div>
                             )
                         })}
-                        <DocButton onClick={() => handleBuy(plan.id)} className={"bg-white !h-[30px] px-3 w-8/12 mx-auto mt-5"} text="Buy" />
+                        <DocButton onClick={() => handleBuy(plan.id)} className={"bg-white !h-[30px] px-3 w-8/12 mx-auto mt-5"} text={type === "Month" && index === 0?"Current":"Upgrade"} />
                     </div>
                   </div>
               )

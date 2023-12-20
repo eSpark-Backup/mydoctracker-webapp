@@ -83,7 +83,7 @@ const SingleUserSignIn = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} loading={loading} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
+        <DocButton onClick={() => form.submit()} loading={loading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
 
         <div className='lg:hidden block'>
           <div className='py-8 flex flex-col items-center'>

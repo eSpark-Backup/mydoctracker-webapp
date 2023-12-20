@@ -89,7 +89,7 @@ const AddDevice = () => {
                         <React.Fragment  key={index}>
                             <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""}>
                                 <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{eachSection?.title}</h2>
-                                {eachSection?.buttonText && <DocButton onClick={()=>setAddFieldModal(eachSection.title)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white rounded-lg"} />}
+                                {eachSection?.buttonText && <DocButton onClick={()=>setAddFieldModal(eachSection.title)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white !bg-primary rounded-lg"} />}
                             </div>
                             <div>
                                 <div className="flex gap-4 sm:gap-5 flex-col sm:flex-row flex-wrap">
@@ -119,8 +119,8 @@ const AddDevice = () => {
                     ))}
                     <div className="flex gap-5 flex-wrap mt-3">
                         <Link href={"/dashboard/devices"}>
-                            <DocButton text={"Cancel"} className={"border-2 border-greyBorder bg-transparent text-primary min-w-[125px]"} /></Link>
-                        <DocButton onClick={() => handleSubmit(trackerData, successSubmit)} text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
+                            <DocButton text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary min-w-[125px]"} /></Link>
+                        <DocButton onClick={() => handleSubmit(trackerData, successSubmit)} text={"Submit"} className={"text-white min-w-[125px]"} />
                     </div>
                 </div>
             </div>
