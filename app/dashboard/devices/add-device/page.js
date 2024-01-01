@@ -13,6 +13,7 @@ import { handleSubmit } from '@/app/utils/validation';
 import { getProps } from '@/app/utils';
 import AddFieldModal from '@/app/components/modals/addFieldModal';
 import { camelize } from '@/app/utils';
+import ProtectedRoute from '@/app/utils/protectedRoutes';
 
 const AddDevice = () => {
 
@@ -76,6 +77,7 @@ const AddDevice = () => {
     return (
 
         <>
+        <ProtectedRoute allowedRoles={[{role:"user",roleType:""}]}>
             <Header />
             <div className='w-full h-[calc(100vh-60px)] overflow-y-scroll no-scrollbar flex flex-col justify-center items-center bg-[#F7F7F7]'>
                 <div className="w-[97%] sm:w-[70%] flex items-end mt:0 sm:mt-10">
@@ -139,7 +141,7 @@ const AddDevice = () => {
                 handleCancel={HandleVerificationCancel} >
                 <VerificationForm handleCancel={HandleVerificationCancel} />
             </InputModal>
-
+        </ProtectedRoute>
         </>
     )
 }

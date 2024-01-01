@@ -1,10 +1,10 @@
 "use client"
 import { Checkbox, Col, Form, Input, Row } from 'antd';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
 import Link from 'next/link';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
 import { useRouter } from 'next/navigation'
 
@@ -13,14 +13,26 @@ const SingleUserSignIn = () => {
   const router = useRouter()
   const [form] = Form.useForm();
   const dispatch = useDispatch();
+  const { role, roleType } = useSelector(state=>state.auth)
 
   const onFinish = (values) => {
     setLoading(true);
     dispatch(authSignIn(values));
     console.log('Success:', values);
     setLoading(false);
-    router.push('/dashboard/admin')
   };
+
+  useEffect(()=>{
+    if(role) {
+      if(role === "admin") {
+        router.push("/dashboard/admin")
+      } else if(role === "employee" && roleType === "admin") {
+        router.push("/dashboard/employee-as-admin")
+      } else {
+        router.push("/dashboard/devices")
+      }
+    }
+  },[role, roleType])
 
   return (
     <div className='flex flex-col justify-between h-full'>
