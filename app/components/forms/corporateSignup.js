@@ -232,7 +232,7 @@ const CorporateSignup = () => {
       </div>
 
       <div>
-        <DocButton onClick={form.submit} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={step === 1 ? "Next" : "Sign In"} />
+        <DocButton onClick={form.submit} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={step === 1 ? "Next" : "Sign In"} />
       </div>
 
 

@@ -89,7 +89,7 @@ const TrackerSettings = () => {
                 <DocDropdown onChange={(value) => handleTrackerSettingChange('mobileStateInterval', value.value)} className={"w-40"} options={[{ label: '5 mins', value: '5' }, { label: '10 mins', value: '10' }]} placeholder={"5 mins"} />
             </div>
             <div>
-                <DocButton onClick={() => handleSubmit(trackerSetting ,successSubmit)} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => handleSubmit(trackerSetting ,successSubmit)} text={"Save changes"} className={"text-white"} />
             </div>
 
             <InputModal

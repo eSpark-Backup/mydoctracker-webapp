@@ -64,8 +64,8 @@ const GeofenceSettings = () => {
                     <DocDropdown className={"w-40"} options={[{ label: '5 mins', value: '5' }, { label: '10 mins', value: '10' }]} placeholder={"5 mins"} />
                 </div>
                 <div className='flex flex-wrap gap-4'>
-                    <DocButton text={"Cancel"} className={"bg-transparent border-2 border-greyBorder"} />
-                    <DocButton text={"Submit"} className={"bg-transparent text-primary border-2 border-primary"} />
+                    <DocButton text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary"} />
+                    <DocButton text={"Submit"} className={"text-white"} />
                 </div>
             </div>
             <InputModal

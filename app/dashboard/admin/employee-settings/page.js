@@ -34,7 +34,7 @@ const EmployeeSettings = () => {
         {
             key: '4',
             label: 'Shared Location',
-            children:<ManagementList type={"location"} onDelete={onDelete} hideSearchBar={true} data={employeeData}/>
+            children:<ManagementList type={"employee"} onDelete={onDelete} hideSearchBar={true}  data={employeeData}/>
         },
         {
             key: '5',

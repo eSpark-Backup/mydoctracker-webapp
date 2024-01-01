@@ -109,7 +109,7 @@ const AddEmployee = () => {
                     <div key={index}>
                         <div className='flex flex-row items-center justify-between'>
                             <h2 className='text-black font-medium text-xl'>{section.title}</h2>
-                            {section.buttonText && <DocButton onClick={()=>setAddFieldModal(section.title)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md bg-primary text-white h-[100%] px-4 w-[150px]"} text={section.buttonText} />}
+                            {section.buttonText && <DocButton onClick={()=>setAddFieldModal(section.title)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md !bg-primary text-white h-[100%] px-4 w-[150px]"} text={section.buttonText} />}
                         </div>
                         <div className='mt-3 gap-y-2 sm:gap-y-4'>
                             <div className="grid grid-cols-3 gap-4">
@@ -151,8 +151,8 @@ const AddEmployee = () => {
                 </div>}
             </div>
             <div className='flex flex-row items-center gap-5'>
-                <DocButton onClick={() => router.back()} text={"Cancel"} className={"w-[150px] bg-transparent border-2 border-grey"} />
-                <DocButton onClick={() => setSteps(2)} text={"Next"} suffix={<Image className="mr-2" src={"/icons/rightArrowOutline.svg"} width={8} height={8} alt="arrow" />} className={"w-[150px] bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => router.back()} text={"Cancel"} className={"w-[150px] border-2 border-secondary bg-transparent text-secondary"} />
+                <DocButton onClick={() => setSteps(2)} text={"Next"} suffix={<Image className="text-white" src={"/icons/rightArrowWhite.svg"} width={22} height={22} alt="arrow" />} className={"w-[150px] bg-secondary text-white"} />
             </div>
         </div>
         :
@@ -192,7 +192,7 @@ const AddEmployee = () => {
             </div>
             <div className='flex flex-row items-center gap-5'>
                 <DocButton onClick={() => setSteps(1)} text={"Back"} className={"w-[150px] bg-transparent border-2 border-grey"} />
-                <DocButton onClick={() => handleSubmit(addEmployeeForm, successSubmit)} text={"Submit"} className={"w-[150px] bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => handleSubmit(addEmployeeForm, successSubmit)} text={"Submit"} className={"w-[150px] text-white"} />
             </div>
         </div>
         }

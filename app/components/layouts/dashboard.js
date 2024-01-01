@@ -40,7 +40,7 @@ const Dashboard = ({ noDevices }) => {
             further.
           </h1>
           <Link href={"/dashboard/devices/add-device"}>
-            <DocButton prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add"} className={"text-white rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)} />
+            <DocButton prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add"} className={"text-white !bg-primary rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)} />
           </Link>
         </>
       </div> : <div className="w-[100%] gap-6 min-h-[70vh] drop-shadow-lg rounded-lg bg-white my-4 flex py-12 items-center flex-col">
@@ -82,8 +82,8 @@ const Dashboard = ({ noDevices }) => {
             </div>
           </div>
         ))}
-        {!role === "employee" && <Link href={"/dashboard/devices/add-device"}>
-          <DocButton prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add"} className={"text-white rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)} />
+        {role !== "employee" && <Link href={"/dashboard/devices/add-device"}>
+          <DocButton prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add"} className={"text-white !bg-primary rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)} />
         </Link>}
       </div>}
       <ConfirmModal

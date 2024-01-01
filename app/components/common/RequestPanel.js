@@ -28,7 +28,7 @@ const RequestPanel = ({ toggleShowUser, toggleShowDocument, showUser, showDocume
                     </div>
                     <div className='flex justify-end gap-3 mt-3'>
                         <DocButton text={"Decline"} className={"bg-white text-xs border-2 rounded-md border-greyBorder"} />
-                        <DocButton text={"Approve"} className={"bg-primary text-xs text-white rounded-md"} />
+                        <DocButton text={"Approve"} className={"!bg-primary text-xs text-white rounded-md"} />
                     </div>
                     <hr className='mt-2 w-4/5 mx-auto' />
                 </div>
@@ -52,7 +52,7 @@ const RequestPanel = ({ toggleShowUser, toggleShowDocument, showUser, showDocume
                 </div>
                 <div className='flex justify-end gap-3 mt-3'>
                     <DocButton text={"Decline"} className={"bg-white text-xs border-2 rounded-md border-greyBorder"} />
-                    <DocButton text={"Approve"} className={"bg-primary text-xs text-white rounded-md"} />
+                    <DocButton text={"Approve"} className={"!bg-primary text-xs text-white rounded-md"} />
                 </div>
                 <hr className='mt-2 w-4/5 mx-auto' />
             </div>

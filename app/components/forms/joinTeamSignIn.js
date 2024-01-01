@@ -88,7 +88,7 @@ const JoinTeamSignIn = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
+        <DocButton onClick={() => form.submit()} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
       </div>
 
       <div className='lg:hidden block'>

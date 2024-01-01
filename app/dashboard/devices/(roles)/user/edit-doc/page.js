@@ -95,9 +95,9 @@ const EditDoc = () => {
                                 </div>
                                 <div className="flex gap-5 mt-5">
                                     <Link href={"/dashboard/devices/user/view-doc"}>
-                                        <DocButton text={"Cancel"} className={"border-2 border-greyBorder bg-transparent text-primary min-w-[125px]"} />
+                                        <DocButton text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary min-w-[125px]"} />
                                     </Link>
-                                    <DocButton onClick={() => handleSubmit(editDocData, successSubmit)} text={"Submit"} className={"bg-transparent border-2 border-primary min-w-[125px]"} />
+                                    <DocButton onClick={() => handleSubmit(editDocData, successSubmit)} text={"Submit"} className={"text-white min-w-[125px]"} />
                                 </div>
 
                             </div>

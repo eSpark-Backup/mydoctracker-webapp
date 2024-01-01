@@ -100,7 +100,7 @@ const EmployeeProfileSettings = () => {
                 </div>
             </div>
             <div>
-                <DocButton onClick={() => handleSubmit(employeeData, successSubmit)} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => handleSubmit(employeeData, successSubmit)} text={"Save changes"} className={"text-white"} />
             </div>
         </div>
     )

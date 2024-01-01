@@ -85,7 +85,7 @@ const AccountSettingsForm = () => {
                 </React.Fragment>
             ))}
             <div>
-                <DocButton onClick={() => handleSubmit(accountSetting, successSubmit)} text={"Save changes"} className={"bg-transparent border-2 border-primary"} />
+                <DocButton onClick={() => handleSubmit(accountSetting, successSubmit)} text={"Save changes"} className={"text-white"} />
             </div>
         </div>
     )

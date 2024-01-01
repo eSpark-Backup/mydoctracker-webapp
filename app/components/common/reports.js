@@ -27,7 +27,7 @@ const ReportPage = ({ handleReportChange, handleSubmitReport, props }) => {
                     <DocImgInput props={props} placeholder={"Upload Image"} />
                 </div>
                 <div className="flex justify-end sm:justify-start gap-5 mt-7">
-                    <DocButton onClick={handleSubmitReport} text={"Submit"} className={"bg-primary text-white sm:text-primary sm:bg-transparent border-2 border-primary min-w-[125px]"} />
+                    <DocButton onClick={handleSubmitReport} text={"Submit"} className={"text-white min-w-[125px]"} />
                 </div>
             </div>
         </div>

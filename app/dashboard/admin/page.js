@@ -62,13 +62,13 @@ const Admin = () => {
             </div>
             <div className="w-[100%] drop-shadow-lg rounded-lg h-[65vh] bg-white my-4 p-3 md:p-8">
                 <div>
-                    <div className='flex flex-col md:flex-row items-start bd:items-center justify-between gap-3'>
+                    <div className='flex flex-col md:flex-row items-start bd:items-center justify-between gap-3 w-[94%] m-auto'>
                         <SearchBar handleChange={(value) => handleFilter('search', value)} className='!w-[100%] md:!w-[300px]' placeholder="Search by employee name" />
                         <div className='relative flex flex-row items-center justify-start md:justify-center gap-1 md:gap-3'>
                             <DocDropdown onChange={(value) => handleFilter('select', value.value)} className={"w-[100%] md:w-40"} options={options} placeholder="Group 1" />
                                 <Image className='cursor-pointer' onClick={()=>setOpenRadioFilterModal(!openRadioFilterModal)} src="/icons/tabs-Image.svg" width={40} height={40} alt="tabs-image" />
                                 {openRadioFilterModal && <RadioFilterPopup forwardedRef={filterModal} filter={filter} handleFilter={handleFilter} />}
-                            <DocButton onClick={() => setOpenModal(true)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md bg-primary text-white h-[100%] px-4 w-4/12 md:w-6/12"} text="Add" />
+                            <DocButton onClick={() => setOpenModal(true)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md !bg-primary text-white h-[100%] px-4 w-4/12 md:w-6/12"} text="Add" />
                         </div>
                     </div>
                     <div className='mt-5 p-0 md:p-10 flex items-center justify-center h-[50vh] md:h-[55vh]'>

@@ -151,7 +151,7 @@ const SingleUserSignup = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} className={"bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign Up"} />
+        <DocButton onClick={() => form.submit()} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign Up"} />
       </div>
 
       <div className='lg:hidden block'>

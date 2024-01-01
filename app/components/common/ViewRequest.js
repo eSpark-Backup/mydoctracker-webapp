@@ -19,7 +19,7 @@ const ViewRequest = ({ showUser, showDocument }) => {
                             <p className='text-greydark text-base font-medium mt-3'>Request to update the document</p>
                             <div className='flex gap-3'>
                                 <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder"} />
-                                <DocButton text={"Approve"} className={"bg-primary text-white rounded-md"} />
+                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md"} />
                             </div>
                         </div>
                         <div className='flex gap-10 pl-10 mb-3 mt-4'>
@@ -52,7 +52,7 @@ const ViewRequest = ({ showUser, showDocument }) => {
                             <p className='text-greydark text-base font-medium mt-3'>Request to update the document</p>
                             <div className='flex gap-3'>
                                 <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder"} />
-                                <DocButton text={"Approve"} className={"bg-primary text-white rounded-md"} />
+                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md"} />
                             </div>
                         </div>
                         <div className='flex gap-10 pl-10 mb-3 mt-4'>

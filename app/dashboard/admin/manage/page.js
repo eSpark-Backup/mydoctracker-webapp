@@ -34,7 +34,7 @@ const Manage = () => {
         {
           key: '2',
           label: 'Employee',
-          children: <ManagementList handleFilter={handleFilter} onDelete={onDelete} type="employee" data={employeeData} />,
+          children: <ManagementList handleFilter={handleFilter} onDelete={onDelete} type="employee" showNoOfDoc={true} data={employeeData} />,
         },
     ];
 
