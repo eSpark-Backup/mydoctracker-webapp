@@ -298,8 +298,8 @@ export const EmployeeMainRoutes = [
     {
         id: 2,
         title: "Subordinates",
-        icon: "dashboardProfileSetting.svg",
-        iconfill: "dashboardProfileSettingFill.svg",
+        icon: "dashboardSetting.svg",
+        iconfill: "dashboardSetting.svg",
         link: "/dashboard/employee-as-admin/subordinates"
     },
     {

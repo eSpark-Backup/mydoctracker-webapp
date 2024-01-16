@@ -197,20 +197,24 @@
 }
 
 .ant-popover-content {
-  position: sticky !important;
-  margin-top: 10px;
-  margin-right: 130px;
-  width: 100%;
+  position: fixed !important;
+  top: 65px;
+  right: 130px;
 }
 
 .ant-popover {
   width: min-content;
 }
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 1280px){
 	.ant-popover-content {
-    margin-right: 0px !important;
-    margin-top: 15px;
+    right: 50px !important;
+  }
+}
+
+@media only screen and (max-width: 500px){
+	.ant-popover-content {
+    right: 8px !important;
   }
 }
 

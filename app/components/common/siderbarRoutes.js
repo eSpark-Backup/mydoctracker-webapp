@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react'
-import { usePathname  } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { activeForSidebar } from '@/app/utils'
@@ -10,6 +10,7 @@ import { authSignOut } from '@/app/redux/store/slices/authSlice';
 
 const SiderbarRoutes = ({ title, link, icon, onClose }) => {
     const pathname = usePathname ()
+    const router = useRouter()
     const { role } = useSelector(state=>state.auth)
     const [active, setActive] = useState('')
     const dispatch = useDispatch();
@@ -17,10 +18,15 @@ const SiderbarRoutes = ({ title, link, icon, onClose }) => {
     useEffect(()=>{
         setActive(activeForSidebar(role, pathname, link || ""))
     },[pathname, link])
+
+    const handleLogout = () => {
+        dispatch(authSignOut())
+        router.push('/auth/signin')
+    }
     return (
         <Link href={link || ""}>
         <div onClick={()=>{
-            title === "Logout" ? ()=>dispatch(authSignOut()) : null
+            title === "Logout" ? handleLogout() : null
             onClose && onClose()
         }} className={`flex rounded-lg items-center gap-5 p-3 ${!active && 'hover:bg-opacity-50 hover:bg-gray-800'} ${active ? 'bg-white' : 'text-primary'}`}>
             <div>
