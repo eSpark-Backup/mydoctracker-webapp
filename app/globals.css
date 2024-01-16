@@ -10,7 +10,7 @@
   --text-color-dark: #666666;
   --border-color:#E4E4E4;
   --text-color-red:#ff0000;
-
+  --text-color-primary:#424242
 }
 
 :where(.css-dev-only-do-not-override-8dotbs).ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before
