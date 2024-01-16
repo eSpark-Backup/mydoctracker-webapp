@@ -9,10 +9,10 @@ const OptionsBox = ({title, description, icon}) => {
                     <Image src={`/icons/${icon}`} className='w-[40px] pb-3' width={40} height={40} alt='intro' />
                 </div>
 
-                <p className='pb-5 text-primary font-bold'>{title}</p>
+                <p className='pb-5 text-primary font-bold text-xl'>{title}</p>
             </div>
 
-            <p className='text-center text-sm'>
+            <p className='text-center text-greydark text-base'>
                 {description}
             </p>
         </div>
