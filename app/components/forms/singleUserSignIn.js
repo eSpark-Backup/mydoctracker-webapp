@@ -41,7 +41,7 @@ const SingleUserSignIn = () => {
           <Row gutter={[0, 0]}>
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Username</span>}
+                label={<span className='text-greydark text-xs font-medium'>Username</span>}
                 name="username"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
@@ -56,7 +56,7 @@ const SingleUserSignIn = () => {
 
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Password</span>}
+                label={<span className='text-greydark text-xs font-medium'>Password</span>}
                 name="password"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
@@ -85,7 +85,7 @@ const SingleUserSignIn = () => {
               >
                 <Checkbox >
                   <span className='text-[14px]'>
-                    I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <span className='text-primary  font-semibold'>Terms and conditions</span>
+                    I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <br/> <span className='text-primary  font-semibold'>Terms and conditions</span>
                   </span>
                 </Checkbox>
               </Form.Item>

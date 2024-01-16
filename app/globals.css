@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
 
 :root
 {
@@ -11,6 +12,10 @@
   --border-color:#E4E4E4;
   --text-color-red:#ff0000;
 
+}
+
+*{
+  font-family: 'Inter', sans-serif;
 }
 
 :where(.css-dev-only-do-not-override-8dotbs).ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before
@@ -392,3 +397,20 @@ li.ant-pagination-next.ant-pagination-disabled button {
 
 
 /* /// */
+
+
+:where(.css-dev-only-do-not-override-tyo0vv).ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before{
+  display: none;
+}
+
+:where(.css-dev-only-do-not-override-tyo0vv).ant-input:placeholder-shown{
+  font-weight: 600 !important;
+}
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-pagination .ant-pagination-disabled .ant-pagination-item-link, :where(.css-dev-only-do-not-override-1c4zh4f).ant-pagination .ant-pagination-disabled:hover .ant-pagination-item-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .ant-select-selection__placeholder{
+  color : blue !important;
+} */

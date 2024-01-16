@@ -21,9 +21,10 @@ const SingleUserSignup = () => {
           <Row gutter={[10, 0]}>
             <Col xs={{ span: 24 }} sm={{ span: 24 }} lg={{ span: 12 }}>
               <Form.Item
-                label={<span className='text-grey'>First Name</span>}
+                label={<span className='text-greydark text-xs font-medium'>First Name</span>}
                 name="firstName"
                 labelCol={{ span: 24 }}
+                style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please Enter First Name" }]}
               >
@@ -35,13 +36,14 @@ const SingleUserSignup = () => {
             </Col>
             <Col xs={{ span: 24 }} sm={{ span: 24 }} lg={{ span: 12 }}>
               <Form.Item
-                label={<span className='text-grey'>Last Name</span>}
+                label={<span className='text-greydark text-xs font-medium'>Last Name</span>}
                 name="lastName"
                 labelCol={{ span: 24 }}
+                style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please Enter First Name" }]}
               >
-                <DocInput type={"text"} placeholder="Enter First name"
+                <DocInput type={"text"} placeholder="Enter last name"
                   onChange={(value) => form.setFieldsValue({ lastName: value })}
                 // value={form.getFieldValue('username')}
                 />
@@ -51,13 +53,14 @@ const SingleUserSignup = () => {
 
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>User Name</span>}
+                label={<span className='text-greydark text-xs font-medium'>User Name</span>}
                 name="userName"
                 labelCol={{ span: 24 }}
+                style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please Enter User Name" }]}
               >
-                <DocInput type={"text"} placeholder="Enter User Name"
+                <DocInput type={"text"} placeholder="Enter Username"
                   onChange={(value) => form.setFieldsValue({ userName: value })}
                 // value={form.getFieldValue('username')}
                 />
@@ -66,9 +69,10 @@ const SingleUserSignup = () => {
 
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Email</span>}
+                label={<span className='text-greydark text-xs font-medium'>Email</span>}
                 name="email"
                 labelCol={{ span: 24 }}
+                style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please Enter Email" },
                 { type: 'email', message: 'Please enter valid email' }
@@ -84,14 +88,15 @@ const SingleUserSignup = () => {
 
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Contact</span>}
+                label={<span className='text-greydark text-xs font-medium'>Contact</span>}
                 name="contact"
                 labelCol={{ span: 24 }}
+                style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please Enter Contact No." }, 
                ]}
               >
-                <DocInput type={"number"} placeholder="Enter Contact No."
+                <DocInput type={"tel"} placeholder="Contact number"
                   onChange={(value) => form.setFieldsValue({ contact: value })}
                 // value={form.getFieldValue('username')}
                 />
@@ -102,13 +107,14 @@ const SingleUserSignup = () => {
 
             <Col xs={{ span: 24 }} sm={{ span: 24 }} lg={{ span: 12 }}>
               <Form.Item
-                label={<span className='text-grey'>Password</span>}
+                label={<span className='text-greydark text-xs font-medium'>Password</span>}
                 name="password"
                 labelCol={{ span: 24 }}
+                style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please Enter Password" }]}
               >
-                <DocInput type={"password"} placeholder="Enter Password"
+                <DocInput type={"password"} placeholder="Enter password"
                   onChange={(value) => form.setFieldsValue({ password: value })}
                 />
               </Form.Item>
@@ -116,13 +122,14 @@ const SingleUserSignup = () => {
             </Col>
             <Col xs={{ span: 24 }} sm={{ span: 24 }} lg={{ span: 12 }}>
               <Form.Item
-                label={<span className='text-grey'>Confirm Password</span>}
+                label={<span className='text-greydark text-xs font-medium'>Confirm Password</span>}
                 name="password"
                 labelCol={{ span: 24 }}
+                style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please Enter Confirm Password" }]}
               >
-                <DocInput type={"password"} placeholder="Enter Password Again"
+                <DocInput type={"password"} placeholder="Confirm password"
                   onChange={(value) => form.setFieldsValue({ confirmPassword: value })}
                 />
               </Form.Item>

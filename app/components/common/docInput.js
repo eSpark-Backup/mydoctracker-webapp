@@ -4,6 +4,12 @@ import { Input, Space } from 'antd'
 import { useState } from 'react'
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons'
 
+const customInputStyle = {
+  '&[placeholder]': {
+    color: 'red',  // Set your desired placeholder color
+  },
+};
+
 const DocInput = ({ maxLength, type, className, placeholder, onChange, value, suffix, prefix,readOnly }) => {
   const [isPasswordVisible, setPasswordVisibility] = useState(false);
 
@@ -17,6 +23,7 @@ const DocInput = ({ maxLength, type, className, placeholder, onChange, value, su
       onChange(e.target.value);
     }
   };
+  
 
 
 
@@ -26,17 +33,18 @@ const DocInput = ({ maxLength, type, className, placeholder, onChange, value, su
     readOnly={readOnly}
     maxLength={maxLength}
     prefix={prefix && prefix}
-    suffix={
-      suffix ||
-      type === 'password' && (
-        <Space
-          onClick={handlePasswordVisibility}
-          style={{ cursor: 'pointer' }}
-        >
-          {isPasswordVisible  ? <EyeOutlined /> : <EyeInvisibleOutlined />}
-        </Space>
-      )
-    }
+    style={customInputStyle}
+    // suffix={
+    //   suffix ||
+    //   type === 'password' && (
+    //     <Space
+    //       onClick={handlePasswordVisibility}
+    //       style={{ cursor: 'pointer' }}
+    //     >
+    //       {isPasswordVisible  ? <EyeOutlined /> : <EyeInvisibleOutlined />}
+    //     </Space>
+    //   )
+    // }
     
     />
   )

@@ -14,16 +14,20 @@ export const columns = ({ gotoDetail, handleSwitch }) => {
         return(
             <div onClick={() => gotoDetail(data.id)} className='cursor-pointer flex flex-row items-center justify-center gap-5'>
                 <Image src={data.image} width={30} height={30} alt="user"/>
-                <div style={{ color: '#1677ff' }}>{value}</div>
+                <div style={{ color: '#126FAA' }}>{value}</div>
             </div>
         )
     }},
-    { width: 200, resizable : false, field: "trackerID" },
+    { width: 200, resizable : false, field: "trackerID",cellRenderer:({value})=>{
+        return(
+            <div className="text-[#666666]">{value}</div>
+        )
+    } },
     { width: 200, resizable : false, field: "type" },
     { width: 200, resizable : false, field: "requests" },
     { width: 200, resizable : false, field: "location", cellRenderer: ({value})=>{
         return(
-            <a className='underline' href={value} alt="location" target='_blank'>View</a>
+            <a className='underline text-[#126FAA]' href={value} alt="location" target='_blank' >View</a>
         )
     }},
     { width: 198, resizable : false, field: "status", cellRenderer: ({value,data})=>{
