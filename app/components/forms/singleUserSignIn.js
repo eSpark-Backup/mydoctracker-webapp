@@ -7,32 +7,35 @@ import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
 import { useRouter } from 'next/navigation'
+import useLogin from '@/app/hooks/useLogin';
 
 const SingleUserSignIn = () => {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const [form] = Form.useForm();
   const dispatch = useDispatch();
-  const { role, roleType } = useSelector(state=>state.auth)
+  const { role, roleType } = useSelector(state => state.auth)
+  const { mutate: login } = useLogin();
 
   const onFinish = (values) => {
+    login(values)
     setLoading(true);
     dispatch(authSignIn(values));
     console.log('Success:', values);
     setLoading(false);
   };
 
-  useEffect(()=>{
-    if(role) {
-      if(role === "admin") {
+  useEffect(() => {
+    if (role) {
+      if (role === "admin") {
         router.push("/dashboard/admin")
-      } else if(role === "employee" && roleType === "admin") {
+      } else if (role === "employee" && roleType === "admin") {
         router.push("/dashboard/employee-as-admin")
       } else {
         router.push("/dashboard/devices")
       }
     }
-  },[role, roleType])
+  }, [role, roleType])
 
   return (
     <div className='flex flex-col justify-between h-full'>

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const client = axios.create({ baseURL: "https://jsonplaceholder.typicode.com" });
+const client = axios.create({ baseURL: "http://34.234.163.166:3001/api" });
 
 export const request = ({ ...options }) => {
   client.defaults.headers.common.Authorization = `Bearer token`;
