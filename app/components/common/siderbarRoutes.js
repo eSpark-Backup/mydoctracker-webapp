@@ -19,10 +19,6 @@ const SiderbarRoutes = ({ title, link, icon, onClose }) => {
         setActive(activeForSidebar(role, pathname, link || ""))
     }, [pathname, link])
 
-    const handleLogout = () => {
-        dispatch(authSignOut())
-        router.push('/auth/signin')
-    }
 
     const HandleLogout = () => {
         if (title === "Logout") {
@@ -35,10 +31,6 @@ const SiderbarRoutes = ({ title, link, icon, onClose }) => {
         <Link href={link || ""}>
             <div
                 onClick={HandleLogout}
-                //  onClick={()=>{
-                //     title === "Logout" ? handleLogout() : null
-                //     onClose && onClose()
-                // }}
                 className={`flex rounded-lg items-center gap-5 p-3 ${!active && 'hover:bg-opacity-50 hover:bg-gray-800'} ${active ? 'bg-white' : 'text-primary'}`}>
                 <div>
                     <Image style={{ filter: active && 'brightness(0) saturate(100%) invert(14%) sepia(18%) saturate(4898%) hue-rotate(172deg) brightness(98%) contrast(100%)' }} src={`/icons/${icon}`} className='w-[30px]' width={50} height={50} alt='icon' />
