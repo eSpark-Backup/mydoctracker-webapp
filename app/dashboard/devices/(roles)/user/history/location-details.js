@@ -21,7 +21,7 @@ const LocationDetails = ({ active }) => {
                         </div>
                         <div className='flex flex-row w-[100%] 2xl:w-[75%] items-start justify-between'>
                             <div>
-                                <div className='text-black text-sm'>{title}</div>
+                                <div className='text-black text-[12px]'>{title}</div>
                                 <div className='text-black text-[10px] mt-1'>Started at: {startDate}</div>
                                 <div className='flex flex-row mt-1 gap-1 items-center'>
                                     <div className='flex flex-row gap-1 items-center'>

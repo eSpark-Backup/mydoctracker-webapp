@@ -86,6 +86,10 @@
   color: #002F49 !important; 
 }
 
+.history .ant-tabs-tab-btn{
+  font-size: 16px !important;
+}
+
 .plans-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #002F49 !important; 
 }
@@ -278,7 +282,7 @@
   border-bottom-right-radius: 0 !important;
 }
 
-.ag-body-horizontal-scroll {
+.ag-body-horizontal-scroll, .ag-body-vertical-scroll-viewport {
   display: none !important;
 }
 
@@ -418,3 +422,15 @@ li.ant-pagination-next.ant-pagination-disabled button {
 /* .ant-select-selection__placeholder{
   color : blue !important;
 } */
+
+.ml .ant-tabs-nav-wrap {
+  margin-left:40px;
+}
+
+.css-1nmdiq5-menu {
+  margin: 3px 0px !important;
+}
+
+.ant-pagination li {
+  margin-inline-end: 2px !important;
+}

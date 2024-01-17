@@ -27,7 +27,7 @@ const ViewDoc = () => {
 
                 <div>
                     <Link href={(role === "employee" && roleType === "default") ? "" : "/dashboard/devices/user/edit-doc"}>
-                    <DocButton onClick={(role === "employee" && roleType === "default") ? () => setIsModalOpen(true) : null} prefix={<Image src="/icons/editPencil.svg" width={18} height={18} className='mr-2 edit-doc-btn' alt='edit' />} text={"Edit"} className={"text-sm font-bold bg-secondary border-primary text-primary h-[30px] !px-5"} />
+                    <DocButton onClick={(role === "employee" && roleType === "default") ? () => setIsModalOpen(true) : null} prefix={<Image src="/icons/editPencil.svg" width={18} height={18} className='mr-2 edit-doc-btn' alt='edit' />} text={"Edit"} className={"text-sm !text-[#0A2431] font-bold bg-secondary border-primary text-primary h-[30px] !px-5"} />
                     </Link>
                 </div>
             </div>
@@ -49,14 +49,14 @@ const ViewDoc = () => {
                             <FieldView text={"3/10/2022"} />
                         </div>
                         <div className="  flex flex-col">
-                            <label className="text-greydark text-sm pb-1">Time Of Creation </label>
+                            <label className="text-greydark text-sm pb-1">Time:</label>
                             <FieldView text={"1:30 PM"} />
                         </div>
                     </div>
                 </div>
                 <div className='lg:w-[65%]'>
                     <div className='flex justify-center'>
-                        <Image src="/Images/docImage.svg" className='lg:w-[70%] w-[80%]' alt='Document Image' width={500} height={500} />
+                        <Image src="/Images/docImage.svg" className='lg:w-[70%] md:w-[80%] w-[100%]' alt='Document Image' width={500} height={500} />
                     </div>
                 </div>
 

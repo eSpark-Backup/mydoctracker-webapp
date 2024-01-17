@@ -717,6 +717,20 @@ export const documentsHistoryData = [
         title: "Note Book",
         savedBy: "Alex",
         type: "Yesterday, February 11,2023"
+    },
+    {
+        id: 4,
+        createdAt: "5:00 PM",
+        title: "Note Book",
+        savedBy: "Alex",
+        type: "Yesterday, February 11,2023"
+    },
+    {
+        id: 5,
+        createdAt: "5:00 PM",
+        title: "Note Book",
+        savedBy: "Alex",
+        type: "Yesterday, February 11,2023"
     }
 ]
 

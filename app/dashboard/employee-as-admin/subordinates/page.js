@@ -54,13 +54,13 @@ const Subordinates = () => {
                 />
             </div>
             {/* <div className="w-[100%] mx-auto sm:w-[75%] h-[100%] "> */}
-            <div className="w-[100%] drop-shadow-lg rounded-lg h-[65vh] bg-white my-4 p-3 md:p-8">
+            <div className="w-[100%] border-[1px] borderColor-[#E4E4E4] rounded-lg h-[65vh] bg-white my-4 p-3 md:p-8">
                 <div>
-                    <div className='flex flex-col md:flex-row items-start bd:items-center justify-between gap-3 px-0 py-0 md:px-10 '>
+                    <div className='flex flex-col md:flex-row items-end bd:items-center justify-between gap-3 px-0 py-0 md:px-10 '>
                         <SearchBar handleChange={(value) => handleFilter('search', value)} className='!w-[100%] md:!w-[300px]' placeholder="Search by name or tracker ID..." />
                         <div className='relative flex flex-row items-center justify-start md:justify-center gap-1 md:gap-3'>
                             <Image className='cursor-pointer' onClick={()=>setOpenRadioFilterModal(!openRadioFilterModal)}  src="/icons/tabs-Image.svg" width={40} height={40} alt="tabs-image" />
-                            {openRadioFilterModal && <RadioFilterPopup forwardedRef={filterModal} filter={filter} handleFilter={handleFilter} />}
+                            {openRadioFilterModal && <RadioFilterPopup className="!right-0" forwardedRef={filterModal} filter={filter} handleFilter={handleFilter} />}
                         </div>
                     </div>
                     <div className='mt-5 p-0 pb-3 md:p-10 flex items-center justify-center h-[50vh] md:h-[55vh]'>
