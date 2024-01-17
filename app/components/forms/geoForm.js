@@ -22,7 +22,7 @@ const GeofenceForm = ({ onSaveText }) => {
                         <label className="text-greydark text-sm pb-1 font-semibold">Distance <span className="text-redColor">*</span></label>
                         <div className='flex'>
                             <DocInput type={"text"} placeholder={"Enter Distance..."} className={"h-[40px] rounded-tr-none rounded-br-none"} />
-                            <DocButton className={"rounded-tl-none rounded-bl-none rounded-tr rounded-br text-white !bg-primary"} text={"m"}/>
+                            <DocButton className={"rounded-tl-none rounded-bl-none rounded-tr rounded-br text-white !bg-primary"} text={"m"} />
                         </div>
                     </div>
                 </div>
@@ -40,13 +40,10 @@ const GeofenceForm = ({ onSaveText }) => {
                         <label className="text-greydark text-sm pb-1 font-semibold">Cordinates <span className="text-redColor">*</span></label>
 
                         <div className='flex flex-col gap-4'>
-                            <div className='flex justify-between md:flex-row flex-col gap-4 flex-wrap h-28 overflow-y-scroll'>
-                                <CordinatesTaker />
-                                <CordinatesTaker />
-                                <CordinatesTaker />
-                                <CordinatesTaker />
-                                <CordinatesTaker />
-                                <CordinatesTaker />
+                            <div className='flex justify-between md:flex-row flex-col gap-4 flex-wrap '>
+                                {Array.from({ length: 6 }).map((_, index) => {
+                                    return <CordinatesTaker key={index} item={index + 1} />
+                                })}
                             </div>
                         </div>
 

@@ -79,7 +79,7 @@ const AddDevice = () => {
         <>
         <ProtectedRoute allowedRoles={[{role:"user",roleType:""}]}>
             <Header />
-            <div className='w-full h-[calc(100vh-60px)] overflow-y-scroll no-scrollbar flex flex-col justify-center items-center bg-[#F7F7F7]'>
+            <div className='w-full h-[calc(100vh-60px)] overflow-y-scroll no-scrollbar flex flex-col items-center bg-[#F7F7F7]'>
                 <div className="w-[97%] sm:w-[70%] flex items-end mt:0 sm:mt-10">
                     <HeadContent
                         mainHeading="Add Device"
@@ -105,7 +105,7 @@ const AddDevice = () => {
                                                     : eachInputs.type === "datePicker" ?
                                                         <DocDatePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
                                                         : eachInputs.type === "timePicker" ?
-                                                            <DocTimePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
+                                                            <DocTimePicker placeholder={eachInputs?.placeholder} onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
                                                             :
                                                             <DocInput value={eachInputs.value || trackerData[eachInputs.key]} onChange={(value) => handleFieldChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
                                             }

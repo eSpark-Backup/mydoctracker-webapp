@@ -15,7 +15,7 @@ const LocationDetails = ({ active }) => {
             {locationToRender.map(({ id, title, startDate, endDate, hours, km, battery })=>{
                 return(
                     <div className='flex flex-col 2xl:flex-row items-start justify-between p-6 border-[#E4E4E4] border-b-[1px]' key={id}>
-                        <div className='w-[25%] flex flex-row'>
+                        <div className='w-[25%] pr-2 flex flex-row'>
                             <div className='text-black text-sm mr-1'>{endDate}</div>
                             <Image className='border-[#002F49] border-[1px] rounded-full p-[3px]' src='/icons/location.svg' width={25} height={25} alt='location-image' />
                         </div>

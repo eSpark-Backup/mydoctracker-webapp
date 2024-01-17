@@ -83,7 +83,7 @@ const EditDoc = () => {
                                                     : eachInputs.type === "datePicker" ?
                                                         <DocDatePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
                                                         : eachInputs.type === "timePicker" ?
-                                                            <DocTimePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
+                                                            <DocTimePicker placeholder={eachInputs?.placeholder} onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
                                                             :
                                                             <DocInput value={eachInputs.value || editDocData[eachInputs.key]} onChange={(value) => handleFieldChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
                                             }

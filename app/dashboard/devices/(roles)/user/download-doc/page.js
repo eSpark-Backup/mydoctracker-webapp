@@ -17,13 +17,13 @@ const DownloadDoc = () => {
                 <h6 className='text-black font-semibold text-lg sm:text-xl'>History</h6>
             </div>
 
-            <div className='flex flex-col md:flex-row gap-4 h-[100%]'>
+            <div className='flex flex-col md:flex-row gap-8 h-[100%]'>
               
               <div className='w-[100%] md:w-[35%] border-[#E4E4E4] border-r-0 md:border-r-2 h=[100%] lg:h-[70vh]'>
                 <div className='h-[80%] no-scrollbar overflow-y-scroll'>
                 {documentsHistoryData.map(({title, createdAt, savedBy, type}, index)=>{
                   return(
-                    <div className='px-8 py-6 border-[#E4E4E4] border-b-2' key={index}>
+                    <div className='px-8 pl-10 py-6 border-[#E4E4E4] border-b-2' key={index}>
                      <div className='flex flex-row justify-between items-center'>
                        <p className='text-[#002F49] font-semibold text-sm'>{type}</p>
                        <p className='text-[#666666] font-semibold text-[10px]'>{createdAt}</p>

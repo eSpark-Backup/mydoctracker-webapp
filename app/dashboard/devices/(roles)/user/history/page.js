@@ -27,14 +27,14 @@ const History = ({ admin }) => {
         <h6 className='text-black font-semibold text-lg sm:text-xl'>Location History</h6>
       </div>}
 
-            <div className='flex flex-col md:flex-row gap-4 h-[100%]'>
+            <div className='flex flex-col lg:flex-row gap-4 h-[100%]'>
 
-              <div className='history relative tabs-image w-[100%] md:w-[30%] border-[#E4E4E4] border-r-0 md:border-r-2 h=[100%]'>
+              <div className='history relative tabs-image w-[100%] lg:w-[30%] border-[#E4E4E4] border-r-0 lg:border-r-2 h=[100%]'>
                 <Tabs centered defaultActiveKey="1" items={tabs} />
                 {/* <Image className='absolute top-4 right-4 hidden lg:block' src="/icons/tabs-Image.svg" width={35} height={35} alt="tabs-image" /> */}
               </div>
 
-              <div className='w-[100%] md:w-[70%] py-5 md:py-10 px-3 md:px-3'>
+              <div className='w-[100%] lg:w-[70%] py-5 lg:py-10 px-3 lg:px-3'>
                 <div className='flex flex-col gap-2 lg:flex-row items-center lg:items-start justify-around'>
                     <div className='w-[100%] lg:w-fit'>
                       <div className='text-[#002F49] font-bold text-[16px]'>Time</div>
