@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
 import { useRouter } from 'next/navigation'
-import useLogin from '@/app/hooks/useLogin';
+import { useLogin } from '@/app/hooks/auth';
 
 const SingleUserSignIn = () => {
   const [loading, setLoading] = useState(false)
@@ -18,11 +18,14 @@ const SingleUserSignIn = () => {
   const { mutate: login } = useLogin();
 
   const onFinish = (values) => {
-    login(values)
     setLoading(true);
-    dispatch(authSignIn(values));
-    console.log('Success:', values);
-    setLoading(false);
+    login(values, {
+      onSuccess: (loginSuccess) => {
+        dispatch(authSignIn(loginSuccess.data));
+        setLoading(false);
+      }
+    })
+    // Let's check redux and update next steps
   };
 
   useEffect(() => {
