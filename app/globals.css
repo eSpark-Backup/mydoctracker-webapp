@@ -104,13 +104,13 @@
 
 .manage-tabs .ant-tabs-tab-btn {
   color: #424242;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 400;
 }
 
 .manage-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #424242 !important;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -428,6 +428,21 @@ li.ant-pagination-next.ant-pagination-disabled button {
 }
 .css-1u9des2-indicatorSeparator{
   display: none;
+}
+
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-tabs-large >.ant-tabs-nav .ant-tabs-tab{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.customize-flex{
+  flex-direction: column !important;
+}
+
+@media screen and (min-width:1110px){
+  .customize-flex{
+    flex-direction: row !important;
+  }
 }
 
 

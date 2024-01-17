@@ -103,19 +103,20 @@ const AddEmployee = () => {
         />
         </div>
         {steps === 1 ?
-        <div className='overflow-y-auto no-scrollbar flex flex-col gap-12 w-[100%] drop-shadow-lg rounded-lg h-[65vh] bg-white my-4 p-10'>
+        <div className='overflow-y-auto no-scrollbar flex flex-col gap-12 w-[100%] drop-shadow-lg rounded-lg h-[65vh] bg-white my-4 p-4 md:p-10'>
             {form.map((section, index)=>{
                 return(
                     <div key={index}>
-                        <div className='flex flex-row items-center justify-between'>
+                        <div className='flex flex-row items-center justify-between flex-wrap'>
                             <h2 className='text-black font-medium text-xl'>{section.title}</h2>
                             {section.buttonText && <DocButton onClick={()=>setAddFieldModal(section.title)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md !bg-primary text-white h-[100%] px-4 w-[150px]"} text={section.buttonText} />}
                         </div>
-                        <div className='mt-3 gap-y-2 sm:gap-y-4'>
-                            <div className="grid grid-cols-3 gap-4">
+                        <div className='flex gap-5 sm:gap-x-14 flex-col sm:flex-row flex-wrap'>
+                            {/* <div className="w-100% :w-[30%] flex flex-col"> */}
                                 {section.inputs.map((input, index)=>{
                                     return(
-                                        <div className='flex flex-col' key={index}>
+                                        <div className="md:w-[30%] sm:w-[100%]">
+                                            <div className='flex flex-col' key={index}>
                                             <label className="text-greydark text-sm mb-1 inline-block">{input.label} {input.required ? <span className='text-[#FF0000]'>*</span> : <span>(Optional)</span> }</label>
                                             {input.type === "select" ?
                                                 <DocDropdown onChange={(e) => handleForm(input.key, e.value)} className={"w-[100%]"} options={input.options} placeholder={input.placeholder} />
@@ -129,9 +130,10 @@ const AddEmployee = () => {
                                                 <DocInput value={input.value || addEmployeeForm[input.key]} onChange={(value) => handleForm(input.key, value)} type={input.type === "textNumber" ? "number" : "text"} placeholder={input.placeholder} className={"h-[40px]"} />
                                             }
                                         </div>
+                                        </div>
                                     )
                                 })}
-                            </div>
+                            {/* </div> */}
                         </div>
                     </div>
                 )

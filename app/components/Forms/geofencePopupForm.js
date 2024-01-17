@@ -57,9 +57,9 @@ const GeofencePopupForm = ({ handleCancel, edit }) => {
                     <TrackingMap containerStyle={containerStyleSm} />
                 </div>
 
-                <div className="flex flex-wrap justify-end gap-5">
-                    <DocButton onClick={handleCancel} text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary min-w-[125px]"} />
-                    <DocButton text={"Submit"} className={"text-white min-w-[125px]"} />
+                <div className="flex justify-end gap-1 md:gap-5">
+                    <DocButton onClick={handleCancel} text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary md:min-w-[125px] min-w-[105px]"} />
+                    <DocButton text={"Submit"} className={"text-white min-w-[105px] md:min-w-[125px]"} />
                 </div>
             </div>
         </div>
