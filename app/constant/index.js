@@ -1214,7 +1214,8 @@ export const employeeProfileSettings = [
 
 export const containerStyleMd = {
     width: '100%',
-    height: '550px'
+    height: '550px',
+    borderRadius: "10px"
   };
   
 export const containerStyleSm = {
