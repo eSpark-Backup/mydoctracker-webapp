@@ -28,7 +28,7 @@ const ProfileSettings = () => {
                 />
             </div>
             <div className='bg-white w-full rounded-lg shadow-lg sm:p-8 p-2 mt-4 '>
-                <Tabs size='large' defaultActiveKey="1" items={profileSettingTabs} />
+                <Tabs size='large' defaultActiveKey="1" items={profileSettingTabs} className="specific-tabs" />
             </div>
         </div>
 

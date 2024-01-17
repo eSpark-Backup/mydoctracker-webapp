@@ -682,7 +682,7 @@ export const packagePlans = [
     },
     {
         id: 3,
-        planName: "Vip",
+        planName: "VIP",
         planType: "C",
         price: "29 99",
         details: [
@@ -1006,7 +1006,7 @@ export const accountSettingChangePass = [
             },
             {
                 label: "Confirm Password",
-                placeholder: "Type old password",
+                placeholder: "Type new password",
                 required: false,
                 key: "confirmPassword",
                 type: "password"

@@ -71,7 +71,7 @@ const Admin = () => {
                             <DocButton onClick={() => setOpenModal(true)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md !bg-primary text-white h-[100%] px-4 w-4/12 md:w-6/12"} text="Add" />
                         </div>
                     </div>
-                    <div className='mt-5 p-0 md:p-10 flex items-center justify-center h-[50vh] md:h-[55vh]'>
+                    <div className='mt-5 p-0 md:p-10 flex items-center justify-center h-[50vh] md:h-[55vh] no-scrollbar'>
                         <Table
                             data={data}
                             columns={columns({ gotoDetail, handleSwitch })}
