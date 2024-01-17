@@ -56,7 +56,7 @@ const Header = ({ showDrawer }) => {
                         {role === "admin" &&
                         <>
                         <Link href={"/dashboard/admin/pricing-plan"}>
-                            <DocButton text={"Pricing plan"} className={"text-white !bg-primary !text-[12px] md:!text-[15px] lg:w-[160px] hidden md:block"} />
+                            <DocButton text={"Pricing plan"} className={"text-white !bg-primary !text-[12px] md:!text-[15px] lg:w-[160px]"} />
                         </Link>
                         <Badge count={1}>
                             <Popover

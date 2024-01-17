@@ -20,7 +20,7 @@ const DocumnetHistory = () => {
                                 <div className='flex flex-row justify-between items-center mt-2'>
                                     <div className='cursor-pointer'>
                                         <p className='text-[#424242] font-semibold text-base'>{title}</p>
-                                        <p className='text-[#666666] text-sm'>Saved by: {savedBy}</p>
+                                        <p className='text-[#666666] text-xs'>Saved by: {savedBy}</p>
                                     </div>
                                     <Image className='cursor-pointer' src="/icons/vertical-ellipse.svg" width={20} height={20} alt="vertical-ellipse" />
                                 </div>
@@ -29,9 +29,9 @@ const DocumnetHistory = () => {
                     })}
                 </div>
 
-                <div className='w-[100%] md:w-[70%] py-5 md:py-10 px-3 md:px-3'>
+                <div className='w-[100%] md:w-[70%] py-0 md:py-0 px-3 md:px-6'>
                     <div className='flex flex-col lg:flex-row gap-5'>
-                        <div className='lg:w-[35%] mx-2'>
+                        <div className='lg:w-[35%] ml-6'>
                             <div className='flex flex-col gap-4'>
                                 <div className=" flex flex-col">
                                     <label className="text-[#666] text-sm pb-1">Title:</label>
