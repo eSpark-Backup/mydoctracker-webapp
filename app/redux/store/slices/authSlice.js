@@ -6,6 +6,7 @@ import { deleteCookie, setCookie } from "cookies-next";
 const initialState = {
     role: "", // admin / user / employee /
     roleType: "", // basic / default / admin  FOR EMPLOYEE
+    User: {}
 };
 
 export const authSlice = createSlice({
@@ -16,7 +17,7 @@ export const authSlice = createSlice({
             state.role = action.payload;
         },
         authSignIn: (state, action) => {
-            const { username, password } = action.payload;
+            const { role, token } = action.payload;
             const userRoles = {
                 "admin": { password: "12345", role: "admin" },
                 "user": { password: "12345", role: "user" },
@@ -24,20 +25,23 @@ export const authSlice = createSlice({
                 "employee-basic": { password: "12345", role: "employee", roleType: "basic" },
                 "employee-admin": { password: "12345", role: "employee", roleType: "admin" },
             };
+            setCookie("logged", "true")
+            setCookie("role", role === "SU" ? "user" : "")
+            setCookie("token", token)
+            state.User = action.payload;
+            state.role = role === "SU" ? "user" : "";
 
-            if (userRoles[username]?.password === password) {
-                setCookie("logged", "true")
-                setCookie("role", userRoles[username].role)
-                setCookie("roleType", userRoles[username].roleType)
-                state.role = userRoles[username].role;
-                state.roleType = userRoles[username].roleType;
-            }
-            else {
-                deleteCookie("logged")
-                deleteCookie("role")
-                state.role = "";
-                state.roleType = "";
-            }
+            // setCookie("roleType", userRoles[username].roleType)
+
+            // if (userRoles[username]?.password === password) {
+            //     state.roleType = userRoles[username].roleType;
+            // }
+            // else {
+            //     deleteCookie("logged")
+            //     deleteCookie("role")
+            //     state.role = "";
+            //     state.roleType = "";
+            // }
         },
         authSignOut: (state) => {
             deleteCookie("logged")
