@@ -1219,7 +1219,8 @@ export const containerStyleMd = {
   
 export const containerStyleSm = {
     width: '100%',
-    height: '305px'
+    height: '305px',
+    borderRadius: "10px"
   };
 
   export const notebookDetails = [
