@@ -1,16 +1,18 @@
+"use client"
 import { Checkbox, Col, Form, Input, Row } from 'antd';
 import React from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
 import Link from 'next/link';
+import { useSignup } from '@/app/hooks/auth';
 
 const SingleUserSignup = () => {
   const [form] = Form.useForm();
-
-
-
+  const { mutate: signUp } = useSignup();
 
   const onFinish = (values) => {
+    signUp(values)
+    // next steps could be integrate
     console.log(values, "SingleUserForm");
   };
 
@@ -93,7 +95,7 @@ const SingleUserSignup = () => {
                 labelCol={{ span: 24 }}
                 style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please Enter Contact No." }, 
+                rules={[{ required: true, message: "Please Enter Contact No." },
                ]}
               >
                 <DocInput type={"tel"} placeholder="Contact number"
@@ -139,7 +141,7 @@ const SingleUserSignup = () => {
 
             <Col span={24}>
               <Form.Item
-                name="agreement"
+                name="rememberMe"
                 valuePropName="checked"
                 rules={[
                   { validator: (_, value) => value ? Promise.resolve() : Promise.reject('Please accept the terms and conditions') },

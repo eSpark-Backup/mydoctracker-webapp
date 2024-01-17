@@ -14,6 +14,7 @@ module.exports = {
         "greydark": "var(--text-color-dark)",
         "greyBorder": "var(--border-color)",
         "redColor": "var(--text-color-red)",
+        "textPrimary":"var(--text-color-primary)"
       },
       height: {
         'calc-vh-sign': 'calc(100vh - 15vh)',

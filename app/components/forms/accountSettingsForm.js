@@ -11,6 +11,7 @@ import DocTimePicker from '../common/docTimePicker'
 import DocDropdown from '../common/docDropdown'
 import { PlusOutlined } from "@ant-design/icons";
 import { getProps } from '@/app/utils'
+import { useUpdateProfile, useChangePassword } from '@/app/hooks/auth'
 
 
 const AccountSettingsForm = () => {
@@ -23,6 +24,8 @@ const AccountSettingsForm = () => {
         newPassword: "",
         confirmPassword: ""
     })
+    const { mutate: updateProfile } = useUpdateProfile();
+    const { mutate: changePassword } = useChangePassword();
 
     const handleAccountSettingChange = (field, value) => {
         setAccountSetting({
@@ -32,6 +35,17 @@ const AccountSettingsForm = () => {
     }
 
     const successSubmit = () => {
+        updateProfile({
+            firstName: accountSetting.firstName,
+            lastName: accountSetting.lastName,
+            email: accountSetting.email,
+            contact: accountSetting.contact,
+            profilePicture: ""
+        })
+        changePassword({
+            oldPassword: accountSetting.oldPassword,
+            newPassword: accountSetting.newPassword
+        })
         console.log(accountSetting);
     }
 
@@ -69,7 +83,7 @@ const AccountSettingsForm = () => {
                 ))}
             </div>
             {accountSettingChangePass?.map((section, index) => (
-                <React.Fragment  key={index}>
+                <React.Fragment key={index}>
                     <div className={section?.buttonText ? "flex justify-between flex-wrap mt-3" : ""}>
                         <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{section?.heading}</h2>
                         {section?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={section?.buttonText} className={"text-white rounded-lg"} />}
