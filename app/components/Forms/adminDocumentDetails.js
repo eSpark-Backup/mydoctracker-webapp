@@ -6,7 +6,7 @@ import Image from 'next/image'
 const AdminDocumentDetails = () => {
     return (
         <div>
-            <div className='w-[100%] md:w-[100%] py-5 md:py-10 px-3 md:px-3 md:max-h-[490px] overflow-y-scroll'>
+            <div className='w-[100%] md:w-[100%] py-5 md:py-0 px-3 md:px-3 md:max-h-[490px] overflow-y-scroll no-scrollbar'>
                 <div className='flex flex-col lg:flex-row gap-5'>
                     <div className='lg:w-[35%] mx-2'>
                         <div className='flex flex-col gap-4'>
@@ -32,7 +32,7 @@ const AdminDocumentDetails = () => {
                         <div className='flex justify-center'>
                             <Image
                                 src="/Images/docImage.svg"
-                                className='lg:w-[40%] w-[40%]'
+                                className='md:w-[60%] w-[100%]'
                                 width={500}
                                 height={200}
                                 style={{ height: "200px !important" }}

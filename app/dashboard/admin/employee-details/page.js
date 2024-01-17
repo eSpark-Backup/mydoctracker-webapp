@@ -68,7 +68,7 @@ const EmployeDetail = () => {
                         <DocButton onClick={handleSettings} prefix={<SettingOutlined className='mr-3' />} className={"bg-transparent text-primary font-medium"} text={"Settings"} />
                     </div>
                     <div className='min-h-[64vh] hidden md:block bg-white rounded-md shadow-md p-5 mb-3'>
-                        <Tabs tabBarExtraContent={operations} size='large' defaultActiveKey="1" items={items} />
+                        <Tabs tabBarExtraContent={operations} size='large' defaultActiveKey="1" items={items} className="specific-tabs" />
                     </div>
                     <div className='min-h-[64vh] block md:hidden bg-white rounded-md shadow-md p-5 mb-3'>
                         <Tabs size='large' defaultActiveKey="1" items={items} />

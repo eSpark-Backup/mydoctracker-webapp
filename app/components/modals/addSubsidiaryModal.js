@@ -15,7 +15,7 @@ const AddSubsidiaryModal = ({ showModal, onCancel, onSuccess }) => {
         closable={false}
     >
         <div className="h-100 p-10 flex justify-center items-center flex-col gap-7">
-          <h3 className="w-2/3 text-2xl text-center font-semibold">Add Subsidiary</h3>
+          <h3 className="w-2/3 text-2xl text-center font-semibold text-primary">Add Subsidiary</h3>
           <div className='w-[100%]'>
                 <div className='flex flex-col'>
                     <label className="text-greydark text-sm mb-1 inline-block">Please enter name of your subsidiary:</label>

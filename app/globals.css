@@ -419,6 +419,18 @@ li.ant-pagination-next.ant-pagination-disabled button {
   justify-content: center;
   align-items: center;
 }
+
+.specific-tabs .ant-tabs-nav-list {
+  margin-left: 40px;
+}
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-badge .ant-scroll-number{
+  border-radius: 2px;
+}
+.css-1u9des2-indicatorSeparator{
+  display: none;
+}
+
+
 /* .ant-select-selection__placeholder{
   color : blue !important;
 } */

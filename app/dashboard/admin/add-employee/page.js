@@ -96,7 +96,7 @@ const AddEmployee = () => {
   return (
     <>
     <div>
-        <div className="w-[100%] sm:w-[75%] flex items-end mt:0 sm:mt-10">
+        <div className="w-[100%] sm:w-[100%] flex items-end mt:0 sm:mt-10">
         <HeadContent
             mainHeading="Add Employee"
             paragraph="Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie "
@@ -159,7 +159,7 @@ const AddEmployee = () => {
         <div className='overflow-y-auto no-scrollbar flex flex-col gap-12 w-[100%] drop-shadow-lg rounded-lg h-[65vh] bg-white my-4 p-10'>
             <div>
                 <h3 className='sm:text-xl text-base font-medium'>Geofence Settings</h3>
-                <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p className='text-xs mt-4 text-[#434343]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div className='w-[82vw] lg:w-2/4 sm:w-[45vw] flex justify-between min-h-[70px]'>
                 <div className='w-[40%] flex justify-between items-center border-2 border-greyBorder p-3 cursor-pointer' onClick={()=>setIsEditEmployeeModalOpen(true)}>
@@ -180,7 +180,7 @@ const AddEmployee = () => {
             </div>
             <div>
                 <h3 className='sm:text-xl text-base font-medium'>Time Interval Settings</h3>
-                <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p className='text-xs mt-4 text-[#434343]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div className='w-[85vw] lg:w-2/4 sm:w-[45vw] flex justify-between'>
                 <p className='text-sm'>Idle state interval</p>
@@ -191,7 +191,7 @@ const AddEmployee = () => {
                 <DocDropdown onChange={(value) => handleForm('mobileStateInterval', value.value)} className={"w-40"} options={[{ label: '5 mins', value: '5' }, { label: '10 mins', value: '10' }]} placeholder={"5 mins"} />
             </div>
             <div className='flex flex-row items-center gap-5'>
-                <DocButton onClick={() => setSteps(1)} text={"Back"} className={"w-[150px] bg-transparent border-2 border-grey"} />
+                <DocButton onClick={() => setSteps(1)} text={"Cancel"} className={"w-[150px] bg-transparent text-secondary border-2 border-secondary"} />
                 <DocButton onClick={() => handleSubmit(addEmployeeForm, successSubmit)} text={"Submit"} className={"w-[150px] text-white"} />
             </div>
         </div>
