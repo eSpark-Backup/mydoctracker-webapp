@@ -13,7 +13,7 @@ import ProtectedRoute from '@/app/utils/protectedRoutes';
 
 const Admin = () => {
     const router = useRouter();
-    const options = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
+    const options = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' },{ label: 'Group 3', value: 'Group 3' },{ label: 'Group 4', value: 'Group 4' },{ label: 'Group 5', value: 'Group 5' }]
     const [data, setData] = useState([...allUsers])
     const [openModal, setOpenModal] = useState(false)
     const [openSubsidiaryModal, setOpenSubsidiaryModal] = useState(false)
@@ -54,7 +54,7 @@ const Admin = () => {
     return (
         <ProtectedRoute allowedRoles={[{role:"admin",roleType:""}]}>
         <div>
-            <div className="w-[100%] sm:w-[75%] flex items-end mt:0 sm:mt-10">
+            <div className="w-[100%] sm:w-[100%] flex items-end mt:0 sm:mt-10">
                 <HeadContent
                     mainHeading="Admin Panel"
                     paragraph="Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie "
@@ -63,9 +63,9 @@ const Admin = () => {
             <div className="w-[100%] drop-shadow-lg rounded-lg h-[65vh] bg-white my-4 p-3 md:p-8">
                 <div>
                     <div className='flex flex-col md:flex-row items-start bd:items-center justify-between gap-3 w-[94%] m-auto'>
-                        <SearchBar handleChange={(value) => handleFilter('search', value)} className='!w-[100%] md:!w-[300px]' placeholder="Search by employee name" />
+                        <SearchBar handleChange={(value) => handleFilter('search', value)} className='!w-[100%] sm:mr- md:!w-[300px]' placeholder="Search by name or tracker ID..." />
                         <div className='relative flex flex-row items-center justify-start md:justify-center gap-1 md:gap-3'>
-                            <DocDropdown onChange={(value) => handleFilter('select', value.value)} className={"w-[100%] md:w-40"} options={options} placeholder="Group 1" />
+                            <DocDropdown onChange={(value) => handleFilter('select', value.value)} className={"w-[100%] md:w-40"} options={options} placeholder="Select group" />
                                 <Image className='cursor-pointer' onClick={()=>setOpenRadioFilterModal(!openRadioFilterModal)} src="/icons/tabs-Image.svg" width={40} height={40} alt="tabs-image" />
                                 {openRadioFilterModal && <RadioFilterPopup forwardedRef={filterModal} filter={filter} handleFilter={handleFilter} />}
                             <DocButton onClick={() => setOpenModal(true)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md !bg-primary text-white h-[100%] px-4 w-4/12 md:w-6/12"} text="Add" />

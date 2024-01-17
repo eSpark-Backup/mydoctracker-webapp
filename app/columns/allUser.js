@@ -14,7 +14,7 @@ export const columns = ({ gotoDetail, handleSwitch }) => {
         return(
             <div onClick={() => gotoDetail(data.id)} className='cursor-pointer flex flex-row items-center justify-center gap-5'>
                 <Image src={data.image} width={30} height={30} alt="user"/>
-                <div style={{ color: '#1677ff' }}>{value}</div>
+                <div style={{ color: '#126FAA' }}>{value}</div>
             </div>
         )
     }},
@@ -23,7 +23,7 @@ export const columns = ({ gotoDetail, handleSwitch }) => {
     { width: 200, resizable : false, field: "requests", sortable: false },
     { width: 200, resizable : false, field: "location", sortable: false, cellRenderer: ({value})=>{
         return(
-            <a className='underline' href={value} alt="location" target='_blank'>View</a>
+            <a className='underline text-[#126FAA]' href={value} alt="location" target='_blank' >View</a>
         )
     }},
     { width: 198, resizable : false, field: "status", sortable: false, cellRenderer: ({value,data})=>{

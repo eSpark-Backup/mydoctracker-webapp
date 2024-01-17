@@ -52,11 +52,11 @@ const Header = ({ showDrawer }) => {
                 </div>
 
                 <div className="relative">
-                    <div className="flex justify-end items-center py-3 gap-4 cursor-pointer">
+                    <div className="flex justify-end items-center py-3 gap-4">
                         {role === "admin" &&
                         <>
                         <Link href={"/dashboard/admin/pricing-plan"}>
-                            <DocButton text={"Pricing plan"} className={"text-white !bg-primary !text-[12px] md:!text-[15px]"} />
+                            <DocButton text={"Pricing plan"} className={"text-white !bg-primary !text-[12px] md:!text-[15px] lg:w-[160px] hidden md:block"} />
                         </Link>
                         <Badge count={1}>
                             <Popover

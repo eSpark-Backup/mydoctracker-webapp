@@ -20,7 +20,7 @@ const CorporateSignIn = () => {
           <Row gutter={[0, 0]}>
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Company Email</span>}
+                label={<span className='text-greydark text-xs font-medium'>Company Email</span>}
                 name="companyEmail"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
@@ -37,7 +37,7 @@ const CorporateSignIn = () => {
             </Col>
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Admin Email</span>}
+                label={<span className='text-greydark text-xs font-medium'>Admin Email</span>}
                 name="adminEmail"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
@@ -54,7 +54,7 @@ const CorporateSignIn = () => {
 
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Password</span>}
+                label={<span className='text-greydark text-xs font-medium'>Password</span>}
                 name="password"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
