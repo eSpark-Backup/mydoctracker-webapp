@@ -9,12 +9,12 @@ import { DocButton, FieldView } from '@/app/components'
 const ViewRequest = ({ showUser, showDocument }) => {
     
     return (
-        <div className={!showUser && !showDocument ? 'lg:w-2/3 md:w-2/4 md:block max-h-[85vh] lg:overflow-y-hidden overflow-y-scroll hidden' : 'lg:w-2/3 md:w-2/4 md:block overflow-y-auto lg:overflow-y-hidden max-h-[85vh] w-[100%]'}>
+        <div className={!showUser && !showDocument ? 'lg:w-2/3 md:w-2/4 md:block max-h-[80vh] lg:overflow-y-hidden overflow-y-scroll hidden' : 'lg:w-2/3 md:w-2/4 md:block overflow-y-auto lg:overflow-y-hidden max-h-[85vh] w-[100%]'}>
             {!showUser && !showDocument ? <div className='w-[100%] h-[90%] flex justify-center items-center'>
                 <h2 className='text-base text-greydark text-center'>To view the request please select it from the request panel.</h2>
             </div> :
                 showUser ?
-                    <div className='w-[100%] h-[90%]'>
+                    <div className='w-[100%] h-[100%] overflow-y-scroll no-scrollbar pb-12'>
                         <div className='flex justify-center items-center flex-col gap-3'>
                             <p className='text-greydark text-sm md:text-base font-medium mt-3'>Request to update the document</p>
                             <div className='flex gap-3'>
@@ -22,7 +22,7 @@ const ViewRequest = ({ showUser, showDocument }) => {
                                 <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md"} />
                             </div>
                         </div>
-                        <div className='flex gap-10 pl-6 md:pl-10 mb-3 mt-4'>
+                        <div className='flex gap-2 pl-3 md:pl-10 mb-3 mt-4'>
                             <Image src={"/icons/userAvatar.svg"} width={85} height={85} alt='User' />
                             <div>
                                 <h2 className='text-black text-sm md:text-base font-medium'>Alex Dave</h2>
@@ -47,7 +47,7 @@ const ViewRequest = ({ showUser, showDocument }) => {
                             ))}
                         </div>
 
-                    </div> : showDocument ? <div className='w-[100%] h-[90%]'>
+                    </div> : showDocument ? <div className='w-[100%] h-[100%] overflow-y-scroll no-scrollbar pb-12'>
                         <div className='flex justify-center items-center flex-col gap-3'>
                             <p className='text-greydark text-sm md:text-base font-medium mt-3'>Request to update the document</p>
                             <div className='flex gap-3'>
@@ -55,7 +55,7 @@ const ViewRequest = ({ showUser, showDocument }) => {
                                 <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md"} />
                             </div>
                         </div>
-                        <div className='flex gap-10 pl-6 md:pl-10 mb-3 mt-4'>
+                        <div className='flex gap-2 pl-3 md:pl-10 mb-3 mt-4'>
                             <Image src={"/icons/userAvatar.svg"} width={85} height={85} alt='User' />
                             <div>
                                 <h2 className='text-black text-sm md:text-base font-medium'>Alex Dave</h2>

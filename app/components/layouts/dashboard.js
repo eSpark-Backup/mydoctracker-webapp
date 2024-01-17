@@ -52,13 +52,13 @@ const Dashboard = ({ noDevices }) => {
                   {eachDevice?.heading}
                 </h1>
               </Link>
-              <h1>
+              <h1 className="!text-lg">
                 {eachDevice?.status === "Active" ? (
-                  <Badge color="#0DFF25" text={eachDevice?.status} />
+                  <Badge color="#0DFF25" text={eachDevice?.status} className="!text-lg" />
                 ) : eachDevice?.status === "Disable" ? (
-                  <Badge color="#FFCE00" text={eachDevice?.status} />
+                  <Badge color="#FFCE00" text={eachDevice?.status} className="!text-lg" />
                 ) : (
-                  <Badge color="#666" text={eachDevice?.status} />
+                  <Badge color="#666" text={eachDevice?.status} className="!text-lg" />
                 )}
               </h1>
             </div>
@@ -67,8 +67,8 @@ const Dashboard = ({ noDevices }) => {
                 <h3 className="text-[14px] sm:text-base">
                   {eachDevice?.name}
                 </h3>
-                <p className="text-[12px] text-greydark">{eachDevice?.date}</p>
-                <p className="text-[12px] text-greydark">{eachDevice?.battery}</p>
+                <p className="text-[14px] text-greydark">{eachDevice?.date}</p>
+                <p className="text-[14px] text-greydark">{eachDevice?.battery}</p>
               </div>
               {role !== "employee" && <div onClick={() => setIsModalOpen(true)}>
                 <Image

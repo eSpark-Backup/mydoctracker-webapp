@@ -14,18 +14,20 @@ const AdminDocumentDetails = () => {
                                 <label className="text-[#666] text-sm pb-1">Title:</label>
                                 <FieldView text={"My Note Book"} />
                             </div>
-                            <div className=" flex flex-col">
-                                <label className="text-[#666] text-sm pb-1">Location:</label>
-                                <FieldView text={"Under the bed"} />
-                            </div>
                             <div className="  flex flex-col">
                                 <label className="text-[#666] text-sm pb-1">Date:</label>
                                 <FieldView text={"3/10/2022"} />
                             </div>
                             <div className="  flex flex-col">
-                                <label className="text-[#666] text-sm pb-1">Time Of Creation </label>
+                                <label className="text-[#666] text-sm pb-1">Time</label>
                                 <FieldView text={"1:30 PM"} />
                             </div>
+                            <div className=" flex flex-col">
+                                <label className="text-[#666] text-sm pb-1">Location:</label>
+                                <FieldView text={"Under the bed"} />
+                            </div>
+                            
+                            
                         </div>
                     </div>
                     <div className='lg:w-[65%]'>

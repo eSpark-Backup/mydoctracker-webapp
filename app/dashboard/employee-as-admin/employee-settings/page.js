@@ -1,6 +1,6 @@
 "use client";
 
-import { NotificationSettings } from '@/app/components';
+import { NavigatorHeader, NotificationSettings } from '@/app/components';
 import DocumnetHistory from '@/app/components/common/documnetHistory';
 import GeofenceSettings from '@/app/components/common/geofenceSettings';
 import ManagementList from '@/app/components/common/management';
@@ -14,34 +14,37 @@ const EmployeeSettings = () => {
         {
             key: '1',
             label: 'Tracker Settings',
-            children:<GeofenceSettings/>
+            children: <GeofenceSettings />
         },
         {
             key: '2',
             label: 'Document History',
-            children:<DocumnetHistory/>
+            children: <DocumnetHistory />
         },
         {
             key: '3',
             label: 'Notifications',
-            children:<NotificationSettings/>
+            children: <NotificationSettings />
         },
         {
             key: '4',
             label: 'Shared Location',
-            children:<ManagementList type={"location"} hideSearchBar={true} data={employeeData}/>
+            children: <ManagementList type={"location"} hideSearchBar={true} data={employeeData} />
         },
         {
             key: '5',
             label: 'Location History',
-            children:<History admin={true}/>
+            children: <History admin={true} />
         },
- 
+
     ];
     return (
-        <div className='min-h-[75vh] mt-8 bg-white rounded-lg px-2 sm:px-8 py-3 shadow-md border-1 border-greyBorder'>
-            <Tabs size='large' tabBarGutter={40} defaultActiveKey="1" items={profileSettingTabs} />
-        </div>
+        <>
+            <NavigatorHeader previousPage={["Subordinates", "Employee Credentials"]} currentPage="Employee Settings" />
+            <div className='min-h-[75vh] mt-8 bg-white rounded-lg px-2 sm:px-8 py-3 shadow-md border-1 border-greyBorder'>
+                <Tabs size='large' tabBarGutter={40} defaultActiveKey="1" items={profileSettingTabs} />
+            </div>
+        </>
     )
 }
 

@@ -461,3 +461,7 @@ li.ant-pagination-next.ant-pagination-disabled button {
 .ant-pagination li {
   margin-inline-end: 2px !important;
 }
+
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-badge.ant-badge-status .ant-badge-status-text{
+  font-size: 18px !important;
+}

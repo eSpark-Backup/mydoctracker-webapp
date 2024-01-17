@@ -6,8 +6,8 @@ import { DocButton } from '@/app/components'
 
 const RequestPanel = ({ toggleShowUser, toggleShowDocument, showUser, showDocument, toggleApprove }) => {
     return (
-        <div className={showDocument || showUser ? `lg:w-1/3 md:w-2/4 md:flex hidden w-[100%] max-h-[85vh] overflow-y-scroll no-scrollbar flex-col pt-3 items-center border-2 border-r-greyBorder` : `lg:w-1/3 md:w-2/4 w-[100%] max-h-[85vh] overflow-y-scroll no-scrollbar flex flex-col pt-3 items-center border-2 border-r-greyBorder`}>
-            <div className='h-[40px] flex justify-center'>
+        <div className={showDocument || showUser ? `lg:w-1/3 md:w-2/4 md:flex hidden w-[100%] max-h-[85vh] overflow-y-scroll no-scrollbar flex-col pt-3 items-center border-r-2 border-greyBorder` : `lg:w-1/3 md:w-2/4 w-[100%] max-h-[85vh] overflow-y-scroll no-scrollbar flex flex-col pt-3 items-center border-r-2 border-greyBorder`}>
+            <div className='h-[40px] justify-center hidden md:flex'>
                 <DocButton text={"Today"} className={" w-[100px] text-primary text-xs font-normal border-2 border-greyBorder px-10 bg-white"} />
             </div>
 
@@ -33,7 +33,7 @@ const RequestPanel = ({ toggleShowUser, toggleShowDocument, showUser, showDocume
                     <hr className='mt-2 w-4/5 mx-auto' />
                 </div>
             ))}
-            <div className='h-[40px] flex justify-center'>
+            <div className='h-[40px] hidden md:flex justify-center'>
                 <DocButton text={"Yesterday"} className={"bg-white w-[100px] text-primary text-xs font-normal border-2 border-greyBorder px-10"} />
             </div>
             <div className='w-full p-3'>

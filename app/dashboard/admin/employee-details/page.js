@@ -58,8 +58,9 @@ const EmployeDetail = () => {
 
                             ))}
                         </div>
-                        <div className='pr-9'>
-                            <Image src={"/icons/copyLinear.svg"} className='cursor-pointer' alt='Copy' width={48} height={40} />
+                        <div className='pr-2 md:pr-9 cursor-pointer' onClick={handleCopy}>
+                            <Image src={"/icons/copyLinear.svg"} alt='Copy' width={48} height={40} />
+                            <p className='transition-all duration-500 ease-in-out text-greydark text-normal font-medium pl-2'>{copy}</p>
                         </div>
                     </div>
                 </div>
