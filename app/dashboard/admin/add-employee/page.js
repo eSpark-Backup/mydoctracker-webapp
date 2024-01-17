@@ -115,8 +115,8 @@ const AddEmployee = () => {
                             {/* <div className="w-100% :w-[30%] flex flex-col"> */}
                                 {section.inputs.map((input, index)=>{
                                     return(
-                                        <div className="md:w-[30%] sm:w-[100%]">
-                                            <div className='flex flex-col' key={index}>
+                                        <div className="md:w-[30%] sm:w-[100%]" key={index}>
+                                            <div className='flex flex-col'>
                                             <label className="text-greydark text-sm mb-1 inline-block">{input.label} {input.required ? <span className='text-[#FF0000]'>*</span> : <span>(Optional)</span> }</label>
                                             {input.type === "select" ?
                                                 <DocDropdown onChange={(e) => handleForm(input.key, e.value)} className={"w-[100%]"} options={input.options} placeholder={input.placeholder} />
