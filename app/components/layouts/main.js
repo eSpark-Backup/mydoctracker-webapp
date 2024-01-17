@@ -29,7 +29,7 @@ const Main = ({ children }) => {
                         <MobileDrawer open={open} showDrawer={showDrawer} onClose={onClose} />
                         <Header showDrawer={showDrawer} />
                         <div className="flex flex-col overflow-y-scroll no-scrollbar h-[calc(100vh-60px)] p-3 !pb-0 bg-[#F7F7F7]">
-                            <div className="w-[100%] overflow-y-scroll no-scrollbar mx-auto sm:w-[85%] h-[98%] p-3">
+                            <div className="w-[100%] overflow-y-scroll no-scrollbar mx-auto sm:w-[90%] h-[98%] p-3">
                                 {children}
                             </div>
                         </div>

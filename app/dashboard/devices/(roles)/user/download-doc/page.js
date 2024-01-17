@@ -4,6 +4,7 @@ import { FieldView, NavigatorHeader } from '@/app/components'
 import React from 'react'
 import Image from 'next/image'
 import { documentsHistoryData } from '@/app/constant'
+import { Pagination } from 'antd'
 
 
 
@@ -18,7 +19,8 @@ const DownloadDoc = () => {
 
             <div className='flex flex-col md:flex-row gap-4 h-[100%]'>
               
-              <div className='w-[100%] md:w-[30%] border-[#E4E4E4] border-r-0 md:border-r-2 h=[100%] lg:h-[70vh] no-scrollbar overflow-y-scroll'>
+              <div className='w-[100%] md:w-[35%] border-[#E4E4E4] border-r-0 md:border-r-2 h=[100%] lg:h-[70vh]'>
+                <div className='h-[80%] no-scrollbar overflow-y-scroll'>
                 {documentsHistoryData.map(({title, createdAt, savedBy, type}, index)=>{
                   return(
                     <div className='px-8 py-6 border-[#E4E4E4] border-b-2' key={index}>
@@ -29,7 +31,7 @@ const DownloadDoc = () => {
                      <div className='flex flex-row justify-between items-center mt-2'>
                       <div className='cursor-pointer'>
                         <p className='text-[#424242] font-semibold text-base'>{title}</p>
-                        <p className='text-[#666666] text-sm'>Saved by: {savedBy}</p>
+                        <p className='text-[#666666] text-[10px]'>Saved by: {savedBy}</p>
                       </div>
                       <Image className='cursor-pointer' src="/icons/vertical-ellipse.svg" width={20} height={20} alt="vertical-ellipse" />
                      </div>
@@ -37,8 +39,12 @@ const DownloadDoc = () => {
                   )
                 })}
               </div>
+              <div className='h-[20%] flex items-center justify-center p-2'>
+                <Pagination size={{ xs: "medium", md: "small" }} siblingCount={2} boundaryCount={2} current={1} onChange={(e) => console.log(e)} total={50} />
+              </div>
+              </div>
 
-              <div className='w-[100%] md:w-[70%] py-5 md:py-10 px-3 md:px-3'>
+              <div className='w-[100%] md:w-[65%] py-5 md:py-10 px-3 md:px-3'>
                 <div className='flex flex-col lg:flex-row gap-5'>
                 <div className='lg:w-[35%] mx-2'>
                     <div className='flex flex-col gap-4'>
@@ -55,7 +61,7 @@ const DownloadDoc = () => {
                             <FieldView text={"3/10/2022"} />
                         </div>
                         <div className="  flex flex-col">
-                            <label className="text-[#666] text-sm pb-1">Time Of Creation </label>
+                            <label className="text-[#666] text-sm pb-1">Time:</label>
                             <FieldView text={"1:30 PM"} />
                         </div>
                     </div>

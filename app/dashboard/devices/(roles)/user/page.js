@@ -13,7 +13,7 @@ const User = () => {
     return (
         <>
             <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 px-3 py-7 flex-col">
-                <h6 className='text-black font-semibold text-sm sm:text-xl pb-5'>My Note Book</h6>
+                <h6 className='text-black text-center lg:text-left font-semibold text-sm sm:text-xl pb-5'>My Note Book</h6>
                 {/* <NoteBookDetails /> */}
                 <div>
                     <div className='flex justify-between flex-wrap'>
@@ -31,9 +31,9 @@ const User = () => {
             </div>
 
             <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 px-3 py-7 flex-col">
-                <div className='flex flex-wrap justify-center'>
-                    {filteredInfo.map((item, index)=>{
-                        return <InfoCard key={item.id} title={item.title} description={item.description} icon={item.icon} leftBorder={index !== 0} mdwidth={item.mdWidth} buttonTitle={item.buttonTitle} buttonLink={item.buttonLink} />
+                <div className='flex flex-col md:flex-row justify-center'>
+                    {filteredInfo.map((item, index) => {
+                        return <InfoCard length={filteredInfo.length} key={item.id} title={item.title} description={item.description} icon={item.icon} index={index} mdwidth={item.mdWidth} buttonTitle={item.buttonTitle} buttonLink={item.buttonLink} />
                     })}
                 </div>
             </div>

@@ -13,6 +13,7 @@ const DocDropdown = ({ options, className, placeholder, onChange }) => {
   return (
     <div>
       <Select
+        isSearchable={false}
         onChange={handleChange}
         placeholder={placeholder}
         options={options}
