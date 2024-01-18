@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
 import { useRouter } from 'next/navigation'
-import { useLogin } from '@/app/hooks/auth';
+// import { useLogin } from '@/app/hooks/auth';
 
 const SingleUserSignIn = () => {
   const [loading, setLoading] = useState(false)
@@ -15,16 +15,20 @@ const SingleUserSignIn = () => {
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const { role, roleType } = useSelector(state => state.auth)
-  const { mutate: login } = useLogin();
+  // const { mutate: login } = useLogin();
 
   const onFinish = (values) => {
     setLoading(true);
-    login(values, {
-      onSuccess: (loginSuccess) => {
-        dispatch(authSignIn(loginSuccess.data));
-        setLoading(false);
-      }
-    })
+    dispatch(authSignIn(values));
+    console.log('Success:', values);
+    setLoading(false);
+    // setLoading(true);
+    // login(values, {
+    //   onSuccess: (loginSuccess) => {
+    //     dispatch(authSignIn(loginSuccess.data));
+    //     setLoading(false);
+    //   }
+    // })
     // Let's check redux and update next steps
   };
 
@@ -47,7 +51,7 @@ const SingleUserSignIn = () => {
           <Row gutter={[0, 0]}>
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Username</span>}
+                label={<span className='text-greydark text-xs font-medium'>Username</span>}
                 name="username"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
@@ -62,7 +66,7 @@ const SingleUserSignIn = () => {
 
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Password</span>}
+                label={<span className='text-greydark text-xs font-medium'>Password</span>}
                 name="password"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
@@ -89,9 +93,9 @@ const SingleUserSignIn = () => {
                 ]}
                 wrapperCol={{ span: 24 }}
               >
-                <Checkbox >
+                <Checkbox className='auth-checkbox' >
                   <span className='text-[14px]'>
-                    I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <span className='text-primary  font-semibold'>Terms and conditions</span>
+                    I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <br/> <span className='text-primary  font-semibold'>Terms and conditions</span>
                   </span>
                 </Checkbox>
               </Form.Item>

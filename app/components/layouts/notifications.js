@@ -8,7 +8,7 @@ const Notifications = () => {
     <div className='h-[60vh] no-scrollbar overflow-y-scroll'>
       {Array.from({length: 10}).map((_, ind)=>{
         return(
-          <div key={ind} className='flex flex-row items-start justify-start w-[280px] sm:w-full p-2 gap-2'>
+          <div key={ind} className='flex flex-row items-start justify-start w-[280px] p-2 gap-2'>
             <div className='w-[15%]'>
               <Image src="/icons/dashboardDocument.svg" width={30} height={30} alt="avatar" />
             </div>

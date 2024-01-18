@@ -26,7 +26,7 @@ const Settings = () => {
 
     return (
         <>
-          <div className='bg-white w-full rounded-lg shadow-lg sm:p-8 p-2 mt-4 min-h-[800px]'>
+          <div className='ml bg-white w-full rounded-lg shadow-lg sm:p-8 p-2 mt-4 min-h-[800px]'>
             <Tabs size='large' defaultActiveKey="1" items={items} />
         </div>
         </>

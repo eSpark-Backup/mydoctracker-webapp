@@ -298,8 +298,8 @@ export const EmployeeMainRoutes = [
     {
         id: 2,
         title: "Subordinates",
-        icon: "dashboardProfileSetting.svg",
-        iconfill: "dashboardProfileSettingFill.svg",
+        icon: "dashboardSetting.svg",
+        iconfill: "dashboardSetting.svg",
         link: "/dashboard/employee-as-admin/subordinates"
     },
     {
@@ -682,7 +682,7 @@ export const packagePlans = [
     },
     {
         id: 3,
-        planName: "Vip",
+        planName: "VIP",
         planType: "C",
         price: "29 99",
         details: [
@@ -713,6 +713,20 @@ export const documentsHistoryData = [
     },
     {
         id: 3,
+        createdAt: "5:00 PM",
+        title: "Note Book",
+        savedBy: "Alex",
+        type: "Yesterday, February 11,2023"
+    },
+    {
+        id: 4,
+        createdAt: "5:00 PM",
+        title: "Note Book",
+        savedBy: "Alex",
+        type: "Yesterday, February 11,2023"
+    },
+    {
+        id: 5,
         createdAt: "5:00 PM",
         title: "Note Book",
         savedBy: "Alex",
@@ -1006,7 +1020,7 @@ export const accountSettingChangePass = [
             },
             {
                 label: "Confirm Password",
-                placeholder: "Type old password",
+                placeholder: "Type new password",
                 required: false,
                 key: "confirmPassword",
                 type: "password"

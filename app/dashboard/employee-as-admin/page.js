@@ -13,7 +13,7 @@ const EmployeeAsAdmin = () => {
                     paragraph="Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie "
                 />
             </div>
-            <div className="w-[100%] mx-auto sm:w-[75%] h-[100%]">
+            <div className="w-[100%] mx-auto h-[100%]">
                 <Dashboard noDevices={false} />
             </div>
         </ProtectedRoute>

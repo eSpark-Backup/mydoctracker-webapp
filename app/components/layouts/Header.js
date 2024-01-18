@@ -39,7 +39,7 @@ const Header = ({ showDrawer }) => {
 
     return (
         <>
-            <div className={`${role === "user" && !showDrawer ? 'justify-end' : 'justify-between'}  h-[60px] bg-[#FFF] flex items-center py-7 px-3`}>
+            <div style={{ boxShadow: "0px 0px 4px 0px #00000040" }} className={`${role === "user" && !showDrawer ? 'justify-end' : 'justify-between'} sticky h-[60px] bg-[#FFF] flex items-center py-7 px-3`}>
                 <div className="flex flex-row items-center justify-center gap-3">
                 {showDrawer && <div onClick={showDrawer} className="block xl:hidden">
                     <Image src={"/icons/headerhamBurger.svg"} width={50} height={50} alt="menu" />
@@ -52,11 +52,11 @@ const Header = ({ showDrawer }) => {
                 </div>
 
                 <div className="relative">
-                    <div className="flex justify-end items-center py-3 gap-4 cursor-pointer">
+                    <div className="flex justify-end items-center py-3 gap-4">
                         {role === "admin" &&
                         <>
                         <Link href={"/dashboard/admin/pricing-plan"}>
-                            <DocButton text={"Pricing plan"} className={"text-white !bg-primary !text-[12px] md:!text-[15px]"} />
+                            <DocButton text={"Pricing plan"} className={"text-white !bg-primary !text-[12px] md:!text-[15px] lg:w-[160px]"} />
                         </Link>
                         <Badge count={1}>
                             <Popover

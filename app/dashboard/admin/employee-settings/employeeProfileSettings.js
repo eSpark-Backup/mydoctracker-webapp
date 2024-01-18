@@ -38,7 +38,7 @@ const EmployeeProfileSettings = () => {
     const props = (key) => getProps(setEmployeeData, employeeData, key)
 
     return (
-        <div className='flex flex-col gap-4'>
+        <div className='flex flex-col gap-4 px-2 sm:px-8'>
             {employeeProfileSettings?.map((eachSection, index) => (
                 <>
                     <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
@@ -66,8 +66,8 @@ const EmployeeProfileSettings = () => {
                             ))}
                             <div className='min-w-[100%] lg:min-w-[30%] md:min-w-[40%] flex flex-col'>
                                 <label className="text-greydark text-sm pb-1">Employee Image</label>
-                                <div className='flex gap-3'>
-                                    <DocImgInput />
+                                <div className='flex gap-3 flex-wrap'>
+                                    <DocImgInput width={"150%"} className={"w-2/3"} />
                                     <Image src={"/icons/userAvatar.svg"} width={40} height={40} alt='User'/>
 
                                 </div>
@@ -83,19 +83,19 @@ const EmployeeProfileSettings = () => {
                 <div className='mt-4'>
                     <div className="w-100% lg:w-[30%] flex flex-col">
                         <label className="text-greydark text-sm">Old Password</label>
-                        <DocInput onChange={(value) => handleEmployeeDataChange("OldPass", value)} type={"password"} placeholder={"John"} className={"h-[40px]"} />
+                        <DocInput onChange={(value) => handleEmployeeDataChange("OldPass", value)} type={"password"} placeholder={"Type old password"} className={"h-[40px]"} />
                     </div>
                 </div>
                 <div className='mt-4'>
                     <div className="w-100% lg:w-[30%] flex flex-col">
                         <label className="text-greydark text-sm">New Password</label>
-                        <DocInput onChange={(value) => handleEmployeeDataChange("NewPass", value)} type={"password"} placeholder={"John"} className={"h-[40px]"} />
+                        <DocInput onChange={(value) => handleEmployeeDataChange("NewPass", value)} type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
                     </div>
                 </div>
                 <div className='mt-4'>
                     <div className="w-100% lg:w-[30%] flex flex-col">
                         <label className="text-greydark text-sm">Confirm Password</label>
-                        <DocInput onChange={(value) => handleEmployeeDataChange("ConfirmPass", value)} type={"password"} placeholder={"John"} className={"h-[40px]"} />
+                        <DocInput onChange={(value) => handleEmployeeDataChange("ConfirmPass", value)} type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
                     </div>
                 </div>
             </div>

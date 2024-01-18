@@ -18,7 +18,7 @@ const JoinTeamSignIn = () => {
           <Row gutter={[0, 0]}>
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Company Email</span>}
+                label={<span className='text-greydark text-xs font-medium'>Company Email</span>}
                 name="companyEmail"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
@@ -34,7 +34,7 @@ const JoinTeamSignIn = () => {
             </Col>
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Employee Username</span>}
+                label={<span className='text-greydark text-xs font-medium'>Employee Username</span>}
                 name="userName"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
@@ -49,7 +49,7 @@ const JoinTeamSignIn = () => {
 
             <Col span={24}>
               <Form.Item
-                label={<span className='text-grey'>Password</span>}
+                label={<span className='text-greydark text-xs font-medium'>Password</span>}
                 name="password"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
@@ -76,7 +76,7 @@ const JoinTeamSignIn = () => {
                 ]}
                 wrapperCol={{ span: 24 }}
               >
-                <Checkbox>
+                <Checkbox className='auth-checkbox'>
                   <span className='text-[14px]'>
                     I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <span className='text-primary  font-semibold'>Terms and conditions</span>
                   </span>

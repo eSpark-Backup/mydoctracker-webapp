@@ -28,13 +28,13 @@ const GeofenceSettings = () => {
     };
 
     return (
-        <div className='flex flex-col gap-8'>
+        <div className='flex flex-col gap-8 px-2 sm:px-8'>
             <div>
                 <h3 className='sm:text-xl text-base font-medium'>Geofence Settings</h3>
                 <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div className='flex-col flex gap-8'>
-                <div className='w-[85vw] lg:w-2/4 sm:w-[45vw] flex justify-between min-h-[70px]'>
+                <div className='w-[77vw] lg:w-2/4 sm:w-[45vw] flex justify-between min-h-[70px]'>
                     <div className='w-[40%] flex justify-between items-center border-2 border-greyBorder p-3 cursor-pointer' onClick={() => setIsModal2Open(true)}>
                         <div>
                             <p className='text-sm'>Room1</p>
@@ -55,11 +55,11 @@ const GeofenceSettings = () => {
                     <h3 className='sm:text-xl text-base font-medium'>Time Interval Settings</h3>
                     <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
-                <div className='w-[85vw] lg:w-2/4 sm:w-[45vw] flex justify-between'>
+                <div className='w-[77vw] lg:w-2/4 sm:w-[45vw] flex justify-between'>
                     <p className='text-sm'>Idle state interval</p>
                     <DocDropdown className={"w-40"} options={[{ label: '6 hours', value: '6' }, { label: '8 hours', value: '8' }]} placeholder={"6 hours"} />
                 </div>
-                <div className='w-[85vw] lg:w-2/4 sm:w-[45vw] flex justify-between'>
+                <div className='w-[77vw] lg:w-2/4 sm:w-[45vw] flex justify-between'>
                     <p className='text-sm'>Mobile state interval</p>
                     <DocDropdown className={"w-40"} options={[{ label: '5 mins', value: '5' }, { label: '10 mins', value: '10' }]} placeholder={"5 mins"} />
                 </div>

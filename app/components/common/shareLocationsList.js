@@ -20,10 +20,10 @@ const ShareLocationsList = ({data, handleFilter, options, setIsModalOpen}) => {
                     return (
                         <div className='flex flex-row items-center justify-between py-6 px-3 border-[#E4E4E4] border-b-[1px]' key={item.id}>
                             <div>
-                                <div className='text-black text-md font-semibold pb-2'>{item.name}</div>
+                                <div className='text-black text-[16px] font-semibold pb-2'>{item.name}</div>
                                 <div className='mt-1 text-greydark text-sm'>Employee ID: {item.employeeId}</div>
                             </div>
-                            <div onClick={()=>setIsModalOpen(true)} className='bg-primary p-3 rounded-lg cursor-pointer'><Image src='/icons/shareLocationArrow.svg' width={15} height={15} alt="delete" /></div>
+                            <div onClick={()=>setIsModalOpen(true)} className='bg-primary p-2 rounded-sm cursor-pointer'><Image src='/icons/shareLocationArrow.svg' width={20} height={20} alt="delete" /></div>
                         </div>
                     )
                 })}

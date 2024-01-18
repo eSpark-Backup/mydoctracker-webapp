@@ -7,13 +7,13 @@ import { Button, message, Upload } from 'antd';
 
 
 
-const DocImgInput = ({ placeholder, className, props }) => {
+const DocImgInput = ({ placeholder, className, width, props }) => {
 
   return (
 
     <>
-      <Upload accept='image/*' className={className} {...props}>
-        <Button size='large' icon={<UploadOutlined />}>Upload Image</Button>
+      <Upload accept='image/*' className={className} {...props} >
+        <Button size='large' icon={<UploadOutlined />} style={{ width: width }}>Upload Image</Button>
       </Upload>
     </>
   )

@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 const AdminEmployeeDetails = () => {
     return (
-        <div className='flex flex-col gap-3'>
+        <div className='flex flex-col gap-3 ml-3'>
             <div className="flex gap-5 sm:gap-x-14 flex-col sm:flex-row flex-wrap">
                 <div className="w-100% sm:w-[30%] flex flex-col">
                     <label className="text-greydark text-sm pb-1">First Name</label>
@@ -33,7 +33,7 @@ const AdminEmployeeDetails = () => {
                 <div className="w-100% sm:w-[30%] flex flex-col">
                     <div className='flex gap-1'>
                     <label className="text-greydark text-sm pb-1">Accessibility</label>
-                    <Image src={"/icons/Info.svg"} alt='Info' width={18} height={18}/>
+                    <Image src={"/icons/Info.svg"} alt='Info' width={18} height={18} title='It can be changed through account settings'/>
                     </div>
                     <FieldView text={"Default"}/>
                 </div>

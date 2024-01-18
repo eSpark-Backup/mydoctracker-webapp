@@ -96,26 +96,27 @@ const AddEmployee = () => {
   return (
     <>
     <div>
-        <div className="w-[100%] sm:w-[75%] flex items-end mt:0 sm:mt-10">
+        <div className="w-[100%] sm:w-[100%] flex items-end mt:0 sm:mt-10">
         <HeadContent
             mainHeading="Add Employee"
             paragraph="Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie "
         />
         </div>
         {steps === 1 ?
-        <div className='overflow-y-auto no-scrollbar flex flex-col gap-12 w-[100%] drop-shadow-lg rounded-lg h-[65vh] bg-white my-4 p-10'>
+        <div className='overflow-y-auto no-scrollbar flex flex-col gap-12 w-[100%] drop-shadow-lg rounded-lg h-[65vh] bg-white my-4 p-4 md:p-10'>
             {form.map((section, index)=>{
                 return(
                     <div key={index}>
-                        <div className='flex flex-row items-center justify-between'>
+                        <div className='flex flex-row items-center justify-between flex-wrap'>
                             <h2 className='text-black font-medium text-xl'>{section.title}</h2>
                             {section.buttonText && <DocButton onClick={()=>setAddFieldModal(section.title)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md !bg-primary text-white h-[100%] px-4 w-[150px]"} text={section.buttonText} />}
                         </div>
-                        <div className='mt-3 gap-y-2 sm:gap-y-4'>
-                            <div className="grid grid-cols-3 gap-4">
+                        <div className='flex gap-5 sm:gap-x-14 flex-col sm:flex-row flex-wrap'>
+                            {/* <div className="w-100% :w-[30%] flex flex-col"> */}
                                 {section.inputs.map((input, index)=>{
                                     return(
-                                        <div className='flex flex-col' key={index}>
+                                        <div className="lg:w-[30%] sm:w-[100%]" key={index}>
+                                            <div className='flex flex-col'>
                                             <label className="text-greydark text-sm mb-1 inline-block">{input.label} {input.required ? <span className='text-[#FF0000]'>*</span> : <span>(Optional)</span> }</label>
                                             {input.type === "select" ?
                                                 <DocDropdown onChange={(e) => handleForm(input.key, e.value)} className={"w-[100%]"} options={input.options} placeholder={input.placeholder} />
@@ -129,14 +130,15 @@ const AddEmployee = () => {
                                                 <DocInput value={input.value || addEmployeeForm[input.key]} onChange={(value) => handleForm(input.key, value)} type={input.type === "textNumber" ? "number" : "text"} placeholder={input.placeholder} className={"h-[40px]"} />
                                             }
                                         </div>
+                                        </div>
                                     )
                                 })}
-                            </div>
+                            {/* </div> */}
                         </div>
                     </div>
                 )
             })}
-            <div>
+            <div className='add-employee'>
                 <h2 className='text-black font-medium text-xl mb-4'>Accessibility</h2>
                 <Radio.Group onChange={(e) => handleForm('accessibility', e.target.value)}>
                    <Space direction="vertical">
@@ -159,7 +161,7 @@ const AddEmployee = () => {
         <div className='overflow-y-auto no-scrollbar flex flex-col gap-12 w-[100%] drop-shadow-lg rounded-lg h-[65vh] bg-white my-4 p-10'>
             <div>
                 <h3 className='sm:text-xl text-base font-medium'>Geofence Settings</h3>
-                <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p className='text-xs mt-4 text-[#434343]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div className='w-[82vw] lg:w-2/4 sm:w-[45vw] flex justify-between min-h-[70px]'>
                 <div className='w-[40%] flex justify-between items-center border-2 border-greyBorder p-3 cursor-pointer' onClick={()=>setIsEditEmployeeModalOpen(true)}>
@@ -180,7 +182,7 @@ const AddEmployee = () => {
             </div>
             <div>
                 <h3 className='sm:text-xl text-base font-medium'>Time Interval Settings</h3>
-                <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p className='text-xs mt-4 text-[#434343]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div className='w-[85vw] lg:w-2/4 sm:w-[45vw] flex justify-between'>
                 <p className='text-sm'>Idle state interval</p>
@@ -191,7 +193,7 @@ const AddEmployee = () => {
                 <DocDropdown onChange={(value) => handleForm('mobileStateInterval', value.value)} className={"w-40"} options={[{ label: '5 mins', value: '5' }, { label: '10 mins', value: '10' }]} placeholder={"5 mins"} />
             </div>
             <div className='flex flex-row items-center gap-5'>
-                <DocButton onClick={() => setSteps(1)} text={"Back"} className={"w-[150px] bg-transparent border-2 border-grey"} />
+                <DocButton onClick={() => setSteps(1)} text={"Cancel"} className={"w-[150px] bg-transparent text-secondary border-2 border-secondary"} />
                 <DocButton onClick={() => handleSubmit(addEmployeeForm, successSubmit)} text={"Submit"} className={"w-[150px] text-white"} />
             </div>
         </div>

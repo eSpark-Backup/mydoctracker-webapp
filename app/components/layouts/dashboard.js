@@ -70,7 +70,7 @@ const Dashboard = ({ noDevices }) => {
                 <p className="text-[12px] text-greydark">{eachDevice?.date}</p>
                 <p className="text-[12px] text-greydark">{eachDevice?.battery}</p>
               </div>
-              <div onClick={()=>setIsModalOpen(true)}>
+              {role !== "employee" && <div onClick={() => setIsModalOpen(true)}>
                 <Image
                   src="/icons/vertical-ellipse.svg"
                   width={40}
@@ -78,7 +78,7 @@ const Dashboard = ({ noDevices }) => {
                   style={{ cursor: "pointer" }}
                   alt="Ellipse"
                 />
-              </div>
+              </div>}
             </div>
           </div>
         ))}

@@ -4,7 +4,7 @@ const NotebookDetail = ({ field, value }) => {
     return (
         <div className='w-full lg:w-[30%] min-w-[250px] justify-between pb-3 lg:justify-start flex gap-5'>
 
-            <p className='text-grey font-semibold '>{field}</p>
+            <p className='text-[#666] text-[16px] font-semibold w-[115px]'>{field}</p>
 
 
             <p className='text-primary font-semibold '>{value}</p>

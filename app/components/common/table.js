@@ -16,7 +16,7 @@ const Table = ({ currentPage, handlePagination, data, columns }) => {
       <div className="ag-theme-quartz max-h-[500px] w-[100%] max-w-[1200px] overflow-y-auto !rounded-b-none" style={{ height: `${48 + 43 * data.length}px`}}>
         <AgGridReact rowData={data} columnDefs={columns} />
       </div>
-      <Pagination className='!mt-5' current={currentPage} onChange={onChange} total={data.length} />
+      <Pagination className='md:!mt-5 mt-3 mb-4' current={currentPage} onChange={onChange} total={data.length} />
     </div>
   )
 }

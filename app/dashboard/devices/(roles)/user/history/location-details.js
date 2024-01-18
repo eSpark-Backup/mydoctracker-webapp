@@ -14,14 +14,14 @@ const LocationDetails = ({ active }) => {
         <div className='border-[#E4E4E4] border-[1px] md:border-0 m-2 md:m-0 rounded-md flex flex-col items-between justify-between h-[50vh] lg:h-[60vh] no-scrollbar overflow-y-scroll'>
             {locationToRender.map(({ id, title, startDate, endDate, hours, km, battery })=>{
                 return(
-                    <div className='flex flex-col 2xl:flex-row items-start justify-between p-6 border-[#E4E4E4] border-b-[1px]' key={id}>
-                        <div className='w-[25%] flex flex-row'>
+                    <div className='flex flex-wrap items-start justify-start p-6 border-[#E4E4E4] border-b-[1px]' key={id}>
+                        <div className='pr-2 flex flex-row'>
                             <div className='text-black text-sm mr-1'>{endDate}</div>
                             <Image className='border-[#002F49] border-[1px] rounded-full p-[3px]' src='/icons/location.svg' width={25} height={25} alt='location-image' />
                         </div>
-                        <div className='flex flex-row w-[100%] 2xl:w-[75%] items-start justify-between'>
+                        <div className='flex flex-row items-start justify-between'>
                             <div>
-                                <div className='text-black text-sm'>{title}</div>
+                                <div className='text-black text-[12px]'>{title}</div>
                                 <div className='text-black text-[10px] mt-1'>Started at: {startDate}</div>
                                 <div className='flex flex-row mt-1 gap-1 items-center'>
                                     <div className='flex flex-row gap-1 items-center'>

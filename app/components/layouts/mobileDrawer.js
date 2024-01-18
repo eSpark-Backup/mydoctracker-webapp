@@ -19,7 +19,8 @@ const MobileDrawer = ({ open, onClose }) => {
                 <div className='min-h-screen bg-primary flex flex-col'>
 
                     <div onClick={onClose} className='flex justify-end pr-4 pt-4 text-white'>
-                        <CloseOutlined />
+                        {/* <CloseOutlined /> */}
+                        <Image src={"/icons/hamburger.svg"} alt='Menu' height={32} width={32}/>
                     </div>
                     <div className='flex flex-col justify-center items-center pb-10'>
                         <div className='py-5'>
