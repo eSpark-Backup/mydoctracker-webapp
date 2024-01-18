@@ -12,7 +12,7 @@ const NotificationSettings = () => {
   }
 
   return (
-    <div className='flex flex-col gap-4'>
+    <div className='flex flex-col gap-4 px-2 sm:px-8'>
     {settingNotfications.map((eachNotification, index) => (
         <div className='flex flex-col border-b-2 gap-4 px-3 py-6 border-greyBorder' key={index}>
             <div className='flex justify-between flex-wrap'>

@@ -7,7 +7,7 @@ import FieldView from './fieldView'
 const DocumnetHistory = () => {
     return (
         <div>
-            <div className='flex flex-col md:flex-row gap-4 h-[100%]'>
+            <div className='flex flex-col md:flex-row gap-4 h-[100%] px-2 sm:px-8'>
 
                 <div className='w-[100%] md:w-[30%] border-[#E4E4E4] border-r-0 md:border-r-2 h=[100%] lg:h-[70vh] no-scrollbar overflow-y-scroll'>
                     {documentsHistoryData.map(({ title, createdAt, savedBy, type }, index) => {

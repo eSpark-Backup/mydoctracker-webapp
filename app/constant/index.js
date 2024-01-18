@@ -187,8 +187,8 @@ export const featuresRight = [
     {
         id: 3,
         description: 'Time interval Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tem labore.',
-        icon: 'featureMoney.svg',
-        iconfill: 'featureMoneyFill.svg'
+        icon: 'batteryIcon.svg',
+        iconfill: 'batteryIconFilled.svg'
     },
 ]
 

@@ -38,7 +38,7 @@ const EmployeeProfileSettings = () => {
     const props = (key) => getProps(setEmployeeData, employeeData, key)
 
     return (
-        <div className='flex flex-col gap-4'>
+        <div className='flex flex-col gap-4 px-2 sm:px-8'>
             {employeeProfileSettings?.map((eachSection, index) => (
                 <>
                     <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>

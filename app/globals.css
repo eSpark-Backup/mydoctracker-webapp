@@ -11,7 +11,7 @@
   --text-color-dark: #666666;
   --border-color:#E4E4E4;
   --text-color-red:#ff0000;
-
+  --text-color-primary:#424242
 }
 
 *{
@@ -464,4 +464,84 @@ li.ant-pagination-next.ant-pagination-disabled button {
 
 :where(.css-dev-only-do-not-override-1c4zh4f).ant-badge.ant-badge-status .ant-badge-status-text{
   font-size: 18px !important;
+}
+.radio-modal :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner::after {
+  width: 22px;
+  height: 22px;
+  margin-block-start: -11px;
+  margin-inline-start: -11px;
+}
+
+.radio-modal :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner{
+  border-color: #FCBF4A;
+  background-color: #FFFFFF;
+}
+
+.radio-modal :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-checked::after {
+  border-color: #FCBF4A !important;
+}
+
+.radio-modal :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner::after{
+  background-color: #002F49;
+}
+
+.add-employee :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner::after {
+  width: 22px;
+  height: 22px;
+  margin-block-start: -11px;
+  margin-inline-start: -11px;
+}
+
+.add-employee :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner{
+  border: 4px solid #E4E4E4 !important;
+}
+
+.add-employee :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-checked::after {
+  border: 4px solid #E4E4E4 !important;
+}
+
+.add-employee :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner::after{
+  background-color: #002F49;
+}
+
+.auth-checkbox :where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox .ant-checkbox-inner {
+  border: 1px solid #002F49 !important;
+}
+
+.auth-checkbox :where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox-checked .ant-checkbox-inner {
+  border-color: #002F49;
+}
+
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox-checked .ant-checkbox-inner {
+  border-color: #E4E4E4;
+}
+
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox .ant-checkbox-inner {
+  background-color: #FFFFFF;
+}
+
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox-checked .ant-checkbox-inner:after {
+  border-color:#002F49 !important;
+  border-width: 1px !important;
+  top: 45% !important;
+}
+
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox-wrapper-checked:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner, :where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox-checked:not(.ant-checkbox-disabled):hover .ant-checkbox-inner{
+  background-color: #FFFFFF !important;
+}
+
+.employee-setting :where(.css-dev-only-do-not-override-1c4zh4f).ant-tabs >.ant-tabs-nav, :where(.css-dev-only-do-not-override-1c4zh4f).ant-tabs >div>.ant-tabs-nav {
+  padding: 0px 16px;
+}
+
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-tabs-top >.ant-tabs-nav .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-left::before, :where(.css-dev-only-do-not-override-1c4zh4f).ant-tabs-bottom >.ant-tabs-nav .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-left::before, :where(.css-dev-only-do-not-override-1c4zh4f).ant-tabs-top >div>.ant-tabs-nav .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-left::before, :where(.css-dev-only-do-not-override-1c4zh4f).ant-tabs-bottom >div>.ant-tabs-nav .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-left::before{
+  opacity: 0 !important;
+}
+
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-tabs-top >.ant-tabs-nav .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-right::after, :where(.css-dev-only-do-not-override-1c4zh4f).ant-tabs-bottom >.ant-tabs-nav .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-right::after, :where(.css-dev-only-do-not-override-1c4zh4f).ant-tabs-top >div>.ant-tabs-nav .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-right::after, :where(.css-dev-only-do-not-override-1c4zh4f).ant-tabs-bottom >div>.ant-tabs-nav .ant-tabs-nav-wrap.ant-tabs-nav-wrap-ping-right::after {
+  opacity: 0 !important;
+}
+
+.ant-tabs-nav-operations {
+  display: none !important;
 }

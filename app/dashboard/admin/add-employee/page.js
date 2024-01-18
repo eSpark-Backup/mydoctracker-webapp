@@ -115,7 +115,7 @@ const AddEmployee = () => {
                             {/* <div className="w-100% :w-[30%] flex flex-col"> */}
                                 {section.inputs.map((input, index)=>{
                                     return(
-                                        <div className="md:w-[30%] sm:w-[100%]" key={index}>
+                                        <div className="lg:w-[30%] sm:w-[100%]" key={index}>
                                             <div className='flex flex-col'>
                                             <label className="text-greydark text-sm mb-1 inline-block">{input.label} {input.required ? <span className='text-[#FF0000]'>*</span> : <span>(Optional)</span> }</label>
                                             {input.type === "select" ?
@@ -138,7 +138,7 @@ const AddEmployee = () => {
                     </div>
                 )
             })}
-            <div>
+            <div className='add-employee'>
                 <h2 className='text-black font-medium text-xl mb-4'>Accessibility</h2>
                 <Radio.Group onChange={(e) => handleForm('accessibility', e.target.value)}>
                    <Space direction="vertical">
