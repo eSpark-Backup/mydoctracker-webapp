@@ -3,10 +3,10 @@
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-const NavigatorHeader = ({previousPage, currentPage}) => {
+const NavigatorHeader = ({previousPage, currentPage, onClick}) => {
   const router = useRouter()
   return (
-    <div onClick={() => router.back()} className='cursor-pointer mt-4 flex flex-row items-center gap-1'>
+    <div onClick={onClick ? () => onClick() : () => router.back()} className='cursor-pointer mt-4 flex flex-row items-center gap-1'>
         {previousPage.map((page,index)=>{
         return(
           <div className='flex flex-row items-center gap-1' key={index}>

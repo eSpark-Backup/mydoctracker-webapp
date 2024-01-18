@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react'
 import { ArrowLeftOutlined } from "@ant-design/icons";
-import { RequestPanel, ViewRequest } from '@/app/components';
+import { NavigatorHeader, RequestPanel, ViewRequest } from '@/app/components';
 
 
 const Requests = () => {
@@ -31,11 +31,11 @@ const Requests = () => {
     }
     return (
         <div className='mt-5'>
-            {showUser || showDocument ? <button className='block md:hidden' onClick={Backhandler}>
-                <ArrowLeftOutlined style={{ fontSize: "25px", paddingBottom: "15px" }} />
+            {showUser || showDocument ? <button className='block md:hidden'>
+                <NavigatorHeader previousPage={["Request"]} currentPage="Update document" onClick={Backhandler} />
             </button> : null}
-            <h2 className='text-black text-2xl font-semibold'>Requests</h2>
-            <p className='text-greydark text-base font-normal mt-3'>Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie.</p>
+            {showUser || showDocument ? null : <><h2 className='text-black text-2xl font-semibold'>Requests</h2>
+            <p className='text-greydark text-base font-normal mt-3'>Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie.</p></>}
 
             <div className='h-[75vh] mt-3 bg-white rounded-lg shadow-md border-1 border-greyBorder flex'>
                 <RequestPanel toggleApprove={toggleApprove} toggleShowUser={toggleShowUser} toggleShowDocument={toggleShowDocument} showDocument={showDocument} showUser={showUser} />
