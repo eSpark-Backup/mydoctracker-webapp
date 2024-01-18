@@ -18,9 +18,21 @@ export const columns = ({ gotoDetail, handleSwitch }) => {
             </div>
         )
     }},
-    { width: 200, resizable : false, field: "trackerID", sortable: false },
-    { width: 200, resizable : false, field: "type", sortable: false },
-    { width: 200, resizable : false, field: "requests", sortable: false },
+    { width: 200, resizable : false, field: "trackerID", sortable: false, cellRenderer:({value,data})=>{
+        return(
+            <div style={{color:"#666666"}}>{value}</div>
+        )
+    } },
+    { width: 200, resizable : false, field: "type", sortable: false, cellRenderer:({value})=>{
+        return(
+            <div style={{color:"#666666"}}>{value}</div>
+        )
+    } },
+    { width: 200, resizable : false, field: "requests", sortable: false, cellRenderer:({value})=>{
+        return(
+            <div style={{color:"#666666"}}>{value}</div>
+        )
+    }  },
     { width: 200, resizable : false, field: "location", sortable: false, cellRenderer: ({value})=>{
         return(
             <a className='underline text-[#126FAA]' href={value} alt="location" target='_blank' >View</a>

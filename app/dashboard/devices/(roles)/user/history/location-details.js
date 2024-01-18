@@ -11,12 +11,12 @@ const LocationDetails = ({ active }) => {
   return (
     <div>
         <CalendarSlider />
-        <div className='border-[#E4E4E4] border-[1px] md:border-0 m-2 md:m-0 rounded-md flex flex-col items-between justify-between h-[50vh] lg:h-[60vh] no-scrollbar overflow-y-scroll'>
+        <div className='border-[#E4E4E4] border-[1px] md:border-0 m-2 md:m-0 rounded-md flex flex-col items-between justify-between h-[50vh] lg:h-[100%] no-scrollbar overflow-y-scroll'>
             {locationToRender.map(({ id, title, startDate, endDate, hours, km, battery })=>{
                 return(
                     <div className='flex flex-wrap items-start justify-start p-6 border-[#E4E4E4] border-b-[1px]' key={id}>
                         <div className='mr-2 flex flex-row items-center'>
-                            <div className='text-black mr-1 text-[12px]'>{endDate}</div>
+                            <div className='text-[#1E2541] mr-1 text-[12px]'>{endDate}</div>
                             <Image className='border-[#002F49] border-[1px] rounded-full p-[3px]' src='/icons/location.svg' width={25} height={25} alt='location-image' />
                         </div>
                         <div className='flex flex-row items-start justify-between'>

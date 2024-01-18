@@ -18,8 +18,8 @@ const ViewRequest = ({ showUser, showDocument }) => {
                         <div className='flex justify-center items-center flex-col gap-3'>
                             <p className='text-greydark text-sm md:text-base font-medium mt-3'>Request to update the document</p>
                             <div className='flex gap-3'>
-                                <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder"} />
-                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md"} />
+                                <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder w-24"} />
+                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md w-24"} />
                             </div>
                         </div>
                         <div className='flex gap-2 pl-3 md:pl-10 mb-3 mt-4'>
@@ -51,8 +51,8 @@ const ViewRequest = ({ showUser, showDocument }) => {
                         <div className='flex justify-center items-center flex-col gap-3'>
                             <p className='text-greydark text-sm md:text-base font-medium mt-3'>Request to update the document</p>
                             <div className='flex gap-3'>
-                                <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder"} />
-                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md"} />
+                                <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder w-24"} />
+                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md w-24"} />
                             </div>
                         </div>
                         <div className='flex gap-2 pl-3 md:pl-10 mb-3 mt-4'>

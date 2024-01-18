@@ -23,7 +23,7 @@ const ManagementList = ({ handleFilter, onDelete, type, data, hideSearchBar, sho
           return (
             <div className='flex flex-row items-center justify-between p-3 border-[#E4E4E4] border-b-[1px]' key={item.id}>
               <div>
-                <div className='text-black text-base  font-semibold'>{item.name}</div>
+                <div className='text-textPrimary text-base  font-semibold'>{item.name}</div>
                 <div className='mt-1 text-greydark text-sm'>{`${type === "employee" ? 'Location:' : 'Employees:'} ${type === "employee" ? item.location : item.noOFEmployees}`}</div>
                 {showNoOfDoc ? <div className='mt-1 text-greydark text-sm'>No. of documents: {item.documents}</div> : null}
                 <div className='mt-1 text-greydark text-sm'>{item.date}</div>

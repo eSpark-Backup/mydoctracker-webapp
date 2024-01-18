@@ -75,11 +75,11 @@
 }
 
 .ant-tabs-tab-btn {
-  color: #666666;
+  color: #424242;
 }
 
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: #666666 !important; 
+  color: #424242 !important; 
 }
 
 .history .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
@@ -88,6 +88,7 @@
 
 .history .ant-tabs-tab-btn{
   font-size: 16px !important;
+  color: var(--text-color-dark);
 }
 
 .plans-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
@@ -553,4 +554,11 @@ li.ant-pagination-next.ant-pagination-disabled button {
 
 .ant-tabs-nav-operations {
   display: none !important;
+}
+
+.ag-header-cell-text{
+  font-size: 16px;
+}
+.ag-ltr .ag-cell{
+  font-size: 12px;
 }

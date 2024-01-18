@@ -31,7 +31,7 @@ const History = ({ admin }) => {
 
               <div className='history relative tabs-image w-[100%] lg:w-[30%] border-[#E4E4E4] border-r-0 lg:border-r-2 h=[100%]'>
                 <Tabs centered defaultActiveKey="1" items={tabs} />
-                {/* <Image className='absolute top-4 right-4 hidden lg:block' src="/icons/tabs-Image.svg" width={35} height={35} alt="tabs-image" /> */}
+                <Image className='absolute top-4 right-4 block' src="/icons/tabs-Image.svg" width={35} height={35} alt="tabs-image" />
               </div>
 
               <div className='w-[100%] lg:w-[70%] py-5 lg:py-10 px-3 lg:px-3'>

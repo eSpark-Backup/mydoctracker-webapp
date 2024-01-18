@@ -66,7 +66,7 @@ const EmployeDetail = () => {
                 </div>
                 <div>
                     <div className='flex justify-end md:hidden mb-4'>
-                        <DocButton onClick={handleSettings} prefix={<SettingOutlined className='mr-3' />} className={"bg-transparent text-primary font-medium"} text={"Settings"} />
+                        <DocButton onClick={handleSettings} prefix={<SettingOutlined className='mr-3' />} className={"bg-transparent text-primary font-medium text-xl"} text={"Settings"} />
                     </div>
                     <div className='min-h-[64vh] hidden md:block bg-white rounded-md shadow-md p-5 mb-3'>
                         <Tabs tabBarExtraContent={operations} size='large' defaultActiveKey="1" items={items} className="specific-tabs" />

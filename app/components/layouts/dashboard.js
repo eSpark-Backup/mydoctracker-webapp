@@ -68,7 +68,7 @@ const Dashboard = ({ noDevices }) => {
                   {eachDevice?.name}
                 </h3>
                 <p className="text-[14px] text-greydark">{eachDevice?.date}</p>
-                <p className="text-[12px] text-greydark">{eachDevice?.battery}</p>
+                <p className="text-[14px] text-greydark">{eachDevice?.battery}</p>
               </div>
               {role !== "employee" && <div onClick={() => setIsModalOpen(true)}>
                 <Image

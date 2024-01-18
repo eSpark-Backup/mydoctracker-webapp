@@ -36,7 +36,7 @@ const SiderbarRoutes = ({ title, link, icon, onClose }) => {
                     <Image style={{ filter: active && 'brightness(0) saturate(100%) invert(14%) sepia(18%) saturate(4898%) hue-rotate(172deg) brightness(98%) contrast(100%)' }} src={`/icons/${icon}`} className='w-[30px]' width={50} height={50} alt='icon' />
                 </div>
                 <div>
-                    <h2 className={`text-sm ${active ? 'text-primary' : 'text-white'}`}>{title}</h2>
+                    <h2 className={`text-base ${active ? 'text-textPrimary' : 'text-white'}`}>{title}</h2>
                 </div>
             </div>
         </Link>

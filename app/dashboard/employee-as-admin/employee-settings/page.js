@@ -29,7 +29,7 @@ const EmployeeSettings = () => {
         {
             key: '4',
             label: 'Shared Location',
-            children: <ManagementList type={"location"} hideSearchBar={true} data={employeeData} />
+            children: <ManagementList type={"employee"} hideSearchBar={true} data={employeeData} />
         },
         {
             key: '5',
