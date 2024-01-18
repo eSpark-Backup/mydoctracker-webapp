@@ -25,7 +25,7 @@ const User = () => {
 
 
                 <div>
-                    <TrackingMap containerStyle={containerStyleSm} />
+                    <TrackingMap centerButton containerStyle={containerStyleSm} />
                 </div>
 
             </div>

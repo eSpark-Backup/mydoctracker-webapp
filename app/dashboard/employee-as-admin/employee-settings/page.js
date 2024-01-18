@@ -41,7 +41,7 @@ const EmployeeSettings = () => {
     return (
         <>
             <NavigatorHeader previousPage={["Subordinates", "Employee Credentials"]} currentPage="Employee Settings" />
-            <div className='min-h-[75vh] mt-8 bg-white rounded-lg px-2 sm:px-8 py-3 shadow-md border-1 border-greyBorder'>
+            <div className='min-h-[75vh] mt-8 bg-white rounded-lg employee-setting py-3 shadow-md border-1 border-greyBorder'>
                 <Tabs size='large' tabBarGutter={40} defaultActiveKey="1" items={profileSettingTabs} />
             </div>
         </>

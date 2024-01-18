@@ -13,7 +13,7 @@ const GeofenceForm = ({ onSaveText }) => {
         <div className='lg:w-10/12 w-full px-4 lg:px-0 py-4'>
 
             <div className='flex flex-col gap-5 lg:px-6'>
-                <div className='flex justify-between flex-col sm:flex-row'>
+                {/* <div className='flex justify-between flex-col sm:flex-row'> */}
                     <div className="flex flex-col sm:w-5/12 w-full">
                         <label className="text-greydark text-sm pb-1 font-semibold">Title <span className="text-redColor">*</span></label>
                         <DocInput type={"text"} placeholder={"Enter title..."} className={"h-[40px] "} />
@@ -25,7 +25,7 @@ const GeofenceForm = ({ onSaveText }) => {
                             <DocButton className={"rounded-tl-none rounded-bl-none rounded-tr rounded-br text-white !bg-primary"} text={"m"} />
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
 
                 <div>
                     <div className="flex flex-col w-full">
@@ -37,7 +37,7 @@ const GeofenceForm = ({ onSaveText }) => {
 
                 <div>
                     <div className="flex flex-col w-full">
-                        <label className="text-greydark text-sm pb-1 font-semibold">Cordinates <span className="text-redColor">*</span></label>
+                        <label className="text-greydark text-sm pb-1 font-semibold">Coordinates <span className="text-redColor">*</span></label>
 
                         <div className='flex flex-col gap-4'>
                             <div className='flex justify-between md:flex-row flex-col gap-4 flex-wrap '>
@@ -55,9 +55,9 @@ const GeofenceForm = ({ onSaveText }) => {
                     <TrackingMap containerStyle={containerStyleSm} />
                 </div>
 
-                <div className="flex justify-end gap-5">
-                    <Link href={"/dashboard/devices/user/geofence"}>
-                        <DocButton text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary min-w-[125px]"} />
+                <div className="flex justify-end flex-col sm:flex-row gap-5">
+                    <Link className='min-w-[125px]' href={"/dashboard/devices/user/geofence"}>
+                        <DocButton text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary w-[100%]"} />
                     </Link>
                     <DocButton text={onSaveText} className={"text-white min-w-[125px]"} />
                 </div>

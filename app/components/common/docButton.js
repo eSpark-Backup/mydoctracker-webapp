@@ -2,11 +2,12 @@
 import { Button } from 'antd';
 import React, { useState } from 'react';
 
-const DocButton = ({ disabled, className, text, onClick, prefix, suffix, loading }) => {
+const DocButton = ({ style, disabled, className, text, onClick, prefix, suffix, loading }) => {
 
 
   return (
     <button
+      style={style}
       loading={loading}
       disabled={disabled}
       onClick={onClick}

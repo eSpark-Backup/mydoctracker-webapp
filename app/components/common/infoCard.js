@@ -21,9 +21,9 @@ const InfoCard = ({ length, icon, title, description, index, buttonTitle, button
     };
     return (
         <div className={`${length > 2 ? "xl:w-4/12" : "xl:w-6/12"}   ${index === 0 ? "md:border-l-0" : "md:border-l-2"} ${index === length - 1 ? "border-b-0" : "border-b-2"} md:border-b-0  w-full flex flex-col items-center xl:px-3  px-0 py-6`}>
-            <div className='w-4/6 '>
+            <div className='w-[90%] '>
                 <div className='pb-4'>
-                    <div className='flex gap-2 items-center'>
+                    <div className='flex gap-2 items-center h-[60px]'>
                         <div>
                             <Image className='w-[44px]' src={`/icons/${icon}`} width={50} height={50} alt='Icon' />
                         </div>
@@ -32,7 +32,7 @@ const InfoCard = ({ length, icon, title, description, index, buttonTitle, button
                         </div>
                     </div>
                     <div>
-                        <p className='text-[#0A2431] py-3'>{description}</p>
+                        <p className='text-[#0A2431] py-3 h-[120px]'>{description}</p>
                     </div>
                 </div>
 

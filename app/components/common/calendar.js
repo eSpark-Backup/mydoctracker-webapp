@@ -48,7 +48,7 @@ const CalendarSlider = () => {
             onClick={() => setSelectedDate(new Date(date))}
           >
             <div className='text-center'>{date.toLocaleDateString(undefined, { weekday: 'short' })}</div>
-            <div className='text-center'>{date.toLocaleDateString(undefined, { day: 'numeric' })}</div>
+            <div className='text-center text-[12px]'>{date.toLocaleDateString(undefined, { day: 'numeric' })}</div>
           </div>
         ))}
       </Slider>

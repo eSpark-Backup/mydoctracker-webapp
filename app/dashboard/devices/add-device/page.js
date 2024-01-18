@@ -89,7 +89,7 @@ const AddDevice = () => {
                 <div className="w-[97%] sm:w-[70%] lg:min-h-[650px] overflow-y-scroll no-scrollbar gap-5 h-auto shadow-xl rounded-lg bg-white my-4 flex p-8 flex-col">
                     {userAddDeviceData?.map((eachSection, index) => (
                         <React.Fragment  key={index}>
-                            <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""}>
+                            <div className={eachSection?.buttonText ? "flex items-center justify-between flex-wrap mt-3" : ""}>
                                 <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{eachSection?.title}</h2>
                                 {eachSection?.buttonText && <DocButton onClick={()=>setAddFieldModal(eachSection.title)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white !bg-primary rounded-lg"} />}
                             </div>
@@ -101,7 +101,7 @@ const AddDevice = () => {
                                             {eachInputs.type === "select" ?
                                                 <DocDropdown onChange={(e) => handleFieldChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                                 : eachInputs.type === "uploadImage" ?
-                                                    <DocImgInput props={props(eachInputs.key)} />
+                                                    <DocImgInput width={220} props={props(eachInputs.key)} />
                                                     : eachInputs.type === "datePicker" ?
                                                         <DocDatePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
                                                         : eachInputs.type === "timePicker" ?

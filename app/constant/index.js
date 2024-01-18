@@ -187,8 +187,8 @@ export const featuresRight = [
     {
         id: 3,
         description: 'Time interval Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tem labore.',
-        icon: 'featureMoney.svg',
-        iconfill: 'featureMoneyFill.svg'
+        icon: 'batteryIcon.svg',
+        iconfill: 'batteryIconFilled.svg'
     },
 ]
 
@@ -1214,12 +1214,14 @@ export const employeeProfileSettings = [
 
 export const containerStyleMd = {
     width: '100%',
-    height: '550px'
+    height: '550px',
+    borderRadius: "10px"
   };
   
 export const containerStyleSm = {
     width: '100%',
-    height: '305px'
+    height: '305px',
+    borderRadius: "10px"
   };
 
   export const notebookDetails = [

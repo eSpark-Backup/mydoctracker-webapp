@@ -12,8 +12,8 @@ const DocImgInput = ({ placeholder, className, width, props }) => {
   return (
 
     <>
-      <Upload accept='image/*' className={className} {...props} >
-        <Button size='large' icon={<UploadOutlined />} style={{ width: width }}>Upload Image</Button>
+      <Upload accept='image/*' className={`${className} color-primary`} {...props} >
+        <Button size='large' icon={<UploadOutlined />} style={{ width, color: "#002F49", fontSize: "14px" }}>Upload Image</Button>
       </Upload>
     </>
   )
