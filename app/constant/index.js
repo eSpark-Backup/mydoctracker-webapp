@@ -492,6 +492,46 @@ export const locations = [
         battery: "2%",
         isActive: false
     },
+    {
+        id: 11,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: true
+    },
+    {
+        id: 12,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: false
+    },
+    {
+        id: 13,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: true
+    },
+    {
+        id: 14,
+        title: "Lorem ipsum dolor sit amet",
+        startDate: "8:00pm",
+        endDate: "9:00pm",
+        hours: "1",
+        km: "15",
+        battery: "2%",
+        isActive: false
+    },
 ]
 
 

@@ -11,7 +11,7 @@ const LocationDetails = ({ active }) => {
   return (
     <div>
         <CalendarSlider />
-        <div className='border-[#E4E4E4] border-[1px] md:border-0 m-2 md:m-0 rounded-md flex flex-col items-between justify-between h-[50vh] lg:h-[100%] no-scrollbar overflow-y-scroll'>
+        <div className='border-[#E4E4E4] border-[1px] md:border-0 m-2 md:m-0 rounded-md flex flex-col items-between justify-between h-[50vh] md:h-[70vh] 2xl:h-[60vh] no-scrollbar overflow-y-scroll'>
             {locationToRender.map(({ id, title, startDate, endDate, hours, km, battery })=>{
                 return(
                     <div className='flex flex-wrap items-start justify-start p-6 border-[#E4E4E4] border-b-[1px]' key={id}>
