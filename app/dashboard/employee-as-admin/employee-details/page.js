@@ -48,26 +48,6 @@ const EmployeDetail = () => {
         <div>
             <NavigatorHeader previousPage={["Subordinates"]} currentPage="Employee Credentials" />
             <div className='mt-5 flex flex-col gap-8'>
-                {/* <div className='h-[18vh] sm:px-8 px-4 py-5 bg-white rounded-md shadow-md flex items-center justify-between'>
-                    <div>
-                        <h2 className='text-black text-xl font-medium'>Employee Credentials</h2>
-                    <div className='sm:pl-10 pl-2 mt-5 flex justify-between'>
-                        <div className='flex flex-col gap-3'>
-                            {[1, 2].map((eachItem, index) => (
-                                <div className='flex justify-between gap-4' key={index}>
-                                    <p className='text-greydark text-base font-medium'>{eachItem === 1 ? "Username:" : "Password:"}</p>
-                                    <p className='text-primary text-base font-medium'>johndoe_123</p>
-                                </div>
-
-                            ))}
-                        </div>
-                        </div>
-                    </div>
-                    <div onClick={handleCopy} className='flex flex-col items-center justify-center cursor-pointer'>
-                        <Image src={"/icons/copyLinear.svg"} alt='Copy' width={48} height={40} />
-                        <p className='transition-all duration-500 ease-in-out text-greydark text-normal font-medium'>{copy}</p>
-                    </div>
-                </div> */}
                 <div className='h-[24vh] sm:px-8  py-5 bg-white rounded-md shadow-md'>
                     <div>
                         <h2 className='text-black text-xl font-medium'>Employee Credentials</h2>

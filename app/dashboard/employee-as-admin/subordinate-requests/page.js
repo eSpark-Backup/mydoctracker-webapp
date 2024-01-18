@@ -1,6 +1,6 @@
 "use client"
 
-import { RequestPanel, ViewRequest } from '@/app/components';
+import { NavigatorHeader, RequestPanel, ViewRequest } from '@/app/components';
 import React, { useState } from 'react'
 import { ArrowLeftOutlined } from "@ant-design/icons";
 
@@ -31,10 +31,10 @@ const SubordinateRequests = () => {
     }
     return (
         <div className='mt-5'>
-            {showUser || showDocument ? <button className='block md:hidden' onClick={Backhandler}>
-                <ArrowLeftOutlined style={{ fontSize: "25px", paddingBottom: "15px" }} />
+            {showUser || showDocument ? <button className='block md:hidden'>
+            <NavigatorHeader previousPage={["Request"]} currentPage="Update document" onClick={Backhandler} />
             </button> : null}
-            <h2 className='text-black text-2xl font-semibold'>Requests</h2>
+            {showUser || showDocument ?  null : <h2 className='text-black text-2xl font-semibold'>Requests</h2>}
             {showDocument || showUser ? null : <p className='text-greydark text-base font-normal mt-3'>Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie.</p>}
 
             <div className='h-[75vh] mt-6 bg-white rounded-lg shadow-md border-2 border-greyBorder flex'>

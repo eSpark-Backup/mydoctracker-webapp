@@ -2,7 +2,7 @@
 import { DocButton, NavigatorHeader } from '@/app/components'
 import { Button, Tabs } from 'antd'
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { SettingOutlined } from "@ant-design/icons"
 import AdminTrackerDetails from '@/app/components/Forms/adminTrackerDetails'
@@ -37,8 +37,13 @@ const EmployeDetail = () => {
         },
     ];
 
-
-
+    const [copy, setCopy] = useState("Copy")
+    const handleCopy = () => {
+        setCopy("Copied!")
+        setTimeout(() => {
+            setCopy("Copy")
+        }, 1000);
+    }
 
     return (
         <div>
