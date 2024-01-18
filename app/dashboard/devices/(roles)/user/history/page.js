@@ -1,10 +1,12 @@
 "use client"
 
+import React, {useState} from "react"
 import { Tabs } from 'antd';
 import Image from 'next/image';
 import LocationDetails from './location-details';
 import TrackingMap from '@/app/utils/TrackingMap';
 import { containerStyleMd } from '@/app/constant';
+import { DocDatePicker } from '@/app/components';
 
 const History = ({ admin }) => {
 
@@ -20,6 +22,12 @@ const History = ({ admin }) => {
       children: <LocationDetails />,
     },
 ];
+
+const [datePickerVisible, setDatePickerVisible] = useState(false);
+
+  const handleDatePickerOpen = () => {
+    setDatePickerVisible(!datePickerVisible);
+  };
        
   return (
     <div className={admin ? "w-[100%] flex flex-col" : "w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex flex-col"}>
@@ -31,7 +39,8 @@ const History = ({ admin }) => {
 
               <div className='history relative tabs-image w-[100%] lg:w-[30%] border-[#E4E4E4] border-r-0 lg:border-r-2 h=[100%]'>
                 <Tabs centered defaultActiveKey="1" items={tabs} />
-                <Image className='absolute top-4 right-4 block' src="/icons/tabs-Image.svg" width={35} height={35} alt="tabs-image" />
+                {!admin && <Image onClick={handleDatePickerOpen} className='absolute top-4 right-4 hidden lg:block' src="/icons/tabs-Image.svg" width={35} height={35} alt="tabs-image" />}
+                {datePickerVisible && <DocDatePicker open={true} className="absolute top-10 left-4 invisible w-0 h-0 translate-y-full" handleDatePickerOpen={handleDatePickerOpen} />}
               </div>
 
               <div className='w-[100%] lg:w-[70%] py-5 lg:py-10 px-3 lg:px-3'>
