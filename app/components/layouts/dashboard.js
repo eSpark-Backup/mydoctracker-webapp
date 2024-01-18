@@ -45,10 +45,10 @@ const Dashboard = ({ noDevices }) => {
         </>
       </div> : <div className="w-[100%] gap-6 min-h-[70vh] drop-shadow-lg rounded-lg bg-white my-4 flex py-12 items-center flex-col">
         {UserDevices?.map((eachDevice, key) => (
-          <div key={key} className="h-36 w-[90%]  border-b-2 border-greyBorder">
+          <div key={key} className="h-36 w-[100%] px-[20px] sm:px-0 sm:w-[90%]  border-b-2 border-greyBorder">
             <div className="flex gap-5">
-              <Link href={"/dashboard/devices/user"} >
-                <h1 className="text-[14px] sm:text-xl cursor-pointer">
+              <Link className="leading-7" href={"/dashboard/devices/user"} >
+                <h1 className="text-[14px] sm:text-[20px] cursor-pointer">
                   {eachDevice?.heading}
                 </h1>
               </Link>
@@ -63,11 +63,11 @@ const Dashboard = ({ noDevices }) => {
               </h1>
             </div>
             <div className="flex justify-between mt-5">
-              <div>
-                <h3 className="text-[14px] sm:text-base">
+              <div className="flex flex-col gap-2">
+                <h3 className="text-[14px] text-[#424242] sm:text-base">
                   {eachDevice?.name}
                 </h3>
-                <p className="text-[12px] text-greydark">{eachDevice?.date}</p>
+                <p className="text-[14px] text-greydark">{eachDevice?.date}</p>
                 <p className="text-[12px] text-greydark">{eachDevice?.battery}</p>
               </div>
               {role !== "employee" && <div onClick={() => setIsModalOpen(true)}>

@@ -75,11 +75,11 @@
 }
 
 .ant-tabs-tab-btn {
-  color: #424242;
+  color: #666666;
 }
 
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: #424242 !important; 
+  color: #666666 !important; 
 }
 
 .history .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
@@ -460,6 +460,18 @@ li.ant-pagination-next.ant-pagination-disabled button {
 
 .ant-pagination li {
   margin-inline-end: 2px !important;
+}
+
+.ant-btn-sm span {
+  color: #002F49;
+}
+
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-badge.ant-badge-status .ant-badge-status-text {
+  font-size: 18px !important;
+}
+
+.gmnoprint {
+  display: none !important;
 }
 
 .radio-modal :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner::after {

@@ -1214,12 +1214,14 @@ export const employeeProfileSettings = [
 
 export const containerStyleMd = {
     width: '100%',
-    height: '550px'
+    height: '550px',
+    borderRadius: "10px"
   };
   
 export const containerStyleSm = {
     width: '100%',
-    height: '305px'
+    height: '305px',
+    borderRadius: "10px"
   };
 
   export const notebookDetails = [
