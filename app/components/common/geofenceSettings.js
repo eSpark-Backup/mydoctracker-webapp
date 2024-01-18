@@ -28,7 +28,7 @@ const GeofenceSettings = () => {
     };
 
     return (
-        <div className='flex flex-col gap-8'>
+        <div className='flex flex-col gap-8 px-2 sm:px-8'>
             <div>
                 <h3 className='sm:text-xl text-base font-medium'>Geofence Settings</h3>
                 <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
