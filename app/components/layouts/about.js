@@ -11,8 +11,8 @@ const About = () => {
                     <Image src='/Images/safeDocument.svg' width={400} height={400} alt="icon" />
                 </div>
                 <div className='md:w-[60%] w-full'>
-                    <h2 className='text-3xl pb-5 font-bold text-primary text-center md:text-start'>Keep your documents safe with app!</h2>
-                    <p className='text-sm leading-8 xl:w-[80%] md:w-[100%] w-full pb-5 text-center md:text-start'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                    <h2 className='text-2xl lg:text-[32px] pb-5 font-bold text-primary text-center md:text-start'>Keep your documents safe with app!</h2>
+                    <p className='text-base lg:text-lg leading-8 xl:w-[80%] md:w-[100%] w-full pb-5 text-center md:text-start text-textPrimary'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.</p>
 
 
                     <div className='flex gap-5 md:text-start text-center xs:flex-row flex-row flex-wrap sm:justify-start justify-center'>

@@ -7,32 +7,42 @@ import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
 import { useRouter } from 'next/navigation'
+// import { useLogin } from '@/app/hooks/auth';
 
 const SingleUserSignIn = () => {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const [form] = Form.useForm();
   const dispatch = useDispatch();
-  const { role, roleType } = useSelector(state=>state.auth)
+  const { role, roleType } = useSelector(state => state.auth)
+  // const { mutate: login } = useLogin();
 
   const onFinish = (values) => {
     setLoading(true);
     dispatch(authSignIn(values));
     console.log('Success:', values);
     setLoading(false);
+    // setLoading(true);
+    // login(values, {
+    //   onSuccess: (loginSuccess) => {
+    //     dispatch(authSignIn(loginSuccess.data));
+    //     setLoading(false);
+    //   }
+    // })
+    // Let's check redux and update next steps
   };
 
-  useEffect(()=>{
-    if(role) {
-      if(role === "admin") {
+  useEffect(() => {
+    if (role) {
+      if (role === "admin") {
         router.push("/dashboard/admin")
-      } else if(role === "employee" && roleType === "admin") {
+      } else if (role === "employee" && roleType === "admin") {
         router.push("/dashboard/employee-as-admin")
       } else {
         router.push("/dashboard/devices")
       }
     }
-  },[role, roleType])
+  }, [role, roleType])
 
   return (
     <div className='flex flex-col justify-between h-full'>
@@ -83,7 +93,7 @@ const SingleUserSignIn = () => {
                 ]}
                 wrapperCol={{ span: 24 }}
               >
-                <Checkbox >
+                <Checkbox className='auth-checkbox' >
                   <span className='text-[14px]'>
                     I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <br/> <span className='text-primary  font-semibold'>Terms and conditions</span>
                   </span>
