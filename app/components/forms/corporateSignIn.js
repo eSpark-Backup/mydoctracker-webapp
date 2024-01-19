@@ -24,14 +24,14 @@ const CorporateSignIn = () => {
                 name="companyEmail"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                 rules={[{ required: true, message: "Please Enter Company Email" },
-                  { type: 'email', message: 'Please enter valid email' } 
-              ]}
-                
+                rules={[{ required: true, message: "Please Enter Company Email" },
+                { type: 'email', message: 'Please enter valid email' }
+                ]}
+
               >
                 <DocInput type={"email"} placeholder="Enter Company Email"
                   onChange={(value) => form.setFieldsValue({ companyEmail: value })}
-                  
+
                 />
               </Form.Item>
             </Col>
@@ -42,8 +42,8 @@ const CorporateSignIn = () => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please enter User Name" },
-                { type: 'email', message: 'Please enter valid email' } 
-              ]}
+                { type: 'email', message: 'Please enter valid email' }
+                ]}
               >
                 <DocInput type={"email"} placeholder="Enter User name"
                   onChange={(value) => form.setFieldsValue({ adminEmail: value })}
@@ -68,7 +68,8 @@ const CorporateSignIn = () => {
             </Col>
 
             <Col span={24} className='pb-4'>
-              <span className='text-grey font-semibold'> Forgot Password? </span>
+              <Link href={"/auth/forget-password"}>
+                <span className='text-grey font-semibold'> Forgot Password? </span></Link>
             </Col>
 
 
@@ -83,7 +84,7 @@ const CorporateSignIn = () => {
               >
                 <Checkbox className='auth-checkbox'>
                   <span className='text-[14px]'>
-                    I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <br/><span className='text-primary  font-semibold'>Terms and conditions</span>
+                    I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <br /><span className='text-primary  font-semibold'>Terms and conditions</span>
                   </span>
                 </Checkbox>
               </Form.Item>
@@ -97,12 +98,12 @@ const CorporateSignIn = () => {
       </div>
 
       <div className='lg:hidden block'>
-         <div className='py-8 flex flex-col items-center'>
-            <p className='text-[12px] text-grey'>Already have an account?</p>
-            <Link className='w-full flex justify-center' href={`/auth/signup`}>
+        <div className='py-8 flex flex-col items-center'>
+          <p className='text-[12px] text-grey'>Already have an account?</p>
+          <Link className='w-full flex justify-center' href={`/auth/signup`}>
             <DocButton className={"mt-3 bg-secondary text-primary rounded-[50px] w-7/12  text-[18px] border-none"} text={"Sign Up"} />
-            </Link>
-         </div>
+          </Link>
+        </div>
       </div>
 
     </div>

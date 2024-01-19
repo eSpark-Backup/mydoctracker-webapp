@@ -95,7 +95,7 @@ const ForgetPasswordForm = () => {
         width={450}
         handleCancel={HandleVerificationCancel}
       >
-        <VerificationForm handleCancel={HandleVerificationCancel} handleOk={HandleVerificationSuccess}  />
+        <VerificationForm handleCancel={HandleVerificationCancel} handleOk={HandleVerificationSuccess} auth={true}  />
       </InputModal>
 
     </div>
