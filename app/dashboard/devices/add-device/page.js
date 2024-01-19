@@ -7,7 +7,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import Link from 'next/link';
 import InputModal from '@/app/components/common/InputModal';
 import HeadContent from '@/app/components/common/headContent';
-import VerificationForm from '@/app/components/Forms/verificationForm';
+import VerificationForm from '@/app/components/Forms/OtpForm';
 import { userAddDeviceData } from '@/app/constant';
 import { handleSubmit } from '@/app/utils/validation';
 import { getProps } from '@/app/utils';

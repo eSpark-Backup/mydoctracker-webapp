@@ -6,7 +6,7 @@ import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
 import Image from 'next/image';
 import Link from 'next/link';
-import VerificationForm from '@/app/components/Forms/VerificationForm';
+import VerificationForm from '@/app/components/Forms/OtpForm';
 import InputModal from '../common/InputModal';
 import { useRouter } from 'next/navigation';
 
