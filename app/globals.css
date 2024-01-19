@@ -577,3 +577,7 @@ li.ant-pagination-next.ant-pagination-disabled button {
 .ag-ltr .ag-cell{
   font-size: 12px;
 }
+
+.ant-popover .ant-popover-inner {
+  width: 300px !important;
+}
