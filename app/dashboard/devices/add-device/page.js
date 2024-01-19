@@ -139,7 +139,7 @@ const AddDevice = () => {
                 handleOk={HandleVerificationSuccess}
                 width={450}
                 handleCancel={HandleVerificationCancel} >
-                <VerificationForm handleCancel={HandleVerificationCancel} />
+                <VerificationForm handleCancel={HandleVerificationCancel} auth={false} />
             </InputModal>
         </ProtectedRoute>
         </>

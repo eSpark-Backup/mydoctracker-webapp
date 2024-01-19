@@ -5,12 +5,8 @@ import DocButton from '../common/docButton';
 import Image from 'next/image';
 // box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25)
 
-const VerificationForm = ({ handleCancel }) => {
+const VerificationForm = ({ handleCancel, auth, handleOk }) => {
     const [otp, setOtp] = useState('');
-     
-   const handleOk = ()=>{
-    console.log("working");
-   }
 
 
     return (
@@ -33,9 +29,9 @@ const VerificationForm = ({ handleCancel }) => {
                 />
             </div>
             <div className='w-2/3 mt-3 flex flex-col justify-center gap-y-3'>
-                <DocButton onClick={()=> {handleOk}}  text={"Confirm"} className={"text-white w-[45%] !rounded-[50px] !bg-primary"} />
+                <DocButton onClick={handleOk} text={auth?"Submit":"Confirm"} className={"text-white w-[45%] !rounded-[50px] !bg-primary"} />
                 <p className='underline underline-offset-2 cursor-pointer text-primary'>Resend Code</p>
-                <DocButton text={"Continue"} className={"!bg-[#AFAFAF] text-primary font-medium w-[45%] !rounded-[50px]"} onClick={handleCancel} />
+                {auth ? null : <DocButton text={"Continue"} className={"!bg-[#AFAFAF] text-primary font-medium w-[45%] !rounded-[50px]"} onClick={handleCancel} />}
             </div>
         </div>
     )

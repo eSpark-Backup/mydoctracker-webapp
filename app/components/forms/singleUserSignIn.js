@@ -80,7 +80,8 @@ const SingleUserSignIn = () => {
             </Col>
 
             <Col span={24} className='pb-4'>
-              <span className='text-grey font-semibold'> Forgot Password? </span>
+            <Link href={"/auth/forget-password"}>
+                <span className='text-grey font-semibold'> Forgot Password? </span></Link>
             </Col>
 
 
