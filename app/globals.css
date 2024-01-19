@@ -529,29 +529,29 @@ li.ant-pagination-next.ant-pagination-disabled button {
   background-color: #002F49;
 }
 
-.auth-checkbox :where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox .ant-checkbox-inner {
+.auth-checkbox .ant-checkbox .ant-checkbox-inner {
   border: 1px solid #002F49 !important;
 }
 
-.auth-checkbox :where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox-checked .ant-checkbox-inner {
-  border-color: #002F49;
+.auth-checkbox .ant-checkbox-checked .ant-checkbox-inner {
+  border-color: #002F49  !important;
 }
 
-:where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox-checked .ant-checkbox-inner {
-  border-color: #E4E4E4;
+.ant-checkbox-checked .ant-checkbox-inner {
+  border-color: #E4E4E4  !important;
 }
 
-:where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox .ant-checkbox-inner {
-  background-color: #FFFFFF;
+.ant-checkbox .ant-checkbox-inner {
+  background-color: #FFFFFF  !important;
 }
 
-:where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox-checked .ant-checkbox-inner:after {
+.ant-checkbox-checked .ant-checkbox-inner:after {
   border-color:#002F49 !important;
   border-width: 1px !important;
   top: 45% !important;
 }
 
-:where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox-wrapper-checked:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner, :where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox-checked:not(.ant-checkbox-disabled):hover .ant-checkbox-inner{
+.ant-checkbox-wrapper-checked:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner, :where(.css-dev-only-do-not-override-1c4zh4f).ant-checkbox-checked:not(.ant-checkbox-disabled):hover .ant-checkbox-inner{
   background-color: #FFFFFF !important;
 }
 
