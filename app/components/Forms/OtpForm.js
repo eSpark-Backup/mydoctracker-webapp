@@ -29,7 +29,7 @@ const VerificationForm = ({ handleCancel, auth, handleOk }) => {
                 />
             </div>
             <div className='w-2/3 mt-3 flex flex-col justify-center gap-y-3'>
-                <DocButton onClick={() => handleOk} text={auth?"Submit":"Confirm"} className={"text-white w-[45%] !rounded-[50px] !bg-primary"} />
+                <DocButton onClick={handleOk} text={auth?"Submit":"Confirm"} className={"text-white w-[45%] !rounded-[50px] !bg-primary"} />
                 <p className='underline underline-offset-2 cursor-pointer text-primary'>Resend Code</p>
                 {auth ? null : <DocButton text={"Continue"} className={"!bg-[#AFAFAF] text-primary font-medium w-[45%] !rounded-[50px]"} onClick={handleCancel} />}
             </div>
