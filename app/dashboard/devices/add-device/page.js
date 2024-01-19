@@ -137,7 +137,7 @@ const AddDevice = () => {
             <InputModal
                 isModalOpen={isVerificationModalOpen}
                 handleOk={HandleVerificationSuccess}
-                width={300}
+                width={450}
                 handleCancel={HandleVerificationCancel} >
                 <VerificationForm handleCancel={HandleVerificationCancel} />
             </InputModal>

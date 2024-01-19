@@ -626,35 +626,35 @@ export const employeeData = [
         name: "Mitchel Stark",
         location: "California",
         date: "Date: 12-02-2023",
-        documents:2
+        documents: 2
     },
     {
         id: 2,
         name: "Mitchel Stark",
         location: "California",
         date: "Date: 12-02-2023",
-        documents:2
+        documents: 2
     },
     {
         id: 3,
         name: "Mitchel Stark",
         location: "California",
         date: "Date: 12-02-2023",
-        documents:2
+        documents: 2
     },
     {
         id: 4,
         name: "Mitchel Stark",
         location: "California",
         date: "Date: 12-02-2023",
-        documents:2
+        documents: 2
     },
     {
         id: 5,
         name: "Mitchel Stark",
         location: "California",
         date: "Date: 12-02-2023",
-        documents:2
+        documents: 2
     },
 ]
 
@@ -1256,15 +1256,15 @@ export const containerStyleMd = {
     width: '100%',
     height: '550px',
     borderRadius: "10px"
-  };
-  
+};
+
 export const containerStyleSm = {
     width: '100%',
     height: '305px',
     borderRadius: "10px"
-  };
+};
 
-  export const notebookDetails = [
+export const notebookDetails = [
     {
         id: 1,
         field: "Tracker ID",
@@ -1327,5 +1327,47 @@ export const info = [
         mdWidth: "md:w-12/12",
         buttonTitle: "Set",
         buttonLink: "/dashboard/devices/user/geofence"
+    }
+]
+
+
+export const EditDocData = [
+    {
+        title: "Document Details",
+        buttonText: "Add fields",
+        inputs: [
+            {
+                label: "Document Title",
+                placeholder: "Enter title...",
+                required: true,
+                key: "documentTitle",
+                type: "textInput"
+            },
+            {
+                label: "Date Of Creation",
+                required: true,
+                key: "creationDate",
+                type: "datePicker"
+            },
+            {
+                label: "Time Of Creation",
+                required: true,
+                key: "creationTime",
+                type: "timePicker"
+            },
+            {
+                label: "Location",
+                placeholder: "Where you placed the document",
+                required: true,
+                key: "location",
+                type: "textInput"
+            },
+            {
+                label: "Upload Doc Image",
+                required: false,
+                key: "docImage",
+                type: "uploadImage"
+            },
+        ]
     }
 ]
