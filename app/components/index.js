@@ -10,6 +10,8 @@ import CorporateSignIn from "./forms/corporateSignIn"
 import JoinTeamSignIn from "./forms/joinTeamSignIn"
 import SingleUserSignUp from "./forms/singleUserSignUp"
 import GeofenceForm from "./forms/geoForm"
+import ForgetPasswordForm from "./forms/forgetPasswordForm"
+import ResetPasswordForm from "./forms/resetPasswordForm"
 import DocInput from "./common/docInput"
 import GIFBanner from './common/gifBanner'
 import Navbar from './layouts/navbar'
@@ -104,4 +106,6 @@ export {
     LandingDrawer,
     RadioFilterPopup,
     LoadingScreen,
+    ForgetPasswordForm,
+    ResetPasswordForm,
 }
