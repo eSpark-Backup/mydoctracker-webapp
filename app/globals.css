@@ -356,31 +356,31 @@ li.ant-pagination-next.ant-pagination-disabled button {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(360deg) brightness(102%) contrast(102%);
 }
 
-:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-checked::after,
-:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-inner {
+.ant-radio-wrapper .ant-radio-checked::after,
+.ant-radio-wrapper .ant-radio-inner {
   border: 3px solid #E4E4E4 !important;
   border-color: #E4E4E4 !important;
 }
 
-:where(.css-dev-only-do-not-override-tyo0vv).ant-checkbox .ant-checkbox-inner {
+.ant-checkbox .ant-checkbox-inner {
   border: 1px solid #002F49 !important;
   border-color: #002F49 !important;
 }
 
-:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-inner::after {
+.ant-radio-wrapper .ant-radio-inner::after {
   background-color: #002F49 !important;
 }
 
-:where(.css-dev-only-do-not-override-tyo0vv).ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+.ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
   /* border-color: #002F49 !important; */
   background-color: #002F49 !important;
 }
 
-:where(.css-dev-only-do-not-override-tyo0vv).ant-checkbox-checked .ant-checkbox-inner {
+.ant-checkbox-checked .ant-checkbox-inner {
   background-color: #FFFFFF !important;
 }
 
-:where(.css-dev-only-do-not-override-tyo0vv).ant-checkbox .ant-checkbox-inner:after {
+.ant-checkbox .ant-checkbox-inner:after {
   border: 1px solid #002F49 !important;
   border-top: 0 !important;
   border-left: 0 !important;
@@ -490,43 +490,43 @@ li.ant-pagination-next.ant-pagination-disabled button {
   display: none !important;
 }
 
-.radio-modal :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner::after {
+.radio-modal .ant-radio-wrapper .ant-radio-inner::after {
   width: 22px;
   height: 22px;
   margin-block-start: -11px;
   margin-inline-start: -11px;
 }
 
-.radio-modal :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner{
-  border-color: #FCBF4A;
-  background-color: #FFFFFF;
+.radio-modal .ant-radio-wrapper .ant-radio-inner{
+  border-color: #FCBF4A !important;
+  background-color: #FFFFFF !important;
 }
 
-.radio-modal :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-checked::after {
+.radio-modal .ant-radio-wrapper .ant-radio-checked::after {
   border-color: #FCBF4A !important;
 }
 
-.radio-modal :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner::after{
-  background-color: #002F49;
+.radio-modal .ant-radio-wrapper .ant-radio-inner::after{
+  background-color: #002F49 !important;
 }
 
-.add-employee :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner::after {
+.add-employee .ant-radio-wrapper .ant-radio-inner::after {
   width: 22px;
   height: 22px;
   margin-block-start: -11px;
   margin-inline-start: -11px;
 }
 
-.add-employee :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner{
+.add-employee .ant-radio-wrapper .ant-radio-inner{
   border: 4px solid #E4E4E4 !important;
 }
 
-.add-employee :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-checked::after {
+.add-employee .ant-radio-wrapper .ant-radio-checked::after {
   border: 4px solid #E4E4E4 !important;
 }
 
-.add-employee :where(.css-dev-only-do-not-override-1c4zh4f).ant-radio-wrapper .ant-radio-inner::after{
-  background-color: #002F49;
+.add-employee .ant-radio-wrapper .ant-radio-inner::after{
+  background-color: #002F49 !important;
 }
 
 .auth-checkbox .ant-checkbox .ant-checkbox-inner {
