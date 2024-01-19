@@ -239,7 +239,7 @@ const CorporateSignup = ({ HideHandler }) => {
                   >
                     <Checkbox className='auth-checkbox' >
                       <span className='text-[14px]'>
-                        I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <span className='text-primary  font-semibold'>Terms and conditions</span>
+                        I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <br/><span className='text-primary  font-semibold'>Terms and conditions</span>
                       </span>
                     </Checkbox>
                   </Form.Item>

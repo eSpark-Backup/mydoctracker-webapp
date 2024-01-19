@@ -22,6 +22,10 @@
 {
   display: none !important;
 }
+:where(.css-dev-only-do-not-override-1c4zh4f).ant-form-item .ant-form-item-label >label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before
+{
+  display: none !important;
+}
 :where(.css-dev-only-do-not-override-tyo0vv).ant-btn-default:not(:disabled):not(.ant-btn-disabled):not(.no-hover):hover {
   color: #FCBF4A  !important;
   border-color: #FCBF4A !important;
@@ -206,11 +210,11 @@
   display: none !important;
 }
 
-.ant-popover-content {
+/* .ant-popover-content {
   position: fixed !important;
   top: 65px;
   right: 130px;
-}
+} */
 
 .ant-popover {
   width: min-content;
@@ -465,6 +469,7 @@ li.ant-pagination-next.ant-pagination-disabled button {
 
 :where(.css-dev-only-do-not-override-1c4zh4f).ant-badge.ant-badge-status .ant-badge-status-text{
   font-size: 18px !important;
+  color: var(--text-color-primary);
 }
 
 .ant-btn-sm span {

@@ -45,7 +45,7 @@ const InfoCard = ({ length, icon, title, description, index, buttonTitle, button
                     }
 
                     <Link className='no-underline text-primary' href={buttonLink ? buttonLink : role === "employee" ? "/dashboard/devices/user/share-location" :  "/dashboard/devices/user"}>
-                        <DocButton text={role === "user" ? buttonTitle : "Manage Location"} onClick={role !== "employee" && buttonTitle === "Create Link" ? () => setIsModalOpen(true) : null} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
+                        <DocButton text={role === "user" ? buttonTitle : "Document History"} onClick={role !== "employee" && buttonTitle === "Create Link" ? () => setIsModalOpen(true) : null} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
                     </Link>
                 </div>
                 <InputModal

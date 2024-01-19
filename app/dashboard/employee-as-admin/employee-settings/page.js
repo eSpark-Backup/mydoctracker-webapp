@@ -8,6 +8,8 @@ import { employeeData } from '@/app/constant';
 import { Tabs } from 'antd'
 import React from 'react'
 import History from '../../devices/(roles)/user/history/page';
+import EditDoc from '@/app/components/common/editDoc';
+import EmployeeProfileSettings from '../../admin/employee-settings/employeeProfileSettings';
 
 const EmployeeSettings = () => {
     const profileSettingTabs = [
@@ -18,24 +20,34 @@ const EmployeeSettings = () => {
         },
         {
             key: '2',
+            label: 'Edit Document',
+            children:<EditDoc/>
+        },
+        {
+            key: '3',
             label: 'Document History',
             children: <DocumnetHistory />
         },
         {
-            key: '3',
+            key: '4',
             label: 'Notifications',
             children: <NotificationSettings />
         },
         {
-            key: '4',
+            key: '5',
             label: 'Shared Location',
             children: <ManagementList type={"employee"} hideSearchBar={true} data={employeeData} />
         },
         {
-            key: '5',
+            key: '6',
             label: 'Location History',
             children: <History admin={true} />
         },
+        {
+            key: '7',
+            label: 'Account Settings',
+            children:<EmployeeProfileSettings/>
+        }
 
     ];
     return (
