@@ -12,10 +12,28 @@ import Image from 'next/image'
 
 const EditDoc = () => {
     const [addFieldModal, setAddFieldModal] = useState(false)
+    const [addEmployeeForm, setAddEmployeeForm] = useState({
+        documentTitle: "",
+        creationDate: "",
+        creationTime: "",
+        location: "",
+        docImage: [],
+        dynamicInputs: []
+    })
     const [dynamicInputs, setDynamicInputs] = useState({
         label: "",
         value: ""
     })
+
+
+    const handleForm = (key, value) => {
+        setAddEmployeeForm({
+            ...addEmployeeForm,
+            [key] : value
+        })
+    }
+
+
     const handleModalForm = (key, value) => {
         setDynamicInputs({
             ...dynamicInputs,
@@ -33,14 +51,7 @@ const EditDoc = () => {
         addEmployeeForm.dynamicInputs.push(dynamicInputs)
         setAddEmployeeForm({ ...addEmployeeForm })
     }
-    const [addEmployeeForm, setAddEmployeeForm] = useState({
-        documentTitle: "",
-        creationDate: "",
-        creationTime: "",
-        location: "",
-        docImage: [],
-        dynamicInputs: []
-    })
+ 
     const props = (key) => getProps(setAddEmployeeForm, addEmployeeForm, key)
 
     return (

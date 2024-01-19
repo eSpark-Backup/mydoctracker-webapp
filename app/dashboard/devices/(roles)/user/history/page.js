@@ -40,7 +40,7 @@ const [datePickerVisible, setDatePickerVisible] = useState(false);
               <div className='history relative tabs-image w-[100%] lg:w-[30%] border-[#E4E4E4] border-r-0 lg:border-r-2 h=[100%]'>
                 <Tabs centered defaultActiveKey="1" items={tabs} />
                 {<Image onClick={handleDatePickerOpen} className='absolute top-4 right-4 hidden lg:block' src="/icons/tabs-Image.svg" width={35} height={35} alt="tabs-image" />}
-                {datePickerVisible && <DocDatePicker open={true} className="absolute top-10 left-4 invisible w-0 h-0 translate-y-full" handleDatePickerOpen={handleDatePickerOpen} />}
+                {datePickerVisible && <DocDatePicker open={true} className="absolute top-10 left-4 invisible w-0 h-0 translate-y-full" handleDatePickerOpen={handleDatePickerOpen} onChange={() => {}} />}
               </div>
 
               <div className='w-[100%] lg:w-[70%] py-5 lg:py-10 px-3 lg:px-3'>
