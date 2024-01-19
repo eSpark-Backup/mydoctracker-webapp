@@ -6,16 +6,38 @@ import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
 import Image from 'next/image';
 import Link from 'next/link';
+import VerificationForm from '@/app/components/Forms/OtpForm';
+import InputModal from '../common/InputModal';
+import { useRouter } from 'next/navigation';
+
 
 const ForgetPasswordForm = () => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false)
+  const [isVerificationModalOpen, setIsVerificationModalOpen] = useState(false);
+  const router = useRouter();
+
 
   const onFinish = (values) => {
     setLoading(true);
-    console.log('Received values of form: ', values);
-    console.log('Success:', values);
+    // console.log('Received values of form: ', values);
+    // console.log('Success:', values);
     setLoading(false);
+  };
+  const SubmitHandler = () => {
+    form.submit()
+    setIsVerificationModalOpen(true)
+  }
+
+  const HandleVerificationSuccess = () => {
+    console.log("Pushhhh")
+    // setIsVerificationModalOpen(false);
+    router.push("/auth/reset-password")
+  };
+
+  const HandleVerificationCancel = () => {
+    setIsVerificationModalOpen(false);
+    console.log("cancel")
   };
 
 
@@ -52,20 +74,30 @@ const ForgetPasswordForm = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} loading={loading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Continue"} />
+        <DocButton onClick={SubmitHandler} loading={loading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Continue"} />
       </div>
 
-        <Link href={"/auth/signin"}>
-      <div className='flex items-center'>
-        <div>
-          <Image className='md:w-[18px] w-[18px]' src={"/icons/forget-password-back-btn.svg"} alt="logo" width={20} height={20} />
+      <Link href={"/auth/signin"}>
+        <div className='flex items-center'>
+          <div>
+            <Image className='md:w-[18px] w-[18px]' src={"/icons/forget-password-back-btn.svg"} alt="logo" width={20} height={20} />
+          </div>
+
+          <div>
+            <p className='underline text-primary text-xs font-medium'>Back to Sign-In</p>
+          </div>
         </div>
-    
-        <div>
-          <p className='underline text-primary text-xs font-medium'>Back to Sign-In</p>
-        </div>
-      </div>
-        </Link>
+      </Link>
+      <InputModal
+        isModalOpen={isVerificationModalOpen}
+        handleOk={()=>alert("Hello")}
+        // handleOk={HandleVerificationSuccess}
+        width={450}
+        handleCancel={HandleVerificationCancel}
+      >
+        <VerificationForm handleCancel={HandleVerificationCancel} handleOk={HandleVerificationSuccess}  />
+      </InputModal>
+
     </div>
 
   )

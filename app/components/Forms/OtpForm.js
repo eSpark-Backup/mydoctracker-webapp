@@ -7,6 +7,12 @@ import Image from 'next/image';
 
 const VerificationForm = ({ handleCancel }) => {
     const [otp, setOtp] = useState('');
+     
+   const handleOk = ()=>{
+    console.log("working");
+   }
+
+
     return (
         <div className='flex flex-col pt-8 items-center px-7 gap-y-3'>
             <h3 className='text-black text-2xl font-normal'>Verification Code</h3>
@@ -27,7 +33,7 @@ const VerificationForm = ({ handleCancel }) => {
                 />
             </div>
             <div className='w-2/3 mt-3 flex flex-col justify-center gap-y-3'>
-                <DocButton text={"Confirm"} className={"text-white w-[45%] !rounded-[50px] !bg-primary"} onClick={handleCancel} />
+                <DocButton onClick={()=> {handleOk}}  text={"Confirm"} className={"text-white w-[45%] !rounded-[50px] !bg-primary"} />
                 <p className='underline underline-offset-2 cursor-pointer text-primary'>Resend Code</p>
                 <DocButton text={"Continue"} className={"!bg-[#AFAFAF] text-primary font-medium w-[45%] !rounded-[50px]"} onClick={handleCancel} />
             </div>
