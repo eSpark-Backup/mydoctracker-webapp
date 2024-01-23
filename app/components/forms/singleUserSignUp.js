@@ -1,20 +1,51 @@
 "use client"
-import { Checkbox, Col, Form, Input, Row } from 'antd';
-import React from 'react'
+import { Checkbox, Col, Form, Input, Row, notification } from 'antd';
+import React, { useEffect } from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
 import Link from 'next/link';
 import { useSignup } from '@/app/hooks/auth';
+import { getErrorFromApi } from '@/app/utils';
+import { useDispatch, useSelector } from 'react-redux';
+import { authSignIn } from '@/app/redux/store/slices/authSlice';
 
 const SingleUserSignup = () => {
   const [form] = Form.useForm();
   const { mutate: signUp } = useSignup();
+  const dispatch = useDispatch()
+  const { role, roleType } = useSelector(state => state.auth)
 
   const onFinish = (values) => {
-    signUp(values)
-    // next steps could be integrate
-    console.log(values, "SingleUserForm");
+    signUp(values,
+      {
+        onSuccess: (signUpSuccess) => {
+          console.log(signUpSuccess, "signUpSuccess")
+          notification.success({
+            message: 'Error',
+            description: signUpSuccess?.message,
+          })
+          dispatch(authSignIn(signUpSuccess.data));
+        },
+        onError: (error) => {
+          notification.error({
+            message: 'Error',
+            description: getErrorFromApi(error),
+          })
+        }
+      })
   };
+
+  useEffect(() => {
+    if (role) {
+      if (role === "admin") {
+        router.push("/dashboard/admin")
+      } else if (role === "employee" && roleType === "admin") {
+        router.push("/dashboard/employee-as-admin")
+      } else {
+        router.push("/dashboard/devices")
+      }
+    }
+  }, [role, roleType])
 
   return (
     <div className='flex flex-col justify-between h-full'>
@@ -56,14 +87,14 @@ const SingleUserSignup = () => {
             <Col span={24}>
               <Form.Item
                 label={<span className='text-greydark text-xs font-medium'>User Name</span>}
-                name="userName"
+                name="username"
                 labelCol={{ span: 24 }}
                 style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please Enter User Name" }]}
               >
                 <DocInput type={"text"} placeholder="Enter Username"
-                  onChange={(value) => form.setFieldsValue({ userName: value })}
+                  onChange={(value) => form.setFieldsValue({ username: value })}
                 // value={form.getFieldValue('username')}
                 />
               </Form.Item>
