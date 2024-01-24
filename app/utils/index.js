@@ -90,3 +90,4 @@ export const getErrorFromApi = (error) => {
     return error?.response?.data?.trace?.response?.message
   }
 }
+

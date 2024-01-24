@@ -1,8 +1,7 @@
 "use client"
 
 import { Input, Space } from 'antd'
-import { useState } from 'react'
-import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons'
+import { useEffect, useState } from 'react'
 
 const customInputStyle = {
   '&[placeholder]': {
@@ -23,8 +22,6 @@ const DocInput = ({ maxLength, type, className, placeholder, onChange, value, su
       onChange(e.target.value);
     }
   };
-  
-
 
 
   return (
