@@ -8,9 +8,11 @@ import { useSignup } from '@/app/hooks/auth';
 import { getErrorFromApi } from '@/app/utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
+import { useRouter } from 'next/navigation';
 
 const SingleUserSignup = () => {
   const [form] = Form.useForm();
+  const router = useRouter();
   const { mutate: signUp } = useSignup();
   const dispatch = useDispatch()
   const { role, roleType } = useSelector(state => state.auth)

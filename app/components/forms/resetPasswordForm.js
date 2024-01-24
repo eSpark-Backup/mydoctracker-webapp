@@ -1,21 +1,57 @@
 "use client"
 
-import { Col, Form, Row } from 'antd'
+import { Col, Form, Row, notification } from 'antd'
 import React, { useState } from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useChangePassword } from '@/app/hooks/auth';
+import { getErrorFromApi } from '@/app/utils';
+import { useRouter, useSearchParams } from 'next/navigation'
 
 const ResetPasswordForm = () => {
   const [form] = Form.useForm();
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const token = searchParams.get('token')
   const [loading, setLoading] = useState(false)
+  const { mutate: changePassword } = useChangePassword();
 
   const onFinish = (values) => {
     setLoading(true);
-    console.log('Received values of form: ', values);
-    console.log('Success:', values);
-    setLoading(false);
+    if (token) {
+      if (values.password === values.confirmPassword) {
+        changePassword({ payload: { newPassword: values.password }, token, reset : true },
+          {
+            onSuccess: (resetPasswordSuccess) => {
+              notification.success({
+                message: 'Error',
+                description: resetPasswordSuccess?.message,
+              })
+              setLoading(false);
+              router.push("/auth/signin")
+            },
+            onError: (error) => {
+              notification.error({
+                message: 'Error',
+                description: getErrorFromApi(error),
+              })
+              setLoading(false);
+            }
+          })
+      } else {
+        notification.error({
+          message: 'Error',
+          description: 'Password does not match',
+        })
+      }
+    } else {
+      notification.error({
+        message: 'Error',
+        description: 'Token is required',
+      })
+    }
   };
 
 
