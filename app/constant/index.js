@@ -1036,6 +1036,13 @@ export const accountSettingsData = [
                 key: "contact",
                 type: "tel",
             },
+            {
+                label: "Profile Picture",
+                placeholder: "Upload image",
+                required: false,
+                key: "profilePicture",
+                type: "uploadImage",
+            }
         ]
     },
 ]

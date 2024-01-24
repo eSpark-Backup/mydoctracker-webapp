@@ -1,8 +1,7 @@
 "use client"
 
 import { Input, Space } from 'antd'
-import { useState } from 'react'
-import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons'
+import { useEffect, useState } from 'react'
 
 const customInputStyle = {
   '&[placeholder]': {
@@ -10,7 +9,7 @@ const customInputStyle = {
   },
 };
 
-const DocInput = ({ maxLength, type, className, placeholder, onChange, value, suffix, prefix,readOnly }) => {
+const DocInput = ({ maxLength, type, className, placeholder, onChange, value, suffix, prefix,readOnly,minLength }) => {
   const [isPasswordVisible, setPasswordVisibility] = useState(false);
 
   const handlePasswordVisibility = () => {
@@ -23,8 +22,6 @@ const DocInput = ({ maxLength, type, className, placeholder, onChange, value, su
       onChange(e.target.value);
     }
   };
-  
-
 
 
   return (
@@ -32,6 +29,7 @@ const DocInput = ({ maxLength, type, className, placeholder, onChange, value, su
     type={type === 'password' ? (isPasswordVisible ? 'text' : 'password') : type} placeholder={placeholder} onChange={handleChange}
     readOnly={readOnly}
     maxLength={maxLength}
+    minLength={minLength}
     prefix={prefix && prefix}
     style={customInputStyle}
     // suffix={

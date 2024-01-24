@@ -8,16 +8,17 @@ const getAuthToken = () => {
   return getCookie("token");
 };
 
-export async function changePassword(payload) {
+export async function changePassword(payload, token, reset) {
   const authToken = getAuthToken();
 
   const res = await request({
     method: "PUT",
-    url: "/users/change-password",
+    url: reset ? `/users/change-password/?token=${token}` : "/users/change-password",
     data: payload,
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${authToken}`,
+      'Authorization': reset ? `Bearer ${token}` : `Bearer ${authToken}`,
+      key: process.env.NEXT_PUBLIC_APIKEY
     },
   });
 
@@ -25,8 +26,8 @@ export async function changePassword(payload) {
 }
 function useChangePassword() {
     const query = useMutation({
-      mutationFn: (payload) =>
-        changePassword(payload),
+      mutationFn: ({ payload, token, reset }) =>
+        changePassword(payload, token, reset),
     })
     return query
   }
