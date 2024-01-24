@@ -12,9 +12,13 @@ import DocDropdown from "../common/docDropdown";
 import { PlusOutlined } from "@ant-design/icons";
 import { getErrorFromApi, getProps, stringWithoutQuotes } from "@/app/utils";
 import { useUpdateProfile, useChangePassword } from "@/app/hooks/auth";
-import { Avatar, Button, notification } from "antd";
+import { Avatar, Button, Radio, notification } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { authSignIn } from "@/app/redux/store/slices/authSlice";
+import { BackwardOutlined } from "@ant-design/icons";
+import { UploadOutlined } from '@ant-design/icons';
+import DocImgUpload from "../common/docImgUpload";
+
 
 const AccountSettingsForm = () => {
   const Dispatch = useDispatch();
@@ -48,8 +52,11 @@ const AccountSettingsForm = () => {
   });
 
   const handleButtonClick = () => {
-    fileInputRef.current.click();
+    if (fileInputRef.current && fileInputRef.current.click) {
+      fileInputRef.current.click();
+    }
   };
+  
 
 
   const handleProfileChange = (field, value) => {
@@ -173,9 +180,7 @@ const AccountSettingsForm = () => {
                   </label>
                   {eachInput.type === "uploadImage" ? (
                     <div className="flex">
-                      <Button size="large" onClick={handleButtonClick} prefix="Upload">
-                        {profile?.profilePicture?.name ? profile?.profilePicture?.name : "Update Profile Picture"}  
-                      </Button>
+                      {/* <Button onClick={handleButtonClick} size='large' icon={<UploadOutlined />} style={{ color: "#002F49", fontSize: "14px" }}>{profile?.profilePicture?.name ? profile?.profilePicture?.name : "Update Profile Picture"}</Button>
 
                       <input
                         type="file"
@@ -189,8 +194,18 @@ const AccountSettingsForm = () => {
                           )
                         }
                         alt="profile"
+                      /> */}
+                      <DocImgUpload
+                        onClick={handleButtonClick}
+                        onChange={(value) =>
+                          handleProfileChange(eachInput?.key, value.target.files[0])
+                        }
+                        text={profile?.profilePicture?.name?profile?.profilePicture?.name:"Update Profile Picture"}
+                        // fileName={profile?.profilePicture?.name || null}
+                        // text={profile?.profilePicture?.name ? '' : 'Update Profile Picture'}
                       />
-                      
+
+
                     </div>
                   ) : (
                     <DocInput
