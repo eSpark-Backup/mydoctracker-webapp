@@ -1,6 +1,6 @@
 "use client"
 
-import { Badge, Popover } from "antd";
+import { Avatar, Badge, Popover } from "antd";
 import React, { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,7 +14,7 @@ import { useOutsideClick } from "@/app/utils";
 import Requests from "./request";
 
 const Header = ({ showDrawer }) => {
-    const { role } = useSelector((state)=>state.auth)
+    const { user, role } = useSelector((state)=>state.auth)
     const router = useRouter()
     const dispatch = useDispatch()
 
@@ -80,9 +80,12 @@ const Header = ({ showDrawer }) => {
                                 <Image className="cursor-pointer" src={"/icons/Bell.svg"} width={25} height={25} alt="bell" />
                             </Popover>
                         </Badge>
-                        <div className={`${role === "admin" ? "xl:w-[180px] sm:h-[50px]" : "sm:h-[40px] xl:w-[128px]"} w-max border-0 xl:border-2 border-greyBorder h-[40px]  flex justify-between items-center rounded-[50px] px-1  ${role !== "admin" && 'pr-4'}`} onClick={() => setShowButton(!showButton)}>
-                            <Image src={"/icons/userAvatar.svg"} width={30} height={30} alt="avatar" />
-                            <p className="hidden xl:block text-center text-sm font-normal">John Doe</p>
+                        <div className={`${role === "admin" ? "xl:w-[180px] sm:h-[50px]" : "sm:h-[40px] xl:w-[145px]"} cursor-pointer w-max border-0 xl:border-2 border-greyBorder h-[40px]  flex justify-between items-center rounded-[50px] px-1  ${role !== "admin" && 'pr-4'}`} onClick={() => setShowButton(!showButton)}>
+                            {user?.profilePicture ?
+                                <Avatar width={30} height={30} src={user?.profilePicture} />
+                                :
+                                <Avatar style={{ backgroundColor: '#002f49', width: 30, height: 30 }}>{user?.username?.split("")[0]}</Avatar>}
+                            <p className="ml-1 whitespace-nowrap overflow-hidden overflow-ellipsis hidden xl:block text-center text-sm font-normal">{user?.username}</p>
                             {role === "admin" && <DocButton text={"Basic"} className={"text-primary hidden xl:block bg-secondary text-[10px] !my-4"} />}
                         </div>
                     </div>
