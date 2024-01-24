@@ -156,3 +156,43 @@ export const handleCvc = (value, key, state, setState, errors, setErrors) => {
         })
     }
 }
+
+export const validatePassword = (_, value) => {
+    // Define the regex for password validation
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    // Check if the password matches the regex
+    if (!passwordRegex.test(value)) {
+      return Promise.reject(
+        'Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character'
+      );
+    }
+
+    return Promise.resolve();
+  };
+export const validateUsername = (_, value) => {
+    // Define the regex for password validation
+    const usernameRegex = /^[a-z0-9_-]{3,}$/;
+
+    // Check if the password matches the regex
+    if (!usernameRegex.test(value)) {
+      return Promise.reject(
+        'Username should only contain alphanumeric characters (letters and numbers), Small Letters, Underscores (_) and hyphens (-). Should have atleast 3 characters'
+      );
+    }
+
+    return Promise.resolve();
+  };
+export const validateContact = (_, value) => {
+    // Define the regex for password validation
+    const contactRegex = /^(\(\d{3}\)\s?|\d{3}-?)?\d{3}-?\d{4}$/;
+
+    // Check if the password matches the regex
+    if (!contactRegex.test(value)) {
+      return Promise.reject(
+        ' Invalid contact number format. It should be like (123) 456-7890 | (123)456-7890 | 123-456-7890 | 1234567890'
+      );
+    }
+
+    return Promise.resolve();
+  };

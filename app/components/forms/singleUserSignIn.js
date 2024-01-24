@@ -29,7 +29,8 @@ const SingleUserSignIn = () => {
         dispatch(authSignIn(values));
         notification.error({
           message: 'Error',
-          description: getErrorFromApi(error),
+          // description: getErrorFromApi(error),
+          description: "Invalid Email or Password",
         })
         setLoading(false);
       }

@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { useChangePassword } from '@/app/hooks/auth';
 import { getErrorFromApi } from '@/app/utils';
 import { useRouter, useSearchParams } from 'next/navigation'
+import { validatePassword } from '@/app/utils/validation';
 
 const ResetPasswordForm = () => {
   const [form] = Form.useForm();
@@ -22,7 +23,7 @@ const ResetPasswordForm = () => {
     setLoading(true);
     if (token) {
       if (values.password === values.confirmPassword) {
-        changePassword({ payload: { newPassword: values.password }, token, reset : true },
+        changePassword({ payload: { newPassword: values.password }, token, reset: true },
           {
             onSuccess: (resetPasswordSuccess) => {
               notification.success({
@@ -76,7 +77,7 @@ const ResetPasswordForm = () => {
                 name="password"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please enter a new password" }]}
+                rules={[{ validator: validatePassword }]}
               >
                 <DocInput type={"password"} placeholder="Enter Password"
                   onChange={(value) => form.setFieldsValue({ password: value })}
@@ -89,7 +90,20 @@ const ResetPasswordForm = () => {
                 name="confirmPassword"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please re-enter a new password" }]}
+                rules={[
+                  {
+                    required: true,
+                  },
+                  ({ getFieldValue }) => ({
+                    validator(_, value) {
+                      if (!value || getFieldValue('password') === value) {
+                        return Promise.resolve();
+                      }
+                      return Promise.reject(new Error('Password do not match!'));
+                    },
+                  }),
+                ]}
+                dependencies={["password"]}
               >
                 <DocInput type={"password"} placeholder="Enter Confirm Password"
                   onChange={(value) => form.setFieldsValue({ confirmPassword: value })}
@@ -104,17 +118,17 @@ const ResetPasswordForm = () => {
         <DocButton onClick={() => form.submit()} loading={loading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Continue"} />
       </div>
 
-        <Link href={"/auth/signin"}>
-      <div className='flex items-center'>
-        <div>
-          <Image className='md:w-[18px] w-[18px]' src={"/icons/forget-password-back-btn.svg"} alt="logo" width={20} height={20} />
+      <Link href={"/auth/signin"}>
+        <div className='flex items-center'>
+          <div>
+            <Image className='md:w-[18px] w-[18px]' src={"/icons/forget-password-back-btn.svg"} alt="logo" width={20} height={20} />
+          </div>
+
+          <div>
+            <p className='underline text-primary text-xs font-medium'>Back to Sign-In</p>
+          </div>
         </div>
-    
-        <div>
-          <p className='underline text-primary text-xs font-medium'>Back to Sign-In</p>
-        </div>
-      </div>
-        </Link>
+      </Link>
     </div>
 
   )

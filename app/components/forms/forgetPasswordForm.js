@@ -64,7 +64,9 @@ const ForgetPasswordForm = () => {
                 name="email"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please enter a valid email address" }]}
+                rules={[{ required: true, message: "Please Enter Email" },
+                { type: 'email', message: 'Please enter valid email' }
+                ]}
               >
                 <DocInput type={"email"} placeholder="Enter Email"
                   onChange={(value) => form.setFieldsValue({ email: value })}

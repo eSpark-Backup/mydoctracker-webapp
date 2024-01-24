@@ -8,14 +8,15 @@ import { useSignup } from '@/app/hooks/auth';
 import { getErrorFromApi } from '@/app/utils';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
+import { validatePassword, validateUsername } from '@/app/utils/validation';
 import { useRouter } from 'next/navigation';
 
 const SingleUserSignup = () => {
   const [form] = Form.useForm();
-  const router = useRouter();
   const { mutate: signUp } = useSignup();
   const dispatch = useDispatch()
   const { role, roleType } = useSelector(state => state.auth)
+  const router = useRouter()
 
   const onFinish = (values) => {
     signUp(values,
@@ -48,6 +49,8 @@ const SingleUserSignup = () => {
       }
     }
   }, [role, roleType])
+
+
 
   return (
     <div className='flex flex-col justify-between h-full'>
@@ -93,7 +96,10 @@ const SingleUserSignup = () => {
                 labelCol={{ span: 24 }}
                 style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please Enter User Name" }]}
+                // rules={[
+                //   { pattern: /^[a-z0-9_-]{1,}$/, message: "Username should only contain alphanumeric characters (letters and numbers), Small Letters, Underscores (_) and hyphens (-)." }
+                // ]}
+                rules={[{ validator: validateUsername }]}
               >
                 <DocInput type={"text"} placeholder="Enter Username"
                   onChange={(value) => form.setFieldsValue({ username: value })}
@@ -129,7 +135,7 @@ const SingleUserSignup = () => {
                 style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
                 rules={[{ required: true, message: "Please Enter Contact No." },
-               ]}
+                ]}
               >
                 <DocInput type={"tel"} placeholder="Contact number"
                   onChange={(value) => form.setFieldsValue({ contact: value })}
@@ -147,7 +153,7 @@ const SingleUserSignup = () => {
                 labelCol={{ span: 24 }}
                 style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please Enter Password" }]}
+                rules={[{ validator: validatePassword }]}
               >
                 <DocInput type={"password"} placeholder="Enter password"
                   onChange={(value) => form.setFieldsValue({ password: value })}
@@ -158,11 +164,26 @@ const SingleUserSignup = () => {
             <Col xs={{ span: 24 }} sm={{ span: 24 }} lg={{ span: 12 }}>
               <Form.Item
                 label={<span className='text-greydark text-xs font-medium'>Confirm Password</span>}
-                name="password"
+                name="confirmPassword"
                 labelCol={{ span: 24 }}
                 style={{ marginBottom: "4px" }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please Enter Confirm Password" }]}
+                // rules={[{ validator: validatePassword }]}
+                // validateTrigger="onBlur"
+                rules={[
+                  {
+                    required: true,
+                  },
+                  ({ getFieldValue }) => ({
+                    validator(_, value) {
+                      if (!value || getFieldValue('password') === value) {
+                        return Promise.resolve();
+                      }
+                      return Promise.reject(new Error('Password do not match!'));
+                    },
+                  }),
+                ]}
+                dependencies={["password"]}
               >
                 <DocInput type={"password"} placeholder="Confirm password"
                   onChange={(value) => form.setFieldsValue({ confirmPassword: value })}
@@ -183,7 +204,7 @@ const SingleUserSignup = () => {
               >
                 <Checkbox className='auth-checkbox' >
                   <span className='text-[14px]'>
-                    I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <br/><span className='text-primary  font-semibold'>Terms and conditions</span>
+                    I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <br /><span className='text-primary  font-semibold'>Terms and conditions</span>
                   </span>
                 </Checkbox>
               </Form.Item>
