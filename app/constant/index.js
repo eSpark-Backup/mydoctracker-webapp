@@ -388,7 +388,7 @@ export const deviceSettingNotfications = [
 ]
 
 export const trackerTypeOptions = [
-    { label: 'a1', value: 'a1' }, { label: 'a2', value: 'a2' }
+    { label: 'Single Page', value: 'SINGLE' }, { label: 'Multi Page', value: 'MULTIPLE' }
 ];
 
 export const locations = [

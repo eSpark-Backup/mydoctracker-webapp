@@ -4,8 +4,8 @@ import React from 'react'
 
 const DocDatePicker = ({ onChange, className, open, handleDatePickerOpen }) => {
 
-  const handleChange = (e) => {
-    onChange(e)
+  const handleChange = (e, dateString) => {
+    onChange(e, dateString)
   };
 
 

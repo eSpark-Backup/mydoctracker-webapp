@@ -2,7 +2,7 @@
 
 import { AddDeviceForm, DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker, Header } from '@/app/components'
 import DocDropdown from '@/app/components/common/docDropdown'
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import Link from 'next/link';
 import InputModal from '@/app/components/common/InputModal';
@@ -10,12 +10,22 @@ import HeadContent from '@/app/components/common/headContent';
 import VerificationForm from '@/app/components/Forms/OtpForm';
 import { userAddDeviceData } from '@/app/constant';
 import { handleSubmit } from '@/app/utils/validation';
-import { getProps } from '@/app/utils';
+import { getErrorFromApi } from '@/app/utils';
 import AddFieldModal from '@/app/components/modals/addFieldModal';
 import { camelize } from '@/app/utils';
 import ProtectedRoute from '@/app/utils/protectedRoutes';
+import moment from 'moment';
+import { useAddDocument, useGetDocumentOtp } from '@/app/hooks/documents';
+import { notification } from 'antd';
+import { useRouter } from 'next/navigation';
+import DocImgUpload from '@/app/components/common/docImgUpload';
 
 const AddDevice = () => {
+    const router = useRouter();
+    const fileInputRef = useRef(null);
+    const handleButtonClick = () => {
+        fileInputRef?.current?.click();
+    };
 
     const [addFieldModal, setAddFieldModal] = useState(false);
     const [isVerificationModalOpen, setIsVerificationModalOpen] = useState(false);
@@ -29,9 +39,16 @@ const AddDevice = () => {
         DocumentTitle: "",
         DateOfCreation: "",
         TimeOfCreation: "",
-        DocImage: [],
+        DocImage: "",
         dynamicInputs: []
     })
+    const [otp, setOtp] = useState(null)
+    const handleOtp = (value) => {
+        setOtp(value)
+    }
+
+    const { mutate: documentOtp } = useGetDocumentOtp()
+    const { mutate: addDocument } = useAddDocument()
 
 
     const handleModalForm = (key, value) => {
@@ -43,6 +60,7 @@ const AddDevice = () => {
 
     const successSubmit = () => {
         setIsVerificationModalOpen(true)
+        documentOtp()
     }
 
     const handleFieldChange = (field, value) => {
@@ -51,8 +69,6 @@ const AddDevice = () => {
             [field]: value
         })
     }
-
-    const props = (key) => getProps(setTrackerData ,trackerData, key) 
     
     const handleAddField = (key) => {
         setDynamicInputs({
@@ -68,11 +84,41 @@ const AddDevice = () => {
     
     const HandleVerificationSuccess = () => {
         setIsVerificationModalOpen(false);
+        const formattedResult = moment(`${trackerData?.DateOfCreation} ${trackerData?.TimeOfCreation}`).format('YYYY-MM-DDTHH:mm:ss.SSS[Z]');
+        const payload = {
+            deviceId: trackerData?.TrackerID,
+            type: trackerData?.TrackerType,
+            title: trackerData?.DocumentTitle,
+            creationDate: formattedResult,
+            file: trackerData?.DocImage,
+            otp
+            // fields: trackerData?.dynamicInputs.map(({ label, value }) => { return { name: label, value } })
+        }
+        addDocument(payload, {
+            onSuccess: (addedSuccess) => {
+                notification.success({
+                    message: 'Success',
+                    description: addedSuccess?.message,
+                })
+                setOtp(null)
+                router.push('/dashboard/devices')
+            },
+            onError: (error) => {
+                notification.error({
+                    message: 'Error',
+                    description: getErrorFromApi(error),
+                })
+            }
+        })
     };
 
     const HandleVerificationCancel = () => {
         setIsVerificationModalOpen(false);
     };
+
+    const handleResend = () => {
+        documentOtp()
+    }
 
     return (
 
@@ -101,11 +147,17 @@ const AddDevice = () => {
                                             {eachInputs.type === "select" ?
                                                 <DocDropdown onChange={(e) => handleFieldChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                                 : eachInputs.type === "uploadImage" ?
-                                                    <DocImgInput width={220} props={props(eachInputs.key)} />
+                                                    <DocImgUpload
+                                                        onClick={handleButtonClick}
+                                                        onChange={(value) =>
+                                                            handleFieldChange(eachInputs?.key, value.target.files[0])
+                                                        }
+                                                        text={"Update Profile Picture"}
+                                                    />
                                                     : eachInputs.type === "datePicker" ?
-                                                        <DocDatePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
+                                                        <DocDatePicker onChange={(_, value) => handleFieldChange(eachInputs?.key, value)} />
                                                         : eachInputs.type === "timePicker" ?
-                                                            <DocTimePicker placeholder={eachInputs?.placeholder} onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
+                                                            <DocTimePicker placeholder={eachInputs?.placeholder} onChange={(_, value) => handleFieldChange(eachInputs?.key, value)} />
                                                             :
                                                             <DocInput value={eachInputs.value || trackerData[eachInputs.key]} onChange={(value) => handleFieldChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
                                             }
@@ -139,7 +191,7 @@ const AddDevice = () => {
                 handleOk={HandleVerificationSuccess}
                 width={450}
                 handleCancel={HandleVerificationCancel} >
-                <VerificationForm handleCancel={HandleVerificationCancel} auth={false} />
+                <VerificationForm handleOtp={handleOtp} handleOk={HandleVerificationSuccess} handleResend={handleResend} handleCancel={HandleVerificationCancel} auth={false} />
             </InputModal>
         </ProtectedRoute>
         </>

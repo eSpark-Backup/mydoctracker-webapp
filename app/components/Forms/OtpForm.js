@@ -5,7 +5,7 @@ import DocButton from '../common/docButton';
 import Image from 'next/image';
 // box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25)
 
-const VerificationForm = ({ handleCancel, auth, handleOk }) => {
+const VerificationForm = ({ handleCancel, auth, handleOk, handleResend, handleOtp }) => {
     const [otp, setOtp] = useState('');
 
 
@@ -19,7 +19,10 @@ const VerificationForm = ({ handleCancel, auth, handleOk }) => {
             <div className='flex justify-center items-center'>
                 <OTPInput
                     value={otp}
-                    onChange={setOtp}
+                    onChange={(value) => {
+                        setOtp(value)
+                        handleOtp(value)
+                    }}
                     numInputs={4}
                     renderInput={(props) => <input {...props} />}
                     inputStyle={{ width: "15%", border: "1px solid #126FAA", height: "45px", borderRadius: "5px", fontSize: "25px", boxShadow: "0px 0px 4px 1px rgba(0, 0, 0, 0.25)", color: "#126FAA" }}
@@ -30,7 +33,7 @@ const VerificationForm = ({ handleCancel, auth, handleOk }) => {
             </div>
             <div className='w-2/3 mt-3 flex flex-col justify-center gap-y-3'>
                 <DocButton onClick={handleOk} text={auth?"Submit":"Confirm"} className={"text-white w-[45%] !rounded-[50px] !bg-primary"} />
-                <p className='underline underline-offset-2 cursor-pointer text-primary'>Resend Code</p>
+                <p className='underline underline-offset-2 cursor-pointer text-primary' onClick={handleResend}>Resend Code</p>
                 {auth ? null : <DocButton text={"Continue"} className={"!bg-[#AFAFAF] text-primary font-medium w-[45%] !rounded-[50px]"} onClick={handleCancel} />}
             </div>
         </div>
