@@ -1,17 +1,26 @@
 "use client"
 
-import { DocButton, DocDatePicker, DocInput, DocTimePicker, DocImgInput, NavigatorHeader, DocDropdown } from '@/app/components'
-import React, { useState } from 'react'
+import { DocButton, DocDatePicker, DocInput, DocTimePicker, NavigatorHeader, DocDropdown } from '@/app/components'
+import React, { useRef, useState } from 'react'
 import { PlusOutlined } from '@ant-design/icons'
 import Link from 'next/link'
 import { handleSubmit } from '@/app/utils/validation'
 import { userEditDocData } from '@/app/constant'
-import { getProps } from '@/app/utils'
+import { getErrorFromApi } from '@/app/utils'
 import AddFieldModal from '@/app/components/modals/addFieldModal'
 import { camelize } from '@/app/utils'
+import moment from 'moment'
+import { useEditDocument } from '@/app/hooks/documents'
+import { notification } from 'antd'
+import DocImgUpload from './docImgUpload'
 
 
 const UserEditDoc = () => {
+    const fileInputRef = useRef(null);
+    const handleButtonClick = () => {
+        fileInputRef?.current?.click();
+    };
+    const { mutate: editDocument } = useEditDocument();
     const [addFieldModal, setAddFieldModal] = useState(false);
     const [dynamicInputs, setDynamicInputs] = useState({
         label: "",
@@ -40,14 +49,34 @@ const UserEditDoc = () => {
         docTitle: "",
         docDate: "",
         docTime: "",
-        docLocation: "",
         docImage: [],
         dynamicInputs: []
     })
 
 
     const successSubmit = () => {
-        console.log(editDocData);
+        const formattedResult = moment(`${editDocData?.docDate} ${editDocData?.docTime}`).format('YYYY-MM-DDTHH:mm:ss.SSS[Z]');
+        const payload = {
+            id: "9fb82f54-2e04-4cc3-a68b-f86ae7325a45",
+            title: editDocData?.docTitle,
+            creationDate: formattedResult,
+            file: editDocData?.docImage,
+            // fields: trackerData?.dynamicInputs.map(({ label, value }) => { return { name: label, value } })
+        }
+        editDocument(payload, {
+            onSuccess: (editedSuccess) => {
+                notification.success({
+                    message: 'Success',
+                    description: editedSuccess?.message,
+                })
+            },
+            onError: (error) => {
+                notification.error({
+                    message: 'Error',
+                    description: getErrorFromApi(error),
+                })
+            }
+        })
     }
 
     const handleFieldChange = (field, value) => {
@@ -56,8 +85,6 @@ const UserEditDoc = () => {
             [field]: value
         })
     }
-
-    const props = (key) => getProps(setEditDocData, editDocData, key)
 
     return (
         <>
@@ -79,11 +106,17 @@ const UserEditDoc = () => {
                                             {eachInputs.type === "select" ?
                                                 <DocDropdown onChange={(e) => handleFieldChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                                 : eachInputs.type === "uploadImage" ?
-                                                    <DocImgInput props={props(eachInputs.key)} />
+                                                    <DocImgUpload
+                                                        onClick={handleButtonClick}
+                                                        onChange={(value) =>
+                                                            handleFieldChange(eachInputs?.key, value.target.files[0])
+                                                        }
+                                                        text={"Update Profile Picture"}
+                                                    />
                                                     : eachInputs.type === "datePicker" ?
-                                                        <DocDatePicker onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
+                                                        <DocDatePicker onChange={(_, value) => handleFieldChange(eachInputs?.key, value)} />
                                                         : eachInputs.type === "timePicker" ?
-                                                            <DocTimePicker placeholder={eachInputs?.placeholder} onChange={(value) => handleFieldChange(eachInputs?.key, value)} />
+                                                            <DocTimePicker placeholder={eachInputs?.placeholder} onChange={(_, value) => handleFieldChange(eachInputs?.key, value)} />
                                                             :
                                                             <DocInput value={eachInputs.value || editDocData[eachInputs.key]} onChange={(value) => handleFieldChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
                                             }
