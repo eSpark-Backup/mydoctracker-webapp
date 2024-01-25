@@ -5,7 +5,7 @@ const RoleBox = ({role, onClick, currentRole}) => {
     const {id, title, icon, iconfill} = role
     const isRole = currentRole === id;
     return (
-        <div onClick={onClick} className={`flex flex-col justify-between items-center p-2 border md:min-w-[100px] rounded max-w-[80px] md:max-w-max h-[80px] shadow-lg  
+        <div onClick={onClick} className={`flex flex-col justify-between items-center p-2 border xl:min-w-[100px] rounded max-w-[33%] md:max-w-max h-[80px] shadow-lg  
         cursor-pointer ${isRole ? "border-secondary": "border-grey"} `}>
             <div>
                 <Image src={`/icons/${isRole ? iconfill : icon}`}  width={26} height={26} alt='doctor' />

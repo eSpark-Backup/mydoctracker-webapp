@@ -66,8 +66,8 @@ const EmployeeProfileSettings = () => {
                             ))}
                             <div className='min-w-[100%] lg:min-w-[30%] md:min-w-[40%] flex flex-col'>
                                 <label className="text-greydark text-sm pb-1">Employee Image</label>
-                                <div className='flex gap-3 flex-wrap'>
-                                    <DocImgInput width={"150%"} className={"w-2/3"} />
+                                <div className='flex flex-wrap'>
+                                    <DocImgInput width={"150%"} className={"w-7/12"} />
                                     <Image src={"/icons/userAvatar.svg"} width={40} height={40} alt='User'/>
 
                                 </div>

@@ -423,7 +423,7 @@ li.ant-pagination-next.ant-pagination-disabled button {
 }
 
 .ant-input:placeholder-shown{
-  font-weight: 600 !important;
+  font-weight: 400 !important;
 }
 .ant-pagination .ant-pagination-disabled .ant-pagination-item-link, .ant-pagination .ant-pagination-disabled:hover .ant-pagination-item-link{
   display: flex !important;
@@ -580,4 +580,17 @@ li.ant-pagination-next.ant-pagination-disabled button {
 
 .ant-popover .ant-popover-inner {
   width: 300px !important;
+}
+
+/* .bg-\[\#FFFFFF\]{
+  background-color: #F5F6FA;
+} */
+@media screen and (min-width:1536px) and (max-width:2480px) {
+  .auth-checkbox .ant-checkbox .ant-checkbox-inner {
+    top: -7px !important;
+    left: -3px !important;
+  }
+}
+.ant-form-item .ant-form-item-explain-error{
+  color: #ff0000;
 }

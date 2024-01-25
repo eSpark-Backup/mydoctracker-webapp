@@ -16,7 +16,7 @@ const ViewRequest = ({ showUser, showDocument }) => {
                 showUser ?
                     <div className='w-[100%] h-[100%] overflow-y-scroll no-scrollbar pb-12'>
                         <div className='flex justify-center items-center flex-col gap-3'>
-                            <p className='text-greydark text-[14px] font-medium mt-3'>Request to update the document</p>
+                            <p className='text-greydark text-[16px] font-medium mt-3'>Request to update the document</p>
                             <div className='flex gap-3'>
                                 <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder w-24"} />
                                 <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md w-24"} />
@@ -25,10 +25,10 @@ const ViewRequest = ({ showUser, showDocument }) => {
                         <div className='flex gap-2 pl-3 md:pl-10 mb-3 mt-4'>
                             <Image src={"/icons/userAvatar.svg"} width={85} height={85} alt='User' />
                             <div>
-                                <h2 className='text-black text-[14px] font-medium'>Alex Dave</h2>
-                                <p className='text-greydark text-[12px]'>Group: <span className='font-semibold'>1</span></p>
-                                <p className='text-greydark text-xs md:text-sm'>Employee ID: <span className='font-semibold'>12345</span></p>
-                                <p className='text-greydark text-xs md:text-sm'>Device Type: <span className='font-semibold'>Single Page</span></p>
+                                <h2 className='text-black text-[16px] font-medium'>Alex Dave</h2>
+                                <p className='text-greydark text-[14px]'>Group: <span className='font-semibold'>1</span></p>
+                                <p className='text-greydark text-[14px]'>Employee ID: <span className='font-semibold'>12345</span></p>
+                                <p className='text-greydark text-[14px]'>Device Type: <span className='font-semibold'>Single Page</span></p>
                             </div>
                         </div>
                         <hr />
@@ -49,7 +49,7 @@ const ViewRequest = ({ showUser, showDocument }) => {
 
                     </div> : showDocument ? <div className='w-[100%] h-[100%] overflow-y-scroll no-scrollbar pb-12'>
                         <div className='flex justify-center items-center flex-col gap-3'>
-                            <p className='text-greydark text-[14px] font-medium mt-3'>Request to update the document</p>
+                            <p className='text-greydark text-[16px] font-medium mt-3'>Request to update the document</p>
                             <div className='flex gap-3'>
                                 <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder w-24"} />
                                 <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md w-24"} />
@@ -58,10 +58,10 @@ const ViewRequest = ({ showUser, showDocument }) => {
                         <div className='flex gap-2 pl-3 md:pl-10 mb-3 mt-4'>
                             <Image src={"/icons/userAvatar.svg"} width={85} height={85} alt='User' />
                             <div>
-                                <h2 className='text-black text-[14px] font-medium'>Alex Dave</h2>
-                                <p className='text-greydark text-[12px]'>Group: <span className='font-semibold'>1</span></p>
-                                <p className='text-greydark text-xs md:text-sm'>Employee ID: <span className='font-semibold'>12345</span></p>
-                                <p className='text-greydark text-xs md:text-sm'>Device Type: <span className='font-semibold'>Single Page</span></p>
+                                <h2 className='text-black text-[16px] font-medium'>Alex Dave</h2>
+                                <p className='text-greydark text-[14px]'>Group: <span className='font-semibold'>1</span></p>
+                                <p className='text-greydark text-[14px]'>Employee ID: <span className='font-semibold'>12345</span></p>
+                                <p className='text-greydark text-[14px]'>Device Type: <span className='font-semibold'>Single Page</span></p>
                             </div>
                         </div>
                         <hr />

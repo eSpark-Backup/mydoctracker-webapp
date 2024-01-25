@@ -49,12 +49,12 @@ const EmployeDetail = () => {
         <div>
             <NavigatorHeader previousPage={["Admin Panel"]} currentPage="Employee Credentials" />
             <div className='mt-14 flex flex-col gap-8'>
-                <div className='h-[24vh] sm:px-8  py-5 bg-white rounded-md shadow-md'>
+                <div className='sm:px-8  py-5 bg-white rounded-md shadow-md'>
                     <div>
-                        <h2 className='text-black text-xl font-medium'>Employee Credentials</h2>
+                        <h2 className='text-black text-xl font-medium pl-2 md:pl-0'>Employee Credentials</h2>
                     </div>
-                    <div className='sm:pl-10 pl-2 my-5 flex justify-between'>
-                        <div className='flex flex-col gap-3'>
+                    <div className='sm:pl-11 pl-2 my-2 flex justify-between'>
+                        <div className='flex flex-col gap-3 mt-3'>
                             {[1, 2].map((eachItem, index) => (
                                 <div className='flex gap-4' key={index}>
                                     <p className='text-greydark text-base font-medium'>{eachItem === 1 ? "Username:" : "Password:"}</p>
@@ -63,9 +63,9 @@ const EmployeDetail = () => {
 
                             ))}
                         </div>
-                        <div className='pr-2 md:pr-9 cursor-pointer' onClick={handleCopy}>
-                            <Image src={"/icons/copyLinear.svg"} alt='Copy' width={48} height={40} />
-                            <p className='transition-all duration-500 ease-in-out text-greydark text-normal font-medium pl-2'>{copy}</p>
+                        <div className='pr-2 md:pr-9 cursor-pointer mt-4 md:mt-0' onClick={handleCopy}>
+                            <Image src={"/icons/copyLinear.svg"} alt='Copy' width={30} height={30} className='w-[30px] md:w-[40px]' />
+                            <p className='transition-all duration-500 ease-in-out text-greydark text-normal font-medium '>{copy}</p>
                         </div>
                     </div>
                 </div>

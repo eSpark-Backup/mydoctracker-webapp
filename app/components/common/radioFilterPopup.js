@@ -2,7 +2,7 @@ import { Radio, Space } from "antd"
 
 const RadioFilterPopup = ({ forwardedRef, filter, handleFilter, className }) => {
     return(
-       <div ref={forwardedRef} className={`${className} radio-modal w-[200px] absolute top-[60px] right-[50px] md:right-[100px] bg-[#FFFFFF] rounded-lg shadow-2xl p-5 z-10`}>
+       <div ref={forwardedRef} className={`${className} radio-modal w-[208px] absolute top-[60px] right-[50px] md:right-[100px] bg-[#F5F6FA] rounded-lg shadow-2xl p-5 z-10`}>
         <div className='text-primary border-[#E4E4E4] border-b-[1px] pb-1 font-semibold'>Type</div>
         <Radio.Group value={filter.type} onChange={(e)=>handleFilter("type", e.target.value)} >
             <Space direction="vertical">

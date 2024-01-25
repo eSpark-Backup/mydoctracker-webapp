@@ -9,9 +9,9 @@ const PackageCardListing = ({ type, packagePlans, handleBuy}) => {
           {packagePlans.map((plan, index)=>{
               return(
                   <div key={plan.id} className={`w-[280px] px-5 py-5 bg-[url('/Images/package-card.png')] bg-center bg-no-repeat bg-contain`}>
-                    <div className='ml-5 font-semibold text-primary text-lg'>{plan.planName} Plan</div>
-                    <div className='font-semibold text-white text-center text-lg my-4'>Plan {plan.planType}</div>
-                    <div className='text-white text-center text-3xl mt-10'><span className='font-semibold text-xl'>$ {plan.price} /</span> {type}</div>
+                    <div className='ml-5 font-semibold text-primary text-[20px]'>{plan.planName} Plan</div>
+                    <div className='font-semibold text-white text-center text-[25px] my-4'>Plan {plan.planType}</div>
+                    <div className='text-center mt-10'><span className='font-semibold text-[30px] text-white'>$ {plan.price} /</span> <span className="text-[20px] text-[#E4E4E4]">{type}</span></div>
                     <div className='px-8'>
                         {plan.details.map((detail, index)=>{
                             return(
