@@ -50,7 +50,7 @@
 
 /* navbar  */
 .navbar-link {
-  @apply inline-block relative px-0 py-[1.10rem]  before:transition-[300ms] before:h-0.5 before:content-[""] before:absolute before:bg-secondary;
+  @apply inline-block relative px-0 py-[1.8rem]  before:transition-[300ms] before:h-0.5 before:content-[""] before:absolute before:bg-secondary;
 }
 
 .navbar-link-grow-up::before {
