@@ -3,12 +3,14 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { UserDevices } from "@/app/constant";
-import { Badge } from "antd";
+import { Badge, notification } from "antd";
 import DocButton from "../common/docButton";
 import { PlusOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import ConfirmModal from "../modals/confirmModal";
 import { useSelector } from "react-redux";
+import { useDeleteDocument } from "@/app/hooks/documents";
+import { getErrorFromApi } from "@/app/utils";
 
 
 const Dashboard = ({ noDevices }) => {
@@ -16,8 +18,24 @@ const Dashboard = ({ noDevices }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showEditScreen, setShowEditScreen] = useState(false);
 
-  const handleOk = () => {
+  const { mutate: deleteDocument } = useDeleteDocument()
+
+  const handleOk = (id) => {
     setIsModalOpen(false);
+    deleteDocument(id, {
+      onSuccess: (deleteDocumentSuccess) => {
+        notification.success({
+          message: 'Success',
+          description: deleteDocumentSuccess?.message,
+        })
+      },
+      onError: (error) => {
+        notification.error({
+          message: 'Error',
+          description: getErrorFromApi(error),
+        })
+      }
+    })
   };
 
   const handleCancel = () => {
@@ -70,7 +88,7 @@ const Dashboard = ({ noDevices }) => {
                 <p className="text-[14px] text-greydark">{eachDevice?.date}</p>
                 <p className="text-[14px] text-greydark">{eachDevice?.battery}</p>
               </div>
-              {role !== "employee" && <div onClick={() => setIsModalOpen(true)}>
+              {role !== "employee" && <div onClick={() => setIsModalOpen(eachDevice?.id)}>
                 <Image
                   src="/icons/vertical-ellipse.svg"
                   width={40}
