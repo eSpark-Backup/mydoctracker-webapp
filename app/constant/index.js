@@ -207,6 +207,7 @@ export const introLaptopScreen = {
 
 export const UserDevices = [
     {
+        id: "2ff15b64-b28f-4afb-bd22-fefe39a8f473",
         heading: "Tracker: 123456",
         status: "Active",
         name: "My Note Book",
@@ -214,6 +215,7 @@ export const UserDevices = [
         battery: "87% Battery remaining",
     },
     {
+        id: "2",
         heading: "Tracker: 123456",
         status: "Disable",
         name: "My Note Book",
@@ -221,6 +223,7 @@ export const UserDevices = [
         battery: "87% Battery remaining",
     },
     {
+        id: "3",
         heading: "Tracker: 123456",
         status: "Inactive",
         name: "My Note Book",
@@ -1102,13 +1105,13 @@ export const userEditDocData = [
                 key: "docTime",
                 type: "timePicker"
             },
-            {
-                label: "Location",
-                placeholder: "Under the bed",
-                required: false,
-                key: "docLocation",
-                type: "text"
-            },
+            // {
+            //     label: "Location",
+            //     placeholder: "Under the bed",
+            //     required: false,
+            //     key: "docLocation",
+            //     type: "text"
+            // },
             {
                 label: "Doc Image",
                 placeholder: "Upload image",

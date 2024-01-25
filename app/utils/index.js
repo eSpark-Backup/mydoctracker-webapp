@@ -91,3 +91,51 @@ export const getErrorFromApi = (error) => {
   }
 }
 
+export const getDate = (dateString) => {
+  const originalDate = new Date(dateString);
+  const formattedDate = `${(originalDate.getMonth() + 1).toString().padStart(2, '0')}/${originalDate.getDate().toString().padStart(2, '0')}/${originalDate.getFullYear()}`;
+  return formattedDate
+}
+
+export const getTime = (dateString) => {
+  const originalDate = new Date(dateString);
+  originalDate.setHours(originalDate.getHours() - (new Date().getTimezoneOffset() / 60));
+  const options = {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+    timeZone: 'America/New_York',
+  };
+  const formattedTime = originalDate?.toLocaleString('en-US', options);
+  return formattedTime
+}
+
+export const getMonthDate = (dateString) => {
+  const date = new Date(dateString);
+
+  const currentDate = new Date();
+  currentDate.setHours(0, 0, 0, 0);
+
+  const monthNames = [
+    "January", "February", "March", "April",
+    "May", "June", "July", "August",
+    "September", "October", "November", "December"
+  ];
+
+  const getRelativeDate = (inputDate, currentDate) => {
+    const day = inputDate.getDate();
+    const monthIndex = inputDate.getMonth();
+    const year = inputDate.getFullYear();
+    if (inputDate.toDateString() === currentDate.toDateString()) {
+      return `Today, ${monthNames[monthIndex]} ${day},${year}`;
+    } else if (inputDate.toDateString() === new Date(currentDate.getTime() - 24 * 60 * 60 * 1000).toDateString()) {
+      return `Yesterday, ${monthNames[monthIndex]} ${day},${year}`;
+    } else if (inputDate.toDateString() === new Date(currentDate.getTime() + 24 * 60 * 60 * 1000).toDateString()) {
+      return `Tomorrow, ${monthNames[monthIndex]} ${day},${year}`;
+    } else {
+      return `${monthNames[monthIndex]} ${day},${year}`;
+    }
+  };
+  const formattedDate = getRelativeDate(date, currentDate);
+  return formattedDate
+}
