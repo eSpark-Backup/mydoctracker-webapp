@@ -43,16 +43,16 @@ const Dashboard = ({ noDevices }) => {
             <DocButton prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={"Add"} className={"text-white !bg-primary rounded-lg"} onClick={() => setShowEditScreen(!showEditScreen)} />
           </Link>
         </>
-      </div> : <div className="w-[100%] gap-6 min-h-[70vh] drop-shadow-lg rounded-lg bg-white my-4 flex py-12 items-center flex-col">
+      </div> : <div className="w-[100%] gap-6 min-h-[70vh] drop-shadow-lg rounded-lg bg-white my-4 flex py-12 items-center flex-col border-[2px] border-[#E4E4E4] md:border-none">
         {UserDevices?.map((eachDevice, key) => (
           <div key={key} className="h-36 w-[100%] px-[20px] sm:px-0 sm:w-[90%]  border-b-2 border-greyBorder">
             <div className="flex gap-5">
               <Link className="leading-7" href={"/dashboard/devices/user"} >
-                <h1 className="text-[14px] sm:text-[20px] cursor-pointer">
+                <h1 className="text-[14px] sm:text-[20px] cursor-pointer font-normal">
                   {eachDevice?.heading}
                 </h1>
               </Link>
-              <h1 className="!text-lg">
+              <h1 className="!text-lg hidden md:block">
                 {eachDevice?.status === "Active" ? (
                   <Badge color="#0DFF25" text={eachDevice?.status} className="!text-lg" />
                 ) : eachDevice?.status === "Disable" ? (
@@ -64,11 +64,11 @@ const Dashboard = ({ noDevices }) => {
             </div>
             <div className="flex justify-between mt-5">
               <div className="flex flex-col gap-2">
-                <h3 className="text-[14px] text-[#424242] sm:text-base">
+                <h3 className="text-[14px] text-[#424242] sm:text-base font-medium">
                   {eachDevice?.name}
                 </h3>
-                <p className="text-[14px] text-greydark">{eachDevice?.date}</p>
-                <p className="text-[14px] text-greydark">{eachDevice?.battery}</p>
+                <p className="text-[12px] md:text-[14px] font-[300] text-greydark">{eachDevice?.date}</p>
+                <p className="text-[12px] md:text-[14px] font-[300] text-greydark">{eachDevice?.battery}</p>
               </div>
               {role !== "employee" && <div onClick={() => setIsModalOpen(true)}>
                 <Image

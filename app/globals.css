@@ -388,18 +388,16 @@ li.ant-pagination-next.ant-pagination-disabled button {
 
 
 /* DocTimePicker.css */
-.ant-btn.ant-btn-sm{
+/* .ant-btn.ant-btn-sm{
   background-color: var(--primary-color) !important;
   color: white !important;
-}
+} */
 
 .ant-upload-wrapper .ant-upload-list .ant-upload-list-item .ant-upload-list-item-actions .ant-upload-list-item-action.ant-btn-sm{
   background-color: #e9e7e7 !important;
 }
 
-.ant-btn-primary:not(:disabled):not(.ant-btn-disabled):hover {
-  background-color: #002F49 !important;
-}
+
 
 .ant-btn-primary:disabled, .ant-btn-primary.ant-btn-disabled {
   background-color: rgba(0, 0, 0, 0.04) !important;

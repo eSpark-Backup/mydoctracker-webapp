@@ -32,7 +32,7 @@ const InfoCard = ({ length, icon, title, description, index, buttonTitle, button
                         </div>
                     </div>
                     <div>
-                        <p className='text-[#0A2431] py-3 h-[120px]'>{description}</p>
+                        <p className='text-[#666666] py-3 h-[120px]'>{description}</p>
                     </div>
                 </div>
 
