@@ -31,7 +31,7 @@ const GeofenceSettings = () => {
         <div className='flex flex-col gap-8 px-2 sm:px-8'>
             <div>
                 <h3 className='sm:text-xl text-base font-medium'>Geofence Settings</h3>
-                <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p className='text-xs mt-4 text-[#434343]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div className='flex-col flex gap-8'>
                 <div className='w-[77vw] lg:w-2/4 sm:w-[45vw] flex justify-between min-h-[70px]'>
@@ -53,7 +53,7 @@ const GeofenceSettings = () => {
                 </div>
                 <div>
                     <h3 className='sm:text-xl text-base font-medium'>Time Interval Settings</h3>
-                    <p className='text-xs mt-4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p className='text-xs mt-4 text-[#434343]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
                 <div className='w-[77vw] lg:w-2/4 sm:w-[45vw] flex justify-between'>
                     <p className='text-sm'>Idle state interval</p>

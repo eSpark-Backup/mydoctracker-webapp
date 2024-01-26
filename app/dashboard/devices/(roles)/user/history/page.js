@@ -44,7 +44,7 @@ const [datePickerVisible, setDatePickerVisible] = useState(false);
               </div>
 
               <div className='w-[100%] lg:w-[70%] py-5 lg:py-10 px-3 lg:px-3'>
-                <div className='flex flex-col gap-2 lg:flex-row items-center lg:items-start justify-around'>
+                <div className='flex gap-2 md:flex-row flex-col  items-center lg:items-start justify-around'>
                     <div className='w-[100%] lg:w-fit'>
                       <div className='text-[#002F49] font-bold text-[16px]'>Time</div>
                       <div className='text-[#666666] font-semibold text-[12px]'>1 Hour</div>

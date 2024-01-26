@@ -48,7 +48,7 @@ const Dashboard = ({ noDevices }) => {
           <div key={key} className="h-36 w-[100%] px-[20px] sm:px-0 sm:w-[90%]  border-b-2 border-greyBorder">
             <div className="flex gap-5">
               <Link className="leading-7" href={"/dashboard/devices/user"} >
-                <h1 className={`${role === "employee"?"text-[20px] text-black cursor-pointer font-normal":"text-[14px] sm:text-[20px] cursor-pointer font-normal"}`}>
+                <h1 className={`${role === "employee"?"text-[20px] lg:mt-0 mt-[2px] text-black cursor-pointer font-normal":"text-[14px] sm:text-[20px] lg:mt-0 mt-[2px] cursor-pointer font-normal"}`}>
                   {eachDevice?.heading}
                 </h1>
               </Link>
