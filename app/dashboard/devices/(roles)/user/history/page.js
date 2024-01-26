@@ -31,8 +31,8 @@ const [datePickerVisible, setDatePickerVisible] = useState(false);
        
   return (
     <div className={admin ? "w-[100%] flex flex-col" : "w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex flex-col"}>
-      {admin ? null : <div className='border-[#E4E4E4] border-b-2 py-8 pr-8 pl-[70px] pb-5'>
-        <h6 className='text-black font-semibold text-lg sm:text-xl'>Location History</h6>
+      {admin ? null : <div className='border-[#E4E4E4] border-b-2 py-8 md:pr-8 md:pl-[70px] pb-5'>
+        <h6 className='text-black font-semibold text-lg sm:text-xl text-center md:text-start'>Location History</h6>
       </div>}
 
             <div className='flex flex-col lg:flex-row gap-4 h-[100%]'>

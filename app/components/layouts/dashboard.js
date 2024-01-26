@@ -48,7 +48,7 @@ const Dashboard = ({ noDevices }) => {
           <div key={key} className="h-36 w-[100%] px-[20px] sm:px-0 sm:w-[90%]  border-b-2 border-greyBorder">
             <div className="flex gap-5">
               <Link className="leading-7" href={"/dashboard/devices/user"} >
-                <h1 className="text-[14px] sm:text-[20px] cursor-pointer font-normal">
+                <h1 className={`${role === "employee"?"text-[20px] text-black cursor-pointer font-normal":"text-[14px] sm:text-[20px] cursor-pointer font-normal"}`}>
                   {eachDevice?.heading}
                 </h1>
               </Link>
@@ -64,7 +64,7 @@ const Dashboard = ({ noDevices }) => {
             </div>
             <div className="flex justify-between mt-5">
               <div className="flex flex-col gap-2">
-                <h3 className="text-[14px] text-[#424242] sm:text-base font-medium">
+                <h3 className={`${role === "employee"?"text-[16px] text-[#424242] font-medium":"text-[14px] text-[#424242] sm:text-base font-medium"}`}>
                   {eachDevice?.name}
                 </h3>
                 <p className="text-[12px] md:text-[14px] font-[300] text-greydark">{eachDevice?.date}</p>
