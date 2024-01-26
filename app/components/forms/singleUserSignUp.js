@@ -203,7 +203,7 @@ const SingleUserSignup = () => {
                 wrapperCol={{ span: 24 }}
                 className='2xl:!w-[65%] w-[100%]'
               >
-                <Checkbox className='auth-checkbox' >
+                <Checkbox className='auth-checkbox mt-2' >
                   <span className='text-[14px]'>
                     I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <span className='text-primary  font-semibold'>Terms and conditions</span>
                   </span>
