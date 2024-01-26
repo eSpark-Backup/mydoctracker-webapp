@@ -19,7 +19,7 @@ const AdminTrackerDetails = () => {
                 </div>
                 <div className="w-100% sm:w-[30%] flex flex-col">
                     <label className="text-greydark text-sm pb-1">Select Type</label>
-                    <DocDropdown onChange={(value)=>console.log(value)} options={[{label: "Single Page", value: "singlePage"},{label: "Multi Page", value: "multiPage"}]} placeholder="Single Page" />
+                    <DocDropdown onChange={(value)=>console.log(value)} options={[{label: "Single Page", value: "singlePage"},{label: "Multi Page", value: "multiPage"}]} placeholder="Select Type" />
                 </div>
             </div>
         </div>

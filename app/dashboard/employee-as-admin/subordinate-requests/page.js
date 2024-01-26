@@ -32,12 +32,14 @@ const SubordinateRequests = () => {
     return (
         <div className='mt-5'>
             {showUser || showDocument ? <button className='block md:hidden'>
-            <NavigatorHeader previousPage={["Request"]} currentPage="Update document" onClick={Backhandler} />
+                <NavigatorHeader previousPage={["Request"]} currentPage="Update document" onClick={Backhandler} />
             </button> : null}
-            {showUser || showDocument ?  null : <h2 className='text-black text-2xl font-semibold'>Requests</h2>}
-            {showDocument || showUser ? null : <p className='text-greydark text-base font-normal mt-3'>Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie.</p>}
+            <div>
+                <h2 className='text-black text-2xl font-semibold'>Requests</h2>
+                <p className='text-greydark text-base font-normal mt-3'>Lorem ipsum dolor sit amet consectetur. Cursus cras aliquam amet malesuada iaculis habitant. Aliquam faucibus ultricies tincidunt mattis vitae nec nulla sit. A molestie.</p>
+            </div>
 
-            <div className='h-[75vh] mt-6 bg-white rounded-lg shadow-md border-2 border-greyBorder flex'>
+            <div className='h-[75vh] mt-6 bg-white rounded-lg md:shadow-md border-[1px] border-greyBorder flex'>
                 <RequestPanel toggleShowUser={toggleShowUser} toggleShowDocument={toggleShowDocument} showDocument={showDocument} showUser={showUser} toggleApprove={toggleApprove} />
                 <ViewRequest showUser={showUser} showDocument={showDocument} />
             </div>

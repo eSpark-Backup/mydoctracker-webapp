@@ -17,9 +17,9 @@ const ViewRequest = ({ showUser, showDocument }) => {
                     <div className='w-[100%] h-[100%] overflow-y-scroll no-scrollbar pb-12'>
                         <div className='flex justify-center items-center flex-col gap-3'>
                             <p className='text-greydark text-[16px] font-medium mt-3'>Request to update the document</p>
-                            <div className='flex gap-3'>
-                                <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder w-24"} />
-                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md w-24"} />
+                            <div className='flex gap-[5px]'>
+                                <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder w-[80px] text-xs"} />
+                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md w-[80px] text-xs"} />
                             </div>
                         </div>
                         <div className='flex gap-2 pl-3 md:pl-10 mb-3 mt-4'>
@@ -50,9 +50,9 @@ const ViewRequest = ({ showUser, showDocument }) => {
                     </div> : showDocument ? <div className='w-[100%] h-[100%] overflow-y-scroll no-scrollbar pb-12'>
                         <div className='flex justify-center items-center flex-col gap-3'>
                             <p className='text-greydark text-[16px] font-medium mt-3'>Request to update the document</p>
-                            <div className='flex gap-3'>
-                                <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder w-24"} />
-                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md w-24"} />
+                            <div className='flex gap-[5px]'>
+                                <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder w-[80px] text-xs"} />
+                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md w-[80px] text-xs"} />
                             </div>
                         </div>
                         <div className='flex gap-2 pl-3 md:pl-10 mb-3 mt-4'>

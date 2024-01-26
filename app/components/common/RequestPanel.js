@@ -6,13 +6,13 @@ import { DocButton } from '@/app/components'
 
 const RequestPanel = ({ toggleShowUser, toggleShowDocument, showUser, showDocument, toggleApprove }) => {
     return (
-        <div className={showDocument || showUser ? `lg:w-1/3 md:w-2/4 md:flex hidden w-[100%] max-h-[85vh] overflow-y-scroll no-scrollbar flex-col pt-3 items-center border-r-2 border-greyBorder` : `lg:w-1/3 md:w-2/4 w-[100%] max-h-[85vh] overflow-y-scroll no-scrollbar flex flex-col pt-3 items-center border-r-2 border-greyBorder`}>
+        <div className={showDocument || showUser ? `lg:w-1/3 md:w-2/4 md:flex hidden w-[100%] max-h-[85vh] overflow-y-scroll no-scrollbar flex-col md:pt-3 items-center border-r-[1px] border-greyBorder` : `lg:w-1/3 md:w-2/4 w-[100%] max-h-[85vh] overflow-y-scroll no-scrollbar flex flex-col md:pt-3 items-center border-r-[1px] border-greyBorder`}>
             <div className='h-[40px] justify-center hidden md:flex'>
                 <DocButton text={"Today"} className={" w-[100px] text-primary text-xs font-normal border-2 border-greyBorder px-10 bg-white"} />
             </div>
 
             {requests?.map((eachRequest, index) => (
-                <div className='w-full p-2' key={index}>
+                <div className={`w-full p-2 bg-[${eachRequest.bg}] md:bg-white`} key={index}>
                     <div className='flex gap-3 cursor-pointer'>
                         <div className='cursor-pointer' onClick={toggleShowUser}>
                             <Image src={"/icons/userAvatar.svg"} width={60} height={60} alt='User' />
@@ -27,10 +27,10 @@ const RequestPanel = ({ toggleShowUser, toggleShowDocument, showUser, showDocume
                         </div>
                     </div>
                     <div className='flex justify-end gap-3 mt-3'>
-                        <DocButton text={"Decline"} className={"bg-white text-xs border-2 rounded-md border-greyBorder"} />
-                        <DocButton text={"Approve"} className={"!bg-primary text-xs text-white rounded-md"} onClick={toggleApprove} />
+                        <DocButton text={"Decline"} className={"bg-white text-xs border-2 rounded-md border-greyBorder w-[80px]"} />
+                        <DocButton text={"Approve"} className={"!bg-primary text-xs text-white rounded-md w-[80px]"} onClick={toggleApprove} />
                     </div>
-                    <hr className='mt-2 w-4/5 mx-auto' />
+                    <hr className='mt-2 w-4/5 mx-auto hidden md:block' />
                 </div>
             ))}
             <div className='h-[40px] hidden md:flex justify-center'>
@@ -51,10 +51,10 @@ const RequestPanel = ({ toggleShowUser, toggleShowDocument, showUser, showDocume
                     </div>
                 </div>
                 <div className='flex justify-end gap-3 mt-3'>
-                    <DocButton text={"Decline"} className={"bg-white text-xs border-2 rounded-md border-greyBorder"} />
-                    <DocButton text={"Approve"} className={"!bg-primary text-xs text-white rounded-md"} onClick={toggleApprove}  />
+                    <DocButton text={"Decline"} className={"bg-white text-xs border-2 rounded-md border-greyBorder w-[80px]"} />
+                    <DocButton text={"Approve"} className={"!bg-primary text-xs text-white rounded-md w-[80px]"} onClick={toggleApprove}  />
                 </div>
-                <hr className='mt-2 w-4/5 mx-auto' />
+                <hr className='mt-2 w-4/5 mx-auto hidden md:block' />
             </div>
 
         </div>
