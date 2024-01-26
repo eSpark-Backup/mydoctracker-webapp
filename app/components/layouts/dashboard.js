@@ -52,9 +52,9 @@ const Dashboard = ({ noDevices }) => {
                   {eachDevice?.heading}
                 </h1>
               </Link>
-              <h1 className="!text-lg hidden md:block">
+              <h1 className="!text-lg">
                 {eachDevice?.status === "Active" ? (
-                  <Badge color="#0DFF25" text={eachDevice?.status} className="!text-lg" />
+                  <Badge color="#0DFF25" size="small" text={eachDevice?.status} className="!text-lg" />
                 ) : eachDevice?.status === "Disable" ? (
                   <Badge color="#FFCE00" text={eachDevice?.status} className="!text-lg" />
                 ) : (

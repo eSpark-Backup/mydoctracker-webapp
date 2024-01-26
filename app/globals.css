@@ -476,13 +476,19 @@ li.ant-pagination-next.ant-pagination-disabled button {
   color: var(--text-color-primary);
 }
 
+
+@media screen and  (max-width: 1023px) {
+  .ant-badge.ant-badge-status .ant-badge-status-text{
+    font-size: 14px !important;
+    color: var(--text-color-primary);
+  }
+}
+
 .ant-btn-sm span {
   color: #002F49 !important
 }
 
-.ant-badge.ant-badge-status .ant-badge-status-text {
-  font-size: 18px !important;
-}
+
 
 .gmnoprint {
   display: none !important;
