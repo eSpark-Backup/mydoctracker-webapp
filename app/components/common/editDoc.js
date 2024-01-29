@@ -60,8 +60,8 @@ const EditDoc = () => {
                 return (
                     <div key={index}>
                         <div className='flex flex-row items-center justify-between flex-wrap'>
-                            <h2 className='text-black font-medium text-xl'>{section.title}</h2>
-                            {section.buttonText && <DocButton onClick={() => setAddFieldModal(section.title)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md !bg-primary text-white h-[100%] px-4 w-[150px]"} text={section.buttonText} />}
+                            <h2 className='text-black font-medium text-xl my-2'>{section.title}</h2>
+                            {section.buttonText && <DocButton onClick={() => setAddFieldModal(section.title)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md !bg-primary text-white h-[100%] px-4 w-[150px] my-2"} text={section.buttonText} />}
                         </div>
                         <div className='flex gap-5 sm:gap-x-14 flex-col sm:flex-row flex-wrap'>
                             {/* <div className="w-100% :w-[30%] flex flex-col"> */}

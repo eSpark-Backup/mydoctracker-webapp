@@ -10,7 +10,7 @@ const VerificationForm = ({ handleCancel, auth, handleOk, handleResend, handleOt
 
 
     return (
-        <div className='flex flex-col pt-8 items-center px-7 gap-y-3'>
+        <div className='flex flex-col pt-8 items-center px-0 md:px-7 gap-y-3'>
             <h3 className='text-black text-2xl font-normal'>Verification Code</h3>
             <div className='flex gap-x-3'>
                 <Image src={"/icons/mailBox.svg"} height={50} width={50} alt='Mail Box' />
@@ -32,9 +32,9 @@ const VerificationForm = ({ handleCancel, auth, handleOk, handleResend, handleOt
                 />
             </div>
             <div className='w-2/3 mt-3 flex flex-col justify-center gap-y-3'>
-                <DocButton onClick={handleOk} text={auth?"Submit":"Confirm"} className={"text-white w-[45%] !rounded-[50px] !bg-primary"} />
+                <DocButton onClick={handleOk} text={auth?"Submit":"Confirm"} className={"text-white !text-sm w-[100px] md:w-[45%] !rounded-[50px] !bg-primary"} />
                 <p className='underline underline-offset-2 cursor-pointer text-primary' onClick={handleResend}>Resend Code</p>
-                {auth ? null : <DocButton text={"Continue"} className={"!bg-[#AFAFAF] text-primary font-medium w-[45%] !rounded-[50px]"} onClick={handleCancel} />}
+                {auth ? null : <DocButton text={"Continue"} className={"!bg-[#AFAFAF] text-primary font-medium w-[100px] md:w-[45%] !rounded-[50px]"} onClick={handleCancel} />}
             </div>
         </div>
     )

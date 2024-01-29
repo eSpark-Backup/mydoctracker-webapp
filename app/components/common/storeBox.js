@@ -4,7 +4,7 @@ import React from 'react'
 
 const StoreBox = ({ heading, title, icon, link }) => {
     return (
-        <Link  href={link}>
+        <Link href={link}>
             <div className='bg-black w-[134px] h-[50px] flex justify-center items-center rounded'>
                 <div>
                     <Image

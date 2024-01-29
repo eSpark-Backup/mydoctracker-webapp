@@ -9,7 +9,7 @@ const Footer = () => {
     <>
       <footer className='lg:px-[6rem] px-[2rem] py-[5rem] bg-cover bg-repeat footer-bg flex lg:flex-row flex-col justify-between'>
         <div className='lg:w-[50%] w-full '>
-          <div className='flex justify-start flex-col xl:w-[50%] pb-8'>
+          <div className='flex justify-start flex-col xl:w-[60%] pb-8'>
             <div className="flex items-center pb-5">
               <Image
                 className="w-[71px] mr-4"
@@ -18,17 +18,17 @@ const Footer = () => {
                 width={10}
                 height={10}
               />
-              <h6 className="text-white text-3xl">Mydoctracker</h6>
+              <h6 className="text-white text-3xl lg:text-[35px]">Mydoctracker</h6>
             </div>
 
-            <div className='text-white'>
+            <div className='text-white text-base lg:text-[20px]'>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua sed do eiusmod tem labore.
             </div>
           </div>
 
 
           <div>
-            <h6 className='text-white text-xl pb-5'>Get the free app</h6>
+            <h6 className='text-white text-xl lg:text-[24px] pb-5'>Get the free app</h6>
 
             <div className='flex sm:justify-start justify-center gap-5 flex-wrap'>
               {
@@ -49,7 +49,7 @@ const Footer = () => {
                 {
                   footerRoutes1?.map((item, index) => (
                     <Link href={item.link} key={index}>
-                      <p className='text-white text-md pb-4'>{item.title}</p>
+                      <p className='text-white text-md lg:text-[20px] pb-4'>{item.title}</p>
                     </Link>
                   ))
                 }
@@ -59,7 +59,7 @@ const Footer = () => {
                 {
                   footerRoutes2?.map((item, index) => (
                     <Link href={item.link} key={index}>
-                      <p className='text-white text-md pb-4'>{item.title}</p>
+                      <p className='text-white text-md lg:text-[20px] pb-4'>{item.title}</p>
                     </Link>
                   ))
                 }
@@ -70,7 +70,7 @@ const Footer = () => {
       </footer>
 
       <footer className='flex justify-center items-center bg-white  h-[50px]'>
-        <p className='text-primary text-md font-semibold'>© Copyright | 2023 All Rights Reserved</p>
+        <p className='text-primary text-md lg:text-[16px] font-semibold'>© Copyright | 2023 All Rights Reserved</p>
       </footer>
     </>
   )

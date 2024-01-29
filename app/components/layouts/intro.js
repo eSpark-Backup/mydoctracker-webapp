@@ -25,14 +25,14 @@ const Intro = () => {
         <section className='lg:px-[10rem] px-[2rem] md:py-[8rem] py-[4rem] bg-cover bg-repeat intro-bg' >
             <div className='flex md:flex-row flex-col'>
                 <div className='md:w-[50%] w-full'>
-                    <h6 className='xl:text-[32px] text-[25px] font-semibold pb-5 !text-center md:!text-start text-textPrimary'>Keep your documents safe with our app!</h6>
-                    <p className='text-base lg:text-lg lg:!leading-10 !leading-9 xl:w-[75%] md:w-[90%] w-full pb-5 font-medium text-[#424242]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
+                    <h6 className='lg:text-[32px] text-[25px] font-semibold pb-5 !text-center md:!text-start text-textPrimary'>Keep your documents safe with our app!</h6>
+                    <p className='text-base lg:text-[18px] lg:!leading-10 !leading-9 xl:w-[75%] md:w-[90%] w-full pb-5 font-medium text-[#424242]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
                     </p>
 
                     <div className='flex md:justify-start justify-center'>
-                    <Link href={"/dashboard/devices/"}>
-                        <DocButton className="lg:text-lg text-white bg-secondary px-[2.75rem]" text='Try Now' />
-                    </Link>
+                        <Link href={"/dashboard/devices/"}>
+                            <DocButton className="lg:text-[18px] text-white bg-secondary px-[2.75rem]" text='Try Now' />
+                        </Link>
                     </div>
                 </div>
 

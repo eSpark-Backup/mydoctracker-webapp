@@ -46,7 +46,7 @@ const AdminProfileForm = () => {
     const props = (key) => getProps(setAccountSetting, accountSetting, key)
 
     return (
-        <div className='flex flex-col gap-10 md:h-[500px] md:overflow-y-scroll'>
+        <div className='flex flex-col gap-10 md:h-[500px] md:overflow-y-scroll no-scrollbar'>
             <div>
                 {adminAccountSettings?.map((eachSection, index) => (
                     <React.Fragment key={index}>

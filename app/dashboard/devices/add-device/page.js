@@ -152,7 +152,7 @@ const AddDevice = () => {
                     {userAddDeviceData?.map((eachSection, index) => (
                         <React.Fragment  key={index}>
                             <div className={eachSection?.buttonText ? "flex items-center justify-between flex-wrap mt-3" : ""}>
-                                <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{eachSection?.title}</h2>
+                                <h2 className="text-black text-base sm:text-xl font-medium pb-1">{eachSection?.title}</h2>
                                 {eachSection?.buttonText && <DocButton onClick={()=>setAddFieldModal(eachSection.title)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white !bg-primary rounded-lg"} />}
                             </div>
                             <div>

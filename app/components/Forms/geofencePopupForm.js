@@ -39,7 +39,7 @@ const GeofencePopupForm = ({ handleCancel, edit }) => {
 
                 <div>
                     <div className="flex flex-col w-full">
-                        <label className="text-greydark text-sm pb-1 font-semibold">Cordinates <span className="text-redColor">*</span></label>
+                        <label className="text-greydark text-sm pb-1 font-semibold">Coordinates<span className="text-redColor">*</span></label>
 
                         <div className='flex flex-col gap-4'>
                             <div className='flex justify-between md:flex-row flex-col gap-4 flex-wrap h-40 overflow-y-scroll no-scrollbar'>

@@ -55,7 +55,7 @@ const EmployeeSettings = () => {
     ];
     return (
         <div className='min-h-[75vh] mt-8 bg-white rounded-lg employee-setting  py-3 shadow-md border-1 border-greyBorder'>
-            <Tabs size='large' tabBarGutter={40} defaultActiveKey="1" items={profileSettingTabs} />
+            <Tabs size='large' tabBarGutter={40} defaultActiveKey="1" items={profileSettingTabs} className='many-tabs' />
         </div>
     )
 }
