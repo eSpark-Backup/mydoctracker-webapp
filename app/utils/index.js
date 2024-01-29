@@ -2,13 +2,14 @@ import { useEffect } from 'react';
 import { AdminRoutes, EmployeeMainRoutes, EmployeeRoutes, SidebarFooterRoutes, UserRoutes } from '../constant';
 
 export const activeForSidebar = (role, pathname, link) => {
+    const id = pathname.split("/")[3]
     const employeeAsAdmin = pathname.split('/')[2]
     const pathArr = pathname.split('/')
     const linkArr = link.split('/')
     let pathLastInd = pathArr.length > 0 && pathArr[pathArr.length - 1]
     const linkLastInd = linkArr.length > 0 && linkArr[linkArr.length - 1]
     const dashoardChildPaths = ["view-doc" , "edit-doc", "download-doc", "geofence", "add-geofence", "edit-geofence", "add-employee", "employee-details", "employee-settings", "employee-details", "share-location"]
-    const routeToMatch = role === "admin" ? "admin" : role === "user" ? "user" : (role === "employee" && employeeAsAdmin === "employee-as-admin") ? "subordinates" : "user"
+    const routeToMatch = role === "admin" ? "admin" : role === "user" ? id : (role === "employee" && employeeAsAdmin === "employee-as-admin") ? "subordinates" : id
     dashoardChildPaths.map((link)=>link === pathLastInd ? pathLastInd = routeToMatch : pathLastInd)
     return pathLastInd === linkLastInd
 }
@@ -45,23 +46,25 @@ const mainPathName = [
 ]
 
 export const getRoutesForSidebar = (role, roleType, pathname) => {
+  const id = pathname.split("/")[3]
   return role === "admin" ? AdminRoutes
   :
-  role === "user" ? UserRoutes
+  role === "user" ? UserRoutes(id)
   :
   (role === "employee" && roleType === "admin" && mainPathName.includes(pathname)) ? EmployeeMainRoutes
   :
-  EmployeeRoutes
+  EmployeeRoutes(id)
 }
 
 export const getFooterRoutesForSidebar = (role, roleType, pathname) => {
-  return role === "admin" ? SidebarFooterRoutes.map(route => {if (route.title === "Report a problem") {return { ...route, title: "Report a problem", link: "/dashboard/admin/report" }} return route}).filter(({title})=>title==="Report a problem")
+  const id = pathname.split("/")[3]
+  return role === "admin" ? SidebarFooterRoutes(id).map(route => {if (route.title === "Report a problem") {return { ...route, title: "Report a problem", link: "/dashboard/admin/report" }} return route}).filter(({title})=>title==="Report a problem")
   :
-  (role === "employee" && roleType === "admin" && mainPathName.includes(pathname)) ? SidebarFooterRoutes.filter(({title})=>title==="Report a problem")
+  (role === "employee" && roleType === "admin" && mainPathName.includes(pathname)) ? SidebarFooterRoutes(id).filter(({title})=>title==="Report a problem")
   :
-  (role === "employee" && roleType === "admin") ? SidebarFooterRoutes.map(route => {if (route.title === "Back to devices") {return { ...route, title: "Back to main", link: "/dashboard/employee-as-admin" }} return route})
+  (role === "employee" && roleType === "admin") ? SidebarFooterRoutes(id).map(route => {if (route.title === "Back to devices") {return { ...route, title: "Back to main", link: "/dashboard/employee-as-admin" }} return route})
   :
-  SidebarFooterRoutes
+  SidebarFooterRoutes(id)
 }
 
 export const getProps = (setState, state, key) => {

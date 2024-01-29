@@ -4,9 +4,12 @@ import { HeadContent, NavigatorHeader } from '@/app/components'
 import { GeofenceData } from '@/app/constant'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import React from 'react'
 
 const Geofence = () => {
+    const pathname = usePathname();
+    const id = pathname.split('/')[3]
     return (
         <div>
             <div className="w-[90%] flex items-end mt:0 sm:mt-5">
@@ -18,7 +21,7 @@ const Geofence = () => {
             <div className='mt-6 bg-white py-3 sm:px-3 sm:py-7 rounded-lg sm:min-h-[85vh] border-2 border-greyBorder sm:border-white'>
                 <><h2 className='text-lg sm:text-xl text-black font-medium p-2 sm:px-4 sm:py-3 border-b-2 border-greyBorder sm:border-white'>Geofence</h2>
                     {GeofenceData.map((eachItem, index) => (
-                        <Link key={index} href={"/dashboard/devices/user/geofence/edit-geofence"}>
+                        <Link key={index} href={`/dashboard/devices/${id}/geofence/edit-geofence`}>
                             <div className='px-3 py-8 sm:px-8 border-b-2 border-greyBorder flex justify-between min-h-[120px]' key={index}>
 
                                 <div>
@@ -34,7 +37,7 @@ const Geofence = () => {
                         </Link>
                     ))}
                     <div className='mt-2 py-5 px-7 border-b-2 border-white sm:border-greyBorder flex justify-center items-center min-h-[120px]'>
-                        <Link href={"/dashboard/devices/user/geofence/add-geofence"}>
+                        <Link href={`/dashboard/devices/${id}/geofence/add-geofence`}>
                             <button ><Image src={"/icons/Add.svg"} width={24} height={24} alt='Add' /></button>
                         </Link>
                     </div>

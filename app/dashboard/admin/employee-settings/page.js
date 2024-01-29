@@ -7,7 +7,7 @@ import ManagementList from '@/app/components/common/management';
 import { employeeData } from '@/app/constant';
 import { Tabs } from 'antd'
 import React from 'react'
-import History from '../../devices/(roles)/user/history/page';
+import History from '../../devices/(roles)/[id]/history/page';
 import EmployeeProfileSettings from './employeeProfileSettings';
 import EditDoc from '@/app/components/common/editDoc';
 

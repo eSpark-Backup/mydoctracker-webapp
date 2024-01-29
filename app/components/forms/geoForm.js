@@ -6,8 +6,11 @@ import DocButton from '../common/docButton'
 import Link from 'next/link'
 import TrackingMap from '@/app/utils/TrackingMap'
 import { containerStyleSm } from '@/app/constant'
+import { usePathname } from 'next/navigation'
 
 const GeofenceForm = ({ onSaveText }) => {
+    const pathname = usePathname();
+    const id = pathname.split('/')[3]
     return (
 
         <div className='lg:w-10/12 w-full px-4 lg:px-0 py-4'>
@@ -56,7 +59,7 @@ const GeofenceForm = ({ onSaveText }) => {
                 </div>
 
                 <div className="flex justify-end flex-col sm:flex-row gap-5">
-                    <Link className='min-w-[125px]' href={"/dashboard/devices/user/geofence"}>
+                    <Link className='min-w-[125px]' href={`/dashboard/devices/${id}/geofence`}>
                         <DocButton text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary w-[100%]"} />
                     </Link>
                     <DocButton text={onSaveText} className={"text-white min-w-[125px]"} />

@@ -7,7 +7,7 @@ import InputModal from './InputModal'
 import { useSelector } from 'react-redux'
 import CopyUrlForm from '../Forms/copyUrlForm'
 
-const InfoCard = ({ length, icon, title, description, index, buttonTitle, buttonLink }) => {
+const InfoCard = ({ id, length, icon, title, description, index, buttonTitle, buttonLink }) => {
 
     const { role }= useSelector((state=>state.auth))
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -39,12 +39,12 @@ const InfoCard = ({ length, icon, title, description, index, buttonTitle, button
                 <div className='flex flex-col gap-y-2'>
                     {
                         title === "Document" &&
-                        <Link className='no-underline text-primary' href="/dashboard/devices/user/view-doc">
+                        <Link className='no-underline text-primary' href={`/dashboard/devices/${id}/view-doc`}>
                             <DocButton text={"View Document"} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
                         </Link>
                     }
 
-                    <Link className='no-underline text-primary' href={buttonLink ? buttonLink : role === "employee" ? "/dashboard/devices/user/share-location" :  "/dashboard/devices/user"}>
+                    <Link className='no-underline text-primary' href={buttonLink ? buttonLink : role === "employee" ? `/dashboard/devices/${id}/share-location` :  `/dashboard/devices/${id}`}>
                         <DocButton text={role === "employee" && buttonTitle === "Create Link" ? "Manage Location" : buttonTitle} onClick={role !== "employee" && buttonTitle === "Create Link" ? () => setIsModalOpen(true) : null} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
                     </Link>
                 </div>

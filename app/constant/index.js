@@ -233,13 +233,13 @@ export const UserDevices = [
 ];
 
 
-export const UserRoutes = [
+export const UserRoutes = id => [
     {
         id: 1,
         title: "Dashboard",
         icon: "dashboardHome.svg",
         iconfill: "dashboardHomeFill.svg",
-        link: "/dashboard/devices/user"
+        link: `/dashboard/devices/${id}`
     },
 
     {
@@ -247,14 +247,14 @@ export const UserRoutes = [
         title: "History",
         icon: "dashboardHistory.svg",
         iconfill: "dashboardHistoryFill.svg",
-        link: "/dashboard/devices/user/history"
+        link: `/dashboard/devices/${id}/history`
     },
     {
         id: 4,
         title: "Settings",
         icon: "dashboardSetting.svg",
         iconfill: "dashboardSettingFill.svg",
-        link: "/dashboard/devices/user/settings"
+        link: `/dashboard/devices/${id}/settings`
     },
 ]
 
@@ -314,13 +314,13 @@ export const EmployeeMainRoutes = [
     }
 ]
 
-export const EmployeeRoutes = [
+export const EmployeeRoutes = id => [
     {
         id: 1,
         title: "Dashboard",
         icon: "dashboardHome.svg",
         iconfill: "dashboardHomeFill.svg",
-        link: "/dashboard/devices/user"
+        link: `/dashboard/devices/${id}`
     },
 
     {
@@ -328,11 +328,11 @@ export const EmployeeRoutes = [
         title: "History",
         icon: "dashboardHistory.svg",
         iconfill: "dashboardHistoryFill.svg",
-        link: "/dashboard/devices/user/history"
+        link: `/dashboard/devices/${id}/history`
     }
 ]
 
-export const SidebarFooterRoutes = [
+export const SidebarFooterRoutes = id => [
 
     {
         id: 1,
@@ -346,7 +346,7 @@ export const SidebarFooterRoutes = [
         title: "Report a problem",
         icon: "dashboardreport.svg",
         iconfill: "dashboardreport.svg",
-        link: "/dashboard/devices/user/report"
+        link: `/dashboard/devices/${id}/report`
     },
 
 ]
@@ -1313,7 +1313,7 @@ export const notebookDetails = [
     },
 ]
 
-export const info = [
+export const info = id => [
     {
         id: 1,
         title: "Document",
@@ -1322,7 +1322,7 @@ export const info = [
         leftBorder: true,
         mdWidth: "md:w-6/12",
         buttonTitle: "Document History",
-        buttonLink: "/dashboard/devices/user/download-doc"
+        buttonLink: `/dashboard/devices/${id}/download-doc`
     },
     {
         id: 2,
@@ -1342,7 +1342,7 @@ export const info = [
         leftBorder: false,
         mdWidth: "md:w-12/12",
         buttonTitle: "Set",
-        buttonLink: "/dashboard/devices/user/geofence"
+        buttonLink: `/dashboard/devices/${id}/geofence`
     }
 ]
 

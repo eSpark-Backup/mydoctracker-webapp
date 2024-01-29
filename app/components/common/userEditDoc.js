@@ -15,9 +15,11 @@ import { notification } from 'antd'
 import DocImgUpload from './docImgUpload'
 import { useSelector } from 'react-redux'
 import ConfirmModal from '../modals/confirmModal'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 const UserEditDoc = () => {
+    const pathname = usePathname();
+    const id = pathname.split('/')[3]
     const router = useRouter();
     const fileInputRef = useRef(null);
     const handleButtonClick = () => {
@@ -76,7 +78,7 @@ const UserEditDoc = () => {
     const successSubmit = () => {
         const formattedResult = moment(`${editDocData?.docDate} ${editDocData?.docTime}`).format('YYYY-MM-DDTHH:mm:ss.SSS[Z]');
         const payload = {
-            id: "856ea9ae-8378-4beb-a9c4-b5f41bfd9922",
+            id,
             title: editDocData?.docTitle,
             creationDate: formattedResult,
             file: editDocData?.docImage,
@@ -88,7 +90,7 @@ const UserEditDoc = () => {
                     message: 'Success',
                     description: editedSuccess?.message,
                 })
-                router.push(`/dashboard/devices/user`)
+                router.push(`/dashboard/devices/${id}`)
             },
             onError: (error) => {
                 notification.error({
@@ -160,7 +162,7 @@ const UserEditDoc = () => {
 
                                 </div>
                                 <div className="flex gap-5 mt-5">
-                                    <Link href={"/dashboard/devices/user/view-doc"}>
+                                    <Link href={`/dashboard/devices/${id}/view-doc`}>
                                         <DocButton text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary min-w-[125px]"} />
                                     </Link>
                                     <DocButton disabled={isLoading} loading={isLoading} onClick={() => handleSubmit(editDocData, successSubmit)} text={"Submit"} className={"text-white min-w-[125px]"} />

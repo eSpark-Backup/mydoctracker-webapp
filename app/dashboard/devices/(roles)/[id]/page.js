@@ -10,14 +10,17 @@ import { useGetDocumentById } from '@/app/hooks/documents'
 import { getErrorFromApi } from '@/app/utils'
 import { notification } from 'antd'
 import { fetchCurrentDocument } from '@/app/redux/store/slices/documents'
+import { usePathname } from 'next/navigation'
 
 const User = () => {
     const { role } = useSelector(state=>state.auth)
-    const filteredInfo = role === "employee" ? info.filter(item=>item.title !== "Geofence") : info
+    const pathname = usePathname();
+    const id = pathname.split('/')[3]
+    const filteredInfo = role === "employee" ? info(id).filter(item=>item.title !== "Geofence") : info(id)
 
     const dispatch = useDispatch();
 
-    const id = "856ea9ae-8378-4beb-a9c4-b5f41bfd9922"
+
     const { mutate: getDocumentById } = useGetDocumentById();
     useEffect(() => {
         getDocumentById(id, {
@@ -55,7 +58,7 @@ const User = () => {
             <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 px-3 py-7 flex-col">
                 <div className='flex flex-col md:flex-row justify-center'>
                     {filteredInfo.map((item, index) => {
-                        return <InfoCard length={filteredInfo.length} key={item.id} title={item.title} description={item.description} icon={item.icon} index={index} mdwidth={item.mdWidth} buttonTitle={item.buttonTitle} buttonLink={item.buttonLink} />
+                        return <InfoCard id={id} length={filteredInfo.length} key={item.id} title={item.title} description={item.description} icon={item.icon} index={index} mdwidth={item.mdWidth} buttonTitle={item.buttonTitle} buttonLink={item.buttonLink} />
                     })}
                 </div>
             </div>

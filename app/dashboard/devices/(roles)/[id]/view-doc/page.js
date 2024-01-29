@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import ConfirmModal from '@/app/components/modals/confirmModal'
 import { getDate, getTime } from '@/app/utils'
+import { usePathname } from 'next/navigation'
 
 const ViewDoc = () => {
     const [ isModalOpen, setIsModalOpen ] = useState(false)
@@ -19,6 +20,9 @@ const ViewDoc = () => {
 
     const { currentDocument } = useSelector(state => state.documents)
 
+    const pathname = usePathname();
+    const id = pathname.split('/')[3]
+
     return (
         <>
         <NavigatorHeader previousPage={["Dashboard"]} currentPage="Document View" />
@@ -29,7 +33,7 @@ const ViewDoc = () => {
                 </div>
 
                 <div>
-                    <Link href={(role === "employee" && roleType === "default") ? "" : "/dashboard/devices/user/edit-doc"}>
+                    <Link href={(role === "employee" && roleType === "default") ? "" : `/dashboard/devices/${id}/edit-doc`}>
                     <DocButton onClick={(role === "employee" && roleType === "default") ? () => setIsModalOpen(true) : null} prefix={<Image src="/icons/editPencil.svg" width={18} height={18} className='mr-2 edit-doc-btn' alt='edit' />} text={"Edit"} className={"text-sm !text-[#0A2431] font-bold bg-secondary border-primary text-primary h-[30px] !px-5"} />
                     </Link>
                 </div>
