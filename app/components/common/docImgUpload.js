@@ -29,7 +29,7 @@ const DocImgUpload = ({ onClick, text, onChange }) => {
                 type='file'
                 ref={fileInputRef}
                 className='hidden'
-                accept='image/*'
+                accept='.png, .jpg, .jpeg'
                 onChange={onChange}
                 alt='profile'
             />

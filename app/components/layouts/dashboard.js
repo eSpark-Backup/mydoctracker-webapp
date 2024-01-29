@@ -25,8 +25,8 @@ const Dashboard = () => {
   const { mutate: deleteDocument } = useDeleteDocument()
 
 
-  useEffect(() => {
-    fetchAllDocuments({
+  const fetchingDocuments = () => {
+    fetchAllDocuments("", {
       onSuccess: (fetchedSuccess) => {
         dispatch(fetchDocuments(fetchedSuccess?.data))
       },
@@ -37,6 +37,10 @@ const Dashboard = () => {
         })
       }
     })
+  }
+
+  useEffect(() => {
+    fetchingDocuments()
   }, [])
 
   const handleOk = (id) => {
@@ -47,6 +51,7 @@ const Dashboard = () => {
           message: 'Success',
           description: deleteDocumentSuccess?.message,
         })
+        fetchingDocuments()
       },
       onError: (error) => {
         notification.error({

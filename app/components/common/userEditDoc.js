@@ -1,7 +1,7 @@
 "use client"
 
 import { DocButton, DocDatePicker, DocInput, DocTimePicker, NavigatorHeader, DocDropdown } from '@/app/components'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { PlusOutlined } from '@ant-design/icons'
 import Link from 'next/link'
 import { handleSubmit } from '@/app/utils/validation'
@@ -13,14 +13,18 @@ import moment from 'moment'
 import { useEditDocument } from '@/app/hooks/documents'
 import { notification } from 'antd'
 import DocImgUpload from './docImgUpload'
-
+import { useSelector } from 'react-redux'
+import ConfirmModal from '../modals/confirmModal'
+import { useRouter } from 'next/navigation'
 
 const UserEditDoc = () => {
+    const router = useRouter();
     const fileInputRef = useRef(null);
     const handleButtonClick = () => {
         fileInputRef?.current?.click();
     };
-    const { mutate: editDocument } = useEditDocument();
+    const { mutate: editDocument, isLoading } = useEditDocument();
+    const [openModal, setOpenModal] = useState(false);
     const [addFieldModal, setAddFieldModal] = useState(false);
     const [dynamicInputs, setDynamicInputs] = useState({
         label: "",
@@ -39,29 +43,44 @@ const UserEditDoc = () => {
             value: ""
         })
         setAddFieldModal(false)
-        const dynamicObj = { ...dynamicInputs, key: camelize(dynamicInputs.label), required: false, type: "textInput" }
+        const dynamicObj = { ...dynamicInputs, key: camelize(dynamicInputs.label), required: false, type: "textInput", custom: true }
         userEditDocData.map((item) => { if (item.heading === key) { item.inputs.push(dynamicObj) } })
         editDocData.dynamicInputs.push(dynamicInputs)
         setEditDocData({ ...editDocData })
     }
 
+    const { currentDocument } = useSelector(state => state.documents)
+
     const [editDocData, setEditDocData] = useState({
         docTitle: "",
         docDate: "",
         docTime: "",
-        docImage: [],
+        docImage: "",
         dynamicInputs: []
     })
 
+    useEffect(() => {
+        const customArr = currentDocument?.meta?.fields.map((({ name, value }) => { return { label: name, value } }))
+        setEditDocData({
+            ...editDocData,
+            docTitle: currentDocument?.title,
+            docDate: moment(currentDocument?.creationDate).format('YYYY-MM-DD'),
+            docTime: moment(currentDocument?.creationDate).format('HH:mm:ss'),
+            docImage: currentDocument?.file,
+            dynamicInputs: customArr
+        })
+        customArr.filter(obj => !userEditDocData[0]?.inputs?.some(item => item.label === obj.label))
+            .forEach(obj => userEditDocData[0]?.inputs?.push({ ...obj, custom: true }));
+    }, [])
 
     const successSubmit = () => {
         const formattedResult = moment(`${editDocData?.docDate} ${editDocData?.docTime}`).format('YYYY-MM-DDTHH:mm:ss.SSS[Z]');
         const payload = {
-            id: "9fb82f54-2e04-4cc3-a68b-f86ae7325a45",
+            id: "856ea9ae-8378-4beb-a9c4-b5f41bfd9922",
             title: editDocData?.docTitle,
             creationDate: formattedResult,
             file: editDocData?.docImage,
-            // fields: trackerData?.dynamicInputs.map(({ label, value }) => { return { name: label, value } })
+            fields: editDocData?.dynamicInputs.map(({ label, value }) => { return { name: label, value } })
         }
         editDocument(payload, {
             onSuccess: (editedSuccess) => {
@@ -69,6 +88,7 @@ const UserEditDoc = () => {
                     message: 'Success',
                     description: editedSuccess?.message,
                 })
+                router.push(`/dashboard/devices/user`)
             },
             onError: (error) => {
                 notification.error({
@@ -86,6 +106,19 @@ const UserEditDoc = () => {
         })
     }
 
+    const handleRemoveField = (label) => {
+        userEditDocData[0].inputs = userEditDocData[0]?.inputs.filter((item) => item.label !== label)
+        setEditDocData({
+            ...editDocData,
+            dynamicInputs: editDocData?.dynamicInputs.filter((item) => item.label !== label)
+        })
+        setOpenModal(false);
+    }
+
+    const handleCancelField = () => {
+        setOpenModal(false);
+    };
+
     return (
         <>
             <NavigatorHeader previousPage={["Dashboard", "Document View"]} currentPage="Edit Document" />
@@ -102,7 +135,7 @@ const UserEditDoc = () => {
                                 <div className="flex gap-4 sm:gap-5 flex-col sm:flex-row flex-wrap">
                                     {eachSection?.inputs.map((eachInputs, index) => (
                                         <div className="w-100% lg:min-w-[30%] flex flex-col flex-wrap" key={index}>
-                                            <label className="text-greydark text-sm pb-1">{eachInputs?.label} {eachInputs?.required && <span className="text-redColor">*</span>}</label>
+                                            <div className='flex flex-row items-center justify-between'><label className="text-greydark text-sm pb-1">{eachInputs?.label} {eachInputs?.required && <span className="text-redColor">*</span>}</label>{eachInputs?.custom && <div onClick={() => setOpenModal(eachInputs?.label)} className='text-greydark text-sm underline cursor-pointer'>remove</div>}</div>
                                             {eachInputs.type === "select" ?
                                                 <DocDropdown onChange={(e) => handleFieldChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                                 : eachInputs.type === "uploadImage" ?
@@ -130,7 +163,7 @@ const UserEditDoc = () => {
                                     <Link href={"/dashboard/devices/user/view-doc"}>
                                         <DocButton text={"Cancel"} className={"border-2 border-secondary bg-transparent text-secondary min-w-[125px]"} />
                                     </Link>
-                                    <DocButton onClick={() => handleSubmit(editDocData, successSubmit)} text={"Submit"} className={"text-white min-w-[125px]"} />
+                                    <DocButton disabled={isLoading} loading={isLoading} onClick={() => handleSubmit(editDocData, successSubmit)} text={"Submit"} className={"text-white min-w-[125px]"} />
                                 </div>
 
                             </div>
@@ -147,7 +180,17 @@ const UserEditDoc = () => {
                     form={dynamicInputs}
                     handleModalForm={handleModalForm}
                 />
-
+                <ConfirmModal
+                    isModalOpen={openModal}
+                    handleOk={handleRemoveField}
+                    handleCancel={handleCancelField}
+                    cancelButton="Cancel"
+                    confirmButton="Yes"
+                    description="Are you sure you want to remove this field?"
+                    icon={"Cancel.svg"}
+                    acceptButtonColor={"bg-[#ff0000]"}
+                    width={450}
+                />
 
 
             </div>

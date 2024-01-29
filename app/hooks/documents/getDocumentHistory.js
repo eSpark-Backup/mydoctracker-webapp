@@ -4,12 +4,12 @@ import { useMutation } from 'react-query'
 
 const getAuthToken = () => getCookie("token");
 
-export async function getDocumentHistory(id) {
+export async function getDocumentHistory({id, page, limit}) {
     const authToken = getAuthToken();
 
     const res = request({
         method: "GET",
-        url: `/document/history/${id}`,
+        url: `/document/history/${id}?page=${page}&limit=${limit}`,
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${authToken}`,

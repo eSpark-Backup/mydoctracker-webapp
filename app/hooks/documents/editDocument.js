@@ -4,14 +4,14 @@ import { useMutation } from 'react-query'
 
 const getAuthToken = () => getCookie("token");
 
-export async function editDocument({ id, title, creationDate, file }) {
+export async function editDocument({ id, title, creationDate, file, fields }) {
     const authToken = getAuthToken();
 
     const formData = new FormData();
     formData.append("title", title);
     formData.append("creationDate", creationDate);
     formData.append("file", file);
-    // formData.append("fields", fields);
+    formData.append("fields", JSON.stringify(fields));
     const res = request({
         method: "PUT",
         url: `/document/${id}`,

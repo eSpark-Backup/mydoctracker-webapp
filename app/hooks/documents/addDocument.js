@@ -4,7 +4,7 @@ import { useMutation } from 'react-query'
 
 const getAuthToken = () => getCookie("token");
 
-export async function addDocument({ deviceId, type, title, creationDate, file, otp }) {
+export async function addDocument({ deviceId, type, title, creationDate, file, otp, fields }) {
     const authToken = getAuthToken();
     const formData = new FormData();
     formData.append("deviceId", deviceId);
@@ -13,7 +13,7 @@ export async function addDocument({ deviceId, type, title, creationDate, file, o
     formData.append("creationDate", creationDate);
     formData.append("file", file);
     formData.append("otp", otp);
-    // formData.append("fields", fields);
+    formData.append("fields", JSON.stringify(fields));
     const res = request({
         method: "POST",
         url: "/document",

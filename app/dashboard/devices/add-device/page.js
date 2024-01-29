@@ -19,6 +19,7 @@ import { useAddDocument, useGetDocumentOtp } from '@/app/hooks/documents';
 import { notification } from 'antd';
 import { useRouter } from 'next/navigation';
 import DocImgUpload from '@/app/components/common/docImgUpload';
+import ConfirmModal from '@/app/components/modals/confirmModal';
 
 const AddDevice = () => {
     const router = useRouter();
@@ -28,6 +29,7 @@ const AddDevice = () => {
     };
 
     const [addFieldModal, setAddFieldModal] = useState(false);
+    const [openModal, setOpenModal] = useState(false);
     const [isVerificationModalOpen, setIsVerificationModalOpen] = useState(false);
     const [dynamicInputs, setDynamicInputs] = useState({
         label: "",
@@ -76,7 +78,7 @@ const AddDevice = () => {
             value: ""
         })
         setAddFieldModal(false)
-        const dynamicObj = { ...dynamicInputs, key: camelize(dynamicInputs.label), required: false, type: "textInput" }
+        const dynamicObj = { ...dynamicInputs, key: camelize(dynamicInputs.label), required: false, type: "textInput", custom: true }
         userAddDeviceData.map((item) => { if (item.title === key) { item.inputs.push(dynamicObj) } })
         trackerData.dynamicInputs.push(dynamicInputs)
         setTrackerData({ ...trackerData })
@@ -91,8 +93,8 @@ const AddDevice = () => {
             title: trackerData?.DocumentTitle,
             creationDate: formattedResult,
             file: trackerData?.DocImage,
-            otp
-            // fields: trackerData?.dynamicInputs.map(({ label, value }) => { return { name: label, value } })
+            otp,
+            fields: trackerData?.dynamicInputs.map(({ label, value }) => { return { name: label, value } })
         }
         addDocument(payload, {
             onSuccess: (addedSuccess) => {
@@ -108,12 +110,26 @@ const AddDevice = () => {
                     message: 'Error',
                     description: getErrorFromApi(error),
                 })
+                setOtp(null)
             }
         })
     };
 
     const HandleVerificationCancel = () => {
         setIsVerificationModalOpen(false);
+    };
+
+    const handleRemoveField = (label) => {
+        userAddDeviceData[1].inputs = userAddDeviceData[1]?.inputs.filter((item) => item.label !== label)
+        setTrackerData({
+            ...trackerData,
+            dynamicInputs: trackerData?.dynamicInputs.filter((item) => item.label !== label)
+        })
+        setOpenModal(false);
+    }
+
+    const handleCancelField = () => {
+        setOpenModal(false);
     };
 
     const handleResend = () => {
@@ -143,7 +159,7 @@ const AddDevice = () => {
                                 <div className="flex gap-4 sm:gap-5 flex-col sm:flex-row flex-wrap">
                                     {eachSection?.inputs.map((eachInputs, index) => (
                                         <div className="w-100% lg:min-w-[30%] flex flex-col flex-wrap" key={index}>
-                                            <label className="text-greydark text-sm pb-1">{eachInputs?.label} {eachInputs?.required && <span className="text-redColor">*</span>}</label>
+                                            <div className='flex flex-row items-center justify-between'><label className="text-greydark text-sm pb-1">{eachInputs?.label} {eachInputs?.required && <span className="text-redColor">*</span>}</label>{eachInputs?.custom && <div onClick={() => setOpenModal(eachInputs?.label)} className='text-greydark text-sm underline cursor-pointer'>remove</div>}</div>
                                             {eachInputs.type === "select" ?
                                                 <DocDropdown onChange={(e) => handleFieldChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                                 : eachInputs.type === "uploadImage" ?
@@ -193,6 +209,17 @@ const AddDevice = () => {
                 handleCancel={HandleVerificationCancel} >
                 <VerificationForm handleOtp={handleOtp} handleOk={HandleVerificationSuccess} handleResend={handleResend} handleCancel={HandleVerificationCancel} auth={false} />
             </InputModal>
+            <ConfirmModal
+                isModalOpen={openModal}
+                handleOk={handleRemoveField}
+                handleCancel={handleCancelField}
+                cancelButton="Cancel"
+                confirmButton="Yes"
+                description="Are you sure you want to remove this field?"
+                icon={"Cancel.svg"}
+                acceptButtonColor={"bg-[#ff0000]"}
+                width={450}
+            />
         </ProtectedRoute>
         </>
     )

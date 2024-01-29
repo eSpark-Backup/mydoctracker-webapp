@@ -13,6 +13,9 @@ import { useDispatch, useSelector } from 'react-redux'
 const DownloadDoc = () => {
 
   const [active, setActive] = useState()
+  const [page, setPage] = useState(1)
+  const [limit] = useState(10)
+  const [total, setTotal] = useState(1)
 
   const { mutate: getDocumentHistory, isLoading } = useGetDocumentHistory();
   const pathname = usePathname();
@@ -21,24 +24,33 @@ const DownloadDoc = () => {
   const { documentsHistory } = useSelector(state => state.documentsHistory)
 
   console.log(id, "id") // this id will be device id coming from path and will be use as documentId
-  const documentID = "9fb82f54-2e04-4cc3-a68b-f86ae7325a45"
+  const documentID = "856ea9ae-8378-4beb-a9c4-b5f41bfd9922"
 
   useEffect(() => {
-    getDocumentHistory(documentID, {
+    const paramsObj = {
+      id: documentID,
+      page,
+      limit,
+    }
+    getDocumentHistory(paramsObj, {
       onSuccess: (fetchedSuccess) => {
-        dispatch(fetchDocumentHistory(fetchedSuccess?.data))
-        if (fetchedSuccess?.data.length > 0) {
-          setActive(fetchedSuccess?.data[0])
+        dispatch(fetchDocumentHistory(fetchedSuccess?.data?.items))
+        setTotal(fetchedSuccess?.data?.meta?.totalItems)
+        if (fetchedSuccess?.data?.items?.length > 0) {
+          setActive(fetchedSuccess?.data?.items[0])
+        } else {
+          setActive(documentsHistory[0])
         }
       },
       onError: (error) => {
+        dispatch(fetchDocumentHistory([]))
         notification.error({
           message: 'Error',
           description: getErrorFromApi(error),
         })
       }
     })
-  }, [])
+  }, [id, page, limit])
 
   return (
     <>
@@ -72,7 +84,7 @@ const DownloadDoc = () => {
                 })}
               </div>
               <div className='h-[20%] flex items-center justify-center p-2'>
-                <Pagination size={{ xs: "medium", md: "small" }} siblingCount={2} boundaryCount={2} current={1} onChange={(e) => console.log(e)} total={50} />
+                <Pagination size={{ xs: "medium", md: "small" }} siblingCount={2} boundaryCount={2} current={page} onChange={(e) => setPage(e)} total={(total * 10) / limit} />
               </div>
               </div>
 
@@ -92,6 +104,15 @@ const DownloadDoc = () => {
                             <label className="text-[#666] text-sm pb-1">Time:</label>
                             <FieldView text={getTime(active?.creationDate)} />
                         </div>
+                        {active?.meta?.fields?.length > 0 ?
+                        active?.meta?.fields?.map(({name, value}, index)=>{
+                        return(
+                            <div key={index} className="  flex flex-col">
+                                <label className="text-greydark text-sm pb-1">{name}:</label>
+                                <FieldView text={value} />
+                            </div>
+                        )
+                        }) : null}
                     </div>
                 </div>
                 <div className='lg:w-[65%]'>

@@ -6,6 +6,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import ConfirmModal from '@/app/components/modals/confirmModal'
+import { getDate, getTime } from '@/app/utils'
 
 const ViewDoc = () => {
     const [ isModalOpen, setIsModalOpen ] = useState(false)
@@ -15,6 +16,8 @@ const ViewDoc = () => {
         ///permission api logic
         setIsModalOpen(false)
     }
+
+    const { currentDocument } = useSelector(state => state.documents)
 
     return (
         <>
@@ -38,20 +41,25 @@ const ViewDoc = () => {
                     <div className='flex flex-col gap-4'>
                         <div className=" flex flex-col">
                             <label className="text-greydark text-sm pb-1">Title:</label>
-                            <FieldView text={"My Note Book"} />
-                        </div>
-                        <div className=" flex flex-col">
-                            <label className="text-greydark text-sm pb-1">Location:</label>
-                            <FieldView text={"Under the bed"} />
+                            <FieldView text={currentDocument?.title} />
                         </div>
                         <div className="  flex flex-col">
                             <label className="text-greydark text-sm pb-1">Date:</label>
-                            <FieldView text={"3/10/2022"} />
+                            <FieldView text={getDate(currentDocument?.creationDate)} />
                         </div>
                         <div className="  flex flex-col">
                             <label className="text-greydark text-sm pb-1">Time:</label>
-                            <FieldView text={"1:30 PM"} />
+                            <FieldView text={getTime(currentDocument?.creationDate)} />
                         </div>
+                        {currentDocument?.meta?.fields?.length > 0 ?
+                        currentDocument?.meta?.fields?.map(({name, value}, index)=>{
+                        return(
+                            <div key={index} className="  flex flex-col">
+                                <label className="text-greydark text-sm pb-1">{name}:</label>
+                                <FieldView text={value} />
+                            </div>
+                        )
+                        }) : null}
                     </div>
                 </div>
                 <div className='lg:w-[65%]'>

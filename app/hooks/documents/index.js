@@ -4,6 +4,7 @@ import useEditDocument from './editDocument'
 import useDeleteDocument from './deleteDocument'
 import useGetDocumentHistory from './getDocumentHistory'
 import useGetAllDocuments from './getAllDocuments'
+import useGetDocumentById from './getDocumentById'
 
 export {
     useAddDocument,
@@ -12,4 +13,5 @@ export {
     useDeleteDocument,
     useGetDocumentHistory,
     useGetAllDocuments,
+    useGetDocumentById,
 }
