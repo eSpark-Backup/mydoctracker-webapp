@@ -19,7 +19,7 @@ const Devices = () => {
           />
         </div>
         <div className="w-[90%] mx-auto h-[100%] ">
-          <Dashboard noDevices={false} />
+          <Dashboard />
         </div>
       </div>
       </ProtectedRoute>

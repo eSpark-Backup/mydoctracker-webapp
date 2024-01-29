@@ -6,6 +6,7 @@ import storage from "redux-persist/lib/storage";
 
 import authSlice from "./slices/authSlice";
 import documentsHistorySlice from "./slices/documentHistory";
+import documentsSlice from "./slices/documents";
 
 
 const authPersistConfig = {
@@ -17,6 +18,7 @@ const authPersistConfig = {
 const rootReducer = combineReducers({
     auth: persistReducer(authPersistConfig, authSlice),
     documentsHistory: documentsHistorySlice,
+    documents: documentsSlice,
     //add all your reducers here
 },);
 
