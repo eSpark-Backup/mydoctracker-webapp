@@ -63,10 +63,10 @@ const Admin = () => {
             <div className="w-[100%] drop-shadow-lg rounded-lg h-[65vh] bg-white my-4 p-3 md:p-8">
                 <div>
                     <div className='flex flex-col md:flex-row items-start bd:items-center justify-between gap-3 w-[94%] m-auto'>
-                        <SearchBar handleChange={(value) => handleFilter('search', value)} className='!w-[100%] sm:mr- md:!w-[300px]' placeholder="Search by name or tracker ID..." />
+                        <SearchBar handleChange={(value) => handleFilter('search', value)} className='!w-[100%] sm:mr-2 md:!w-[300px]' placeholder="Search by name or tracker ID..." />
                         <div className='relative flex flex-row items-center justify-start md:justify-center gap-1 md:gap-3'>
-                            <DocDropdown onChange={(value) => handleFilter('select', value.value)} className={"w-[100%] md:w-40"} options={options} placeholder="Select group" />
-                                <Image className='cursor-pointer' onClick={()=>setOpenRadioFilterModal(!openRadioFilterModal)} src="/icons/tabs-Image.svg" width={40} height={40} alt="tabs-image" />
+                            <DocDropdown onChange={(value) => handleFilter('select', value.value)} className={"w-[120%] md:w-40 md:ml-2"} options={options} placeholder="Select group" defaultValue={options[0]} />
+                                <Image className='cursor-pointer ml-8  md:ml-0 md:mr-0' onClick={()=>setOpenRadioFilterModal(!openRadioFilterModal)} src="/icons/tabs-Image.svg" width={40} height={40} alt="tabs-image" />
                                 {openRadioFilterModal && <RadioFilterPopup forwardedRef={filterModal} filter={filter} handleFilter={handleFilter} />}
                             <DocButton onClick={() => setOpenModal(true)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md !bg-primary text-white h-[100%] px-4 w-4/12 md:w-6/12"} text="Add" />
                         </div>

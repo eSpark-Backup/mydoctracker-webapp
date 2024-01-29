@@ -32,7 +32,7 @@ const InfoCard = ({ length, icon, title, description, index, buttonTitle, button
                         </div>
                     </div>
                     <div>
-                        <p className='text-[#0A2431] py-3 h-[120px]'>{description}</p>
+                        <p className='text-[#666666] py-3 h-[120px]'>{description}</p>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@ const InfoCard = ({ length, icon, title, description, index, buttonTitle, button
                     }
 
                     <Link className='no-underline text-primary' href={buttonLink ? buttonLink : role === "employee" ? "/dashboard/devices/user/share-location" :  "/dashboard/devices/user"}>
-                        <DocButton text={role === "user" ? buttonTitle : "Document History"} onClick={role !== "employee" && buttonTitle === "Create Link" ? () => setIsModalOpen(true) : null} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
+                        <DocButton text={role === "employee" && buttonTitle === "Create Link" ? "Manage Location" : buttonTitle} onClick={role !== "employee" && buttonTitle === "Create Link" ? () => setIsModalOpen(true) : null} className={"text-sm w-full bg-transparent border-2 border-primary text-primary font-semibold"} />
                     </Link>
                 </div>
                 <InputModal

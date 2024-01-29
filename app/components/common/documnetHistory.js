@@ -29,7 +29,7 @@ const DocumnetHistory = () => {
                     })}
                 </div>
 
-                <div className='w-[100%] md:w-[70%] py-0 md:py-0 px-3 md:px-6'>
+                <div className='w-[100%] md:w-[70%] py-0 md:py-5 px-3 md:px-6'>
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className='lg:w-[35%] ml-6'>
                             <div className='flex flex-col gap-4'>
@@ -37,17 +37,17 @@ const DocumnetHistory = () => {
                                     <label className="text-[#666] text-sm pb-1">Title:</label>
                                     <FieldView text={"My Note Book"} />
                                 </div>
-                                <div className=" flex flex-col">
-                                    <label className="text-[#666] text-sm pb-1">Location:</label>
-                                    <FieldView text={"Under the bed"} />
-                                </div>
                                 <div className="  flex flex-col">
                                     <label className="text-[#666] text-sm pb-1">Date:</label>
                                     <FieldView text={"3/10/2022"} />
                                 </div>
                                 <div className="  flex flex-col">
-                                    <label className="text-[#666] text-sm pb-1">Time Of Creation </label>
+                                    <label className="text-[#666] text-sm pb-1">Time</label>
                                     <FieldView text={"1:30 PM"} />
+                                </div>
+                                <div className=" flex flex-col">
+                                    <label className="text-[#666] text-sm pb-1">Location:</label>
+                                    <FieldView text={"Under the bed"} />
                                 </div>
                             </div>
                         </div>

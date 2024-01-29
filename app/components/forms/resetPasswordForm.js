@@ -65,7 +65,7 @@ const ResetPasswordForm = () => {
       </div>
 
       <div>
-        <p className='text-greydark w-[100%] xl:w-[80%]'>Please create a new password</p>
+        <p className='text-greydark w-[100%] xl:w-[80%] text-sm'>Please create a new password</p>
       </div>
 
       <div>
@@ -121,11 +121,11 @@ const ResetPasswordForm = () => {
       <Link href={"/auth/signin"}>
         <div className='flex items-center'>
           <div>
-            <Image className='md:w-[18px] w-[18px]' src={"/icons/forget-password-back-btn.svg"} alt="logo" width={20} height={20} />
+            <Image className='md:w-[18px] w-[18px]' src={"/icons/backBlue.svg"} alt="logo" width={20} height={20} />
           </div>
 
           <div>
-            <p className='underline text-primary text-xs font-medium'>Back to Sign-In</p>
+            <p className='underline text-sm font-medium text-[#126FAA]'>Back to Sign-In</p>
           </div>
         </div>
       </Link>

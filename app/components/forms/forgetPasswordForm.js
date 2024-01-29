@@ -52,7 +52,7 @@ const ForgetPasswordForm = () => {
       </div>
 
       <div>
-        <p className='text-greydark w-[100%] xl:w-[80%]'>Please enter your email address and we will send you instructions to reset your password.</p>
+        <p className='text-greydark w-[100%] xl:w-[80%] text-sm'>Please enter your email address and we will send you instructions to reset your password.</p>
       </div>
 
       <div>
@@ -88,7 +88,7 @@ const ForgetPasswordForm = () => {
           </div>
 
           <div>
-            <p className='underline text-primary text-xs font-medium'>Back to Sign-In</p>
+            <p className='underline text-primary text-sm font-medium'>Back to Sign-In</p>
           </div>
         </div>
       </Link>

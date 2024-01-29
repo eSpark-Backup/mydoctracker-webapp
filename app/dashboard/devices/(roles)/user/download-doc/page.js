@@ -23,10 +23,10 @@ const DownloadDoc = () => {
                 <div className='h-[80%] no-scrollbar overflow-y-scroll'>
                 {documentsHistoryData.map(({title, createdAt, savedBy, type}, index)=>{
                   return(
-                    <div className='px-8 pl-10 py-6 border-[#E4E4E4] border-b-2' key={index}>
-                     <div className='flex flex-row justify-between items-center'>
-                       <p className='text-[#002F49] font-semibold text-sm'>{type}</p>
-                       <p className='text-[#666666] font-semibold text-[10px]'>{createdAt}</p>
+                    <div className='px-3 lg:px-8 py-6 md:px-8 md:pl-10 border-[#E4E4E4] border-b-2 xl:justify-between' key={index}>
+                     <div className='flex flex-row justify-between'>
+                       <p className='text-[#002F49] font-semibold text-sm md:w-[60%] xl:w-auto'>{type}</p>
+                       <p className='text-[#666666] font-semibold text-[10px] md:w-[35%] xl:w-auto text-right'>{createdAt}</p>
                      </div>
                      <div className='flex flex-row justify-between items-center mt-2'>
                       <div className='cursor-pointer'>

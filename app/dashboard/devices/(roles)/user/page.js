@@ -13,7 +13,7 @@ const User = () => {
     return (
         <>
             <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 px-3 py-7 flex-col">
-                <h6 className='text-black text-center lg:text-left font-semibold text-sm sm:text-xl pb-5'>My Note Book</h6>
+                <h6 className='text-black text-center lg:text-left font-semibold text-lg md:text-xl pb-5'>My Note Book</h6>
                 {/* <NoteBookDetails /> */}
                 <div>
                     <div className='flex justify-between flex-wrap'>

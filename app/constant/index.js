@@ -388,7 +388,7 @@ export const deviceSettingNotfications = [
 ]
 
 export const trackerTypeOptions = [
-    { label: 'a1', value: 'a1' }, { label: 'a2', value: 'a2' }
+    { label: 'Single Page', value: 'Single Page' }, { label: 'Multi Page', value: 'Multi Page' }
 ];
 
 export const locations = [
@@ -541,36 +541,42 @@ export const requests = [
         time: "9:00pm",
         description: "Requested to Update document",
         group: "Group: 1",
+        bg:"#F5F6FA"
     },
     {
         name: "Alex",
         time: "9:00pm",
         description: "Requested to share Location to john",
         group: "Group: 1",
+        bg:"#FFFFFF"
     },
     {
         name: "Alex",
         time: "9:00pm",
         description: "Requested to Update document",
         group: "Group: 1",
+        bg:"#FFFFFF"
     },
     {
         name: "Alex",
         time: "9:00pm",
         description: "Requested to share Location to john",
         group: "Group: 1",
+        bg:"#F5F6FA"
     },
     {
         name: "Alex",
         time: "9:00pm",
         description: "Requested to Update document",
         group: "Group: 1",
+        bg:"#FFFFFF"
     },
     {
         name: "Alex",
         time: "9:00pm",
         description: "Requested to share Location to john",
         group: "Group: 1",
+        bg:"#F5F6FA"
     }
 ]
 

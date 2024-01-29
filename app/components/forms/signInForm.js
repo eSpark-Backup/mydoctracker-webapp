@@ -23,7 +23,7 @@ const SignInForm = () => {
           </div>
           <div className='lg:px-2'>
             <p className='text-greydark text-center'>Please select your role:</p>
-            <div className='flex justify-center gap-5 py-3 flex-wrap'>
+            <div className='flex gap-x-3 justify-center sm:gap-5 sm:py-3 sm:flex-wrap'>
               {signInRoles?.map((role, key) => (
                 <RoleBox key={key} role={role} onClick={() => setCurrentRole(role.id)} currentRole={currentRole} />
               ))}
