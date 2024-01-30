@@ -113,6 +113,20 @@ export const getTime = (dateString) => {
   return formattedTime
 }
 
+export const getTimeForInput = (dateString) => {
+  const originalDate = new Date(dateString);
+  originalDate.setHours(originalDate.getHours() - (new Date().getTimezoneOffset() / 60));
+  const options = {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZone: 'America/New_York',
+  };
+  const formattedTime = originalDate?.toLocaleString('en-US', options);
+  return formattedTime
+}
+
 export const getMonthDate = (dateString) => {
   const date = new Date(dateString);
 

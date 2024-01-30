@@ -6,7 +6,7 @@ import { PlusOutlined } from '@ant-design/icons'
 import Link from 'next/link'
 import { handleSubmit } from '@/app/utils/validation'
 import { userEditDocData } from '@/app/constant'
-import { getErrorFromApi } from '@/app/utils'
+import { getErrorFromApi, getTimeForInput } from '@/app/utils'
 import AddFieldModal from '@/app/components/modals/addFieldModal'
 import { camelize } from '@/app/utils'
 import moment from 'moment'
@@ -67,7 +67,7 @@ const UserEditDoc = () => {
             ...editDocData,
             docTitle: currentDocument?.title,
             docDate: moment(currentDocument?.creationDate).format('YYYY-MM-DD'),
-            docTime: moment(currentDocument?.creationDate).format('HH:mm:ss'),
+            docTime: getTimeForInput(currentDocument?.creationDate),
             docImage: currentDocument?.file,
             dynamicInputs: customArr
         })
@@ -149,9 +149,9 @@ const UserEditDoc = () => {
                                                         text={"Update Profile Picture"}
                                                     />
                                                     : eachInputs.type === "datePicker" ?
-                                                        <DocDatePicker onChange={(_, value) => handleFieldChange(eachInputs?.key, value)} />
+                                                        <DocDatePicker defaultValue={moment(currentDocument?.creationDate).format('YYYY-MM-DD')} onChange={(_, value) => handleFieldChange(eachInputs?.key, value)} />
                                                         : eachInputs.type === "timePicker" ?
-                                                            <DocTimePicker placeholder={eachInputs?.placeholder} onChange={(_, value) => handleFieldChange(eachInputs?.key, value)} />
+                                                            <DocTimePicker defaultValue={getTimeForInput(currentDocument?.creationDate)} placeholder={eachInputs?.placeholder} onChange={(_, value) => handleFieldChange(eachInputs?.key, value)} />
                                                             :
                                                             <DocInput value={eachInputs.value || editDocData[eachInputs.key]} onChange={(value) => handleFieldChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
                                             }
