@@ -68,7 +68,7 @@ const ViewDoc = () => {
                 </div>
                 <div className='lg:w-[65%]'>
                     <div className='flex justify-center'>
-                        <Image src="/Images/docImage.svg" className='lg:w-[70%] md:w-[80%] w-[100%]' alt='Document Image' width={500} height={500} />
+                        <Image src={currentDocument?.file} className='lg:w-[70%] md:w-[80%] w-[100%]' alt='Document Image' width={500} height={500} />
                     </div>
                 </div>
 

@@ -69,7 +69,7 @@ const DownloadDoc = () => {
                   return(
                     <div onClick={() => setActive(item)} className='cursor-pointer px-3 lg:px-8 py-6 md:px-8 md:pl-10 border-[#E4E4E4] border-b-2 xl:justify-between' key={index}>
                      <div className='flex flex-row justify-between'>
-                       <p className='text-[#002F49] font-semibold text-sm md:w-[60%] xl:w-auto'>{getMonthDate(item?.creationDate)}</p>
+                       <p className='text-[#002F49] font-semibold text-sm md:w-[60%] xl:w-auto'>{`${getMonthDate(item?.creationDate)} ${index === 0 ? "(Current version)" : ""}`}</p>
                        <p className='text-[#666666] font-semibold text-[10px] md:w-[35%] xl:w-auto text-right'>{getTime(item?.creationDate)}</p>
                      </div>
                      <div className='flex flex-row justify-between items-center mt-2'>
@@ -77,7 +77,6 @@ const DownloadDoc = () => {
                         <p className='text-[#424242] font-semibold text-base'>{item?.title}</p>
                         <p className='text-[#666666] text-[10px]'>Saved by: You</p>
                       </div>
-                      <Image className='cursor-pointer' src="/icons/vertical-ellipse.svg" width={20} height={20} alt="vertical-ellipse" />
                      </div>
                     </div>
                   )

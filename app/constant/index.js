@@ -1280,11 +1280,11 @@ export const containerStyleSm = {
     borderRadius: "10px"
 };
 
-export const notebookDetails = [
+export const notebookDetails = currentDocument => [
     {
         id: 1,
         field: "Tracker ID",
-        value: "XYZ456789"
+        value: currentDocument?.id || "-"
     },
     {
         id: 2,
