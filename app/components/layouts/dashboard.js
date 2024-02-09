@@ -114,7 +114,7 @@ const Dashboard = () => {
                   {eachDevice?.title}
                 </h3>
                 <p className="text-[12px] md:text-[14px] font-[300] text-greydark">{`${getMonthDate(eachDevice?.creationDate)}, ${getTime(eachDevice?.creationDate)}`}</p>
-                <p className="text-[12px] md:text-[14px] font-[300] text-greydark">87% Battery remaining</p>
+                <p className="text-[12px] md:text-[14px] font-[300] text-greydark">{eachDevice?.tracker?.batteryPercentage}% Battery remaining</p>
               </div>
               {role !== "employee" && <div onClick={() => setIsModalOpen(eachDevice?.id)}>
                 <Image

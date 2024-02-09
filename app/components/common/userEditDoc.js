@@ -62,7 +62,7 @@ const UserEditDoc = () => {
     })
 
     useEffect(() => {
-        const customArr = currentDocument?.meta?.fields.map((({ name, value }) => { return { label: name, value } }))
+        const customArr = currentDocument?.meta?.fields?.map((({ name, value }) => { return { label: name, value } })) || []
         setEditDocData({
             ...editDocData,
             docTitle: currentDocument?.title,

@@ -1,4 +1,5 @@
 import avatar from '@/public/icons/userAvatar.svg'
+import moment from 'moment'
 
 export const signInRoles = [
     {
@@ -1289,27 +1290,27 @@ export const notebookDetails = currentDocument => [
     {
         id: 2,
         field: "Email",
-        value: "johndoe_123@gmail.com"
+        value: currentDocument?.assignee?.email || "-"
     },
     {
         id: 3,
         field: "Last Activity",
-        value: "25m ago"
+        value: moment(currentDocument?.lastActivity?.sentAt).fromNow()
     },
     {
         id: 4,
         field: "Owners Name",
-        value: "John Doe"
+        value: `${currentDocument?.assignee?.firstName} ${currentDocument?.assignee?.lastName}` || "-"
     },
     {
         id: 5,
         field: "Contact",
-        value: "123456789"
+        value: currentDocument?.assignee?.contact || "-"
     },
     {
         id: 6,
         field: "Battery",
-        value: "98% remaining"
+        value: `${currentDocument?.tracker?.batteryPercentage}% remaining` || "-"
     },
 ]
 
