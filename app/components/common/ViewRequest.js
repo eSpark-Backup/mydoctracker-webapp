@@ -1,0 +1,105 @@
+"use client"
+
+import React from 'react'
+import Image from 'next/image'
+import { requestUserDetails } from '@/app/constant'
+import { DocButton, FieldView } from '@/app/components'
+
+
+const ViewRequest = ({ showUser, showDocument }) => {
+    
+    return (
+        <div className={!showUser && !showDocument ? 'lg:w-2/3 md:w-2/4 md:block max-h-[80vh] lg:overflow-y-hidden overflow-y-scroll hidden' : 'lg:w-2/3 md:w-2/4 md:block overflow-y-auto lg:overflow-y-hidden max-h-[85vh] w-[100%]'}>
+            {!showUser && !showDocument ? <div className='w-[100%] h-[90%] flex justify-center items-center'>
+                <h2 className='text-base text-greydark text-center'>To view the request please select it from the request panel.</h2>
+            </div> :
+                showUser ?
+                    <div className='w-[100%] h-[100%] overflow-y-scroll no-scrollbar pb-12'>
+                        <div className='flex justify-center items-center flex-col gap-3'>
+                            <p className='text-greydark text-[16px] font-medium mt-3'>Request to update the document</p>
+                            <div className='flex gap-[5px]'>
+                                <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder w-[80px] text-xs"} />
+                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md w-[80px] text-xs"} />
+                            </div>
+                        </div>
+                        <div className='flex gap-2 pl-3 md:pl-10 mb-3 mt-4'>
+                            <Image src={"/icons/userAvatar.svg"} width={85} height={85} alt='User' />
+                            <div>
+                                <h2 className='text-black text-[16px] font-medium'>Alex Dave</h2>
+                                <p className='text-greydark text-[14px]'>Group: <span className='font-semibold'>1</span></p>
+                                <p className='text-greydark text-[14px]'>Employee ID: <span className='font-semibold'>12345</span></p>
+                                <p className='text-greydark text-[14px]'>Device Type: <span className='font-semibold'>Single Page</span></p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div>
+                            <h2 className='text-center text-primary text-xl font-semibold mt-2'>Share to</h2>
+                        </div>
+                        <div className='flex flex-col gap-5 pl-10 mt-4'>
+                            {requestUserDetails?.map((eachItem, index) => (
+                                <div className='flex gap-4' key={index}>
+                                    <Image src={`/icons/${eachItem?.icon}`} width={30} height={30} alt='icon' />
+                                    <div>
+                                        <h3 className='text-[16px] text-[#424242]'>{eachItem?.heading}</h3>
+                                        <p className='text-[12px] text-grey'>{eachItem?.description}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+
+                    </div> : showDocument ? <div className='w-[100%] h-[100%] overflow-y-scroll no-scrollbar pb-12'>
+                        <div className='flex justify-center items-center flex-col gap-3'>
+                            <p className='text-greydark text-[16px] font-medium mt-3'>Request to update the document</p>
+                            <div className='flex gap-[5px]'>
+                                <DocButton text={"Decline"} className={"bg-white border-2 rounded-md border-greyBorder w-[80px] text-xs"} />
+                                <DocButton text={"Approve"} className={"!bg-primary text-white rounded-md w-[80px] text-xs"} />
+                            </div>
+                        </div>
+                        <div className='flex gap-2 pl-3 md:pl-10 mb-3 mt-4'>
+                            <Image src={"/icons/userAvatar.svg"} width={85} height={85} alt='User' />
+                            <div>
+                                <h2 className='text-black text-[16px] font-medium'>Alex Dave</h2>
+                                <p className='text-greydark text-[14px]'>Group: <span className='font-semibold'>1</span></p>
+                                <p className='text-greydark text-[14px]'>Employee ID: <span className='font-semibold'>12345</span></p>
+                                <p className='text-greydark text-[14px]'>Device Type: <span className='font-semibold'>Single Page</span></p>
+                            </div>
+                        </div>
+                        <hr />
+                        <div>
+                            <h2 className='text-center text-primary text-xl font-semibold mt-2'>My Note Book</h2>
+                        </div>
+                        <div className='flex flex-col lg:flex-row gap-5 mt-2'>
+                            <div className='lg:w-[35%] mx-2'>
+                                <div className='flex flex-col gap-4'>
+                                    <div className=" flex flex-col">
+                                        <label className="text-[#666] text-sm pb-1">Title:</label>
+                                        <FieldView text={"My Note Book"} />
+                                    </div>
+                                    <div className=" flex flex-col">
+                                        <label className="text-[#666] text-sm pb-1">Location:</label>
+                                        <FieldView text={"Under the bed"} />
+                                    </div>
+                                    <div className="  flex flex-col">
+                                        <label className="text-[#666] text-sm pb-1">Date:</label>
+                                        <FieldView text={"3/10/2022"} />
+                                    </div>
+                                    <div className="  flex flex-col">
+                                        <label className="text-[#666] text-sm pb-1">Time Of Creation </label>
+                                        <FieldView text={"1:30 PM"} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='lg:w-[65%] pb-3'>
+                                <div className='flex justify-center'>
+                                    <Image src="/Images/docImage.svg" className='lg:w-[70%] w-[80%]' width={500} height={500} alt="document-image" />
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div> : null}
+        </div>
+    )
+}
+
+export default ViewRequest
