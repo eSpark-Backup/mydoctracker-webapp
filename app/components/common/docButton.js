@@ -1,8 +1,9 @@
 "use client"
-import { Button } from 'antd';
+import { Button, Spin } from 'antd';
 import React, { useState } from 'react';
+import { LoadingOutlined } from '@ant-design/icons';
 
-const DocButton = ({ style, disabled, className, text, onClick, prefix, suffix, loading }) => {
+const DocButton = ({ style, disabled, className, text, onClick, prefix, suffix, loading, loadingColor }) => {
 
 
   return (
@@ -15,7 +16,7 @@ const DocButton = ({ style, disabled, className, text, onClick, prefix, suffix, 
       type="primary"
     >
       {prefix && prefix}
-      {text}
+      {loading ? <Spin indicator={<LoadingOutlined style={{ color: loadingColor || "#fff", fontSize: 15 }} spin />} /> : text}
       {suffix && <span className="ml-2">{suffix}</span>}
     </button>
   );

@@ -2,13 +2,14 @@ import { useEffect } from 'react';
 import { AdminRoutes, EmployeeMainRoutes, EmployeeRoutes, SidebarFooterRoutes, UserRoutes } from '../constant';
 
 export const activeForSidebar = (role, pathname, link) => {
+    const id = pathname.split("/")[3]
     const employeeAsAdmin = pathname.split('/')[2]
     const pathArr = pathname.split('/')
     const linkArr = link.split('/')
     let pathLastInd = pathArr.length > 0 && pathArr[pathArr.length - 1]
     const linkLastInd = linkArr.length > 0 && linkArr[linkArr.length - 1]
     const dashoardChildPaths = ["view-doc" , "edit-doc", "download-doc", "geofence", "add-geofence", "edit-geofence", "add-employee", "employee-details", "employee-settings", "employee-details", "share-location"]
-    const routeToMatch = role === "admin" ? "admin" : role === "user" ? "user" : (role === "employee" && employeeAsAdmin === "employee-as-admin") ? "subordinates" : "user"
+    const routeToMatch = role === "admin" ? "admin" : role === "user" ? id : (role === "employee" && employeeAsAdmin === "employee-as-admin") ? "subordinates" : id
     dashoardChildPaths.map((link)=>link === pathLastInd ? pathLastInd = routeToMatch : pathLastInd)
     return pathLastInd === linkLastInd
 }
@@ -45,23 +46,25 @@ const mainPathName = [
 ]
 
 export const getRoutesForSidebar = (role, roleType, pathname) => {
+  const id = pathname.split("/")[3]
   return role === "admin" ? AdminRoutes
   :
-  role === "user" ? UserRoutes
+  role === "user" ? UserRoutes(id)
   :
   (role === "employee" && roleType === "admin" && mainPathName.includes(pathname)) ? EmployeeMainRoutes
   :
-  EmployeeRoutes
+  EmployeeRoutes(id)
 }
 
 export const getFooterRoutesForSidebar = (role, roleType, pathname) => {
-  return role === "admin" ? SidebarFooterRoutes.map(route => {if (route.title === "Report a problem") {return { ...route, title: "Report a problem", link: "/dashboard/admin/report" }} return route}).filter(({title})=>title==="Report a problem")
+  const id = pathname.split("/")[3]
+  return role === "admin" ? SidebarFooterRoutes(id).map(route => {if (route.title === "Report a problem") {return { ...route, title: "Report a problem", link: "/dashboard/admin/report" }} return route}).filter(({title})=>title==="Report a problem")
   :
-  (role === "employee" && roleType === "admin" && mainPathName.includes(pathname)) ? SidebarFooterRoutes.filter(({title})=>title==="Report a problem")
+  (role === "employee" && roleType === "admin" && mainPathName.includes(pathname)) ? SidebarFooterRoutes(id).filter(({title})=>title==="Report a problem")
   :
-  (role === "employee" && roleType === "admin") ? SidebarFooterRoutes.map(route => {if (route.title === "Back to devices") {return { ...route, title: "Back to main", link: "/dashboard/employee-as-admin" }} return route})
+  (role === "employee" && roleType === "admin") ? SidebarFooterRoutes(id).map(route => {if (route.title === "Back to devices") {return { ...route, title: "Back to main", link: "/dashboard/employee-as-admin" }} return route})
   :
-  SidebarFooterRoutes
+  SidebarFooterRoutes(id)
 }
 
 export const getProps = (setState, state, key) => {
@@ -91,3 +94,65 @@ export const getErrorFromApi = (error) => {
   }
 }
 
+export const getDate = (dateString) => {
+  const originalDate = new Date(dateString);
+  const formattedDate = `${(originalDate.getMonth() + 1).toString().padStart(2, '0')}/${originalDate.getDate().toString().padStart(2, '0')}/${originalDate.getFullYear()}`;
+  return formattedDate
+}
+
+export const getTime = (dateString) => {
+  const originalDate = new Date(dateString);
+  originalDate.setHours(originalDate.getHours() - (new Date().getTimezoneOffset() / 60));
+  const options = {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+    timeZone: 'America/New_York',
+  };
+  const formattedTime = originalDate?.toLocaleString('en-US', options);
+  return formattedTime
+}
+
+export const getTimeForInput = (dateString) => {
+  const originalDate = new Date(dateString);
+  originalDate.setHours(originalDate.getHours() - (new Date().getTimezoneOffset() / 60));
+  const options = {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+    timeZone: 'America/New_York',
+  };
+  const formattedTime = originalDate?.toLocaleString('en-US', options);
+  return formattedTime
+}
+
+export const getMonthDate = (dateString) => {
+  const date = new Date(dateString);
+
+  const currentDate = new Date();
+  currentDate.setHours(0, 0, 0, 0);
+
+  const monthNames = [
+    "January", "February", "March", "April",
+    "May", "June", "July", "August",
+    "September", "October", "November", "December"
+  ];
+
+  const getRelativeDate = (inputDate, currentDate) => {
+    const day = inputDate.getDate();
+    const monthIndex = inputDate.getMonth();
+    const year = inputDate.getFullYear();
+    if (inputDate.toDateString() === currentDate.toDateString()) {
+      return `Today, ${monthNames[monthIndex]} ${day},${year}`;
+    } else if (inputDate.toDateString() === new Date(currentDate.getTime() - 24 * 60 * 60 * 1000).toDateString()) {
+      return `Yesterday, ${monthNames[monthIndex]} ${day},${year}`;
+    } else if (inputDate.toDateString() === new Date(currentDate.getTime() + 24 * 60 * 60 * 1000).toDateString()) {
+      return `Tomorrow, ${monthNames[monthIndex]} ${day},${year}`;
+    } else {
+      return `${monthNames[monthIndex]} ${day},${year}`;
+    }
+  };
+  const formattedDate = getRelativeDate(date, currentDate);
+  return formattedDate
+}

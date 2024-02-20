@@ -1,4 +1,5 @@
 import avatar from '@/public/icons/userAvatar.svg'
+import moment from 'moment'
 
 export const signInRoles = [
     {
@@ -207,6 +208,7 @@ export const introLaptopScreen = {
 
 export const UserDevices = [
     {
+        id: "2ff15b64-b28f-4afb-bd22-fefe39a8f473",
         heading: "Tracker: 123456",
         status: "Active",
         name: "My Note Book",
@@ -214,6 +216,7 @@ export const UserDevices = [
         battery: "87% Battery remaining",
     },
     {
+        id: "2",
         heading: "Tracker: 123456",
         status: "Disable",
         name: "My Note Book",
@@ -221,6 +224,7 @@ export const UserDevices = [
         battery: "87% Battery remaining",
     },
     {
+        id: "3",
         heading: "Tracker: 123456",
         status: "Inactive",
         name: "My Note Book",
@@ -230,13 +234,13 @@ export const UserDevices = [
 ];
 
 
-export const UserRoutes = [
+export const UserRoutes = id => [
     {
         id: 1,
         title: "Dashboard",
         icon: "dashboardHome.svg",
         iconfill: "dashboardHomeFill.svg",
-        link: "/dashboard/devices/user"
+        link: `/dashboard/devices/${id}`
     },
 
     {
@@ -244,14 +248,14 @@ export const UserRoutes = [
         title: "History",
         icon: "dashboardHistory.svg",
         iconfill: "dashboardHistoryFill.svg",
-        link: "/dashboard/devices/user/history"
+        link: `/dashboard/devices/${id}/history`
     },
     {
         id: 4,
         title: "Settings",
         icon: "dashboardSetting.svg",
         iconfill: "dashboardSettingFill.svg",
-        link: "/dashboard/devices/user/settings"
+        link: `/dashboard/devices/${id}/settings`
     },
 ]
 
@@ -311,13 +315,13 @@ export const EmployeeMainRoutes = [
     }
 ]
 
-export const EmployeeRoutes = [
+export const EmployeeRoutes = id => [
     {
         id: 1,
         title: "Dashboard",
         icon: "dashboardHome.svg",
         iconfill: "dashboardHomeFill.svg",
-        link: "/dashboard/devices/user"
+        link: `/dashboard/devices/${id}`
     },
 
     {
@@ -325,11 +329,11 @@ export const EmployeeRoutes = [
         title: "History",
         icon: "dashboardHistory.svg",
         iconfill: "dashboardHistoryFill.svg",
-        link: "/dashboard/devices/user/history"
+        link: `/dashboard/devices/${id}/history`
     }
 ]
 
-export const SidebarFooterRoutes = [
+export const SidebarFooterRoutes = id => [
 
     {
         id: 1,
@@ -343,7 +347,7 @@ export const SidebarFooterRoutes = [
         title: "Report a problem",
         icon: "dashboardreport.svg",
         iconfill: "dashboardreport.svg",
-        link: "/dashboard/devices/user/report"
+        link: `/dashboard/devices/${id}/report`
     },
 
 ]
@@ -388,7 +392,7 @@ export const deviceSettingNotfications = [
 ]
 
 export const trackerTypeOptions = [
-    { label: 'Single Page', value: 'Single Page' }, { label: 'Multi Page', value: 'Multi Page' }
+    { label: 'Single Page', value: 'SINGLE' }, { label: 'Multi Page', value: 'MULTIPLE' }
 ];
 
 export const locations = [
@@ -1108,13 +1112,13 @@ export const userEditDocData = [
                 key: "docTime",
                 type: "timePicker"
             },
-            {
-                label: "Location",
-                placeholder: "Under the bed",
-                required: false,
-                key: "docLocation",
-                type: "text"
-            },
+            // {
+            //     label: "Location",
+            //     placeholder: "Under the bed",
+            //     required: false,
+            //     key: "docLocation",
+            //     type: "text"
+            // },
             {
                 label: "Doc Image",
                 placeholder: "Upload image",
@@ -1277,40 +1281,40 @@ export const containerStyleSm = {
     borderRadius: "10px"
 };
 
-export const notebookDetails = [
+export const notebookDetails = currentDocument => [
     {
         id: 1,
         field: "Tracker ID",
-        value: "XYZ456789"
+        value: currentDocument?.id || "-"
     },
     {
         id: 2,
         field: "Email",
-        value: "johndoe_123@gmail.com"
+        value: currentDocument?.assignee?.email || "-"
     },
     {
         id: 3,
         field: "Last Activity",
-        value: "25m ago"
+        value: moment(currentDocument?.lastActivity?.sentAt).fromNow()
     },
     {
         id: 4,
         field: "Owners Name",
-        value: "John Doe"
+        value: `${currentDocument?.assignee?.firstName} ${currentDocument?.assignee?.lastName}` || "-"
     },
     {
         id: 5,
         field: "Contact",
-        value: "123456789"
+        value: currentDocument?.assignee?.contact || "-"
     },
     {
         id: 6,
         field: "Battery",
-        value: "98% remaining"
+        value: `${currentDocument?.tracker?.batteryPercentage}% remaining` || "-"
     },
 ]
 
-export const info = [
+export const info = id => [
     {
         id: 1,
         title: "Document",
@@ -1319,7 +1323,7 @@ export const info = [
         leftBorder: true,
         mdWidth: "md:w-6/12",
         buttonTitle: "Document History",
-        buttonLink: "/dashboard/devices/user/download-doc"
+        buttonLink: `/dashboard/devices/${id}/download-doc`
     },
     {
         id: 2,
@@ -1339,7 +1343,7 @@ export const info = [
         leftBorder: false,
         mdWidth: "md:w-12/12",
         buttonTitle: "Set",
-        buttonLink: "/dashboard/devices/user/geofence"
+        buttonLink: `/dashboard/devices/${id}/geofence`
     }
 ]
 

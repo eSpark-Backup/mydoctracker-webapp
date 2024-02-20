@@ -6,6 +6,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useSelector } from 'react-redux'
 import ConfirmModal from '@/app/components/modals/confirmModal'
+import { getDate, getTime } from '@/app/utils'
+import { usePathname } from 'next/navigation'
 
 const ViewDoc = () => {
     const [ isModalOpen, setIsModalOpen ] = useState(false)
@@ -15,6 +17,11 @@ const ViewDoc = () => {
         ///permission api logic
         setIsModalOpen(false)
     }
+
+    const { currentDocument } = useSelector(state => state.documents)
+
+    const pathname = usePathname();
+    const id = pathname.split('/')[3]
 
     return (
         <>
@@ -26,7 +33,7 @@ const ViewDoc = () => {
                 </div>
 
                 <div>
-                    <Link href={(role === "employee" && roleType === "default") ? "" : "/dashboard/devices/user/edit-doc"}>
+                    <Link href={(role === "employee" && roleType === "default") ? "" : `/dashboard/devices/${id}/edit-doc`}>
                     <DocButton onClick={(role === "employee" && roleType === "default") ? () => setIsModalOpen(true) : null} prefix={<Image src="/icons/editPencil.svg" width={18} height={18} className='mr-2 edit-doc-btn' alt='edit' />} text={"Edit"} className={"text-sm !text-[#0A2431] font-bold bg-secondary border-primary text-primary h-[30px] !px-5"} />
                     </Link>
                 </div>
@@ -38,25 +45,30 @@ const ViewDoc = () => {
                     <div className='flex flex-col gap-4'>
                         <div className=" flex flex-col">
                             <label className="text-greydark text-sm pb-1">Title:</label>
-                            <FieldView text={"My Note Book"} />
-                        </div>
-                        <div className=" flex flex-col">
-                            <label className="text-greydark text-sm pb-1">Location:</label>
-                            <FieldView text={"Under the bed"} />
+                            <FieldView text={currentDocument?.title} />
                         </div>
                         <div className="  flex flex-col">
                             <label className="text-greydark text-sm pb-1">Date:</label>
-                            <FieldView text={"3/10/2022"} />
+                            <FieldView text={getDate(currentDocument?.creationDate)} />
                         </div>
                         <div className="  flex flex-col">
                             <label className="text-greydark text-sm pb-1">Time:</label>
-                            <FieldView text={"1:30 PM"} />
+                            <FieldView text={getTime(currentDocument?.creationDate)} />
                         </div>
+                        {currentDocument?.meta?.fields?.length > 0 ?
+                        currentDocument?.meta?.fields?.map(({name, value}, index)=>{
+                        return(
+                            <div key={index} className="  flex flex-col">
+                                <label className="text-greydark text-sm pb-1">{name}:</label>
+                                <FieldView text={value} />
+                            </div>
+                        )
+                        }) : null}
                     </div>
                 </div>
                 <div className='lg:w-[65%]'>
                     <div className='flex justify-center'>
-                        <Image src="/Images/docImage.svg" className='lg:w-[70%] md:w-[80%] w-[100%]' alt='Document Image' width={500} height={500} />
+                        <Image src={currentDocument?.file} className='lg:w-[70%] md:w-[80%] w-[100%]' alt='Document Image' width={500} height={500} />
                     </div>
                 </div>
 
