@@ -1,6 +1,6 @@
 "use client"
 import { Checkbox, Col, Form, Input, Row, notification } from 'antd';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
 import Link from 'next/link';
@@ -18,7 +18,10 @@ const SingleUserSignup = () => {
   const { role, roleType } = useSelector(state => state.auth)
   const router = useRouter()
 
+  const [loading, setLoading] = useState(false);
+
   const onFinish = (values) => {
+    setLoading(true);
     signUp(values,
       {
         onSuccess: (signUpSuccess) => {
@@ -28,12 +31,14 @@ const SingleUserSignup = () => {
             description: signUpSuccess?.message,
           })
           dispatch(authSignIn(signUpSuccess.data));
+          setLoading(false);
         },
         onError: (error) => {
           notification.error({
             message: 'Error',
             description: getErrorFromApi(error),
           })
+          setLoading(false);
         }
       })
   };
@@ -231,7 +236,7 @@ const SingleUserSignup = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign Up"} />
+        <DocButton onClick={() => form.submit()} loading={loading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign Up"} />
       </div>
 
       <div className='lg:hidden block'>

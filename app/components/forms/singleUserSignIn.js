@@ -22,7 +22,18 @@ const SingleUserSignIn = () => {
     setLoading(true);
     login(values, {
       onSuccess: (loginSuccess) => {
-        dispatch(authSignIn(loginSuccess.data));
+
+        if (loginSuccess?.data?.user?.role !== "SU") {
+          notification.error({
+            message: 'Error',
+            description: "Invalid Email or Password",
+          })
+        }
+
+        else {
+          dispatch(authSignIn(loginSuccess.data));
+        }
+
         setLoading(false);
       },
       onError: (error) => {
