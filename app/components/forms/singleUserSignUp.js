@@ -24,7 +24,7 @@ const SingleUserSignup = () => {
         onSuccess: (signUpSuccess) => {
           console.log(signUpSuccess, "signUpSuccess")
           notification.success({
-            message: 'Error',
+            message: 'Account Created',
             description: signUpSuccess?.message,
           })
           dispatch(authSignIn(signUpSuccess.data));
@@ -121,6 +121,22 @@ const SingleUserSignup = () => {
               >
                 <DocInput type={"email"} placeholder="Enter Email"
                   onChange={(value) => form.setFieldsValue({ email: value })}
+                // value={form.getFieldValue('username')}
+                />
+              </Form.Item>
+            </Col>
+
+            <Col span={24}>
+              <Form.Item
+                label={<span className='text-greydark text-xs font-medium'>Address</span>}
+                name="address"
+                labelCol={{ span: 24 }}
+                style={{ marginBottom: "4px" }}
+                wrapperCol={{ span: 24 }} // Adjust the input column width
+                rules={[{ required: true, message: "Please Enter Address" }]}
+              >
+                <DocInput type={"text"} placeholder="Enter address"
+                  onChange={(value) => form.setFieldsValue({ address: value })}
                 // value={form.getFieldValue('username')}
                 />
               </Form.Item>
