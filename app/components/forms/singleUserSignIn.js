@@ -1,5 +1,5 @@
 "use client"
-import { Checkbox, Col, Form, Input, Row, notification } from 'antd';
+import { Checkbox, Col, Form, Row, notification } from 'antd';
 import React, { useEffect, useState } from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
 import { useRouter } from 'next/navigation'
 import { useLogin } from '@/app/hooks/auth';
-import { getErrorFromApi } from '@/app/utils';
 
 const SingleUserSignIn = () => {
   const [loading, setLoading] = useState(false)
@@ -28,25 +27,24 @@ const SingleUserSignIn = () => {
             message: 'Error',
             description: "Invalid Email or Password",
           })
+          setLoading(false);
         }
 
         else {
           dispatch(authSignIn(loginSuccess.data));
+          setLoading(false);
         }
 
-        setLoading(false);
       },
       onError: (error) => {
         dispatch(authSignIn(values));
         notification.error({
           message: 'Error',
-          // description: getErrorFromApi(error),
           description: "Invalid Email or Password",
         })
         setLoading(false);
       }
     })
-    // Let's check redux and update next steps
   };
 
   useEffect(() => {

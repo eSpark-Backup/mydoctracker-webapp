@@ -1,20 +1,23 @@
 "use client"
 
 import { Checkbox, Col, Form, Row, notification } from 'antd';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
 import { getErrorFromApi } from '@/app/utils';
 import Link from 'next/link';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useCorporateSignup } from '@/app/hooks/auth';
 import { validatePassword, validateUsername } from '@/app/utils/validation';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
+import { useRouter } from 'next/navigation';
 
 const CorporateSignup = ({ HideHandler }) => {
   const [form] = Form.useForm();
   const { mutate: signUp } = useCorporateSignup();
   const dispatch = useDispatch()
+  const { role, roleType } = useSelector(state => state.auth)
+  const router = useRouter()
 
   const [loading, setLoading] = useState(false);
 
@@ -31,6 +34,7 @@ const CorporateSignup = ({ HideHandler }) => {
           })
           dispatch(authSignIn(signUpSuccess.data));
           setLoading(false);
+          router.push("/dashboard/admin")
         },
         onError: (error) => {
           notification.error({
@@ -42,6 +46,20 @@ const CorporateSignup = ({ HideHandler }) => {
 
       })
   };
+
+
+  useEffect(() => {
+    if (role) {
+      if (role === "admin") {
+        router.push("/dashboard/admin")
+      } else if (role === "employee" && roleType === "admin") {
+        router.push("/dashboard/employee-as-admin")
+      } else {
+        router.push("/dashboard/devices")
+      }
+    }
+  }, [role, roleType])
+
 
 
   return (

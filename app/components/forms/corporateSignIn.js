@@ -1,17 +1,65 @@
 "use client"
 
-import { Checkbox, Col, Form, Input, Row } from 'antd';
-import React from 'react'
+import { Checkbox, Col, Form, Input, Row, notification } from 'antd';
+import React, { useEffect, useState } from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
 import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
+import { authSignIn } from '@/app/redux/store/slices/authSlice';
+import { useRouter } from 'next/navigation'
+import { useLogin } from '@/app/hooks/auth';
 
 const CorporateSignIn = () => {
+  const router = useRouter()
   const [form] = Form.useForm();
+  const dispatch = useDispatch();
+  const { role, roleType } = useSelector(state => state.auth)
+  const { mutate: login } = useLogin();
+
+  const [loading, setLoading] = useState(false)
 
   const onFinish = (values) => {
-    console.log(values, "SingleUserForm");
+    setLoading(true);
+    login(values, {
+      onSuccess: (loginSuccess) => {
+
+        if (loginSuccess?.data?.user?.role !== "CU") {
+          notification.error({
+            message: 'Error',
+            description: "Invalid Email or Password",
+          })
+          setLoading(false);
+        }
+
+        else {
+          dispatch(authSignIn(loginSuccess.data));
+          setLoading(false);
+        }
+
+      },
+      onError: (error) => {
+        dispatch(authSignIn(values));
+        notification.error({
+          message: 'Error',
+          description: "Invalid Email or Password",
+        })
+        setLoading(false);
+      }
+    })
   };
+
+  useEffect(() => {
+    if (role) {
+      if (role === "admin") {
+        router.push("/dashboard/admin")
+      } else if (role === "employee" && roleType === "admin") {
+        router.push("/dashboard/employee-as-admin")
+      } else {
+        router.push("/dashboard/devices")
+      }
+    }
+  }, [role, roleType])
 
   return (
     <div className='flex flex-col justify-between h-full'>
@@ -20,33 +68,14 @@ const CorporateSignIn = () => {
           <Row gutter={[0, 0]}>
             <Col span={24}>
               <Form.Item
-                label={<span className='text-greydark text-xs font-medium'>Company Email</span>}
-                name="companyEmail"
+                label={<span className='text-greydark text-xs font-medium'>Username</span>}
+                name="username"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please Enter Company Email" },
-                { type: 'email', message: 'Please enter valid email' }
-                ]}
-
+                rules={[{ required: true, message: "Please Enter User Name" }]}
               >
-                <DocInput type={"email"} placeholder="Enter Company Email"
-                  onChange={(value) => form.setFieldsValue({ companyEmail: value })}
-
-                />
-              </Form.Item>
-            </Col>
-            <Col span={24}>
-              <Form.Item
-                label={<span className='text-greydark text-xs font-medium'>Admin Email</span>}
-                name="adminEmail"
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please enter User Name" },
-                { type: 'email', message: 'Please enter valid email' }
-                ]}
-              >
-                <DocInput type={"email"} placeholder="Enter User name"
-                  onChange={(value) => form.setFieldsValue({ adminEmail: value })}
+                <DocInput type={"text"} placeholder="Enter User name"
+                  onChange={(value) => form.setFieldsValue({ username: value })}
                 // value={form.getFieldValue('username')}
                 />
               </Form.Item>
@@ -58,7 +87,7 @@ const CorporateSignIn = () => {
                 name="password"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }} // Adjust the input column width
-                rules={[{ required: true, message: "Please enter Password" }]}
+                rules={[{ required: true, message: "Please Enter Password" }]}
               >
                 <DocInput type={"password"} placeholder="Enter Password"
                   onChange={(value) => form.setFieldsValue({ password: value })}
@@ -83,7 +112,7 @@ const CorporateSignIn = () => {
                 wrapperCol={{ span: 24 }}
                 className='2xl:!w-[65%] w-[100%]'
               >
-                <Checkbox className='auth-checkbox'>
+                <Checkbox className='auth-checkbox' >
                   <span className='text-[14px]'>
                     I have read and agreed to the <span className='text-primary font-semibold'>Privacy Policy</span> and <span className='text-primary  font-semibold'>Terms and conditions</span>
                   </span>
@@ -95,7 +124,7 @@ const CorporateSignIn = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
+        <DocButton onClick={() => form.submit()} loading={loading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
       </div>
 
       <div className='lg:hidden block'>

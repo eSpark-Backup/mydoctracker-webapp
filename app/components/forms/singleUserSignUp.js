@@ -1,5 +1,5 @@
 "use client"
-import { Checkbox, Col, Form, Input, Row, notification } from 'antd';
+import { Checkbox, Col, Form, Row, notification } from 'antd';
 import React, { useEffect, useState } from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
@@ -32,8 +32,10 @@ const SingleUserSignup = () => {
           })
           dispatch(authSignIn(signUpSuccess.data));
           setLoading(false);
+          router.push("/dashboard/devices")
         },
         onError: (error) => {
+          console.log(error, "error");
           notification.error({
             message: 'Error',
             description: getErrorFromApi(error),
