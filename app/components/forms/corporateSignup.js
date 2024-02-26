@@ -10,6 +10,8 @@ import { useDispatch } from 'react-redux';
 import { useCorporateSignup } from '@/app/hooks/auth';
 import { validatePassword, validateUsername } from '@/app/utils/validation';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 const CorporateSignup = ({ HideHandler }) => {
   const [form] = Form.useForm();
@@ -123,9 +125,13 @@ const CorporateSignup = ({ HideHandler }) => {
                   wrapperCol={{ span: 24 }} // Adjust the input column width
                   rules={[{ required: true, message: "Please Enter Company Contact No." }]}
                 >
-                  <DocInput type={"phone"} placeholder="Contact number"
+                  {/* <DocInput type={"phone"} placeholder="Contact number"
                     onChange={(value) => form.setFieldsValue({ companyContact: value })}
                   // value={form.getFieldValue('username')}
+                  /> */}
+                  <PhoneInput
+                    country={'us'}
+                    onChange={(value) => form.setFieldsValue({ contact: value })}
                   />
                 </Form.Item>
               </Col>

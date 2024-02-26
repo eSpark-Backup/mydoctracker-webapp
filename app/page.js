@@ -4,23 +4,23 @@ import { useEffect } from "react";
 import { useTodosData } from "./hooks/useTodos";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 
 export default function Home() {
   const router = useRouter();
   const { data, isLoading } = useTodosData();
   const { role, roleType } = useSelector(state => state.auth)
 
-  useEffect(() => {
-    const socket = io("http://34.234.163.166:3001")
+  // useEffect(() => {
+  //   const socket = io("http://34.234.163.166:3001")
 
-    socket.on('connect', () => {
-    })
+  //   socket.on('connect', () => {
+  //   })
 
-    return () => {
-      socket.off("connect")
-    }
-  }, [])
+  //   return () => {
+  //     socket.off("connect")
+  //   }
+  // }, [])
 
 
   useEffect(() => {
