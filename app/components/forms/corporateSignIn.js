@@ -15,12 +15,10 @@ const CorporateSignIn = () => {
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const { role, roleType } = useSelector(state => state.auth)
-  const { mutate: login } = useLogin();
+  const { mutate: login, isLoading } = useLogin();
 
-  const [loading, setLoading] = useState(false)
 
   const onFinish = (values) => {
-    setLoading(true);
     login(values, {
       onSuccess: (loginSuccess) => {
 
@@ -29,12 +27,10 @@ const CorporateSignIn = () => {
             message: 'Error',
             description: "Invalid Email or Password",
           })
-          setLoading(false);
         }
 
         else {
           dispatch(authSignIn(loginSuccess.data));
-          setLoading(false);
         }
 
       },
@@ -44,7 +40,6 @@ const CorporateSignIn = () => {
           message: 'Error',
           description: "Invalid Email or Password",
         })
-        setLoading(false);
       }
     })
   };
@@ -124,7 +119,7 @@ const CorporateSignIn = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} loading={loading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
+        <DocButton onClick={() => form.submit()} loading={isLoading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
       </div>
 
       <div className='lg:hidden block'>

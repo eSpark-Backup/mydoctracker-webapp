@@ -13,15 +13,13 @@ import { useRouter } from 'next/navigation';
 
 const SingleUserSignup = () => {
   const [form] = Form.useForm();
-  const { mutate: signUp } = useSignup();
+  const { mutate: signUp, isLoading } = useSignup();
   const dispatch = useDispatch()
   const { role, roleType } = useSelector(state => state.auth)
   const router = useRouter()
 
-  const [loading, setLoading] = useState(false);
 
   const onFinish = (values) => {
-    setLoading(true);
     signUp(values,
       {
         onSuccess: (signUpSuccess) => {
@@ -31,7 +29,6 @@ const SingleUserSignup = () => {
             description: signUpSuccess?.message,
           })
           dispatch(authSignIn(signUpSuccess.data));
-          setLoading(false);
           router.push("/dashboard/devices")
         },
         onError: (error) => {
@@ -40,7 +37,6 @@ const SingleUserSignup = () => {
             message: 'Error',
             description: getErrorFromApi(error),
           })
-          setLoading(false);
         }
       })
   };
@@ -238,7 +234,7 @@ const SingleUserSignup = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} loading={loading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign Up"} />
+        <DocButton onClick={() => form.submit()} loading={isLoading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign Up"} />
       </div>
 
       <div className='lg:hidden block'>

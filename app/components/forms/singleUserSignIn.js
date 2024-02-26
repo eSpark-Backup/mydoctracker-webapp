@@ -10,15 +10,13 @@ import { useRouter } from 'next/navigation'
 import { useLogin } from '@/app/hooks/auth';
 
 const SingleUserSignIn = () => {
-  const [loading, setLoading] = useState(false)
   const router = useRouter()
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const { role, roleType } = useSelector(state => state.auth)
-  const { mutate: login } = useLogin();
+  const { mutate: login, isLoading } = useLogin();
 
   const onFinish = (values) => {
-    setLoading(true);
     login(values, {
       onSuccess: (loginSuccess) => {
 
@@ -27,12 +25,10 @@ const SingleUserSignIn = () => {
             message: 'Error',
             description: "Invalid Email or Password",
           })
-          setLoading(false);
         }
 
         else {
           dispatch(authSignIn(loginSuccess.data));
-          setLoading(false);
         }
 
       },
@@ -42,7 +38,6 @@ const SingleUserSignIn = () => {
           message: 'Error',
           description: "Invalid Email or Password",
         })
-        setLoading(false);
       }
     })
   };
@@ -122,7 +117,7 @@ const SingleUserSignIn = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} loading={loading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
+        <DocButton onClick={() => form.submit()} loading={isLoading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
 
         <div className='lg:hidden block'>
           <div className='py-8 flex flex-col items-center'>
