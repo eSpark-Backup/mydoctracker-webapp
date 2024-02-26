@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
 import { validatePassword, validateUsername } from '@/app/utils/validation';
 import { useRouter } from 'next/navigation';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
 
 const SingleUserSignup = () => {
   const [form] = Form.useForm();
@@ -156,9 +158,13 @@ const SingleUserSignup = () => {
                 rules={[{ required: true, message: "Please Enter Contact No." },
                 ]}
               >
-                <DocInput type={"tel"} placeholder="Contact number"
+                {/* <DocInput type={"tel"} placeholder="Contact number"
                   onChange={(value) => form.setFieldsValue({ contact: value })}
                 // value={form.getFieldValue('username')}
+                /> */}
+                <PhoneInput
+                  country={'us'}
+                  onChange={(value) => form.setFieldsValue({ contact: value })}
                 />
               </Form.Item>
             </Col>
