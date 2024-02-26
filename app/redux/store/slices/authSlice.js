@@ -45,9 +45,9 @@ export const authSlice = createSlice({
                 const { user, token } = action.payload;
                 console.log("user", user, token);
                 setCookie("logged", "true")
-                setCookie("role", user?.role === "SU" ? "user" : "")
+                setCookie("role", user?.role === "SU" ? "user" : user?.role === "CU" ? "admin" : "");
                 state.user = user;
-                state.role = user?.role === "SU" ? "user" : "";
+                state.role = user?.role === "SU" ? "user" : user?.role === "CU" ? "admin" : "";
                 if (token) {
                     setCookie("token", token)
                 } else {

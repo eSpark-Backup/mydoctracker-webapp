@@ -1,5 +1,5 @@
 "use client"
-import { Checkbox, Col, Form, Input, Row, notification } from 'antd';
+import { Checkbox, Col, Form, Row, notification } from 'antd';
 import React, { useEffect, useState } from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
@@ -8,34 +8,38 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authSignIn } from '@/app/redux/store/slices/authSlice';
 import { useRouter } from 'next/navigation'
 import { useLogin } from '@/app/hooks/auth';
-import { getErrorFromApi } from '@/app/utils';
 
 const SingleUserSignIn = () => {
-  const [loading, setLoading] = useState(false)
   const router = useRouter()
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const { role, roleType } = useSelector(state => state.auth)
-  const { mutate: login } = useLogin();
+  const { mutate: login, isLoading } = useLogin();
 
   const onFinish = (values) => {
-    setLoading(true);
     login(values, {
       onSuccess: (loginSuccess) => {
-        dispatch(authSignIn(loginSuccess.data));
-        setLoading(false);
+
+        if (loginSuccess?.data?.user?.role !== "SU") {
+          notification.error({
+            message: 'Error',
+            description: "Invalid Email or Password",
+          })
+        }
+
+        else {
+          dispatch(authSignIn(loginSuccess.data));
+        }
+
       },
       onError: (error) => {
         dispatch(authSignIn(values));
         notification.error({
           message: 'Error',
-          // description: getErrorFromApi(error),
           description: "Invalid Email or Password",
         })
-        setLoading(false);
       }
     })
-    // Let's check redux and update next steps
   };
 
   useEffect(() => {
@@ -113,7 +117,7 @@ const SingleUserSignIn = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} loading={loading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
+        <DocButton onClick={() => form.submit()} loading={isLoading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign In"} />
 
         <div className='lg:hidden block'>
           <div className='py-8 flex flex-col items-center'>

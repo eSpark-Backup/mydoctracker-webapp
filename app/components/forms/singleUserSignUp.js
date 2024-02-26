@@ -1,6 +1,6 @@
 "use client"
-import { Checkbox, Col, Form, Input, Row, notification } from 'antd';
-import React, { useEffect } from 'react'
+import { Checkbox, Col, Form, Row, notification } from 'antd';
+import React, { useEffect, useState } from 'react'
 import DocInput from '../common/docInput';
 import DocButton from '../common/docButton';
 import Link from 'next/link';
@@ -13,10 +13,11 @@ import { useRouter } from 'next/navigation';
 
 const SingleUserSignup = () => {
   const [form] = Form.useForm();
-  const { mutate: signUp } = useSignup();
+  const { mutate: signUp, isLoading } = useSignup();
   const dispatch = useDispatch()
   const { role, roleType } = useSelector(state => state.auth)
   const router = useRouter()
+
 
   const onFinish = (values) => {
     signUp(values,
@@ -24,12 +25,14 @@ const SingleUserSignup = () => {
         onSuccess: (signUpSuccess) => {
           console.log(signUpSuccess, "signUpSuccess")
           notification.success({
-            message: 'Error',
+            message: 'Account Created',
             description: signUpSuccess?.message,
           })
           dispatch(authSignIn(signUpSuccess.data));
+          router.push("/dashboard/devices")
         },
         onError: (error) => {
+          console.log(error, "error");
           notification.error({
             message: 'Error',
             description: getErrorFromApi(error),
@@ -126,6 +129,22 @@ const SingleUserSignup = () => {
               </Form.Item>
             </Col>
 
+            <Col span={24}>
+              <Form.Item
+                label={<span className='text-greydark text-xs font-medium'>Address</span>}
+                name="address"
+                labelCol={{ span: 24 }}
+                style={{ marginBottom: "4px" }}
+                wrapperCol={{ span: 24 }} // Adjust the input column width
+                rules={[{ required: true, message: "Please Enter Address" }]}
+              >
+                <DocInput type={"text"} placeholder="Enter address"
+                  onChange={(value) => form.setFieldsValue({ address: value })}
+                // value={form.getFieldValue('username')}
+                />
+              </Form.Item>
+            </Col>
+
 
             <Col span={24}>
               <Form.Item
@@ -215,7 +234,7 @@ const SingleUserSignup = () => {
       </div>
 
       <div>
-        <DocButton onClick={() => form.submit()} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign Up"} />
+        <DocButton onClick={() => form.submit()} loading={isLoading} className={"!bg-primary text-white rounded-[50px] w-full text-[18px] border-none"} text={"Sign Up"} />
       </div>
 
       <div className='lg:hidden block'>
