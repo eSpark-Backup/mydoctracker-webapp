@@ -907,7 +907,7 @@ export const employeeForm = [
                 placeholder: "Enter Contact...",
                 required: true,
                 key: "contact",
-                type: "textNumber"
+                type: "phone"
             },
             {
                 label: "Subsidiary",
@@ -917,12 +917,12 @@ export const employeeForm = [
                 key: "subsidiary",
                 type: "select"
             },
-            {
-                label: "Upload Employee Image",
-                required: false,
-                key: "employeeImage",
-                type: "uploadImage"
-            },
+            // {
+            //     label: "Upload Employee Image",
+            //     required: false,
+            //     key: "employeeImage",
+            //     type: "uploadImage"
+            // },
         ]
     },
     // {

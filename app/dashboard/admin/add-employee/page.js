@@ -8,16 +8,18 @@ import { DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker, DocDrop
 import { employeeForm, form } from '@/app/constant'
 import { camelize, getErrorFromApi, getProps } from '@/app/utils'
 import { useAddEmployee } from '@/app/hooks/employees'
-import { validateUsername } from '@/app/utils/validation'
 import { useSelector } from 'react-redux'
+import PhoneInput from 'react-phone-input-2'
+import { handleSubmit } from '@/app/utils/validation'
+
 
 
 const AddEmployee = () => {
     const { subsidiaries } = useSelector((state) => state.subsidiary);
-    const options = subsidiaries.map(value => { return { label: value.name, value: value.id} })
+    const options = subsidiaries.map(value => { return { label: value.name, value: value.id } })
 
     const router = useRouter()
-    const { mutate: addEmployee } = useAddEmployee()
+    const { mutate: addEmployee, isLoading } = useAddEmployee()
     const [addEmployeeForm, setAddEmployeeForm] = useState({
         firstName: "",
         lastName: "",
@@ -26,7 +28,6 @@ const AddEmployee = () => {
         password: "",
         contact: "",
         subsidiary: "",
-        employeeImage: [],
         role: "",
         locationSharingAccess: false,
     })
@@ -41,11 +42,8 @@ const AddEmployee = () => {
     const props = (key) => getProps(setAddEmployeeForm, addEmployeeForm, key)
 
 
-    const handleSubmit = async () => {
+    const handleEmployeeSubmit = async () => {
         console.log(addEmployeeForm, "addEmployeeForm")
-
-        // validateUsername()
-
 
         addEmployee(addEmployeeForm, {
             onSuccess: (addedSuccess) => {
@@ -98,8 +96,12 @@ const AddEmployee = () => {
                                                                 <DocDatePicker onChange={(value) => handleForm(input.key, value)} />
                                                                 : input.type === "timePicker" ?
                                                                     <DocTimePicker onChange={(value) => handleForm(input.key, value)} />
-                                                                    :
-                                                                    <DocInput value={input.value || addEmployeeForm[input.key]} onChange={(value) => handleForm(input.key, value)} type={input.type === "textNumber" ? "number" : "text"} placeholder={input.placeholder} className={"h-[40px]"} />
+                                                                    : input.type === "phone" ?
+                                                                        <PhoneInput
+                                                                            country={'us'}
+                                                                            onChange={(value) => handleForm(input.key, value)}
+                                                                        />
+                                                                        : <DocInput value={input.value || addEmployeeForm[input.key]} onChange={(value) => handleForm(input.key, value)} type={input.type === "textNumber" ? "number" : "text"} placeholder={input.placeholder} className={"h-[40px]"} />
                                                     }
                                                 </div>
                                             </div>
@@ -125,7 +127,8 @@ const AddEmployee = () => {
                     </div>
                     <div className='flex flex-row items-center gap-5'>
                         <DocButton onClick={() => router.back()} text={"Cancel"} className={"w-[150px] border-2 border-secondary bg-transparent text-secondary"} />
-                        <DocButton onClick={handleSubmit} text={"Next"} suffix={<Image className="text-white" src={"/icons/rightArrowWhite.svg"} width={22} height={22} alt="arrow" />} className={"w-[150px] bg-secondary text-white"} />
+                        <DocButton onClick={() => handleSubmit(addEmployeeForm, handleEmployeeSubmit)
+                        } loading={isLoading} text={"Next"} suffix={<Image className="text-white" src={"/icons/rightArrowWhite.svg"} width={22} height={22} alt="arrow" />} className={"w-[150px] bg-secondary text-white"} />
                     </div>
                 </div>
             </div>
