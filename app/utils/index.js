@@ -156,3 +156,9 @@ export const getMonthDate = (dateString) => {
   const formattedDate = getRelativeDate(date, currentDate);
   return formattedDate
 }
+
+export function debounce(callback) {
+  setTimeout(() => {
+    callback();
+  }, 500);
+}

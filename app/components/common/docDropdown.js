@@ -3,7 +3,7 @@
 import Select from 'react-select'
 import React from 'react'
 
-const DocDropdown = ({ options, className, placeholder, onChange, defaultValue }) => {
+const DocDropdown = ({ options, className, placeholder, onChange, defaultValue, value }) => {
 
   const handleChange = (e) => {
     onChange(e)
@@ -31,7 +31,7 @@ const DocDropdown = ({ options, className, placeholder, onChange, defaultValue }
             "&:hover": { background: '#FEE5B7', fontSize: "17px" },
           }),
         }}
-        defaultValue={defaultValue}
+        value={value || defaultValue}
       />
     </div>
   )
