@@ -89,6 +89,8 @@ export const getProps = (setState, state, key) => {
 export const getErrorFromApi = (error) => {
   if (error?.response?.data?.trace?.response?.trace?.length > 0) {
     return error?.response?.data?.trace?.response?.trace[0]
+  } else if (typeof error?.response?.data?.trace?.response?.message === 'object') {
+    return error?.response?.data?.trace?.response?.message[0]
   } else {
     return error?.response?.data?.trace?.response?.message
   }

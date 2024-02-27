@@ -1,19 +1,22 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Checkbox, Radio, Space } from 'antd'
+import { Checkbox, Radio, Space, notification } from 'antd'
 import Image from 'next/image'
 import { DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker, DocDropdown, HeadContent } from '@/app/components'
 import { form, form2 } from '@/app/constant'
-import { camelize, getProps } from '@/app/utils'
+import { camelize, getErrorFromApi, getProps } from '@/app/utils'
 import { handleSubmit } from '@/app/utils/validation'
 import AddFieldModal from '../../../components/modals/addFieldModal'
 import InputModal from '@/app/components/common/InputModal'
 import GeofencePopupForm from '@/app/components/Forms/geofencePopupForm'
+import { useGetAllEmployee } from '@/app/hooks/employees'
 
 const AssignTracker = () => {
     const router = useRouter()
+    const [employeeOptions, setEmployeeOptions] = useState([])
+    console.log(employeeOptions, "employeeOptions")
     const [addFieldModal, setAddFieldModal] = useState(false)
     const [dynamicInputs, setDynamicInputs] = useState({
         label: "",
@@ -71,6 +74,25 @@ const AssignTracker = () => {
 
 
     const props = (key) => getProps(setAddEmployeeForm, addEmployeeForm, key)
+
+    const { mutate: getAllEmployee } = useGetAllEmployee()
+    const fetchAllEmployee = () => {
+        getAllEmployee("", {
+          onSuccess: (fetchedSuccess) => {
+            setEmployeeOptions(fetchedSuccess?.data?.items?.map((value) => { return {label: value.username, value: value.id} }))
+          },
+          onError: (error) => {
+            notification.error({
+              message: 'Error',
+              description: getErrorFromApi(error),
+            });
+          },
+        });
+      };
+
+    useEffect(() => {
+        fetchAllEmployee()
+    }, [])
 
     return (
         <>

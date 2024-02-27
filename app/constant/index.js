@@ -1432,7 +1432,7 @@ export const form2 = [
             {
                 label: "Select Type",
                 placeholder: "Select type",
-                options: typeOptions,
+                options: trackerTypeOptions,
                 required: true,
                 key: "type",
                 type: "select"

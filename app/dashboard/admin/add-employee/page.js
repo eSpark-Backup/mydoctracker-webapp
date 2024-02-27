@@ -9,9 +9,13 @@ import { employeeForm, form } from '@/app/constant'
 import { camelize, getErrorFromApi, getProps } from '@/app/utils'
 import { useAddEmployee } from '@/app/hooks/employees'
 import { validateUsername } from '@/app/utils/validation'
+import { useSelector } from 'react-redux'
 
 
 const AddEmployee = () => {
+    const { subsidiaries } = useSelector((state) => state.subsidiary);
+    const options = subsidiaries.map(value => { return { label: value.name, value: value.id} })
+
     const router = useRouter()
     const { mutate: addEmployee } = useAddEmployee()
     const [addEmployeeForm, setAddEmployeeForm] = useState({
@@ -50,7 +54,7 @@ const AddEmployee = () => {
                     message: 'Success',
                     description: addedSuccess?.message,
                 })
-                // router.push('/dashboard/devices')
+                router.push('/dashboard/admin/assign-tracker')
             },
             onError: (error) => {
                 notification.error({
@@ -87,7 +91,7 @@ const AddEmployee = () => {
                                                 <div className='flex flex-col'>
                                                     <label className="text-greydark text-sm mb-1 inline-block">{input.label} {input.required ? <span className='text-[#FF0000]'>*</span> : <span>(Optional)</span>}</label>
                                                     {input.type === "select" ?
-                                                        <DocDropdown onChange={(e) => handleForm(input.key, e.value)} className={"w-[100%]"} options={input.options} placeholder={input.placeholder} />
+                                                        <DocDropdown onChange={(e) => handleForm(input.key, e.value)} className={"w-[100%]"} options={options} placeholder={input.placeholder} />
                                                         : input.type === "uploadImage" ?
                                                             <DocImgInput props={props(input.key)} />
                                                             : input.type === "datePicker" ?
