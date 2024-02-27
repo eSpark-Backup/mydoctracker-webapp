@@ -897,64 +897,64 @@ export const form = [
             },
         ]
     },
-    {
-        title: "Tracker Details",
-        inputs: [
-            {
-                label: "Tracker ID",
-                placeholder: "Enter tracker id...",
-                required: true,
-                key: "trackerId",
-                type: "textInput"
-            },
-            {
-                label: "Select Type",
-                placeholder: "Select type",
-                options: typeOptions,
-                required: true,
-                key: "type",
-                type: "select"
-            },
-        ]
-    },
-    {
-        title: "Document Details",
-        buttonText: "Add fields",
-        inputs: [
-            {
-                label: "Document Title",
-                placeholder: "Enter title...",
-                required: true,
-                key: "documentTitle",
-                type: "textInput"
-            },
-            {
-                label: "Date Of Creation",
-                required: true,
-                key: "creationDate",
-                type: "datePicker"
-            },
-            {
-                label: "Time Of Creation",
-                required: true,
-                key: "creationTime",
-                type: "timePicker"
-            },
-            {
-                label: "Location",
-                placeholder: "Where you placed the document",
-                required: true,
-                key: "location",
-                type: "textInput"
-            },
-            {
-                label: "Upload Doc Image",
-                required: false,
-                key: "docImage",
-                type: "uploadImage"
-            },
-        ]
-    }
+    // {
+    //     title: "Tracker Details",
+    //     inputs: [
+    //         {
+    //             label: "Tracker ID",
+    //             placeholder: "Enter tracker id...",
+    //             required: true,
+    //             key: "trackerId",
+    //             type: "textInput"
+    //         },
+    //         {
+    //             label: "Select Type",
+    //             placeholder: "Select type",
+    //             options: typeOptions,
+    //             required: true,
+    //             key: "type",
+    //             type: "select"
+    //         },
+    //     ]
+    // },
+    // {
+    //     title: "Document Details",
+    //     buttonText: "Add fields",
+    //     inputs: [
+    //         {
+    //             label: "Document Title",
+    //             placeholder: "Enter title...",
+    //             required: true,
+    //             key: "documentTitle",
+    //             type: "textInput"
+    //         },
+    //         {
+    //             label: "Date Of Creation",
+    //             required: true,
+    //             key: "creationDate",
+    //             type: "datePicker"
+    //         },
+    //         {
+    //             label: "Time Of Creation",
+    //             required: true,
+    //             key: "creationTime",
+    //             type: "timePicker"
+    //         },
+    //         {
+    //             label: "Location",
+    //             placeholder: "Where you placed the document",
+    //             required: true,
+    //             key: "location",
+    //             type: "textInput"
+    //         },
+    //         {
+    //             label: "Upload Doc Image",
+    //             required: false,
+    //             key: "docImage",
+    //             type: "uploadImage"
+    //         },
+    //     ]
+    // }
 ]
 
 export const userAddDeviceData = [
@@ -1349,6 +1349,68 @@ export const info = id => [
 
 
 export const EditDocData = [
+    {
+        title: "Document Details",
+        buttonText: "Add fields",
+        inputs: [
+            {
+                label: "Document Title",
+                placeholder: "Enter title...",
+                required: true,
+                key: "documentTitle",
+                type: "textInput"
+            },
+            {
+                label: "Date Of Creation",
+                required: true,
+                key: "creationDate",
+                type: "datePicker"
+            },
+            {
+                label: "Time Of Creation",
+                required: true,
+                key: "creationTime",
+                type: "timePicker"
+            },
+            {
+                label: "Location",
+                placeholder: "Where you placed the document",
+                required: true,
+                key: "location",
+                type: "textInput"
+            },
+            {
+                label: "Upload Doc Image",
+                required: false,
+                key: "docImage",
+                type: "uploadImage"
+            },
+        ]
+    }
+]
+
+
+export const form2 = [
+    {
+        title: "Tracker Details",
+        inputs: [
+            {
+                label: "Tracker ID",
+                placeholder: "Enter tracker id...",
+                required: true,
+                key: "trackerId",
+                type: "textInput"
+            },
+            {
+                label: "Select Type",
+                placeholder: "Select type",
+                options: typeOptions,
+                required: true,
+                key: "type",
+                type: "select"
+            },
+        ]
+    },
     {
         title: "Document Details",
         buttonText: "Add fields",
