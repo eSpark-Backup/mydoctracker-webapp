@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation'
 import Image from 'next/image';
 import { DocButton, SearchBar, Table, HeadContent, DocDropdown, RadioFilterPopup } from '@/app/components';
@@ -8,16 +8,44 @@ import { columns } from '@/app/columns/allUser';
 import { allUsers } from '@/app/constant';
 import AddEmployeeModal from '@/app/components/modals/addEmployeeModal';
 import AddSubsidiaryModal from '@/app/components/modals/addSubsidiaryModal'
-import { useOutsideClick } from '@/app/utils';
+import { getErrorFromApi, useOutsideClick } from '@/app/utils';
 import ProtectedRoute from '@/app/utils/protectedRoutes';
+import { useAddSubsidiary, useGetAllSubsidiaries } from '@/app/hooks/subsidiary';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSubsidiaries } from '@/app/redux/store/slices/subsidiary';
+import { notification } from 'antd';
 
 const Admin = () => {
+  const dispatch = useDispatch();
+  const { subsidiaries } = useSelector((state) => state.subsidiary);
+  const options = subsidiaries.map(value => { return { label: value.name, value: value.id} })
+
+  const { mutate: addSubsidiary, isLoading } = useAddSubsidiary();
+  const { mutate: fetchAllSubsidiaries } = useGetAllSubsidiaries();
+  const getAllSubsidiaries = () => {
+    fetchAllSubsidiaries('', {
+      onSuccess: (fetchedSuccess) => {
+        dispatch(fetchSubsidiaries(fetchedSuccess?.data));
+      },
+      onError: (error) => {
+        notification.error({
+          message: 'Error',
+          description: getErrorFromApi(error),
+        });
+      },
+    });
+  };
+
+  useEffect(() => {
+    getAllSubsidiaries();
+  }, []);
+
     const router = useRouter();
-    const options = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' },{ label: 'Group 3', value: 'Group 3' },{ label: 'Group 4', value: 'Group 4' },{ label: 'Group 5', value: 'Group 5' }]
     const [data, setData] = useState([...allUsers])
     const [openModal, setOpenModal] = useState(false)
     const [openSubsidiaryModal, setOpenSubsidiaryModal] = useState(false)
     const [openRadioFilterModal, setOpenRadioFilterModal] = useState(false)
+    const [subsidiary, setSubsidiary] = useState('')
     const [filter, setFilter] = useState({
         search: "",
         select: "",
@@ -44,7 +72,22 @@ const Admin = () => {
     }
 
     const handleAddSubsidiary = () => {
-        ///Adding Subsidiary Api Logic 
+    addSubsidiary(subsidiary, {
+      onSuccess: (fetchedSuccess) => {
+        notification.success({
+            message: 'Success',
+            description: 'Subsidiary has been successfully added',
+        });
+        getAllSubsidiaries()
+        setSubsidiary('')
+      },
+      onError: (error) => {
+        notification.error({
+          message: 'Error',
+          description: getErrorFromApi(error),
+        });
+      },
+    });
         setOpenSubsidiaryModal(false)
     }
 
@@ -89,11 +132,21 @@ const Admin = () => {
                     if (type === "Subsidiary") {
                         setOpenSubsidiaryModal(type)
                     } else {
-                        router.push('/dashboard/admin/add-employee')
+                        if (subsidiaries.length > 0) {
+                          router.push('/dashboard/admin/add-employee');
+                        } else {
+                          notification.error({
+                            message: 'Error',
+                            description: 'Please add subsidiary first',
+                          });
+                        }
                     }
                 }}
             />
             <AddSubsidiaryModal
+                subsidiary={subsidiary}
+                setSubsidiary={setSubsidiary}
+                loading={isLoading}
                 showModal={openSubsidiaryModal}
                 onCancel={() => setOpenSubsidiaryModal(false)}
                 onSuccess={handleAddSubsidiary}
