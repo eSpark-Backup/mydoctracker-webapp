@@ -288,6 +288,13 @@ export const AdminRoutes = [
         iconfill: "dashboardProfileSettingFill.svg",
         link: "/dashboard/admin/profile-settings"
     },
+    {
+        id: 5,
+        title: "Assign a Tracker",
+        icon: "dashboardProfileSetting.svg",
+        iconfill: "dashboardProfileSettingFill.svg",
+        link: "/dashboard/admin/assign-tracker"
+    },
 ]
 
 export const EmployeeMainRoutes = [

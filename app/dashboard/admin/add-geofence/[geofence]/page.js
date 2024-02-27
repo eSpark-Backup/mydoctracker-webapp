@@ -8,7 +8,6 @@ import { DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker, DocDrop
 import { form, form2 } from '@/app/constant'
 import { camelize, getProps } from '@/app/utils'
 import { handleSubmit } from '@/app/utils/validation'
-import AddFieldModal from '../../../components/modals/addFieldModal'
 import InputModal from '@/app/components/common/InputModal'
 import GeofencePopupForm from '@/app/components/Forms/geofencePopupForm'
 
