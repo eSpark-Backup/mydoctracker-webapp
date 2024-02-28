@@ -4,7 +4,7 @@ import { useMutation } from 'react-query'
 
 const getAuthToken = () => getCookie("token");
 
-export async function addEmployee({ firstName, lastName, address, username, email, password, contact, role, subsidiary }) {
+export async function addEmployee({ firstName, lastName, address, username, email, password, contact, role, subsidiary, accessibility }) {
     const authToken = getAuthToken();
     // const formData = new FormData();
     // formData.append("deviceId", deviceId);
@@ -25,7 +25,8 @@ export async function addEmployee({ firstName, lastName, address, username, emai
         password,
         contact,
         role,
-        subsidiary
+        subsidiary,
+        ...(role === "BCU" && { accessibility })
     }
 
     const res = request({

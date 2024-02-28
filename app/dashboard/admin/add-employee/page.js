@@ -30,6 +30,10 @@ const AddEmployee = () => {
         subsidiary: "",
         role: "",
         locationSharingAccess: false,
+        accessibility: {
+            share: false,
+            doc: false
+        }
     })
 
     const handleForm = (key, value) => {
@@ -115,14 +119,15 @@ const AddEmployee = () => {
                         <h2 className='text-black font-medium text-xl mb-4'>Accessibility</h2>
                         <Radio.Group onChange={(e) => handleForm('role', e.target.value)}>
                             <Space direction="vertical">
-                                <Radio value={"BCU"} className='text-greydark text-[14px]'>Default <span className='text-[12px]'>(have to request for access)</span></Radio>
+                                <Radio value={"RCU"} className='text-greydark text-[14px]'>Default <span className='text-[12px]'>(have to request for access)</span></Radio>
                                 <Radio value={"ACU"} className='text-greydark text-[14px]'>Have admin privileges <span className='text-[12px]'>(include rights to edit documents, share/manage location)</span></Radio>
-                                <Radio value={"RCU"} className='text-greydark text-[14px]'>Have basic rights as:</Radio>
+                                <Radio value={"BCU"} className='text-greydark text-[14px]'>Have basic rights as:</Radio>
                             </Space>
                         </Radio.Group>
-                        {addEmployeeForm.accessibility === "RCU" && <div className='p-5 flex flex-row gap-5'>
-                            <Checkbox onChange={(e) => handleForm('locationSharingAccess', e.target.checked)} checked={addEmployeeForm.locationSharingAccess} className='text-greydark text-[14px]'>Location sharing access</Checkbox>
-                            <Checkbox onChange={(e) => handleForm('documentUpdateAccess', e.target.checked)} checked={addEmployeeForm.documentUpdateAccess} className='text-greydark text-[14px]'>Document update access</Checkbox>
+                        {addEmployeeForm?.role === "BCU" && <div className='p-5 flex flex-row gap-5'>
+                            <Checkbox onChange={(e) => handleForm('accessibility', { ...addEmployeeForm.accessibility, share: e.target.checked })}
+                                className='text-greydark text-[14px]'>Location sharing access</Checkbox>
+                            <Checkbox onChange={(e) => handleForm('accessibility', { ...addEmployeeForm.accessibility, doc: e.target.checked })} className='text-greydark text-[14px]' > Document update access</Checkbox>
                         </div>}
                     </div>
                     <div className='flex flex-row items-center gap-5'>
