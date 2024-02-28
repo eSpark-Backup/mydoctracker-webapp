@@ -7,7 +7,7 @@ const getAuthToken = () => getCookie("token");
 export async function getAllTrackers({ search, pageNo }) {
     const authToken = getAuthToken();
 
-    let url =  `/document/employee?page=${pageNo}&limit=10`
+    let url =  `/document/employee/subsidiary?page=${pageNo}&limit=10`
     if(search.trim() !== '') url += `&search=${search}`
 
     const res = request({

@@ -3,10 +3,13 @@ import React, { useState } from 'react'
 import OTPInput from 'react-otp-input'
 import DocButton from '../common/docButton';
 import Image from 'next/image';
+import { useSelector } from 'react-redux';
+import { emailMasked } from '@/app/utils';
 // box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.25)
 
 const VerificationForm = ({ handleCancel, auth, handleOk, handleResend, handleOtp }) => {
     const [otp, setOtp] = useState('');
+    const { user } = useSelector(state => state.auth);
 
 
     return (
@@ -14,7 +17,7 @@ const VerificationForm = ({ handleCancel, auth, handleOk, handleResend, handleOt
             <h3 className='text-black text-2xl font-normal'>Verification Code</h3>
             <div className='flex gap-x-3'>
                 <Image src={"/icons/mailBox.svg"} height={50} width={50} alt='Mail Box' />
-                <p className='text-greydark text-sm'>Please enter the code we have sent to the email Muh**********@gmail.com</p>
+                <p className='text-greydark text-sm'>Please enter the code we have sent to the email {emailMasked(user?.email)}</p>
             </div>
             <div className='flex justify-center items-center'>
                 <OTPInput

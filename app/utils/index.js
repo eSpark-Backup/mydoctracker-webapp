@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect } from 'react';
 import { AdminRoutes, EmployeeMainRoutes, EmployeeRoutes, SidebarFooterRoutes, UserRoutes } from '../constant';
 
@@ -163,4 +165,12 @@ export function debounce(callback) {
   setTimeout(() => {
     callback();
   }, 500);
+}
+
+export const emailMasked = (email) => {
+  const [username, domain] = email.split('@');
+  
+  const maskedUsername = username.substring(0, 3) + '......';
+
+  return `${maskedUsername}@${domain}`
 }
