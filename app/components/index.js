@@ -51,7 +51,7 @@ import ViewRequest from './common/ViewRequest'
 import LandingDrawer from './layouts/landingDrawer'
 import RadioFilterPopup from './common/radioFilterPopup'
 import LoadingScreen from './common/loadingScreen'
-
+import AutoCompleteInput from './common/autoComplete'
 
 
 export {
@@ -108,4 +108,5 @@ export {
     LoadingScreen,
     ForgetPasswordForm,
     ResetPasswordForm,
+    AutoCompleteInput,
 }

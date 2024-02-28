@@ -1437,6 +1437,13 @@ export const form2 = [
                 key: "type",
                 type: "select"
             },
+            {
+                label: "Select Employee",
+                placeholder: "Select Employee",
+                required: true,
+                key: "employeeId",
+                type: "autoComplete",
+            },
         ]
     },
     {
@@ -1461,13 +1468,6 @@ export const form2 = [
                 required: true,
                 key: "creationTime",
                 type: "timePicker"
-            },
-            {
-                label: "Location",
-                placeholder: "Where you placed the document",
-                required: true,
-                key: "location",
-                type: "textInput"
             },
             {
                 label: "Upload Doc Image",
