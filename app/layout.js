@@ -5,6 +5,7 @@ import { theme } from './theme';
 import Providers from './utils/providers';
 import AntdStyledComponentsRegistry from './utils/AntdStyledComponentsRegistry';
 import { ReduxProvider } from './redux/provider';
+import 'react-phone-input-2/lib/style.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
