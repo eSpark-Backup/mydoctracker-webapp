@@ -3,9 +3,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation'
 import Image from 'next/image';
-import { DocButton, SearchBar, Table, HeadContent, DocDropdown, RadioFilterPopup } from '@/app/components';
+import { DocButton, SearchBar, Table, HeadContent, DocDropdown, RadioFilterPopup, LoadingScreen } from '@/app/components';
 import { columns } from '@/app/columns/allUser';
-import { allUsers } from '@/app/constant';
 import AddEmployeeModal from '@/app/components/modals/addEmployeeModal';
 import AddSubsidiaryModal from '@/app/components/modals/addSubsidiaryModal'
 import { debounce, getErrorFromApi, useOutsideClick } from '@/app/utils';
@@ -21,6 +20,7 @@ const Admin = () => {
   const [total, setTotal] = useState(0);
   const dispatch = useDispatch();
   const { subsidiaries } = useSelector((state) => state.subsidiary);
+  const { trackers } = useSelector((state) => state.trackers);
   const options = subsidiaries.map(value => { return { label: value.name, value: value.id} })
 
   const { mutate: getAllTrackers, isLoading: loading } = useGetAllTrackers();
@@ -45,7 +45,6 @@ const Admin = () => {
   }, []);
 
     const router = useRouter();
-    const [data, setData] = useState([...allUsers])
     const [openModal, setOpenModal] = useState(false)
     const [openSubsidiaryModal, setOpenSubsidiaryModal] = useState(false)
     const [openRadioFilterModal, setOpenRadioFilterModal] = useState(false)
@@ -54,8 +53,7 @@ const Admin = () => {
         search: "",
         select: "",
         type: "",
-        requests: "",
-        devices: "",
+        status: "",
         pageNo: 1,
     })
 
@@ -70,9 +68,12 @@ const Admin = () => {
         router.push('/dashboard/admin/employee-details')
     }
 
+    const gotoLocation = (rowId) => {
+      //location history page routing
+    }
+
     const handleSwitch = (id, value) => {
-        data.map((user) => { if (user.id === id) user.status = value })
-        setData([...data])
+      // here api will be hitted for update the status
     }
 
     const handleAddSubsidiary = () => {
@@ -98,7 +99,7 @@ const Admin = () => {
     const fetchAllTrackers = () => {
       getAllTrackers(filter, {
         onSuccess: (fetchedSuccess) => {
-          dispatch(fetchTrackers(fetchedSuccess?.data));
+          dispatch(fetchTrackers(fetchedSuccess?.data?.items));
           setTotal(fetchedSuccess?.meta?.totalItems)
         },
         onError: (error) => {
@@ -137,15 +138,24 @@ const Admin = () => {
                             <DocButton onClick={() => setOpenModal(true)} prefix={<Image className="mr-2" src={"/icons/AddWhite.svg"} width={15} height={15} alt="plus" />} className={"rounded-md !bg-primary text-white h-[100%] px-4 w-4/12 md:w-6/12"} text="Add" />
                         </div>
                     </div>
-                    <div className='mt-5 p-0 md:p-10 flex items-center justify-center h-[50vh] md:h-[55vh] no-scrollbar'>
+                    {loading ?
+                      <div className='flex flex-row items-center justify-center h-[calc(65vh-100px)] text-[20px]'><LoadingScreen /></div>
+                      : trackers?.length > 0 ?
+                      <div className='mt-5 p-0 md:p-10 flex items-center justify-center h-[50vh] md:h-[55vh] no-scrollbar'>
                         <Table
                             total={total}
-                            data={data}
-                            columns={columns({ gotoDetail, handleSwitch })}
+                            data={trackers}
+                            columns={columns({ gotoDetail, handleSwitch, gotoLocation })}
                             currentPage={filter.pageNo}
                             handlePagination={handleFilter}
                         />
-                    </div>
+                      </div>
+                      :
+                      <div className='flex flex-col items-center justify-center w-[100%] h-[calc(65vh-100px)]'>
+                        <Image src="/images/no-data.svg" width={150} height={200} alt="no-data-image" />
+                        <div className='w-[100%] text-center text-[16px] text-[#838383] font-[400] mt-[32px]'>You don’t have any employee. Please add  to continue further.</div>
+                      </div>
+                    }
                 </div>
             </div>
             <AddEmployeeModal
