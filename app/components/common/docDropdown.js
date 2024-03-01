@@ -3,7 +3,7 @@
 import Select from 'react-select'
 import React from 'react'
 
-const DocDropdown = ({ options, className, placeholder, onChange, defaultValue, value }) => {
+const DocDropdown = ({ options, className, placeholder, onChange, defaultValue, value, isDisabled }) => {
 
   const handleChange = (e) => {
     onChange(e)
@@ -13,6 +13,7 @@ const DocDropdown = ({ options, className, placeholder, onChange, defaultValue, 
   return (
     <div>
       <Select
+        isDisabled={isDisabled || false}
         isSearchable={false}
         onChange={handleChange}
         placeholder={placeholder}
@@ -24,10 +25,10 @@ const DocDropdown = ({ options, className, placeholder, onChange, defaultValue, 
           option: (baseStyles, state) => ({
             ...baseStyles,
             color: "#666",
-            background: state.isSelected  && "#FEE5B7",
-            borderBottom: state.isSelected  && "1px solid #fcbf4a",
-            borderRight: state.isSelected  && "1px solid #fcbf4a",
-            borderLeft: state.isSelected  && "3px solid #fcbf4a",
+            background: state.isSelected && "#FEE5B7",
+            borderBottom: state.isSelected && "1px solid #fcbf4a",
+            borderRight: state.isSelected && "1px solid #fcbf4a",
+            borderLeft: state.isSelected && "3px solid #fcbf4a",
             "&:hover": { background: '#FEE5B7', fontSize: "17px" },
           }),
         }}

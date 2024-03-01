@@ -9,7 +9,7 @@ import { Tabs } from 'antd'
 import React from 'react'
 import History from '../../../devices/(roles)/[id]/history/page';
 import EmployeeProfileSettings from './employeeProfileSettings';
-import EditDoc from '@/app/components/common/editDoc';
+// import EditDoc from '@/app/components/common/editDoc';
 
 const EmployeeSettings = () => {
     const onDelete = (id) => {
@@ -20,37 +20,37 @@ const EmployeeSettings = () => {
         {
             key: '1',
             label: 'Tracker Settings',
-            children:<GeofenceSettings/>
+            children: <GeofenceSettings />
         },
-        {
-            key: '2',
-            label: 'Edit Document',
-            children:<EditDoc/>
-        },
+        // {
+        //     key: '2',
+        //     label: 'Edit Document',
+        //     children:<EditDoc/>
+        // },
         {
             key: '3',
             label: 'Document History',
-            children:<DocumnetHistory/>
+            children: <DocumnetHistory />
         },
         {
             key: '4',
             label: 'Notifications',
-            children:<NotificationSettings/>
+            children: <NotificationSettings />
         },
         {
             key: '5',
             label: 'Shared Location',
-            children:<ManagementList type={"employee"} onDelete={onDelete} hideSearchBar={true}  data={employeeData}/>
+            children: <ManagementList type={"employee"} onDelete={onDelete} hideSearchBar={true} data={employeeData} />
         },
         {
             key: '6',
             label: 'Location History',
-            children:<History admin={true}/>
+            children: <History admin={true} />
         },
         {
             key: '7',
             label: 'Account Settings',
-            children:<EmployeeProfileSettings/>
+            children: <EmployeeProfileSettings />
         }
     ];
     return (
