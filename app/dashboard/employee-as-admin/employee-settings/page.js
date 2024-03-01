@@ -9,7 +9,7 @@ import { Tabs } from 'antd'
 import React from 'react'
 import History from '../../devices/(roles)/[id]/history/page';
 import EditDoc from '@/app/components/common/editDoc';
-import EmployeeProfileSettings from '../../admin/employee-settings/employeeProfileSettings';
+import EmployeeProfileSettings from '../../admin/employee-settings/[id]/employeeProfileSettings';
 
 const EmployeeSettings = () => {
     const profileSettingTabs = [
