@@ -15,7 +15,7 @@ export const documentsSlice = createSlice({
             state.documents = action.payload;
         },
         fetchCurrentDocument: (state, action) => {
-            state.currentDocument = { ...action.payload.document, lastActivity: action.payload.lastActivity };
+            state.currentDocument = { ...action.payload };
         },
     },
 });
