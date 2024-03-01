@@ -56,17 +56,17 @@ const EmployeDetail = () => {
     {
       key: "1",
       label: "Employee Details",
-      children: <AdminEmployeeDetails />,
+      children: <AdminEmployeeDetails employeeData={currentDocument?.assignee} />,
     },
     {
       key: "2",
       label: "Tracker Details",
-      children: <AdminTrackerDetails />,
+      children: <AdminTrackerDetails trackerData={{ tracker: currentDocument?.tracker, type: currentDocument?.type }} />,
     },
     {
       key: "3",
       label: "Document Details",
-      children: <AdminDocumentDetails />,
+      children: <AdminDocumentDetails documentData={currentDocument} />,
     },
   ];
 
@@ -85,7 +85,7 @@ const EmployeDetail = () => {
         currentPage="Employee Credentials"
       />
       <div className="mt-14 flex flex-col gap-8">
-        <div className="sm:px-8  py-5 bg-white rounded-md shadow-md">
+        {/* <div className="sm:px-8  py-5 bg-white rounded-md shadow-md">
           <div>
             <h2 className="text-black text-xl font-medium pl-2 md:pl-0">
               Employee Credentials
@@ -120,7 +120,7 @@ const EmployeDetail = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
         <div>
           <div className="flex justify-end md:hidden mb-4">
             <DocButton

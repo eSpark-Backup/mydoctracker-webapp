@@ -169,8 +169,19 @@ export function debounce(callback) {
 
 export const emailMasked = (email) => {
   const [username, domain] = email.split('@');
-  
+
   const maskedUsername = username.substring(0, 3) + '......';
 
   return `${maskedUsername}@${domain}`
 }
+
+
+export const getAccessibility = (role) => {
+  const roleMappings = {
+    'ACU': 'Admin Privileges',
+    'RCU': 'Default',
+    'BSU': 'Basic'
+  };
+
+  return roleMappings[role] || 'Unknown Role';
+};
