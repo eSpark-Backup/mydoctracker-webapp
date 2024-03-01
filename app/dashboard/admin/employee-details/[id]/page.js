@@ -41,7 +41,7 @@ const EmployeDetail = () => {
   const router = useRouter();
 
   const handleSettings = () => {
-    router.push("/dashboard/admin/employee-settings");
+    router.push(`/dashboard/admin/employee-settings/${id}`);
   };
 
   const operations = (

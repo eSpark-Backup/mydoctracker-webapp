@@ -20,7 +20,6 @@ const DocumnetHistory = () => {
     const [limit] = useState(10)
     const pathname = usePathname();
     const id = pathname.split("/")[4]
-    console.log(id, "PATH")
 
 
 
