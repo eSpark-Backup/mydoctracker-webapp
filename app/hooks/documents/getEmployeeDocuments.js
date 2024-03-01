@@ -12,7 +12,7 @@ export async function getEmployeeAllDocuments({ id, page, limit }) {
         url: `/document/history/${id}?page=${page}&limit=${limit}`,
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRlYzI4OGMxLWE5NGYtNDQ5Yi1iZTY3LTMyMzYyZjkwOGQyZiIsImVtYWlsIjoiemFoZWVyYmFiYXI5NTVAZ21haWwuY29tIiwiaWF0IjoxNzA5MjA4MDIxfQ._gkJ8qCQC2CnoL5HX5ayNf1MrpM_X4uW8UKNFfZ69LM`,
+            'Authorization': `Bearer ${authToken}`,
         },
     });
 
