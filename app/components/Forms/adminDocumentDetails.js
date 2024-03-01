@@ -24,7 +24,7 @@ const AdminDocumentDetails = ({ documentData }) => {
                                 <label className="text-[#666] text-sm pb-1">Time</label>
                                 <FieldView text={getTime(creationDate)} />
                             </div>
-                            {meta?.fields?.length > 0 ?
+                            {meta && meta?.fields?.length > 0 ?
                                 meta?.fields?.map(({ name, value }, index) => {
                                     return (
                                         <div key={index} className="  flex flex-col">
