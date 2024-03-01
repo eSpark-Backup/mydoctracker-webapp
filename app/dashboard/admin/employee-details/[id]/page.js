@@ -15,7 +15,6 @@ import { getErrorFromApi } from "@/app/utils";
 
 const EmployeDetail = () => {
   const { currentDocument } = useSelector((state) => state.documents);
-  console.log(currentDocument, "currentDocument");
   const pathname = usePathname();
   const id = pathname.split("/")[4];
 
