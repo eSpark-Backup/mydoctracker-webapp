@@ -65,7 +65,7 @@ const Admin = () => {
     }
 
     const gotoDetail = (rowId) => {
-        router.push('/dashboard/admin/employee-details')
+        router.push(`/dashboard/admin/employee-details/${rowId}`)
     }
 
     const gotoLocation = (rowId) => {
