@@ -4,38 +4,54 @@ import DocDropdown from '@/app/components/common/docDropdown'
 import { employeeProfileSettings } from '@/app/constant'
 import { handleSubmit } from '@/app/utils/validation'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
-import { getProps } from '@/app/utils'
+import { getAccessibility, getProps } from '@/app/utils'
 
 
-const EmployeeProfileSettings = () => {
-    const [employeeData, setEmployeeData] = useState({
+const EmployeeProfileSettings = ({ employeeData }) => {
+    const [employee, setEmployee] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        contact: "",
         Accessibility: "",
         Subsidiary: "",
-        First: "",
-        Last: "",
-        Username: "",
-        Devices: "",
-        Email: "",
-        Number: "",
-        NewPass: "",
-        OldPass: "",
-        ConfirmPass: ""
-
     })
     const handleEmployeeDataChange = (field, value) => {
-        setEmployeeData({
-            ...employeeData,
+        setEmployee({
+            ...employee,
             [field]: value
         })
     }
 
-    const successSubmit = () => {
-        console.log(employeeData)
+    const handleSubmit = () => {
+        console.log(employee)
     }
 
-    const props = (key) => getProps(setEmployeeData, employeeData, key)
+    const props = (key) => getProps(setEmployee, employeeData, key)
+
+
+    useEffect(() => {
+        setEmployee({
+            firstName: employeeData?.assignee?.firstName,
+            lastName: employeeData?.assignee?.lastName,
+            email: employeeData?.assignee?.email,
+            contact: employeeData?.assignee?.contact,
+            role: getAccessibility(employeeData?.assignee?.role),
+            subsidiary: {
+                label: employeeData?.assignee?.subsidiary?.name,
+                value: employeeData?.assignee?.subsidiary?.id
+            }
+        })
+    }, [employeeData])
+
+
+    useEffect(() => {
+        console.log(employeeData, "employeeData")
+    }, [employeeData])
+
+
 
     return (
         <div className='flex flex-col gap-4 px-2 sm:px-8'>
@@ -51,7 +67,7 @@ const EmployeeProfileSettings = () => {
                                 <div className="min-w-[100%] lg:min-w-[30%] md:min-w-[40%] flex flex-col flex-wrap" key={index}>
                                     <label className="text-greydark text-sm pb-1">{eachInputs?.label} {eachInputs?.required && <span className="text-redColor">*</span>}</label>
                                     {eachInputs.type === "select" ?
-                                        <DocDropdown onChange={(e) => handleEmployeeDataChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
+                                        <DocDropdown value={employee[eachInputs?.key]} isDisabled={eachInputs?.isDisabled} onChange={(e) => handleEmployeeDataChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                         : eachInputs.type === "uploadImage" ?
                                             <DocImgInput props={props(eachInputs.key)} />
                                             : eachInputs.type === "datePicker" ?
@@ -59,7 +75,7 @@ const EmployeeProfileSettings = () => {
                                                 : eachInputs.type === "timePicker" ?
                                                     <DocTimePicker onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} />
                                                     :
-                                                    <DocInput onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
+                                                    <DocInput value={employee[eachInputs?.key]} onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} type={eachInputs?.type} isDisabled={eachInputs?.isDisabled} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
                                     }
 
                                 </div>
@@ -68,7 +84,7 @@ const EmployeeProfileSettings = () => {
                                 <label className="text-greydark text-sm pb-1">Employee Image</label>
                                 <div className='flex flex-wrap'>
                                     <DocImgInput width={"150%"} className={"w-7/12"} />
-                                    <Image src={"/icons/userAvatar.svg"} width={40} height={40} alt='User'/>
+                                    <Image src={"/icons/userAvatar.svg"} width={40} height={40} alt='User' />
 
                                 </div>
                             </div>
@@ -76,32 +92,30 @@ const EmployeeProfileSettings = () => {
                         </div>
 
                     </div>
+                    <div>
+                        <DocButton onClick={handleSubmit} text={"Save changes"} className={"text-white"} />
+                    </div>
                 </>
             ))}
             <div>
-                <h2 className='text-black font-medium text-xl'>Change Password</h2>
-                <div className='mt-4'>
-                    <div className="w-100% lg:w-[30%] flex flex-col">
-                        <label className="text-greydark text-sm">Old Password</label>
-                        <DocInput onChange={(value) => handleEmployeeDataChange("OldPass", value)} type={"password"} placeholder={"Type old password"} className={"h-[40px]"} />
-                    </div>
-                </div>
+                <h2 className='text-black font-medium text-xl'>Reset Password</h2>
                 <div className='mt-4'>
                     <div className="w-100% lg:w-[30%] flex flex-col">
                         <label className="text-greydark text-sm">New Password</label>
-                        <DocInput onChange={(value) => handleEmployeeDataChange("NewPass", value)} type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
+                        <DocInput type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
                     </div>
                 </div>
                 <div className='mt-4'>
                     <div className="w-100% lg:w-[30%] flex flex-col">
                         <label className="text-greydark text-sm">Confirm Password</label>
-                        <DocInput onChange={(value) => handleEmployeeDataChange("ConfirmPass", value)} type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
+                        <DocInput type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
                     </div>
                 </div>
             </div>
             <div>
-                <DocButton onClick={() => handleSubmit(employeeData, successSubmit)} text={"Save changes"} className={"text-white"} />
+                <DocButton text={"Send OTP"} className={"text-white"} />
             </div>
+
         </div>
     )
 }
