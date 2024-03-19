@@ -7,6 +7,8 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import { getAccessibility, getProps } from '@/app/utils'
+import useEditEmployee, { editEmployee } from '@/app/hooks/employees/editEmployee'
+import { notification } from 'antd'
 
 
 const EmployeeProfileSettings = ({ employeeData }) => {
@@ -15,8 +17,9 @@ const EmployeeProfileSettings = ({ employeeData }) => {
         lastName: "",
         email: "",
         contact: "",
-        Accessibility: "",
-        Subsidiary: "",
+        profilePicture:[]
+        // Accessibility: "",
+        // Subsidiary: "",
     })
     const handleEmployeeDataChange = (field, value) => {
         setEmployee({
@@ -24,12 +27,30 @@ const EmployeeProfileSettings = ({ employeeData }) => {
             [field]: value
         })
     }
+    const props = getProps(setEmployee, employee, 'profilePicture')
+    const { mutate: editEmployee, isLoading } = useEditEmployee()
+
 
     const handleSubmit = () => {
-        console.log(employee)
+        const data = {...employee,id:employeeData?.assignee?.id}
+        console.log(data)
+
+        editEmployee(data,{
+            onSuccess:(successData)=>{
+                notification.success({
+                    message: 'Success',
+                    description: successData?.message,
+                })
+            },
+            onError:(error)=>{
+                notification.error({
+                    message: 'Error',
+                    description: error?.message,
+                })
+            }
+        })
     }
 
-    const props = (key) => getProps(setEmployee, employeeData, key)
 
 
     useEffect(() => {
@@ -83,7 +104,7 @@ const EmployeeProfileSettings = ({ employeeData }) => {
                             <div className='min-w-[100%] lg:min-w-[30%] md:min-w-[40%] flex flex-col'>
                                 <label className="text-greydark text-sm pb-1">Employee Image</label>
                                 <div className='flex flex-wrap'>
-                                    <DocImgInput width={"150%"} className={"w-7/12"} />
+                                    <DocImgInput width={"150%"} className={"w-7/12"} props={props}  />
                                     <Image src={"/icons/userAvatar.svg"} width={40} height={40} alt='User' />
 
                                 </div>
