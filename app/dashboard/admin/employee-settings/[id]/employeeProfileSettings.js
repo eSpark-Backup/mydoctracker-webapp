@@ -4,11 +4,12 @@ import DocDropdown from '@/app/components/common/docDropdown'
 import { employeeProfileSettings } from '@/app/constant'
 import { handleSubmit } from '@/app/utils/validation'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import { getAccessibility, getProps } from '@/app/utils'
 import useEditEmployee, { editEmployee } from '@/app/hooks/employees/editEmployee'
 import { notification } from 'antd'
+import DocImgUpload from '@/app/components/common/docImgUpload'
 
 
 const EmployeeProfileSettings = ({ employeeData }) => {
@@ -17,7 +18,7 @@ const EmployeeProfileSettings = ({ employeeData }) => {
         lastName: "",
         email: "",
         contact: "",
-        profilePicture:[]
+        profilePicture: ""
         // Accessibility: "",
         // Subsidiary: "",
     })
@@ -29,20 +30,24 @@ const EmployeeProfileSettings = ({ employeeData }) => {
     }
     const props = getProps(setEmployee, employee, 'profilePicture')
     const { mutate: editEmployee, isLoading } = useEditEmployee()
+    const fileInputRef = useRef(null);
+    const handleButtonClick = () => {
+        fileInputRef?.current?.click();
+    };
 
 
     const handleSubmit = () => {
-        const data = {...employee,id:employeeData?.assignee?.id}
+        const data = { ...employee, id: employeeData?.assignee?.id }
         console.log(data)
 
-        editEmployee(data,{
-            onSuccess:(successData)=>{
+        editEmployee(data, {
+            onSuccess: (successData) => {
                 notification.success({
                     message: 'Success',
                     description: successData?.message,
                 })
             },
-            onError:(error)=>{
+            onError: (error) => {
                 notification.error({
                     message: 'Error',
                     description: error?.message,
@@ -50,6 +55,8 @@ const EmployeeProfileSettings = ({ employeeData }) => {
             }
         })
     }
+
+
 
 
 
@@ -103,8 +110,14 @@ const EmployeeProfileSettings = ({ employeeData }) => {
                             ))}
                             <div className='min-w-[100%] lg:min-w-[30%] md:min-w-[40%] flex flex-col'>
                                 <label className="text-greydark text-sm pb-1">Employee Image</label>
-                                <div className='flex flex-wrap'>
-                                    <DocImgInput width={"150%"} className={"w-7/12"} props={props}  />
+                                <div className='flex flex-wrap gap-x-2'>
+                                    <DocImgUpload
+                                        onClick={handleButtonClick}
+                                        onChange={(value) =>
+                                            handleEmployeeDataChange("profilePicture", value.target.files[0])
+                                        }
+                                        text={"Upload Image"}
+                                    />
                                     <Image src={"/icons/userAvatar.svg"} width={40} height={40} alt='User' />
 
                                 </div>
