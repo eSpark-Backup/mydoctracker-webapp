@@ -47,7 +47,7 @@ const AdminEmployeeDetails = ({ employeeData }) => {
                 </div>
                 <div className="w-100% sm:w-[30%] flex flex-col">
                     <label className="text-greydark text-sm pb-1">Subsidiary</label>
-                    <DocDropdown isDisabled={true} defaultValue={{ label: subsidiary.name, value: subsidiary.id }} onChange={(value) => console.log(value)} options={options} placeholder="Group 1" />
+                    <DocDropdown isDisabled={true} defaultValue={{ label: subsidiary?.name, value: subsidiary?.id }} onChange={(value) => console.log(value)} options={options} placeholder="Group 1" />
                 </div>
 
             </div>
