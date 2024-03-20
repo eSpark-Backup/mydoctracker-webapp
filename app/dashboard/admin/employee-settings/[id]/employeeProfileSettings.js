@@ -7,7 +7,7 @@ import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import { getAccessibility, getProps } from '@/app/utils'
-import useEditEmployee, { editEmployee } from '@/app/hooks/employees/editEmployee'
+import useEditEmployee from '@/app/hooks/employees/editEmployee'
 import { notification } from 'antd'
 import DocImgUpload from '@/app/components/common/docImgUpload'
 
@@ -72,11 +72,6 @@ const EmployeeProfileSettings = ({ employeeData }) => {
             }
         })
     }, [employeeData])
-
-
-    // useEffect(() => {
-    //     console.log(employeeData, "employeeData")
-    // }, [employeeData])
 
 
 
