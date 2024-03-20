@@ -7,9 +7,9 @@ import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import { getAccessibility, getProps } from '@/app/utils'
-import useEditEmployee from '@/app/hooks/employees/editEmployee'
 import { notification } from 'antd'
 import DocImgUpload from '@/app/components/common/docImgUpload'
+import { useEditEmployee } from '@/app/hooks/employees'
 
 
 const EmployeeProfileSettings = ({ employeeData }) => {
