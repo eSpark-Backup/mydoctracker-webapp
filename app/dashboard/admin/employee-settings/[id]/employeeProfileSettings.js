@@ -38,7 +38,6 @@ const EmployeeProfileSettings = ({ employeeData }) => {
 
     const handleSubmit = () => {
         const data = { ...employee, id: employeeData?.assignee?.id }
-        console.log(data)
 
         editEmployee(data, {
             onSuccess: (successData) => {
@@ -75,9 +74,9 @@ const EmployeeProfileSettings = ({ employeeData }) => {
     }, [employeeData])
 
 
-    useEffect(() => {
-        console.log(employeeData, "employeeData")
-    }, [employeeData])
+    // useEffect(() => {
+    //     console.log(employeeData, "employeeData")
+    // }, [employeeData])
 
 
 
