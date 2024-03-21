@@ -72,6 +72,10 @@ const EmployeeProfileSettings = ({ employeeData }) => {
             }
         })
     }, [employeeData])
+    const [imagePreview, setImagePreview] = useState(null);
+    useEffect(() => {
+        console.log(imagePreview)
+    }, [imagePreview])
 
 
 
@@ -107,13 +111,17 @@ const EmployeeProfileSettings = ({ employeeData }) => {
                                 <div className='flex flex-wrap gap-x-2'>
                                     <DocImgUpload
                                         onClick={handleButtonClick}
-                                        onChange={(value) =>
-                                            handleEmployeeDataChange("profilePicture", value.target.files[0])
-                                        }
+                                        onChange={(value) => {
+                                            handleEmployeeDataChange("profilePicture", value.target.files[0]);
+                                            const reader = new FileReader();
+                                            reader.onloadend = () => {
+                                                setImagePreview(reader.result);
+                                            };
+                                            reader.readAsDataURL(value.target.files[0]);
+                                        }}
                                         text={"Upload Image"}
                                     />
-                                    <Image src={"/icons/userAvatar.svg"} width={40} height={40} alt='User' />
-
+                                    <Image src={imagePreview ? imagePreview : employeeData?.assignee?.profilePicture ? employeeData?.assignee?.profilePicture :"/icons/userAvatar.svg"} width={40} height={40} alt='User' style={{ borderRadius: "50%" }} />
                                 </div>
                             </div>
 
