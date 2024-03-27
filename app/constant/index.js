@@ -1239,59 +1239,47 @@ export const employeeProfileSettings = [
                 label: "First Name",
                 required: false,
                 placeholder: "John",
-                key: "First",
+                key: "firstName",
                 type: "text"
             },
             {
                 label: "Last Name",
                 required: false,
                 placeholder: "Doe",
-                key: "Last",
+                key: "lastName",
                 type: "text"
-            },
-            {
-                label: "Username",
-                required: false,
-                placeholder: "johndoe",
-                key: "Username",
-                type: "text"
-            },
-            {
-                label: "Subsidiary",
-                required: false,
-                placeholder: "Group 1",
-                key: "Subsidiary",
-                type: "select",
-                options: subsidiaryOptions
-            },
-            {
-                label: "Devices",
-                required: false,
-                placeholder: "1",
-                key: "Devices",
-                type: "number",
             },
             {
                 label: "Email",
                 required: false,
                 placeholder: "johndoe123@gmail.com",
-                key: "Email",
+                key: "email",
                 type: "email",
             },
             {
                 label: "Number",
                 required: false,
                 placeholder: "123456789",
-                key: "Number",
+                key: "contact",
                 type: "tel",
+            },
+            {
+                label: "Subsidiary",
+                required: false,
+                placeholder: "Group 1",
+                key: "subsidiary",
+                type: "select",
+                options: subsidiaryOptions,
+                isDisabled: true
             },
             {
                 label: "Accessibility",
                 required: false,
                 placeholder: "Default",
-                key: "Accessibility",
-                type: "select",
-                options: accessibilityOptions
+                key: "role",
+                type: "text",
+                // options: accessibilityOptions,
+                isDisabled: true
             },
         ]
     }

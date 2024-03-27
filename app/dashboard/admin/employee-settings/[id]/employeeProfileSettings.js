@@ -4,38 +4,80 @@ import DocDropdown from '@/app/components/common/docDropdown'
 import { employeeProfileSettings } from '@/app/constant'
 import { handleSubmit } from '@/app/utils/validation'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
-import { getProps } from '@/app/utils'
+import { getAccessibility, getProps } from '@/app/utils'
+import { notification } from 'antd'
+import DocImgUpload from '@/app/components/common/docImgUpload'
+import { useEditEmployee } from '@/app/hooks/employees'
 
 
-const EmployeeProfileSettings = () => {
-    const [employeeData, setEmployeeData] = useState({
-        Accessibility: "",
-        Subsidiary: "",
-        First: "",
-        Last: "",
-        Username: "",
-        Devices: "",
-        Email: "",
-        Number: "",
-        NewPass: "",
-        OldPass: "",
-        ConfirmPass: ""
-
+const EmployeeProfileSettings = ({ employeeData }) => {
+    const [employee, setEmployee] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        contact: "",
+        profilePicture: ""
+        // Accessibility: "",
+        // Subsidiary: "",
     })
     const handleEmployeeDataChange = (field, value) => {
-        setEmployeeData({
-            ...employeeData,
+        setEmployee({
+            ...employee,
             [field]: value
         })
     }
+    const props = getProps(setEmployee, employee, 'profilePicture')
+    const { mutate: editEmployee, isLoading } = useEditEmployee()
+    const fileInputRef = useRef(null);
+    const handleButtonClick = () => {
+        fileInputRef?.current?.click();
+    };
 
-    const successSubmit = () => {
-        console.log(employeeData)
+
+    const handleSubmit = () => {
+        const data = { ...employee, id: employeeData?.assignee?.id }
+
+        editEmployee(data, {
+            onSuccess: (successData) => {
+                notification.success({
+                    message: 'Success',
+                    description: successData?.message,
+                })
+            },
+            onError: (error) => {
+                notification.error({
+                    message: 'Error',
+                    description: error?.message,
+                })
+            }
+        })
     }
 
-    const props = (key) => getProps(setEmployeeData, employeeData, key)
+
+
+
+
+    useEffect(() => {
+        setEmployee({
+            firstName: employeeData?.assignee?.firstName,
+            lastName: employeeData?.assignee?.lastName,
+            email: employeeData?.assignee?.email,
+            contact: employeeData?.assignee?.contact,
+            role: getAccessibility(employeeData?.assignee?.role),
+            subsidiary: {
+                label: employeeData?.assignee?.subsidiary?.name,
+                value: employeeData?.assignee?.subsidiary?.id
+            }
+        })
+    }, [employeeData])
+    const [imagePreview, setImagePreview] = useState(null);
+    useEffect(() => {
+        console.log(imagePreview)
+    }, [imagePreview])
+
+
 
     return (
         <div className='flex flex-col gap-4 px-2 sm:px-8'>
@@ -51,7 +93,7 @@ const EmployeeProfileSettings = () => {
                                 <div className="min-w-[100%] lg:min-w-[30%] md:min-w-[40%] flex flex-col flex-wrap" key={index}>
                                     <label className="text-greydark text-sm pb-1">{eachInputs?.label} {eachInputs?.required && <span className="text-redColor">*</span>}</label>
                                     {eachInputs.type === "select" ?
-                                        <DocDropdown onChange={(e) => handleEmployeeDataChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
+                                        <DocDropdown value={employee[eachInputs?.key]} isDisabled={eachInputs?.isDisabled} onChange={(e) => handleEmployeeDataChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
                                         : eachInputs.type === "uploadImage" ?
                                             <DocImgInput props={props(eachInputs.key)} />
                                             : eachInputs.type === "datePicker" ?
@@ -59,49 +101,57 @@ const EmployeeProfileSettings = () => {
                                                 : eachInputs.type === "timePicker" ?
                                                     <DocTimePicker onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} />
                                                     :
-                                                    <DocInput onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} type={eachInputs?.type} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
+                                                    <DocInput value={employee[eachInputs?.key]} onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} type={eachInputs?.type} isDisabled={eachInputs?.isDisabled} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
                                     }
 
                                 </div>
                             ))}
                             <div className='min-w-[100%] lg:min-w-[30%] md:min-w-[40%] flex flex-col'>
                                 <label className="text-greydark text-sm pb-1">Employee Image</label>
-                                <div className='flex flex-wrap'>
-                                    <DocImgInput width={"150%"} className={"w-7/12"} />
-                                    <Image src={"/icons/userAvatar.svg"} width={40} height={40} alt='User'/>
-
+                                <div className='flex flex-wrap gap-x-2'>
+                                    <DocImgUpload
+                                        onClick={handleButtonClick}
+                                        onChange={(value) => {
+                                            handleEmployeeDataChange("profilePicture", value.target.files[0]);
+                                            const reader = new FileReader();
+                                            reader.onloadend = () => {
+                                                setImagePreview(reader.result);
+                                            };
+                                            reader.readAsDataURL(value.target.files[0]);
+                                        }}
+                                        text={"Upload Image"}
+                                    />
+                                    <Image src={imagePreview ? imagePreview : employeeData?.assignee?.profilePicture ? employeeData?.assignee?.profilePicture :"/icons/userAvatar.svg"} width={40} height={40} alt='User' style={{ borderRadius: "50%" }} />
                                 </div>
                             </div>
 
                         </div>
 
                     </div>
+                    <div>
+                        <DocButton onClick={handleSubmit} text={"Save changes"} className={"text-white"} />
+                    </div>
                 </>
             ))}
             <div>
-                <h2 className='text-black font-medium text-xl'>Change Password</h2>
-                <div className='mt-4'>
-                    <div className="w-100% lg:w-[30%] flex flex-col">
-                        <label className="text-greydark text-sm">Old Password</label>
-                        <DocInput onChange={(value) => handleEmployeeDataChange("OldPass", value)} type={"password"} placeholder={"Type old password"} className={"h-[40px]"} />
-                    </div>
-                </div>
+                <h2 className='text-black font-medium text-xl'>Reset Password</h2>
                 <div className='mt-4'>
                     <div className="w-100% lg:w-[30%] flex flex-col">
                         <label className="text-greydark text-sm">New Password</label>
-                        <DocInput onChange={(value) => handleEmployeeDataChange("NewPass", value)} type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
+                        <DocInput type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
                     </div>
                 </div>
                 <div className='mt-4'>
                     <div className="w-100% lg:w-[30%] flex flex-col">
                         <label className="text-greydark text-sm">Confirm Password</label>
-                        <DocInput onChange={(value) => handleEmployeeDataChange("ConfirmPass", value)} type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
+                        <DocInput type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
                     </div>
                 </div>
             </div>
             <div>
-                <DocButton onClick={() => handleSubmit(employeeData, successSubmit)} text={"Save changes"} className={"text-white"} />
+                <DocButton text={"Send OTP"} className={"text-white"} />
             </div>
+
         </div>
     )
 }

@@ -9,7 +9,7 @@ const customInputStyle = {
   },
 };
 
-const DocInput = ({ maxLength, type, className, placeholder, onChange, value, suffix, prefix,readOnly,minLength }) => {
+const DocInput = ({ maxLength, type, className, placeholder, onChange, value, suffix, prefix, readOnly, minLength, isDisabled }) => {
   const [isPasswordVisible, setPasswordVisibility] = useState(false);
 
   const handlePasswordVisibility = () => {
@@ -25,13 +25,14 @@ const DocInput = ({ maxLength, type, className, placeholder, onChange, value, su
 
 
   return (
-    <Input value={value} className={`border-2 border-grey-100 h-[40px] rounded-[5px] ${className}`} 
-    type={type === 'password' ? (isPasswordVisible ? 'text' : 'password') : type} placeholder={placeholder} onChange={handleChange}
-    readOnly={readOnly}
-    maxLength={maxLength}
-    minLength={minLength}
-    prefix={prefix && prefix}
-    style={customInputStyle}
+    <Input value={value} className={`border-2 border-grey-100 h-[40px] rounded-[5px] ${className}`}
+      type={type === 'password' ? (isPasswordVisible ? 'text' : 'password') : type} placeholder={placeholder} onChange={handleChange}
+      readOnly={readOnly}
+      maxLength={maxLength}
+      minLength={minLength}
+      prefix={prefix && prefix}
+      style={customInputStyle}
+      disabled={isDisabled}
     // suffix={
     //   suffix ||
     //   type === 'password' && (
@@ -43,7 +44,7 @@ const DocInput = ({ maxLength, type, className, placeholder, onChange, value, su
     //     </Space>
     //   )
     // }
-    
+
     />
   )
 }

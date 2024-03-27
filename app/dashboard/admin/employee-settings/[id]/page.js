@@ -6,12 +6,40 @@ import GeofenceSettings from '@/app/components/common/geofenceSettings';
 import ManagementList from '@/app/components/common/management';
 import { employeeData } from '@/app/constant';
 import { Tabs } from 'antd'
-import React from 'react'
+import React, { useEffect } from 'react'
 import History from '../../../devices/(roles)/[id]/history/page';
 import EmployeeProfileSettings from './employeeProfileSettings';
+import { usePathname } from 'next/navigation';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCurrentDocument } from '@/app/redux/store/slices/documents';
+import { useGetDocumentById } from '@/app/hooks/documents';
 // import EditDoc from '@/app/components/common/editDoc';
 
 const EmployeeSettings = () => {
+    const { currentDocument } = useSelector((state) => state.documents);
+    const pathname = usePathname();
+    const id = pathname.split("/")[4];
+
+    const dispatch = useDispatch();
+
+    const { mutate: getDocumentById } = useGetDocumentById();
+    useEffect(() => {
+        if (id) {
+            getDocumentById(id, {
+                onSuccess: (fetchedSuccess) => {
+                    dispatch(fetchCurrentDocument(fetchedSuccess?.data));
+                },
+                onError: (error) => {
+                    notification.error({
+                        message: "Error",
+                        description: getErrorFromApi(error),
+                    });
+                },
+            });
+        }
+    }, [id]);
+
+
     const onDelete = (id) => {
         //delete api configure
         console.log(id)
@@ -50,7 +78,7 @@ const EmployeeSettings = () => {
         {
             key: '7',
             label: 'Account Settings',
-            children: <EmployeeProfileSettings />
+            children: <EmployeeProfileSettings employeeData={currentDocument} />
         }
     ];
     return (
