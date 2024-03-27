@@ -2,12 +2,11 @@
 import { DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker } from '@/app/components'
 import DocDropdown from '@/app/components/common/docDropdown'
 import { employeeProfileSettings } from '@/app/constant'
-import { handleSubmit } from '@/app/utils/validation'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
 import { getAccessibility, getErrorFromApi, getProps } from '@/app/utils'
-import useEditEmployee, { editEmployee } from '@/app/hooks/employees/editEmployee'
+import useEditEmployee from '@/app/hooks/employees/editEmployee'
 import { notification } from 'antd'
 import DocImgUpload from '@/app/components/common/docImgUpload'
 import InputModal from "@/app/components/common/InputModal";
@@ -43,7 +42,6 @@ const EmployeeProfileSettings = ({ employeeData }) => {
 
     const handleSubmit = () => {
         const data = { ...employee, id: employeeData?.assignee?.id }
-        console.log(data)
 
         editEmployee(data, {
             onSuccess: (successData) => {
@@ -78,11 +76,7 @@ const EmployeeProfileSettings = ({ employeeData }) => {
             }
         })
     }, [employeeData])
-
-
-    useEffect(() => {
-        console.log(employeeData, "employeeData")
-    }, [employeeData])
+    const [imagePreview, setImagePreview] = useState(null);
 
   const { mutate: otpForReset } = useResetPwEmployeeOtp();
   const { mutate: resetEmployeePassword } = useResetEmployeePassword();
@@ -180,13 +174,17 @@ const EmployeeProfileSettings = ({ employeeData }) => {
                                 <div className='flex flex-wrap gap-x-2'>
                                     <DocImgUpload
                                         onClick={handleButtonClick}
-                                        onChange={(value) =>
-                                            handleEmployeeDataChange("profilePicture", value.target.files[0])
-                                        }
+                                        onChange={(value) => {
+                                            handleEmployeeDataChange("profilePicture", value.target.files[0]);
+                                            const reader = new FileReader();
+                                            reader.onloadend = () => {
+                                                setImagePreview(reader.result);
+                                            };
+                                            reader.readAsDataURL(value.target.files[0]);
+                                        }}
                                         text={"Upload Image"}
                                     />
-                                    <Image src={"/icons/userAvatar.svg"} width={40} height={40} alt='User' />
-
+                                    <Image src={imagePreview ? imagePreview : employeeData?.assignee?.profilePicture ? employeeData?.assignee?.profilePicture :"/icons/userAvatar.svg"} width={40} height={40} alt='User' style={{ borderRadius: "50%" }} />
                                 </div>
                             </div>
 
