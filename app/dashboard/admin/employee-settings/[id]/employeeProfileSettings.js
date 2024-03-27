@@ -2,15 +2,19 @@
 import { DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker } from '@/app/components'
 import DocDropdown from '@/app/components/common/docDropdown'
 import { employeeProfileSettings } from '@/app/constant'
-import { handleSubmit } from '@/app/utils/validation'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import { PlusOutlined } from "@ant-design/icons";
-import { getAccessibility, getProps } from '@/app/utils'
+import { getAccessibility, getErrorFromApi, getProps } from '@/app/utils'
+import useEditEmployee from '@/app/hooks/employees/editEmployee'
 import { notification } from 'antd'
 import DocImgUpload from '@/app/components/common/docImgUpload'
-import { useEditEmployee } from '@/app/hooks/employees'
-
+import InputModal from "@/app/components/common/InputModal";
+import VerificationForm from "@/app/components/Forms/OtpForm";
+import {
+  useResetEmployeePassword,
+  useResetPwEmployeeOtp,
+} from "@/app/hooks/employees/resetPasswordEmployee";
 
 const EmployeeProfileSettings = ({ employeeData }) => {
     const [employee, setEmployee] = useState({
@@ -73,11 +77,70 @@ const EmployeeProfileSettings = ({ employeeData }) => {
         })
     }, [employeeData])
     const [imagePreview, setImagePreview] = useState(null);
-    useEffect(() => {
-        console.log(imagePreview)
-    }, [imagePreview])
 
+  const { mutate: otpForReset } = useResetPwEmployeeOtp();
+  const { mutate: resetEmployeePassword } = useResetEmployeePassword();
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isVerificationModalOpen, setIsVerificationModalOpen] = useState(false);
 
+  const [otp, setOtp] = useState(null);
+  const handleOtp = (value) => {
+    setOtp(value);
+  };
+
+  const successSubmit = () => {
+    if (password.trim() === "" || confirmPassword.trim() === "") {
+      notification.error({
+        message: "Error",
+        description: "Please fill all fields",
+      });
+    } else if (password !== confirmPassword) {
+      notification.error({
+        message: "Error",
+        description: "Your password is not matched",
+      });
+    } else {
+      setIsVerificationModalOpen(true);
+      otpForReset(employeeData?.assignee?.id);
+    }
+  };
+
+  const HandleVerificationSuccess = () => {
+    setIsVerificationModalOpen(false);
+
+    const payload = {
+      id: employeeData?.assignee?.id,
+      payload: {
+        password,
+        otp,
+      },
+    };
+    resetEmployeePassword(payload, {
+      onSuccess: (successData) => {
+        setPassword("")
+        setConfirmPassword("")
+        notification.success({
+          message: "Success",
+          description: successData?.message,
+        });
+      },
+      onError: (error) => {
+        notification.error({
+          message: "Error",
+          description: getErrorFromApi(error),
+        });
+      },
+    });
+  };
+
+  const HandleVerificationCancel = () => {
+    setIsVerificationModalOpen(false);
+  };
+
+  const handleResend = () => {
+    otpForReset(employeeData?.assignee?.id);
+  };
 
     return (
         <div className='flex flex-col gap-4 px-2 sm:px-8'>
@@ -138,20 +201,34 @@ const EmployeeProfileSettings = ({ employeeData }) => {
                 <div className='mt-4'>
                     <div className="w-100% lg:w-[30%] flex flex-col">
                         <label className="text-greydark text-sm">New Password</label>
-                        <DocInput type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
+                        <DocInput value={password} onChange={(val) => setPassword(val)} type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
                     </div>
                 </div>
                 <div className='mt-4'>
                     <div className="w-100% lg:w-[30%] flex flex-col">
                         <label className="text-greydark text-sm">Confirm Password</label>
-                        <DocInput type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
+                        <DocInput value={confirmPassword} onChange={(val) => setConfirmPassword(val)} type={"password"} placeholder={"Type confirm password"} className={"h-[40px]"} />
                     </div>
                 </div>
             </div>
             <div>
-                <DocButton text={"Send OTP"} className={"text-white"} />
+                <DocButton onClick={successSubmit} text={"Send OTP"} className={"text-white"} />
             </div>
 
+      <InputModal
+        isModalOpen={isVerificationModalOpen}
+        handleOk={HandleVerificationSuccess}
+        width={450}
+        handleCancel={HandleVerificationCancel}
+      >
+        <VerificationForm
+          handleOtp={handleOtp}
+          handleOk={HandleVerificationSuccess}
+          handleResend={handleResend}
+          handleCancel={HandleVerificationCancel}
+          auth={false}
+        />
+      </InputModal>
         </div>
     )
 }
