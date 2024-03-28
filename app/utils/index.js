@@ -185,3 +185,7 @@ export const getAccessibility = (role) => {
 
   return roleMappings[role] || 'Unknown Role';
 };
+
+export const getStatus = (nextUpdateAt) => {
+  return nextUpdateAt ? new Date(nextUpdateAt)?.getTime() > Date.now() ? true : false : false;
+}
