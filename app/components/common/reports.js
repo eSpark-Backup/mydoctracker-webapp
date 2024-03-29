@@ -2,8 +2,21 @@
 
 import { DocButton, DocImgInput, DocInput, DocTextArea } from '@/app/components'
 import HeadContent from '@/app/components/common/headContent'
+import DocImgUpload from './docImgUpload'
+import { useRef } from 'react'
 
-const ReportPage = ({ handleReportChange, handleSubmitReport, props }) => {
+const ReportPage = ({ handleReportChange, handleSubmitReport, props, onPictureSelect  }) => {
+    const fileInputRef = useRef(null);
+
+    const handleButtonClick = () => {
+        fileInputRef?.current?.click();
+    };
+
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        onPictureSelect(file); // Call the callback function with the selected file
+        handleReportChange("reportPicture", file);
+    };
 
     return (
         <div>
@@ -16,15 +29,20 @@ const ReportPage = ({ handleReportChange, handleSubmitReport, props }) => {
             <div className="w-[100%] drop-shadow-lg rounded-lg bg-white my-4 flex lg:px-14 flex-col p-7 sm:min-h-[70vh]">
                 <div className="w-100% lg:w-[80%] flex flex-col">
                     <h2 className="text-greydark text-sm pb-1">Email <span className='text-redColor'>*</span></h2>
-                    <DocInput onChange={(value) => handleReportChange('Email', value)} type={"email"} placeholder={"Enter email..."} className={"h-[40px]"} />
+                    <DocInput onChange={(value) => handleReportChange('email', value)} type={"email"} placeholder={"Enter email..."} className={"h-[40px]"} />
                 </div>
                 <div className="w-100% lg:w-[80%] flex flex-col mt-5">
                     <h2 className="text-greydark text-sm pb-1">Description<span className='text-redColor'>*</span></h2>
-                    <DocTextArea onChange={(value) => handleReportChange('Description', value)} rows={8} placeholder={"Type..."} className={"h-[40px]"} />
+                    <DocTextArea onChange={(value) => handleReportChange('description', value)} rows={8} placeholder={"Type..."} className={"h-[40px]"} />
                 </div>
                 <div className="w-100% lg:w-[80%] flex flex-col mt-5">
                     <h2 className="text-greydark text-sm pb-1">Upload picture or a video of your problem <span className='text-redColor'>*</span></h2>
-                    <DocImgInput width={220} props={props} placeholder={"Upload Image"} />
+                    <DocImgUpload
+                        onClick={handleButtonClick}
+                        text={"Upload Image"}
+                        onChange={handleFileChange}
+                        ref={fileInputRef}
+                    />
                 </div>
                 <div className="flex justify-end sm:justify-start gap-5 mt-7">
                     <DocButton onClick={handleSubmitReport} text={"Submit"} className={"text-white min-w-[125px]"} />
