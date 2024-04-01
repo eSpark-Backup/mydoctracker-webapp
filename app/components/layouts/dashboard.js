@@ -9,7 +9,7 @@ import Link from "next/link";
 import ConfirmModal from "../modals/confirmModal";
 import { useDispatch, useSelector } from "react-redux";
 import { useDeleteDocument, useGetAllDocuments } from "@/app/hooks/documents";
-import { getErrorFromApi, getMonthDate, getTime } from "@/app/utils";
+import { getErrorFromApi, getMonthDate, getStatus, getTime } from "@/app/utils";
 import { fetchDocuments } from "@/app/redux/store/slices/documents";
 import LoadingScreen from "../common/loadingScreen";
 
@@ -99,9 +99,9 @@ const Dashboard = () => {
                 </h1>
               </Link>
               <h1 className="!text-lg">
-                {eachDevice?.active && eachDevice?.enabled ? (
+                {getStatus(eachDevice?.tracker?.lastActivity?.nextUpdateAt) && eachDevice?.enabled ? (
                   <Badge color="#0DFF25" size="small" text="Active" className="!text-lg" />
-                ) : eachDevice?.active && !eachDevice?.enabled ? (
+                ) : getStatus(eachDevice?.tracker?.lastActivity?.nextUpdateAt) && !eachDevice?.enabled ? (
                   <Badge color="#FFCE00" text="Disable" className="!text-lg" />
                 ) : (
                   <Badge color="#666" text="Inactive" className="!text-lg" />
@@ -114,7 +114,7 @@ const Dashboard = () => {
                   {eachDevice?.title}
                 </h3>
                 <p className="text-[12px] md:text-[14px] font-[300] text-greydark">{`${getMonthDate(eachDevice?.creationDate)}, ${getTime(eachDevice?.creationDate)}`}</p>
-                <p className="text-[12px] md:text-[14px] font-[300] text-greydark">{eachDevice?.tracker?.batteryPercentage}% Battery remaining</p>
+                <p className="text-[12px] md:text-[14px] font-[300] text-greydark">{eachDevice?.tracker?.lastActivity?.batteryPercentage}% Battery remaining</p>
               </div>
               {role !== "employee" && <div onClick={() => setIsModalOpen(eachDevice?.id)}>
                 <Image

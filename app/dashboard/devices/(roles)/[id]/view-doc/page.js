@@ -55,7 +55,7 @@ const ViewDoc = () => {
                             <label className="text-greydark text-sm pb-1">Time:</label>
                             <FieldView text={getTime(currentDocument?.creationDate)} />
                         </div>
-                        {currentDocument?.meta?.fields?.length > 0 ?
+                        {currentDocument?.meta && currentDocument?.meta?.fields?.length > 0 ?
                         currentDocument?.meta?.fields?.map(({name, value}, index)=>{
                         return(
                             <div key={index} className="  flex flex-col">

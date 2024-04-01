@@ -19,16 +19,13 @@ const DownloadDoc = () => {
 
   const { mutate: getDocumentHistory, isLoading } = useGetDocumentHistory();
   const pathname = usePathname();
-  const id = pathname?.split('/')[2]
+  const id = pathname?.split('/')[3]
   const dispatch = useDispatch();
   const { documentsHistory } = useSelector(state => state.documentsHistory)
 
-  console.log(id, "id") // this id will be device id coming from path and will be use as documentId
-  const documentID = "856ea9ae-8378-4beb-a9c4-b5f41bfd9922"
-
   useEffect(() => {
     const paramsObj = {
-      id: documentID,
+      id,
       page,
       limit,
     }
@@ -103,7 +100,7 @@ const DownloadDoc = () => {
                             <label className="text-[#666] text-sm pb-1">Time:</label>
                             <FieldView text={getTime(active?.creationDate)} />
                         </div>
-                        {active?.meta?.fields?.length > 0 ?
+                        {active?.meta && active?.meta?.fields?.length > 0 ?
                         active?.meta?.fields?.map(({name, value}, index)=>{
                         return(
                             <div key={index} className="  flex flex-col">
