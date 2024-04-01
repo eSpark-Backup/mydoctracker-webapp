@@ -5,7 +5,7 @@ import HeadContent from '@/app/components/common/headContent'
 import DocImgUpload from './docImgUpload'
 import { useRef } from 'react'
 
-const ReportPage = ({ handleReportChange, handleSubmitReport, props, onPictureSelect  }) => {
+const ReportPage = ({ handleReportChange, handleSubmitReport, props, onPictureSelect,loading  }) => {
     const fileInputRef = useRef(null);
 
     const handleButtonClick = () => {
@@ -45,7 +45,7 @@ const ReportPage = ({ handleReportChange, handleSubmitReport, props, onPictureSe
                     />
                 </div>
                 <div className="flex justify-end sm:justify-start gap-5 mt-7">
-                    <DocButton onClick={handleSubmitReport} text={"Submit"} className={"text-white min-w-[125px]"} />
+                    <DocButton loading={loading} onClick={handleSubmitReport} text={"Submit"} className={"text-white min-w-[125px]"} />
                 </div>
             </div>
         </div>

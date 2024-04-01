@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import ReportPage from '@/app/components/common/reports'
 import { handleSubmit } from '@/app/utils/validation'
-import { getProps } from '@/app/utils'
+import { getErrorFromApi } from '@/app/utils'
 import { notification } from 'antd'
 import { useAddReport } from '@/app/hooks/report'
 
@@ -13,26 +13,27 @@ const Report = () => {
         description: "",
         reportPicture: [],
     });
-    const { mutate: AddReport,isSuccess,isError,data } = useAddReport();
+    const { mutate: AddReport,isLoading} = useAddReport();
 
     const successSubmit = () => {
-        AddReport(reportData);
-    };
+        AddReport(reportData,
+            {
+                onSuccess: (addReportSuccess) => {
+                    notification.success({
+                        message: 'Success',
+                        description: addReportSuccess?.message
+                    })
+                },
+                onError: (error) => {
+                    notification.error({
+                        message: 'Error',
+                        description: getErrorFromApi(error),
+                    })
+                }
+            },
 
-    useEffect(()=>{
-        if(isSuccess){
-            notification.success({
-                message: 'Success',
-                description: data?.message,
-            })
-        }
-        if(isError){
-            notification.error({
-                message:"Error",
-                description:"Something went wrong"
-            })
-        }
-    },[isSuccess,isError])
+        );
+    };
 
     const handleReportChange = (field, value) => {
         setReportData({
@@ -54,6 +55,7 @@ const Report = () => {
             handleReportChange={handleReportChange}
             handleSubmitReport={() => handleSubmit(reportData, successSubmit)}
             onPictureSelect={handlePictureSelect}
+            loading={isLoading}
         />
     );
 };
