@@ -1311,7 +1311,7 @@ export const notebookDetails = currentDocument => [
     {
         id: 3,
         field: "Last Activity",
-        value: moment(currentDocument?.lastActivity?.sentAt).fromNow()
+        value: moment(currentDocument?.tracker?.lastActivity?.sentAt).fromNow()
     },
     {
         id: 4,
@@ -1326,7 +1326,7 @@ export const notebookDetails = currentDocument => [
     {
         id: 6,
         field: "Battery",
-        value: `${currentDocument?.tracker?.batteryPercentage}% remaining` || "-"
+        value: `${currentDocument?.tracker?.lastActivity?.batteryPercentage}% remaining` || "-"
     },
 ]
 
