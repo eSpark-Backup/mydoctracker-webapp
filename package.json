@@ -13,7 +13,7 @@
     "@reduxjs/toolkit": "^2.0.1",
     "ag-grid-react": "^31.0.0",
     "antd": "^5.11.2",
-    "axios": "^1.6.2",
+    "axios": "^1.16.0",
     "cookies-next": "^4.1.0",
     "dayjs": "^1.11.10",
     "lodash.debounce": "^4.0.8",
