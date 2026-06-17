@@ -12,7 +12,7 @@
     "@react-google-maps/api": "^2.19.2",
     "@reduxjs/toolkit": "^2.0.1",
     "ag-grid-react": "^35.3.1",
-    "antd": "^5.11.2",
+    "antd": "^6.4.4",
     "axios": "^1.6.2",
     "cookies-next": "^4.1.0",
     "dayjs": "^1.11.10",
