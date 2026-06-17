@@ -14,7 +14,7 @@
     "ag-grid-react": "^35.3.1",
     "antd": "^5.11.2",
     "axios": "^1.6.2",
-    "cookies-next": "^4.1.0",
+    "cookies-next": "^6.1.1",
     "dayjs": "^1.11.10",
     "lodash.debounce": "^4.0.8",
     "moment": "^2.30.1",
