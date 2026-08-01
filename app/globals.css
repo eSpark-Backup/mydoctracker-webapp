@@ -602,3 +602,10 @@ li.ant-pagination-next.ant-pagination-disabled button {
 .ant-form-item .ant-form-item-explain-error{
   color: #ff0000;
 }
+
+.react-tel-input .form-control{
+  width: 100% !important;
+  padding: 17px;
+  /* border: 1px solid #e5e7eb !important; */
+}
+

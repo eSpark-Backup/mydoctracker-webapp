@@ -288,6 +288,13 @@ export const AdminRoutes = [
         iconfill: "dashboardProfileSettingFill.svg",
         link: "/dashboard/admin/profile-settings"
     },
+    {
+        id: 5,
+        title: "Assign a Tracker",
+        icon: "dashboardProfileSetting.svg",
+        iconfill: "dashboardProfileSettingFill.svg",
+        link: "/dashboard/admin/assign-tracker"
+    },
 ]
 
 export const EmployeeMainRoutes = [
@@ -545,42 +552,42 @@ export const requests = [
         time: "9:00pm",
         description: "Requested to Update document",
         group: "Group: 1",
-        bg:"#F5F6FA"
+        bg: "#F5F6FA"
     },
     {
         name: "Alex",
         time: "9:00pm",
         description: "Requested to share Location to john",
         group: "Group: 1",
-        bg:"#FFFFFF"
+        bg: "#FFFFFF"
     },
     {
         name: "Alex",
         time: "9:00pm",
         description: "Requested to Update document",
         group: "Group: 1",
-        bg:"#FFFFFF"
+        bg: "#FFFFFF"
     },
     {
         name: "Alex",
         time: "9:00pm",
         description: "Requested to share Location to john",
         group: "Group: 1",
-        bg:"#F5F6FA"
+        bg: "#F5F6FA"
     },
     {
         name: "Alex",
         time: "9:00pm",
         description: "Requested to Update document",
         group: "Group: 1",
-        bg:"#FFFFFF"
+        bg: "#FFFFFF"
     },
     {
         name: "Alex",
         time: "9:00pm",
         description: "Requested to share Location to john",
         group: "Group: 1",
-        bg:"#F5F6FA"
+        bg: "#F5F6FA"
     }
 ]
 
@@ -849,7 +856,7 @@ export const subsidiaryOptions = [{ label: 'Group 1', value: 'Group 1' }, { labe
 export const typeOptions = [{ label: 'Group 1', value: 'Group 1' }, { label: 'Group 2', value: 'Group 2' }]
 
 
-export const form = [
+export const employeeForm = [
     {
         title: "Employee Details",
         inputs: [
@@ -868,18 +875,39 @@ export const form = [
                 type: "textInput"
             },
             {
-                label: "Employee ID",
-                placeholder: "Enter Employee ID...",
-                required: false,
-                key: "employeeId",
+                label: "User Name",
+                placeholder: "Enter User Name...",
+                required: true,
+                key: "username",
                 type: "textInput"
             },
             {
+                label: "Address",
+                placeholder: "Enter User Name...",
+                required: true,
+                key: "address",
+                type: "textInput"
+            },
+            {
+                label: "Email",
+                placeholder: "Enter email...",
+                required: true,
+                key: "email",
+                type: "email"
+            },
+            {
+                label: "Password",
+                placeholder: "Enter password...",
+                required: true,
+                key: "password",
+                type: "password"
+            },
+            {
                 label: "Contact",
-                placeholder: "Enter contact number...",
+                placeholder: "Enter Contact...",
                 required: true,
                 key: "contact",
-                type: "textNumber"
+                type: "phone"
             },
             {
                 label: "Subsidiary",
@@ -889,72 +917,72 @@ export const form = [
                 key: "subsidiary",
                 type: "select"
             },
-            {
-                label: "Upload Employee Image",
-                required: false,
-                key: "employeeImage",
-                type: "uploadImage"
-            },
+            // {
+            //     label: "Upload Employee Image",
+            //     required: false,
+            //     key: "employeeImage",
+            //     type: "uploadImage"
+            // },
         ]
     },
-    {
-        title: "Tracker Details",
-        inputs: [
-            {
-                label: "Tracker ID",
-                placeholder: "Enter tracker id...",
-                required: true,
-                key: "trackerId",
-                type: "textInput"
-            },
-            {
-                label: "Select Type",
-                placeholder: "Select type",
-                options: typeOptions,
-                required: true,
-                key: "type",
-                type: "select"
-            },
-        ]
-    },
-    {
-        title: "Document Details",
-        buttonText: "Add fields",
-        inputs: [
-            {
-                label: "Document Title",
-                placeholder: "Enter title...",
-                required: true,
-                key: "documentTitle",
-                type: "textInput"
-            },
-            {
-                label: "Date Of Creation",
-                required: true,
-                key: "creationDate",
-                type: "datePicker"
-            },
-            {
-                label: "Time Of Creation",
-                required: true,
-                key: "creationTime",
-                type: "timePicker"
-            },
-            {
-                label: "Location",
-                placeholder: "Where you placed the document",
-                required: true,
-                key: "location",
-                type: "textInput"
-            },
-            {
-                label: "Upload Doc Image",
-                required: false,
-                key: "docImage",
-                type: "uploadImage"
-            },
-        ]
-    }
+    // {
+    //     title: "Tracker Details",
+    //     inputs: [
+    //         {
+    //             label: "Tracker ID",
+    //             placeholder: "Enter tracker id...",
+    //             required: true,
+    //             key: "trackerId",
+    //             type: "textInput"
+    //         },
+    //         {
+    //             label: "Select Type",
+    //             placeholder: "Select type",
+    //             options: typeOptions,
+    //             required: true,
+    //             key: "type",
+    //             type: "select"
+    //         },
+    //     ]
+    // },
+    // {
+    //     title: "Document Details",
+    //     buttonText: "Add fields",
+    //     inputs: [
+    //         {
+    //             label: "Document Title",
+    //             placeholder: "Enter title...",
+    //             required: true,
+    //             key: "documentTitle",
+    //             type: "textInput"
+    //         },
+    //         {
+    //             label: "Date Of Creation",
+    //             required: true,
+    //             key: "creationDate",
+    //             type: "datePicker"
+    //         },
+    //         {
+    //             label: "Time Of Creation",
+    //             required: true,
+    //             key: "creationTime",
+    //             type: "timePicker"
+    //         },
+    //         {
+    //             label: "Location",
+    //             placeholder: "Where you placed the document",
+    //             required: true,
+    //             key: "location",
+    //             type: "textInput"
+    //         },
+    //         {
+    //             label: "Upload Doc Image",
+    //             required: false,
+    //             key: "docImage",
+    //             type: "uploadImage"
+    //         },
+    //     ]
+    // }
 ]
 
 export const userAddDeviceData = [
@@ -1211,59 +1239,47 @@ export const employeeProfileSettings = [
                 label: "First Name",
                 required: false,
                 placeholder: "John",
-                key: "First",
+                key: "firstName",
                 type: "text"
             },
             {
                 label: "Last Name",
                 required: false,
                 placeholder: "Doe",
-                key: "Last",
+                key: "lastName",
                 type: "text"
-            },
-            {
-                label: "Username",
-                required: false,
-                placeholder: "johndoe",
-                key: "Username",
-                type: "text"
-            },
-            {
-                label: "Subsidiary",
-                required: false,
-                placeholder: "Group 1",
-                key: "Subsidiary",
-                type: "select",
-                options: subsidiaryOptions
-            },
-            {
-                label: "Devices",
-                required: false,
-                placeholder: "1",
-                key: "Devices",
-                type: "number",
             },
             {
                 label: "Email",
                 required: false,
                 placeholder: "johndoe123@gmail.com",
-                key: "Email",
+                key: "email",
                 type: "email",
             },
             {
                 label: "Number",
                 required: false,
                 placeholder: "123456789",
-                key: "Number",
+                key: "contact",
                 type: "tel",
+            },
+            {
+                label: "Subsidiary",
+                required: false,
+                placeholder: "Group 1",
+                key: "subsidiary",
+                type: "select",
+                options: subsidiaryOptions,
+                isDisabled: true
             },
             {
                 label: "Accessibility",
                 required: false,
                 placeholder: "Default",
-                key: "Accessibility",
-                type: "select",
-                options: accessibilityOptions
+                key: "role",
+                type: "text",
+                // options: accessibilityOptions,
+                isDisabled: true
             },
         ]
     }
@@ -1295,7 +1311,7 @@ export const notebookDetails = currentDocument => [
     {
         id: 3,
         field: "Last Activity",
-        value: moment(currentDocument?.lastActivity?.sentAt).fromNow()
+        value: moment(currentDocument?.tracker?.lastActivity?.sentAt).fromNow()
     },
     {
         id: 4,
@@ -1310,7 +1326,7 @@ export const notebookDetails = currentDocument => [
     {
         id: 6,
         field: "Battery",
-        value: `${currentDocument?.tracker?.batteryPercentage}% remaining` || "-"
+        value: `${currentDocument?.tracker?.lastActivity?.batteryPercentage}% remaining` || "-"
     },
 ]
 
@@ -1378,6 +1394,68 @@ export const EditDocData = [
                 required: true,
                 key: "location",
                 type: "textInput"
+            },
+            {
+                label: "Upload Doc Image",
+                required: false,
+                key: "docImage",
+                type: "uploadImage"
+            },
+        ]
+    }
+]
+
+
+export const form2 = [
+    {
+        title: "Tracker Details",
+        inputs: [
+            {
+                label: "Tracker ID",
+                placeholder: "Enter tracker id...",
+                required: true,
+                key: "trackerId",
+                type: "textInput"
+            },
+            {
+                label: "Select Type",
+                placeholder: "Select type",
+                options: trackerTypeOptions,
+                required: true,
+                key: "type",
+                type: "select"
+            },
+            {
+                label: "Select Employee",
+                placeholder: "Select Employee",
+                required: true,
+                key: "employeeId",
+                type: "autoComplete",
+            },
+        ]
+    },
+    {
+        title: "Document Details",
+        buttonText: "Add fields",
+        inputs: [
+            {
+                label: "Document Title",
+                placeholder: "Enter title...",
+                required: true,
+                key: "documentTitle",
+                type: "textInput"
+            },
+            {
+                label: "Date Of Creation",
+                required: true,
+                key: "creationDate",
+                type: "datePicker"
+            },
+            {
+                label: "Time Of Creation",
+                required: true,
+                key: "creationTime",
+                type: "timePicker"
             },
             {
                 label: "Upload Doc Image",

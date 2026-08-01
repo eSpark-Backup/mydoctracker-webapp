@@ -1,24 +1,26 @@
+"use client"
+
 import { useEffect } from 'react';
 import { AdminRoutes, EmployeeMainRoutes, EmployeeRoutes, SidebarFooterRoutes, UserRoutes } from '../constant';
 
 export const activeForSidebar = (role, pathname, link) => {
-    const id = pathname.split("/")[3]
-    const employeeAsAdmin = pathname.split('/')[2]
-    const pathArr = pathname.split('/')
-    const linkArr = link.split('/')
-    let pathLastInd = pathArr.length > 0 && pathArr[pathArr.length - 1]
-    const linkLastInd = linkArr.length > 0 && linkArr[linkArr.length - 1]
-    const dashoardChildPaths = ["view-doc" , "edit-doc", "download-doc", "geofence", "add-geofence", "edit-geofence", "add-employee", "employee-details", "employee-settings", "employee-details", "share-location"]
-    const routeToMatch = role === "admin" ? "admin" : role === "user" ? id : (role === "employee" && employeeAsAdmin === "employee-as-admin") ? "subordinates" : id
-    dashoardChildPaths.map((link)=>link === pathLastInd ? pathLastInd = routeToMatch : pathLastInd)
-    return pathLastInd === linkLastInd
+  const id = pathname.split("/")[3]
+  const employeeAsAdmin = pathname.split('/')[2]
+  const pathArr = pathname.split('/')
+  const linkArr = link.split('/')
+  let pathLastInd = pathArr.length > 0 && pathArr[pathArr.length - 1]
+  const linkLastInd = linkArr.length > 0 && linkArr[linkArr.length - 1]
+  const dashoardChildPaths = ["view-doc", "edit-doc", "download-doc", "geofence", "add-geofence", "edit-geofence", "add-employee", "employee-details", "employee-settings", "employee-details", "share-location"]
+  const routeToMatch = role === "admin" ? "admin" : role === "user" ? id : (role === "employee" && employeeAsAdmin === "employee-as-admin") ? "subordinates" : id
+  dashoardChildPaths.map((link) => link === pathLastInd ? pathLastInd = routeToMatch : pathLastInd)
+  return pathLastInd === linkLastInd
 }
 
 export const camelize = (str) => {
-    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function(word, index) {
-      return index === 0 ? word.toLowerCase() : word.toUpperCase();
-    }).replace(/\s+/g, '');
-  }
+  return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+    return index === 0 ? word.toLowerCase() : word.toUpperCase();
+  }).replace(/\s+/g, '');
+}
 
 
 export const useOutsideClick = (ref, callback) => {
@@ -48,47 +50,49 @@ const mainPathName = [
 export const getRoutesForSidebar = (role, roleType, pathname) => {
   const id = pathname.split("/")[3]
   return role === "admin" ? AdminRoutes
-  :
-  role === "user" ? UserRoutes(id)
-  :
-  (role === "employee" && roleType === "admin" && mainPathName.includes(pathname)) ? EmployeeMainRoutes
-  :
-  EmployeeRoutes(id)
+    :
+    role === "user" ? UserRoutes(id)
+      :
+      (role === "employee" && roleType === "admin" && mainPathName.includes(pathname)) ? EmployeeMainRoutes
+        :
+        EmployeeRoutes(id)
 }
 
 export const getFooterRoutesForSidebar = (role, roleType, pathname) => {
   const id = pathname.split("/")[3]
-  return role === "admin" ? SidebarFooterRoutes(id).map(route => {if (route.title === "Report a problem") {return { ...route, title: "Report a problem", link: "/dashboard/admin/report" }} return route}).filter(({title})=>title==="Report a problem")
-  :
-  (role === "employee" && roleType === "admin" && mainPathName.includes(pathname)) ? SidebarFooterRoutes(id).filter(({title})=>title==="Report a problem")
-  :
-  (role === "employee" && roleType === "admin") ? SidebarFooterRoutes(id).map(route => {if (route.title === "Back to devices") {return { ...route, title: "Back to main", link: "/dashboard/employee-as-admin" }} return route})
-  :
-  SidebarFooterRoutes(id)
+  return role === "admin" ? SidebarFooterRoutes(id).map(route => { if (route.title === "Report a problem") { return { ...route, title: "Report a problem", link: "/dashboard/admin/report" } } return route }).filter(({ title }) => title === "Report a problem")
+    :
+    (role === "employee" && roleType === "admin" && mainPathName.includes(pathname)) ? SidebarFooterRoutes(id).filter(({ title }) => title === "Report a problem")
+      :
+      (role === "employee" && roleType === "admin") ? SidebarFooterRoutes(id).map(route => { if (route.title === "Back to devices") { return { ...route, title: "Back to main", link: "/dashboard/employee-as-admin" } } return route })
+        :
+        SidebarFooterRoutes(id)
 }
 
 export const getProps = (setState, state, key) => {
   return {
     onRemove: () => {
-        setState({
-            ...state,
-            [key] : []
-        })
+      setState({
+        ...state,
+        [key]: []
+      })
     },
     beforeUpload: (file) => {
-        setState({
-            ...state,
-            [key] : [file]
-        })
-        return false;
+      setState({
+        ...state,
+        [key]: [file]
+      })
+      return false;
     },
     fileList: state[key],
-};
+  };
 }
 
 export const getErrorFromApi = (error) => {
   if (error?.response?.data?.trace?.response?.trace?.length > 0) {
     return error?.response?.data?.trace?.response?.trace[0]
+  } else if (typeof error?.response?.data?.trace?.response?.message === 'object') {
+    return error?.response?.data?.trace?.response?.message[0]
   } else {
     return error?.response?.data?.trace?.response?.message
   }
@@ -155,4 +159,33 @@ export const getMonthDate = (dateString) => {
   };
   const formattedDate = getRelativeDate(date, currentDate);
   return formattedDate
+}
+
+export function debounce(callback) {
+  setTimeout(() => {
+    callback();
+  }, 500);
+}
+
+export const emailMasked = (email) => {
+  const [username, domain] = email.split('@');
+
+  const maskedUsername = username.substring(0, 3) + '......';
+
+  return `${maskedUsername}@${domain}`
+}
+
+
+export const getAccessibility = (role) => {
+  const roleMappings = {
+    'ACU': 'Admin Privileges',
+    'RCU': 'Default',
+    'BSU': 'Basic'
+  };
+
+  return roleMappings[role] || 'Unknown Role';
+};
+
+export const getStatus = (nextUpdateAt) => {
+  return nextUpdateAt ? new Date(nextUpdateAt)?.getTime() > Date.now() ? true : false : false;
 }

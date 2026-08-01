@@ -1,0 +1,236 @@
+"use client"
+import { DocButton, DocDatePicker, DocImgInput, DocInput, DocTimePicker } from '@/app/components'
+import DocDropdown from '@/app/components/common/docDropdown'
+import { employeeProfileSettings } from '@/app/constant'
+import Image from 'next/image'
+import React, { useEffect, useRef, useState } from 'react'
+import { PlusOutlined } from "@ant-design/icons";
+import { getAccessibility, getErrorFromApi, getProps } from '@/app/utils'
+import useEditEmployee from '@/app/hooks/employees/editEmployee'
+import { notification } from 'antd'
+import DocImgUpload from '@/app/components/common/docImgUpload'
+import InputModal from "@/app/components/common/InputModal";
+import VerificationForm from "@/app/components/Forms/OtpForm";
+import {
+  useResetEmployeePassword,
+  useResetPwEmployeeOtp,
+} from "@/app/hooks/employees/resetPasswordEmployee";
+
+const EmployeeProfileSettings = ({ employeeData }) => {
+    const [employee, setEmployee] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        contact: "",
+        profilePicture: ""
+        // Accessibility: "",
+        // Subsidiary: "",
+    })
+    const handleEmployeeDataChange = (field, value) => {
+        setEmployee({
+            ...employee,
+            [field]: value
+        })
+    }
+    const props = getProps(setEmployee, employee, 'profilePicture')
+    const { mutate: editEmployee, isLoading } = useEditEmployee()
+    const fileInputRef = useRef(null);
+    const handleButtonClick = () => {
+        fileInputRef?.current?.click();
+    };
+
+
+    const handleSubmit = () => {
+        const data = { ...employee, id: employeeData?.assignee?.id }
+
+        editEmployee(data, {
+            onSuccess: (successData) => {
+                notification.success({
+                    message: 'Success',
+                    description: successData?.message,
+                })
+            },
+            onError: (error) => {
+                notification.error({
+                    message: 'Error',
+                    description: error?.message,
+                })
+            }
+        })
+    }
+
+
+
+
+
+    useEffect(() => {
+        setEmployee({
+            firstName: employeeData?.assignee?.firstName,
+            lastName: employeeData?.assignee?.lastName,
+            email: employeeData?.assignee?.email,
+            contact: employeeData?.assignee?.contact,
+            role: getAccessibility(employeeData?.assignee?.role),
+            subsidiary: {
+                label: employeeData?.assignee?.subsidiary?.name,
+                value: employeeData?.assignee?.subsidiary?.id
+            }
+        })
+    }, [employeeData])
+    const [imagePreview, setImagePreview] = useState(null);
+
+  const { mutate: otpForReset } = useResetPwEmployeeOtp();
+  const { mutate: resetEmployeePassword } = useResetEmployeePassword();
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isVerificationModalOpen, setIsVerificationModalOpen] = useState(false);
+
+  const [otp, setOtp] = useState(null);
+  const handleOtp = (value) => {
+    setOtp(value);
+  };
+
+  const successSubmit = () => {
+    if (password.trim() === "" || confirmPassword.trim() === "") {
+      notification.error({
+        message: "Error",
+        description: "Please fill all fields",
+      });
+    } else if (password !== confirmPassword) {
+      notification.error({
+        message: "Error",
+        description: "Your password is not matched",
+      });
+    } else {
+      setIsVerificationModalOpen(true);
+      otpForReset(employeeData?.assignee?.id);
+    }
+  };
+
+  const HandleVerificationSuccess = () => {
+    setIsVerificationModalOpen(false);
+
+    const payload = {
+      id: employeeData?.assignee?.id,
+      payload: {
+        password,
+        otp,
+      },
+    };
+    resetEmployeePassword(payload, {
+      onSuccess: (successData) => {
+        setPassword("")
+        setConfirmPassword("")
+        notification.success({
+          message: "Success",
+          description: successData?.message,
+        });
+      },
+      onError: (error) => {
+        notification.error({
+          message: "Error",
+          description: getErrorFromApi(error),
+        });
+      },
+    });
+  };
+
+  const HandleVerificationCancel = () => {
+    setIsVerificationModalOpen(false);
+  };
+
+  const handleResend = () => {
+    otpForReset(employeeData?.assignee?.id);
+  };
+
+    return (
+        <div className='flex flex-col gap-4 px-2 sm:px-8'>
+            {employeeProfileSettings?.map((eachSection, index) => (
+                <>
+                    <div className={eachSection?.buttonText ? "flex justify-between flex-wrap mt-3" : ""} key={index}>
+                        <h2 className="text-black text-sm sm:text-xl font-medium pb-1">{eachSection?.heading}</h2>
+                        {eachSection?.buttonText && <DocButton onClick={() => setIsModalOpen(true)} prefix={<PlusOutlined className='mr-2 text-sm text-white' />} text={eachSection?.buttonText} className={"text-white rounded-lg"} />}
+                    </div>
+                    <div>
+                        <div className="flex gap-4 sm:gap-5 flex-col sm:flex-row flex-wrap">
+                            {eachSection?.inputs.map((eachInputs, index) => (
+                                <div className="min-w-[100%] lg:min-w-[30%] md:min-w-[40%] flex flex-col flex-wrap" key={index}>
+                                    <label className="text-greydark text-sm pb-1">{eachInputs?.label} {eachInputs?.required && <span className="text-redColor">*</span>}</label>
+                                    {eachInputs.type === "select" ?
+                                        <DocDropdown value={employee[eachInputs?.key]} isDisabled={eachInputs?.isDisabled} onChange={(e) => handleEmployeeDataChange(eachInputs?.key, e.value)} className={"w-[100%]"} options={eachInputs?.options} placeholder={eachInputs?.placeholder} />
+                                        : eachInputs.type === "uploadImage" ?
+                                            <DocImgInput props={props(eachInputs.key)} />
+                                            : eachInputs.type === "datePicker" ?
+                                                <DocDatePicker onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} />
+                                                : eachInputs.type === "timePicker" ?
+                                                    <DocTimePicker onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} />
+                                                    :
+                                                    <DocInput value={employee[eachInputs?.key]} onChange={(value) => handleEmployeeDataChange(eachInputs?.key, value)} type={eachInputs?.type} isDisabled={eachInputs?.isDisabled} placeholder={eachInputs?.placeholder} className={"h-[40px]"} />
+                                    }
+
+                                </div>
+                            ))}
+                            <div className='min-w-[100%] lg:min-w-[30%] md:min-w-[40%] flex flex-col'>
+                                <label className="text-greydark text-sm pb-1">Employee Image</label>
+                                <div className='flex flex-wrap gap-x-2'>
+                                    <DocImgUpload
+                                        onClick={handleButtonClick}
+                                        onChange={(value) => {
+                                            handleEmployeeDataChange("profilePicture", value.target.files[0]);
+                                            const reader = new FileReader();
+                                            reader.onloadend = () => {
+                                                setImagePreview(reader.result);
+                                            };
+                                            reader.readAsDataURL(value.target.files[0]);
+                                        }}
+                                        text={"Upload Image"}
+                                    />
+                                    <Image src={imagePreview ? imagePreview : employeeData?.assignee?.profilePicture ? employeeData?.assignee?.profilePicture :"/icons/userAvatar.svg"} width={40} height={40} alt='User' style={{ borderRadius: "50%" }} />
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div>
+                        <DocButton onClick={handleSubmit} text={"Save changes"} className={"text-white"} />
+                    </div>
+                </>
+            ))}
+            <div>
+                <h2 className='text-black font-medium text-xl'>Reset Password</h2>
+                <div className='mt-4'>
+                    <div className="w-100% lg:w-[30%] flex flex-col">
+                        <label className="text-greydark text-sm">New Password</label>
+                        <DocInput value={password} onChange={(val) => setPassword(val)} type={"password"} placeholder={"Type new password"} className={"h-[40px]"} />
+                    </div>
+                </div>
+                <div className='mt-4'>
+                    <div className="w-100% lg:w-[30%] flex flex-col">
+                        <label className="text-greydark text-sm">Confirm Password</label>
+                        <DocInput value={confirmPassword} onChange={(val) => setConfirmPassword(val)} type={"password"} placeholder={"Type confirm password"} className={"h-[40px]"} />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <DocButton onClick={successSubmit} text={"Send OTP"} className={"text-white"} />
+            </div>
+
+      <InputModal
+        isModalOpen={isVerificationModalOpen}
+        handleOk={HandleVerificationSuccess}
+        width={450}
+        handleCancel={HandleVerificationCancel}
+      >
+        <VerificationForm
+          handleOtp={handleOtp}
+          handleOk={HandleVerificationSuccess}
+          handleResend={handleResend}
+          handleCancel={HandleVerificationCancel}
+          auth={false}
+        />
+      </InputModal>
+        </div>
+    )
+}
+
+export default EmployeeProfileSettings

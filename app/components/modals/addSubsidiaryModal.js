@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Modal } from 'antd'
 import { DocButton, DocInput } from '@/app/components'
 
-const AddSubsidiaryModal = ({ showModal, onCancel, onSuccess }) => {
+const AddSubsidiaryModal = ({ showModal, onCancel, onSuccess, loading, subsidiary, setSubsidiary }) => {
   return (
     <>
     <Modal
@@ -19,12 +19,12 @@ const AddSubsidiaryModal = ({ showModal, onCancel, onSuccess }) => {
           <div className='w-[100%]'>
                 <div className='flex flex-col'>
                     <label className="text-greydark text-sm mb-1 inline-block">Please enter name of your subsidiary:</label>
-                    <DocInput type="text" placeholder="Subsidiary name.." className={"h-[40px]"} />
+                    <DocInput value={subsidiary} onChange={(value) => setSubsidiary(value)} type="text" placeholder="Subsidiary name.." className={"h-[40px]"} />
                 </div>
             </div>
           <div className="gap-4 flex items-center justify-center w-[100%]">
             <DocButton onClick={onCancel} className="border-2 border-secondary text-secondary bg-transparent  h-8 w-40 rounded-2xl" text={"Close"} />
-            <DocButton onClick={onSuccess} className="bg-transparent border-2 border-primary text-primary  h-8 w-40 rounded-2xl" suffix={<Image className="mr-2" src={"/icons/rightArrowOutline.svg"} width={8} height={8} alt="arrow" />} text="Next" />
+            <DocButton loading={loading} onClick={onSuccess} className="bg-transparent border-2 border-primary text-primary  h-8 w-40 rounded-2xl" suffix={<Image className="mr-2" src={"/icons/rightArrowOutline.svg"} width={8} height={8} alt="arrow" />} text="Next" />
           </div>
         </div>
       </Modal>

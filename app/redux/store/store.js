@@ -7,6 +7,8 @@ import storage from "redux-persist/lib/storage";
 import authSlice from "./slices/authSlice";
 import documentsHistorySlice from "./slices/documentHistory";
 import documentsSlice from "./slices/documents";
+import subsidiariesSlice from "./slices/subsidiary";
+import trackersSlice from "./slices/tracker";
 
 
 const authPersistConfig = {
@@ -19,6 +21,8 @@ const rootReducer = combineReducers({
     auth: persistReducer(authPersistConfig, authSlice),
     documentsHistory: documentsHistorySlice,
     documents: documentsSlice,
+    subsidiary: subsidiariesSlice,
+    trackers: trackersSlice
     //add all your reducers here
 },);
 
