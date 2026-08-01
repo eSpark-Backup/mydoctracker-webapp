@@ -20,7 +20,7 @@
     "moment": "^2.30.1",
     "next": "15.5.18",
     "react": "^18",
-    "react-dom": "^18",
+    "react-dom": "^19",
     "react-otp-input": "^3.1.0",
     "react-phone-input-2": "^2.15.1",
     "react-query": "^3.39.3",
