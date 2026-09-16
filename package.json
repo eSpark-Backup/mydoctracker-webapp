@@ -28,7 +28,7 @@
     "react-select": "^5.8.0",
     "react-slick": "^0.31.0",
     "redux-persist": "^6.0.0",
-    "slick-carousel": "^1.8.1",
+    "slick-carousel": "^2.0.0",
     "socket.io-client": "^4.8.3"
   },
   "devDependencies": {
